@@ -9,6 +9,7 @@ import Footer from "../../Hotels/Footer"
 import styles from "./home.module.css";
 import { ListenerContext } from "../../Contexts/ListenerProvider";
 import Mmt from "../../Hotels/Mmt"
+import FirstSection from "./FirstSection";
 
 export const Home = () => {
 
@@ -27,6 +28,7 @@ export const Home = () => {
   return (
     <>
       <FlightHome />
+      {/* <FirstSection /> */}
       {/* <Mmt/> */}
       <div className={styles.container} style={{ boxSizing: 'border-box' }}>
        

@@ -99,9 +99,9 @@ export const SingleFlight = ({
           Book Now
         </Button>
       </div>
-      <div className={styles.discount}>
+      {/* <div className={styles.discount}>
         Use MMTSUPER and get FLAT Rs. 309 instant discount on this flight
-      </div>
+      </div> */}
       <div className={styles.details}>
         <span>View Flight Details</span>
       </div>

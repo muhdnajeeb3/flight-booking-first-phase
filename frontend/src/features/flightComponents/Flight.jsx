@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addFlights, flightError, flightLoading } from "./flightSlice";
 import { CircularProgress, Slider } from "@mui/material";
 import { useState } from "react";
+import Search from "./Search";
 export const Flight = () => {
   const [flight, setFlight] = useState([]);
   const [duration, setDuration] = useState(true);
@@ -143,6 +144,10 @@ export const Flight = () => {
         <h1>Something Went Wrong</h1>
       ) : (
         flights && (
+          <>
+          <div>
+            <Search />
+          </div>
           <div className={styles.box}>
             <div className={styles.filterDiv}>
               <div className={styles.first}>
@@ -340,6 +345,7 @@ export const Flight = () => {
               ))}
             </div>
           </div>
+          </>
         )
       )}
     </div>

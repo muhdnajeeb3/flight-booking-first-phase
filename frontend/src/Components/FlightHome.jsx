@@ -11,6 +11,7 @@ import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DatePicker from "@mui/lab/DatePicker";
 import FareTypes from "./FareTypes";
 import { useNavigate } from "react-router-dom";
+import { Button, Col, Row } from "react-bootstrap";
 
 const FlightHome = () => {
   const [from, setFrom] = React.useState("");
@@ -42,16 +43,43 @@ const FlightHome = () => {
         <div className={styles.tripInternational}>
           <div className={styles.multiple_trip}>
             <div>
-              <input checked={true} type="radio" name="trip" />
-              <div>ONEWAY</div>
+            <Button className="radiobutton" variant="">
+            <input
+              type="radio"
+              value="select"
+              name="select"
+              className="onewaytitle"
+              // onChange={ONEWAY}
+              // onClick={() => setOneWay(true)}
+            />
+            <span className="onewaytitle">ONE WAY</span>
+          </Button>
             </div>
             <div>
-              <input type="radio" name="trip" />
-              <div>ROUND TRIP</div>
+            <Button className="radiobutton1" variant="">
+            <input
+              type="radio"
+              className="onewaytitle"
+              value="select1"
+              name="select"
+              // onChange={ROUNDTRIP}
+              // onClick={() => setRoundTrip(true)}
+            />
+            <span className="onewaytitle">ROUND TRIP</span>
+          </Button>
             </div>
             <div>
-              <input type="radio" name="trip" />
-              <div>MULTICITY</div>
+            <Button className="radiobutton2" variant="">
+            <input
+              type="radio"
+              className="onewaytitle"
+              value="select2"
+              name="select"
+              // onClick={() => setMultiCity(true)}
+              // onChange={MULTICITYHANDLER}
+            />
+            <span className="onewaytitle">MULTI CITY</span>
+          </Button>
             </div>
           </div>
           <div className={styles.book}>
@@ -156,6 +184,47 @@ const FlightHome = () => {
             </div> */}
             {/* return date starts (just for ui purpose)*/}
           </div>
+          {/* return */}
+          <div className={styles.DepRetContainer}>
+            {/* departure date starts */}
+            <div style={{ width:"100%"}}>
+            < FormControl sx={{width:"100%"}}>
+           
+              <LocalizationProvider
+               sx={{width:"100%"}}
+                dateAdapter={AdapterDateFns}
+              >
+                <DatePicker
+                  label="Departure"
+                  value={departure}
+                  onChange={(newValue) => {
+                    setDeparture(newValue);
+                  }}
+                  renderInput={(params) => <TextField {...params} />}
+                />
+              </LocalizationProvider>
+              </FormControl>
+            </div>
+            {/* departure date end */}
+
+            {/* return date starts (just for ui purpose)*/}
+            {/* <div>
+              <LocalizationProvider dateAdapter={AdapterDateFns}>
+                <DatePicker
+                  label="Return"
+                  value={retrn}
+                  onChange={(newValue) => {
+                    setRetrn(newValue);
+                  }}
+                  renderInput={(params) => <TextField {...params} />}
+                />
+              </LocalizationProvider>
+            </div> */}
+            {/* return date starts (just for ui purpose)*/}
+          </div>
+          
+          
+          
           {/* departure and return date end */}
 
           {/* number of travellers start */}
@@ -246,6 +315,61 @@ const FlightHome = () => {
         {/* location of departure and arrival  including date and passenger end  */}
 
         <FareTypes />
+        <Row className="oneway" style={{display:"flex",flexDirection:"row",flexWrap:"wrap"}}>
+                  <Col className="col-3" style={{width:"20%",padding:"3px"}}>
+                    <span className="from">FROM</span>
+                    {/* {from && (
+                      <>
+                        <Select
+                          options={options}
+                          onChange={SELECTHANDLER}
+                          value={options.filter(function (option) {
+                            return option.value === from;
+                          })}
+                          label="Single select"
+                        />
+                      </>
+                    )} */}
+                    <br />
+                    <span className="start">{from}</span>
+                    <p className="subfrom">DEL,AIRPORT</p>
+                  </Col>
+
+                  <div className="row vertical-line"></div>
+
+                  <Col className="col-3" style={{width:"20%",padding:"3px"}} onClick={() => alert("hey")}>
+                    <span className="from">TO</span>
+                    <br />
+                    <span className="start">DUBAI</span>
+                    <p className="subfrom">DxB,AIRPORT</p>
+                  </Col>
+                  <div className="row vertical-line"></div>
+
+                  <Col className="coloneway1" style={{width:"12%",padding:"3px"}} onClick={() => alert("hey")}>
+                    <span className="from">DEPARTURE</span>
+                    <br />
+                  </Col>
+                  <div className="row vertical-line"></div>
+
+                  <Col className="coloneway1" style={{width:"12%",padding:"3px"}} onClick={() => alert("hey")}>
+                    <span className="from" style={{ textAlign: "center" }}>
+                      RETURN
+                    </span>
+                    <br />
+                    <p className="returnparag">
+                      Tap to add a return date for bigger
+                    </p>
+                  </Col>
+                  <div className="row vertical-line"></div>
+
+                  <Col className="col-2" style={{width:"18%",padding:"3px"}} onClick={() => alert("hey")}>
+                    <span className="from">TRAVELLERS &CLASS</span>
+                    <p>
+                      Please Select
+                    </p>
+                    <br />
+                  </Col>
+                </Row>
       </div>
       <div className={styles.buttonContainer}>
         <div type="submit" onClick={handleSubmit}>

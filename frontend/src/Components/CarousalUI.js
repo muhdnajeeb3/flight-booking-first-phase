@@ -32,21 +32,21 @@ export const CarousalUI = () => {
                 <div className='sliderTitle'>
                     <h2>Offers</h2>
                     <div className='sliderLinks'>
-                        <p
+                        {/* <p
                             className="indLinks"
                             style={{ borderBottom: offers === 0 ? "3px solid #008cff" : "" }}
                             onClick={() => setOffers(0)}
-                        >ALL OFFERS</p>
+                        >ALL OFFERS</p> */}
                         <p
                             className="indLinks"
                             onClick={() => setOffers(1)}
                             style={{ borderBottom: offers === 1 ? "3px solid #008cff" : "" }}
                         >FLIGHTS</p>
-                        <p
+                        {/* <p
                             className="indLinks"
                             onClick={() => setOffers(2)}
                             style={{ borderBottom: offers === 2 ? "3px solid #008cff" : "" }}
-                        >HOTELS</p>
+                        >HOTELS</p> */}
                     </div>
                 </div>
                 {offers === 0 ?

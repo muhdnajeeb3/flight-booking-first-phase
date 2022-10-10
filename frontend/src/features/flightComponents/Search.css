@@ -1,0 +1,233 @@
+.searchfirstsec{
+    background-color: rgb(10, 10, 42);
+    /* background-image: linear-gradient(0deg,#15457b,#051423); */
+    width: 100%;
+   
+    min-height: 12rem;
+    padding-top: 40px;
+    position: relative;
+    position: sticky !important;
+    padding-left: 10px;
+    
+}
+
+.searchrow{
+    /* background-color: rgb(10, 10, 42); */
+    
+    /* justify-content: space-between; */
+    gap: 4px;
+    margin-left: 5rem !important;
+}
+.btnsearch{
+    
+    color: #000 !important;
+    font-weight: 700 !important;
+}
+
+.searchstart{
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 16px;
+    color: #fff;
+}
+
+/*  */
+.listContainer {
+
+    display: flex;
+    justify-content: center;
+    margin-right: 4rem;
+    margin-top: 20px;
+    position: relative;
+    /* position: sticky; */
+    bottom: 9rem;
+
+    /* background: #e5eef4; */
+  }
+  
+  .listWrapper {
+    width: 70rem;
+    /* max-width: 1024px; */
+    flex-wrap: wrap;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .listSearch {
+    flex: 1;
+    background-color: #fff;
+    padding: 10px;
+    width: 3rem !important;
+    /* border-radius: 10px; */
+    /* position: sticky; */
+    top: 10px;
+    -moz-box-shadow: 0 0 3px #ccc;
+    -webkit-box-shadow: 0 0 3px #ccc;
+    box-shadow: 0 0 6px rgb(158, 156, 156);
+    height: max-content;
+  }
+  
+  .filtertitle{
+    font-size: 16px;
+    font-weight: 900;
+    color: rgba(0,0,0,.85);
+    margin-bottom: 15px;
+    font-family: 'Lato',sans-serif !important;
+
+  }
+  
+  .filtername{
+    display: flex ;
+    flex-direction: row !important ;
+    gap: 5px;
+    margin-bottom: 10px;
+    text-align: end !important;
+    /* background-color: #140c28 !important; */
+  }
+  
+  .filtername>label{
+    font-size: 12px;
+  }
+  
+  .filtername>input{
+    height: 30px;
+    text-align: center !important;
+    border: none;
+    padding: 5px;
+  }
+  .lsitem>span{
+    height: 30px ;
+    padding: 5px;
+    background-color: white;
+    display: flex;
+    /* align-items: start !important; */
+    text-align: start !important;
+    cursor: pointer;
+  }
+  
+  .lsOptions{
+    padding: 10px;
+  }
+  
+  .lsOptionItem{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #555;
+    font-size: 12px;
+  }
+  
+  .lsOptionInput{
+    width: 50px;
+  }
+  
+  .listSearch>button{
+    padding: 10px;
+    background-color: #0071c2;
+    color: white;
+    border: none;
+    width: 100%;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .lsitem{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 10px;
+    
+  }.lsitem>label{
+    font-size: 12px;
+  }
+  .lsitem>input{
+    height: 30px;
+    border: none;
+    padding: 5px;
+  }
+  .lsitem>input{
+    height: 30px;
+    border: none;
+    padding: 5px;
+  }
+  .lsitem>span{
+    height: 30px;
+    padding: 5px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+  }
+  .lsOptions{
+    padding:10px
+  }
+  .lsOptionItem{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #555;
+    font-size: 12px;
+  }
+  .lsOptionInput{
+width: 50px;
+  }
+  .listSearch>button{
+    padding: 10px;
+    background-color: #0071c2;
+    color: white;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+  }
+  .listResult {
+    flex: 3;
+  }
+  .searchcenter{
+    background-color: rgb(10, 10, 42);
+
+    
+     /* background-image: linear-gradient(0deg,#15457b,#051423); */
+    width: 100%;
+    
+    height: 9rem;
+  }
+  /* filter */
+  .filtername{
+    margin-right: auto;
+    text-align: start !important;
+    /* margin-left: 2rem; */
+    font-size: 14px;
+    font-weight: 500;
+    margin-right:5rem;
+    position: relative;
+  }
+  .filterprice{
+    font-size: medium
+  }
+  .filtersec{
+    -moz-box-shadow: 0 0 3px #ccc;
+    -webkit-box-shadow: 0 0 3px #ccc;
+    box-shadow: 0 0 5px rgb(158, 156, 156);
+  }
+  /* filtersec */
+  .filterright{
+    /* float: right; */
+    width: 50%;
+  }
+  .filterleft{
+    width: 50%;
+
+    float: left !important;
+  }
+  .filtermain{
+    background-color: #e5eef4;;
+    position: relative;
+    bottom: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+  }.filterleft{
+    position: relative;
+    bottom: 7rem;
+    margin-right: 53rem !important;
+  }

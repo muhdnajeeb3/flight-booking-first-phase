@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter } from "react-router-dom";
 import { ListenerProvider } from "./Contexts/ListenerProvider";
+import '@fortawesome/fontawesome-svg-core/styles.css'
 
 ReactDOM.render(
   <React.StrictMode>
