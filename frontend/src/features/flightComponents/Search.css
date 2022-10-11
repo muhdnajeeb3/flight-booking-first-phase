@@ -10,6 +10,9 @@
     padding-left: 10px;
     
 }
+.dropdown-toggle{
+  color: #fff !important;
+}
 
 .searchrow{
     /* background-color: rgb(10, 10, 42); */
@@ -230,4 +233,13 @@ width: 50px;
     position: relative;
     bottom: 7rem;
     margin-right: 53rem !important;
+  }
+  /* date */
+  .datepicker{
+    color: #fff !important;
+    height: 20px !important;
+  }
+  .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+    color: #fff !important;
+    height: 0px !important;
   }

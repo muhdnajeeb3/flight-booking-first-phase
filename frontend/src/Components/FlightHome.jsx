@@ -39,7 +39,7 @@ const FlightHome = () => {
     setTravellers(val);
   };
   const handleSubmit = () => {
-    navigate("/flights");
+    navigate("/flights",{ state: {from,to,departure,retrn,travellers}});
   };
   const MULTICITYHANDLER = () => {
     setOneWay("");
@@ -198,22 +198,7 @@ const FlightHome = () => {
                     </LocalizationProvider>
                   </FormControl>
                 </div>
-                {/* departure date end */}
-
-                {/* return date starts (just for ui purpose)*/}
-                {/* <div>
-              <LocalizationProvider dateAdapter={AdapterDateFns}>
-                <DatePicker
-                  label="Return"
-                  value={retrn}
-                  onChange={(newValue) => {
-                    setRetrn(newValue);
-                  }}
-                  renderInput={(params) => <TextField {...params} />}
-                />
-              </LocalizationProvider>
-            </div> */}
-                {/* return date starts (just for ui purpose)*/}
+                
               </div>
               {/* return */}
               <div className={styles.DepRetContainer}>

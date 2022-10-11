@@ -8,6 +8,9 @@ import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter } from "react-router-dom";
 import { ListenerProvider } from "./Contexts/ListenerProvider";
 import '@fortawesome/fontawesome-svg-core/styles.css'
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.js';
 
 ReactDOM.render(
   <React.StrictMode>
