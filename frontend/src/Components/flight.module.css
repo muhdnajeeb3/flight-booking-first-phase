@@ -125,6 +125,7 @@
   position: relative;
   cursor: pointer;
   margin-left: 15px;
+  z-index: 15;
 }
 .travellerContainer:hover {
   background-color: aliceblue;
@@ -135,6 +136,7 @@
   padding-left: 10px;
   /* font-size: 1.2em; */
   font-weight: bold;
+  
   color: rgb(62, 59, 59);
 }
 
@@ -167,8 +169,8 @@
   display: none;
 }
 .traveller_modal {
-  position: absolute;
-  width: 400px;
+  /* position: absolute; */
+  width: 314px;
   height: 100px;
   height: 200px;
   z-index: 20;
@@ -178,6 +180,20 @@
   /* border: 1px solid red; */
   padding: 15px;
 }
+/*  multi*/
+.traveller_modalmulti {
+  /* position: absolute; */
+  width: 314px;
+  height: 100px;
+  height: 200px;
+  z-index: 20;
+  top: 30px;
+  left: -100%;
+  background: white;
+  /* border: 1px solid red; */
+  padding: 15px;
+}
+
 .adultChild {
   font-size: 0.8em;
   font-weight: bold;
@@ -299,4 +315,69 @@
     bottom: 5.5%;
     left: 32%;
   }
+}
+@media only screen and (max-width: 500px) {
+  .traveller_modal {
+    /* position: absolute; */
+    max-width: 315px;
+    height: 100px;
+    height: 200px;
+    margin: -1.7rem;
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    /* flex-direction: column; */
+    z-index: 20;
+    top: 0px;
+    left: -100%;
+    background: white;
+    /* border: 1px solid red; */
+    padding: 15px;
+  }
+  .buttonContainer {
+    bottom: 5%;
+    left: 25%;
+  }
+
+  .traveller_modalmulti {
+    position: absolute;
+    width: 300px;
+    height: 100px;
+    height: 200px;
+    z-index: 20;
+    top: 30px;
+    left: -100%;
+    background: white;
+    /* border: 1px solid red; */
+    padding: 15px;
+  }
+}
+@media screen and (min-width: 250px) and (max-width: 400px) {
+  .traveller_modalmulti {
+    /* position: absolute; */
+    width: 280px;
+    height: 100px;
+    height: 200px;
+    z-index: 20;
+    top: 30px;
+    left: -100%;
+    background: white;
+    /* border: 1px solid red; */
+    padding: 15px;
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 700px) {
+
+.traveller_modalmulti {
+  position: absolute;
+  width: 314px;
+  height: 100px;
+  height: 200px;
+  z-index: 20;
+  top: 30px;
+  left: -100%;
+  background: white;
+  /* border: 1px solid red; */
+  padding: 15px;
+}
 }

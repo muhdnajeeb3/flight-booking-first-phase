@@ -114,6 +114,7 @@ box-shadow: 0 0 3px rgb(53, 49, 49);
     padding: 10px !important;
     /* min-width: 12% !important; */
     height: 10px;
+    border-color: none !important;
     margin-left: 10px;
     margin-bottom: 1rem;
     color: black !important;
@@ -122,6 +123,16 @@ box-shadow: 0 0 3px rgb(53, 49, 49);
 
     
 }
+@media only screen and (max-width: 500px) {
+    .radiobutton,.radiobutton1,.radiobutton2
+    {
+        height: 55px;
+        /* padding: 2rem; */
+    }
+}
+/* .radiobutton,.radiobutton1,.radiobutton2:hover{
+color: green !important;
+} */
 /* .radiobutton,.radiobutton1,.radiobutton2:hover{
     background-color: rgb(225, 225, 225) !important;
 
@@ -149,7 +160,7 @@ div.vertical-line{
 .oneway{
     /* margin: 1rem !; */
     /* width: 97% !important; */
-    margin-left: auto !important;
+    /* margin-left: auto !important; */
     /* margin-right: auto !important; */
     position: relative;
     bottom: 16px;
