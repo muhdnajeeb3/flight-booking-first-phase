@@ -1,6 +1,8 @@
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import DatePicker from "@mui/lab/DatePicker";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
+import styles from "../../Components/flight.module.css";
+
 import {
   FormControl,
   InputLabel,
@@ -18,20 +20,39 @@ import {
   Navbar,
   Row,
 } from "react-bootstrap";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 // import Slider from "react-slick";
 import "./Search.css";
 
+ 
+
 function Search() {
   const location = useLocation();
+  const [selectedButtonColor, setSelectedButtonColor] = useState(location.state.selectedButtonColor)
+const [travellers, setTravellers] = React.useState(location.state.travellers);
+  const [openTravellers, setOpenTravellers] = useState(location.state.openTravellers);
+  const [togglePassengerColor, setTogglePassengerColor] = useState(location.state.togglePassengerColor);
   const [oneway, setOneway] = useState(true);
   const [roundTrip, setRoundTrip] = useState(false);
   const [multiCity, setMultiCity] = useState(false);
+  const [query,setQuery] = useState("");
 
   const [from, setFrom] = React.useState(location.state.from);
   const [to, setTo] = React.useState(location.state.to);
   const [departure, setDeparture] = React.useState(location.state.departure);
   const [retrn, setRetrn] = React.useState(location.state.retrn);
+  const arr = [1, 2, 3, 4, 5, 6, 7, 8];
+  let ar1 = [0, 1, 2, 3, 4, 5];
+
+  // const navigate = useNavigate();
+  const onClickModal = (e) => {
+    setOpenTravellers(!openTravellers);
+    e.stopPropagation();
+  };
+
+  const onClickNoOfPass = (val) => {
+    setTravellers(val);
+  };
   const OnewayHandler = () => {
     setOneway(true);
     setMultiCity(false);
@@ -47,6 +68,15 @@ function Search() {
     setMultiCity(true);
     setRoundTrip(false);
   };
+  const navigate = useNavigate();
+
+  const handleSubmit = () => {
+    navigate("/flights",{ state: {from,to,departure,retrn,travellers,selectedButtonColor,openTravellers,togglePassengerColor}});
+  };
+  const SEARCHFROMHANDLER = (e) => {
+    setFrom(e.target.value)
+    setQuery(e.target.value)
+  }
   var settings = {
     dots: true,
     infinite: true,
@@ -128,16 +158,306 @@ function Search() {
                 >
                   FROM
                 </h5>
-                <FormControl sx={{ width: "100%" }}>
+                <FormControl sx={{ width: "100%" }} style={{borderColor:"#fff"}}>
                   <Select
-                    style={{ color: "#fff", height: "20px" }}
+                    style={{ color: "#fff", height: "20px" ,borderColor:"white" }}
                     fullWidth
-                    sx={{ width: "100%" }}
+                    sx={{ width: "100%"}}
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     value={from}
-                    label="from"
+                    // label="from"
                     placeholder={from}
+                    // className="datepicker"
+                    onChange={SEARCHFROMHANDLER}
+                  >
+                    <MenuItem value={"New Delhi"}>New Delhi</MenuItem>
+                    <MenuItem value={"Mumbai"}>Mumbai</MenuItem>
+                    <MenuItem value={"Pune"}>Pune</MenuItem>
+                    <MenuItem value={"Bengaluru"}>Bengaluru</MenuItem>
+                  </Select>
+                </FormControl>
+              </div>
+              <div
+                className="col-2"
+                style={{
+                  background: "#0a223d",
+                  borderRadius: "10px",
+                  width: "160px",
+                  padding: "10px",
+                }}
+              >
+                <h5
+                  style={{
+                    fontWeight: "700",
+                    fontSize: "14px",
+                    lineHeight: "12px",
+                    marginBottom: "5px",
+                    marginTop: "5px",
+                    color: "#008cff",
+                  }}
+                >
+                  TO
+                </h5>
+                <FormControl sx={{ width: "100%" }}>
+                  <Select
+                    style={{ color: "#fff", height: "20px" }}
+                    sx={{ width: "100%" }}
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={to}
+                    label={to}
+                    onChange={(e) => setTo(e.target.value)}
+                  >
+                    <MenuItem value={"Bengaluru"}>Bengaluru</MenuItem>
+                    <MenuItem value={"Mumbai"}>Mumbai</MenuItem>
+                    <MenuItem value={"Pune"}>Pune</MenuItem>
+                    <MenuItem value={"New Delhi"}>New Delhi</MenuItem>
+                  </Select>
+                </FormControl>
+              </div>
+              <div
+                className="col-2"
+                style={{
+                  background: "#0a223d",
+                  borderRadius: "10px",
+                  width: "160px",
+                  padding: "10px",
+                }}
+              >
+                <h5
+                  style={{
+                    fontWeight: "700",
+                    fontSize: "14px",
+                    lineHeight: "12px",
+                    marginBottom: "5px",
+                    marginTop: "5px",
+                    color: "#008cff",
+                  }}
+                >
+                  DEPART
+                </h5>
+                        
+                < FormControl sx={{ width: "100%" }} className="datepicker">
+
+                    <LocalizationProvider
+                      sx={{ width: "100%" }}
+                    style={{ color: "#fff", height: "20px" ,borderColor:"white" }}
+
+                      
+                      dateAdapter={AdapterDateFns}
+                      className="datepicker"
+
+                    >
+                      <DatePicker
+                        // label="Departure"
+                        // sx={{color:"#fff"}}
+                        placeholder={departure}
+                        className="datepicker"
+                        value={departure}
+                        onChange={(newValue) => {
+                          setDeparture(newValue);
+                        }}
+                        renderInput={(params) => <TextField {...params} sx={{
+                          svg: { color:"#fff" },
+                          input: { color:"#fff",height:"10px" },
+                          label: { color:"#fff" },
+                        }} />}
+                      />
+                    </LocalizationProvider>
+                  </FormControl>
+              </div>
+              <div
+                className="col-2"
+                style={{
+                  background: "#0a223d",
+                  borderRadius: "10px",
+                  width: "160px",
+                  padding: "10px",
+                }}
+              >
+                <h5
+                  style={{
+                    fontWeight: "700",
+                    fontSize: "14px",
+                    lineHeight: "12px",
+                    marginBottom: "5px",
+                    marginTop: "5px",
+                    color: "#008cff",
+                  }}
+                >
+                  RETURN
+                </h5>
+                < FormControl sx={{ width: "100%",height:"-10px" }}>
+
+                    <LocalizationProvider
+                      sx={{ width: "100%",height:"-10px" }}
+                      dateAdapter={AdapterDateFns}
+                    >
+                      <DatePicker
+                        // label="Return"
+                        
+                        // InputProps={{
+                        //   color:"green"
+                        // }}
+                        placeholder={retrn}
+                        value={retrn}
+                        onChange={(newValue) => {
+                          setRetrn(newValue);
+                        }}
+
+                        renderInput={(params) => <TextField {...params} sx={{
+                          svg: { color:"#fff" },
+                          input: { color:"#fff",height:"10px" },
+                          label: { color:"#fff" }
+                        }} />}
+                      />
+                    </LocalizationProvider>
+                  </FormControl>
+              </div>
+              <div
+                className="col-2"
+                style={{
+                  background: "#0a223d",
+                  borderRadius: "10px",
+                  width: "auto",
+                  padding: "10px",
+                }}
+              >
+                <h5
+                  style={{
+                    fontWeight: "700",
+                    fontSize: "14px",
+                    lineHeight: "12px",
+                    marginBottom: "5px",
+                    marginTop: "5px",
+                    color: "#008cff",
+                  }}
+                >
+                  PASSENGERS&CLASS
+                </h5>
+                <div className={styles.travellerContainer} style={{width:"100%", margin: "5px", right: "", padding: "0" ,height:"30px"}}>
+                <div onClick={onClickModal}>
+                  <div className={styles.travellersText}></div>
+                  <div className={styles.noOfTraveller} style={{ marginTop: "-26px" }}>
+                    <span style={{color:"#fff"}}>{travellers}</span>
+                    {travellers > 1 ? <span style={{color:"#fff"}}>Travellers</span> : ""}
+                  </div>
+                </div>
+
+                <div
+                  className={
+                    openTravellers ? styles.traveller_modal : styles.noDisplay
+                  }
+                >
+                  <div className={styles.adultChild}>ADULTS (12y +)</div>
+                  <div className={styles.passengerButtonContainer}>
+                    {arr.map((val) => (
+                      <div
+                        key={val}
+                        className={`${selectedButtonColor === val ? styles.clickPassenger : styles.passengerButton}`}
+                        onClick={() => {
+                          setTogglePassengerColor(!togglePassengerColor);
+                          onClickNoOfPass(val);
+                          setSelectedButtonColor(val)
+                        }}
+                      >
+                        {val}
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* for children and inf */}
+                  <div className={styles.infantChildren}>
+                    <div>
+                      <div className={styles.adultChild}>CHILDREN (2y - 12y )</div>
+                      <div className={styles.passengerButtonContainer}>
+                        {ar1.map((val) => (
+                          <div
+                            key={val}
+                            className={
+                              val === 0
+                                ? styles.clickPassenger
+                                : styles.passengerButton
+                            }
+                            onClick={() => {
+                              setTogglePassengerColor(!togglePassengerColor);
+                              onClickNoOfPass(val);
+                            }}
+                          >
+                            {val}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <div className={styles.adultChild} >INFANTS (below 2y)</div>
+                      <div className={styles.passengerButtonContainer}>
+                        {ar1.map((val) => (
+                          <div
+                            key={val}
+                            className={
+                              val === 0
+                                ? styles.clickPassenger
+                                : styles.passengerButton
+                            }
+                            onClick={() => {
+                              setTogglePassengerColor(!togglePassengerColor);
+                              onClickNoOfPass(val);
+                            }}
+                          >
+                            {val}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  {/* for children and inf */}
+
+                  <div className={styles.modalApplyText} onClick={onClickModal}>
+                    <div>Apply</div>
+                  </div>
+                </div>
+                
+              </div>
+              
+              </div>
+            </>
+          )}
+          {roundTrip && (
+            <>
+              <div
+                className="col-2"
+                style={{
+                  background: "#0a223d",
+                  borderRadius: "10px",
+                  width: "160px",
+                  padding: "10px",
+                }}
+              >
+                <h5
+                  style={{
+                    fontWeight: "700",
+                    fontSize: "14px",
+                    lineHeight: "12px",
+                    marginBottom: "5px",
+                    marginTop: "5px",
+                    color: "#008cff",
+                  }}
+                >
+                  FROM
+                </h5>
+                <FormControl sx={{ width: "100%" }} style={{borderColor:"#fff"}}>
+                  <Select
+                    style={{ color: "#fff", height: "20px" ,borderColor:"white" }}
+                    fullWidth
+                    sx={{ width: "100%"}}
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={from}
+                    // label="from"
+                    placeholder={from}
+                    // className="datepicker"
                     onChange={(e) => setFrom(e.target.value)}
                   >
                     <MenuItem value={"New Delhi"}>New Delhi</MenuItem>
@@ -211,6 +531,8 @@ function Search() {
 
                     <LocalizationProvider
                       sx={{ width: "100%" }}
+                    style={{ color: "#fff", height: "20px" ,borderColor:"white" }}
+
                       
                       dateAdapter={AdapterDateFns}
                       className="datepicker"
@@ -218,13 +540,18 @@ function Search() {
                     >
                       <DatePicker
                         // label="Departure"
+                        // sx={{color:"#fff"}}
                         placeholder={departure}
                         className="datepicker"
                         value={departure}
                         onChange={(newValue) => {
                           setDeparture(newValue);
                         }}
-                        renderInput={(params) => <TextField {...params} />}
+                        renderInput={(params) => <TextField {...params} sx={{
+                          svg: { color:"#fff" },
+                          input: { color:"#fff",height:"10px" },
+                          label: { color:"#fff" },
+                        }} />}
                       />
                     </LocalizationProvider>
                   </FormControl>
@@ -250,21 +577,29 @@ function Search() {
                 >
                   RETURN
                 </h5>
-                < FormControl sx={{ width: "100%" }}>
+                < FormControl sx={{ width: "100%",height:"-10px" }}>
 
                     <LocalizationProvider
-                      sx={{ width: "100%" }}
+                      sx={{ width: "100%",height:"-10px" }}
                       dateAdapter={AdapterDateFns}
                     >
                       <DatePicker
                         // label="Return"
+                        
+                        // InputProps={{
+                        //   color:"green"
+                        // }}
                         placeholder={retrn}
                         value={retrn}
                         onChange={(newValue) => {
                           setRetrn(newValue);
                         }}
 
-                        renderInput={(params) => <TextField {...params} />}
+                        renderInput={(params) => <TextField {...params} sx={{
+                          svg: { color:"#fff" },
+                          input: { color:"#fff",height:"10px" },
+                          label: { color:"#fff" }
+                        }} />}
                       />
                     </LocalizationProvider>
                   </FormControl>
@@ -290,132 +625,101 @@ function Search() {
                 >
                   PASSENGERS&CLASS
                 </h5>
-                <span className="searchstart">1Adult,Economy</span>
-              </div>
-            </>
-          )}
-          {roundTrip && (
-            <>
-              <div
-                className="col-2"
-                style={{
-                  background: "#0a223d",
-                  borderRadius: "10px",
-                  width: "160px",
-                  padding: "10px",
-                }}
-              >
-                <h5
-                  style={{
-                    fontWeight: "700",
-                    fontSize: "14px",
-                    lineHeight: "12px",
-                    marginBottom: "5px",
-                    marginTop: "5px",
-                    color: "#008cff",
-                  }}
+                <div className={styles.travellerContainer} style={{width:"100%", margin: "5px", right: "", padding: "0" ,height:"30px"}}>
+                <div onClick={onClickModal}>
+                  <div className={styles.travellersText}></div>
+                  <div className={styles.noOfTraveller} style={{ marginTop: "-26px" }}>
+                    <span style={{color:"#fff"}}>{travellers}</span>
+                    {travellers > 1 ? <span style={{color:"#fff"}}>Travellers</span> : ""}
+                  </div>
+                </div>
+
+                <div
+                  className={
+                    openTravellers ? styles.traveller_modal : styles.noDisplay
+                  }
                 >
-                  FROM
-                </h5>
-                <span className="searchstart">New Delhi,India</span>
+                  <div className={styles.adultChild}>ADULTS (12y +)</div>
+                  <div className={styles.passengerButtonContainer}>
+                    {arr.map((val) => (
+                      <div
+                        key={val}
+                        className={`${selectedButtonColor === val ? styles.clickPassenger : styles.passengerButton}`}
+                        onClick={() => {
+                          setTogglePassengerColor(!togglePassengerColor);
+                          onClickNoOfPass(val);
+                          setSelectedButtonColor(val)
+                        }}
+                      >
+                        {val}
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* for children and inf */}
+                  <div className={styles.infantChildren}>
+                    <div>
+                      <div className={styles.adultChild}>CHILDREN (2y - 12y )</div>
+                      <div className={styles.passengerButtonContainer}>
+                        {ar1.map((val) => (
+                          <div
+                            key={val}
+                            className={
+                              val === 0
+                                ? styles.clickPassenger
+                                : styles.passengerButton
+                            }
+                            onClick={() => {
+                              setTogglePassengerColor(!togglePassengerColor);
+                              onClickNoOfPass(val);
+                            }}
+                          >
+                            {val}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <div className={styles.adultChild} >INFANTS (below 2y)</div>
+                      <div className={styles.passengerButtonContainer}>
+                        {ar1.map((val) => (
+                          <div
+                            key={val}
+                            className={
+                              val === 0
+                                ? styles.clickPassenger
+                                : styles.passengerButton
+                            }
+                            onClick={() => {
+                              setTogglePassengerColor(!togglePassengerColor);
+                              onClickNoOfPass(val);
+                            }}
+                          >
+                            {val}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  {/* for children and inf */}
+
+                  <div className={styles.modalApplyText} onClick={onClickModal}>
+                    <div>Apply</div>
+                  </div>
+                </div>
+                <div className={styles.buttonContainer} style={{width:"100%",display:"grid",justifyContent:"center",marginLeft:"8rem"}}>
+        <div type="submit"  onClick={handleSubmit}>
+          Search
+        </div>
+      </div>
               </div>
-              <div
-                className="col-2"
-                style={{
-                  background: "#0a223d",
-                  borderRadius: "10px",
-                  width: "160px",
-                  padding: "10px",
-                }}
-              >
-                <h5
-                  style={{
-                    fontWeight: "700",
-                    fontSize: "14px",
-                    lineHeight: "12px",
-                    marginBottom: "5px",
-                    marginTop: "5px",
-                    color: "#008cff",
-                  }}
-                >
-                  TO
-                </h5>
-                <span className="searchstart">Kolkata,India</span>
-              </div>
-              <div
-                className="col-2"
-                style={{
-                  background: "#0a223d",
-                  borderRadius: "10px",
-                  width: "160px",
-                  padding: "10px",
-                }}
-              >
-                <h5
-                  style={{
-                    fontWeight: "700",
-                    fontSize: "14px",
-                    lineHeight: "12px",
-                    marginBottom: "5px",
-                    marginTop: "5px",
-                    color: "#008cff",
-                  }}
-                >
-                  DEPART
-                </h5>
-                <span className="searchstart">Mon,Oct 23,2022</span>
-              </div>
-              <div
-                className="col-2"
-                style={{
-                  background: "#0a223d",
-                  borderRadius: "10px",
-                  width: "160px",
-                  padding: "10px",
-                }}
-              >
-                <h5
-                  style={{
-                    fontWeight: "700",
-                    fontSize: "14px",
-                    lineHeight: "12px",
-                    marginBottom: "5px",
-                    marginTop: "5px",
-                    color: "#008cff",
-                  }}
-                >
-                  RETURN
-                </h5>
-              </div>
-              <div
-                className="col-2"
-                style={{
-                  background: "#0a223d",
-                  borderRadius: "10px",
-                  width: "auto",
-                  padding: "10px",
-                }}
-              >
-                <h5
-                  style={{
-                    fontWeight: "700",
-                    fontSize: "14px",
-                    lineHeight: "12px",
-                    marginBottom: "5px",
-                    marginTop: "5px",
-                    color: "#008cff",
-                  }}
-                >
-                  PASSENGERS&CLASS
-                </h5>
-                <span className="searchstart">1Adult,Economy</span>
               </div>
             </>
           )}
           {multiCity && (
             <>
-              <div
-                className="col-5"
+            <div
+                className="col-2"
                 style={{
                   background: "#0a223d",
                   borderRadius: "10px",
@@ -435,8 +739,27 @@ function Search() {
                 >
                   FROM
                 </h5>
-                <span className="searchstart">New Delhi,India</span>
+                <FormControl sx={{ width: "100%" }} style={{borderColor:"#fff"}}>
+                  <Select
+                    style={{ color: "#fff", height: "20px" ,borderColor:"white" }}
+                    fullWidth
+                    sx={{ width: "100%"}}
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={from}
+                    // label="from"
+                    placeholder={from}
+                    // className="datepicker"
+                    onChange={(e) => setFrom(e.target.value)}
+                  >
+                    <MenuItem value={"New Delhi"}>New Delhi</MenuItem>
+                    <MenuItem value={"Mumbai"}>Mumbai</MenuItem>
+                    <MenuItem value={"Pune"}>Pune</MenuItem>
+                    <MenuItem value={"Bengaluru"}>Bengaluru</MenuItem>
+                  </Select>
+                </FormControl>
               </div>
+              
               <div
                 className="col-2"
                 style={{
@@ -458,10 +781,103 @@ function Search() {
                 >
                   PASSENGERS&CLASS
                 </h5>
-                <span className="searchstart">1Adult,Economy</span>
+                <div className={styles.travellerContainer} style={{width:"100%", margin: "5px", right: "", padding: "0" ,height:"30px"}}>
+                <div onClick={onClickModal}>
+                  <div className={styles.travellersText}></div>
+                  <div className={styles.noOfTraveller} style={{ marginTop: "-26px" }}>
+                    <span style={{color:"#fff"}}>{travellers}</span>
+                    {travellers > 1 ? <span style={{color:"#fff"}}>Travellers</span> : ""}
+                  </div>
+                </div>
+
+                <div
+                  className={
+                    openTravellers ? styles.traveller_modal : styles.noDisplay
+                  }
+                >
+                  <div className={styles.adultChild}>ADULTS (12y +)</div>
+                  <div className={styles.passengerButtonContainer}>
+                    {arr.map((val) => (
+                      <div
+                        key={val}
+                        className={`${selectedButtonColor === val ? styles.clickPassenger : styles.passengerButton}`}
+                        onClick={() => {
+                          setTogglePassengerColor(!togglePassengerColor);
+                          onClickNoOfPass(val);
+                          setSelectedButtonColor(val)
+                        }}
+                      >
+                        {val}
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* for children and inf */}
+                  <div className={styles.infantChildren}>
+                    <div>
+                      <div className={styles.adultChild}>CHILDREN (2y - 12y )</div>
+                      <div className={styles.passengerButtonContainer}>
+                        {ar1.map((val) => (
+                          <div
+                            key={val}
+                            className={
+                              val === 0
+                                ? styles.clickPassenger
+                                : styles.passengerButton
+                            }
+                            onClick={() => {
+                              setTogglePassengerColor(!togglePassengerColor);
+                              onClickNoOfPass(val);
+                            }}
+                          >
+                            {val}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <div className={styles.adultChild} >INFANTS (below 2y)</div>
+                      <div className={styles.passengerButtonContainer}>
+                        {ar1.map((val) => (
+                          <div
+                            key={val}
+                            className={
+                              val === 0
+                                ? styles.clickPassenger
+                                : styles.passengerButton
+                            }
+                            onClick={() => {
+                              setTogglePassengerColor(!togglePassengerColor);
+                              onClickNoOfPass(val);
+                            }}
+                          >
+                            {val}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  {/* for children and inf */}
+
+                  <div className={styles.modalApplyText} onClick={onClickModal}>
+                    <div>Apply</div>
+                  </div>
+                </div>
+                <div className={styles.buttonContainer} style={{width:"100%",display:"grid",justifyContent:"center",marginLeft:"8rem"}}>
+        <div type="submit"  onClick={handleSubmit}>
+          Search
+        </div>
+      </div>
               </div>
+              
+              </div>
+              
             </>
+            
           )}
+          
+          
+          
         </Row>
         <div className="farerow2">
           <Row
@@ -576,6 +992,11 @@ function Search() {
             </Button>
             {/* <Button className="faretypesbutton5" variant=""><input type="radio" name="fare"/>1</Button> */}
           </Row>
+          <div className={styles.buttonContainer} style={{maxWidth:"130px",minWidth:"129px",marginTop:"335rem",display:"grid",justifyContent:"center",justifyItems:"end",placeItems:"",marginLeft:""}}>
+        <div type="submit"  onClick={handleSubmit}>
+          Search
+        </div>
+      </div>
         </div>
 
         {/* </Container> */}

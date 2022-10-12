@@ -53,7 +53,7 @@ export const FlightBooking = () => {
                 <React.Fragment key={flight._id}>
                   <SingleBooking flight={flight} />
                 </React.Fragment>
-                <img style={{ width: "100%", marginTop: "1%" }} src={img} />
+                {/* <img style={{ width: "100%", marginTop: "1%" }} src={img} /> */}
                 <img style={{ width: "100%", marginTop: "1%" }} src={img1} />
                 <div
                   style={{
@@ -172,10 +172,10 @@ export const FlightBooking = () => {
                   </b>
                 </div>
                 <div style={{ marginTop: "10px" }}>
-                  <img
+                  {/* <img
                     style={{ width: "100%", cursor: "pointer" }}
                     src={promo}
-                  />
+                  /> */}
                 </div>
               </div>
             </div>

@@ -32,6 +32,7 @@ export const Form = ({ tag }) => {
         margin: "2%",
         padding: "1%",
         borderRadius: "5px",
+        
       }}
     >
       <b style={{ padding: "2%" }}>Adult {tag}</b>

@@ -3,7 +3,7 @@
     /* background-image: linear-gradient(0deg,#15457b,#051423); */
     width: 100%;
    
-    min-height: 12rem;
+    min-height: 15rem;
     padding-top: 40px;
     position: relative;
     position: sticky !important;
@@ -236,10 +236,31 @@ width: 50px;
   }
   /* date */
   .datepicker{
-    color: #fff !important;
-    height: 20px !important;
+    color: rgb(255, 2, 2) !important;
+    /* height: 0 !important; */
   }
-  .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+  /* .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
     color: #fff !important;
-    height: 0px !important;
+    height: 0 !important;
+    border-color: green !important;
+    border: none !important;
   }
+  .flight_travellerContainer__29lBK {
+    width: 30%;
+    height: 2rem;
+    padding-left: 4px;
+    margin-top: 10px;
+    padding-bottom: 4px;
+    margin-bottom: -1px;
+}
+.flight_travellersText__XNJHx {
+  padding-top: 7px;
+  padding-left: 106px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: rgb(62, 59, 59);
+}
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input ::before{
+  color: #fff;
+  
+} */

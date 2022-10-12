@@ -6,15 +6,18 @@ import { addFlights, flightError, flightLoading } from "./flightSlice";
 import { CircularProgress, Slider } from "@mui/material";
 import { useState } from "react";
 import Search from "./Search";
+import axios from "axios"
 export const Flight = () => {
   const [flight, setFlight] = useState([]);
   const [duration, setDuration] = useState(true);
   const [departure, setDeparture] = useState(true);
   const [arrival, setArrival] = useState(true);
+  const [query,setQuery] = useState("")
   const [fare, setFare] = useState(true);
   const [check, setCheck] = useState(true);
   const [value, setValue] = useState([0, 45]);
   const [stopCheck, setStopCheck] = useState(true);
+  const [data,setData] = useState([])
   let { loading, error, flights } = useSelector((state) => ({
     loading: state.flight.loading,
     error: state.flight.error,
@@ -133,6 +136,13 @@ export const Flight = () => {
   useEffect(() => {
     getFlight();
   }, []);
+  useEffect(()=>{
+    const fetchUsers= async() => {
+      const res = await axios.get(`https://makemytripback.herokuapp.com/flights/?${query}`)
+      setData(res.data)
+    }
+    fetchUsers()
+  },[query]); 
 
   return (
     <div>
@@ -340,7 +350,7 @@ export const Flight = () => {
               </div>
               {flight.map((item) => (
                 <React.Fragment key={item._id}>
-                  <SingleFlight {...item} />
+                  <SingleFlight {...item} data={data}  />
                 </React.Fragment>
               ))}
             </div>

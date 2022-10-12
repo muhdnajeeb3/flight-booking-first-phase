@@ -39,7 +39,7 @@ const FlightHome = () => {
     setTravellers(val);
   };
   const handleSubmit = () => {
-    navigate("/flights",{ state: {from,to,departure,retrn,travellers}});
+    navigate("/flights",{ state: {from,to,departure,retrn,travellers,selectedButtonColor,openTravellers,togglePassengerColor}});
   };
   const MULTICITYHANDLER = () => {
     setOneWay("");
@@ -180,7 +180,7 @@ const FlightHome = () => {
               {/* departure and return date start */}
               <div className={styles.DepRetContainer}>
                 {/* departure date starts */}
-                <div style={{ width: "90%", marginTop: "-5px" }}>
+                <div style={{ width: "95%", marginTop: "-5px" }}>
                   < FormControl sx={{ width: "100%" }}>
 
                     <LocalizationProvider
@@ -203,7 +203,7 @@ const FlightHome = () => {
               {/* return */}
               <div className={styles.DepRetContainer}>
                 {/* departure date starts */}
-                <div style={{ width: "90%", marginTop: "-4px" }}>
+                <div style={{ width: "95%", marginTop: "-4px" }}>
                   < FormControl sx={{ width: "100%" }}>
 
                     <LocalizationProvider
@@ -245,6 +245,7 @@ const FlightHome = () => {
               {/* departure and return date end */}
 
               {/* number of travellers start */}
+              
               <div className={styles.travellerContainer} style={{ marginTop: "10px", right: "12px", position: "relative" }}>
                 <div onClick={onClickModal}>
                   <div className={styles.travellersText}>TRAVELLERS</div>
