@@ -305,7 +305,11 @@ export const Flight = () => {
                   className={styles.guidelineImg}
                   src="https://logodix.com/logo/1033309.jpg"
                 />
-                <div style={{ marginTop: "5px" }}>
+                <div style={{ marginTop: "5px"  }} className={styles.safety}>
+                {/* <img
+                  className={styles.guidelineImg}
+                  src="https://logodix.com/logo/1033309.jpg"
+                /> */}
                   <h5 style={{ margin: "0px" }}>
                     Important Advisories & State Guidelines
                   </h5>

@@ -266,6 +266,17 @@
   font-size: 2em;
   font-weight: 900;
 }
+.buttonContainer1 {
+  cursor: pointer;
+  background: linear-gradient(
+    to right,
+    #8fdcfa 0%,
+    #619ff0 50%,
+    #6c9feb 50%,
+    #3339e9 100%
+  );
+
+}
 
 @media only screen and (max-width: 1320px) {
 

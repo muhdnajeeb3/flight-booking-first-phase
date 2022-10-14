@@ -42,7 +42,7 @@ export const FlightPayment = () => {
     setSelect6(false);
   };
   const [wrong, setWrong] = useState(false);
-  let check = "shreevali@ybl";
+  let check = "najeeb@ybl";
   const handlePayment = async () => {
     if (UPI === check) {
       bookFlight();

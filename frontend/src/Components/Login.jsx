@@ -28,10 +28,19 @@ export default function FormDialog() {
   const [error, setError] = useState(false);
   const { open, setOpen } = useContext(ListenerContext);
   const handleContinueRegistration = async () => {
+    let check = {
+      "ClientId": "ApiIntegrationNew",
+      "UserName": "Shaab Trip",
+      "Password": "Shaabtrip@1234", 
+      "EndUserIp": "192.168.11.120"
+      }
+      
+
     if (mobile.length !== 10) {
       setError(true);
       return;
     }
+
 
     try {
       const response = await fetch(

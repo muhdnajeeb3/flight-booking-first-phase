@@ -1,5 +1,5 @@
 .main_cont {
-  width: 80%;
+  width: 90%;
   padding-left: 10%;
   padding-right: 10%;
 
@@ -54,6 +54,7 @@
 .form {
   gap: 1rem;
   display: flex;
+  justify-content: space-between;
   /* flex-wrap: wrap; */
   
   margin-top: 1%;
@@ -61,7 +62,7 @@
   padding: 2%;
 }
 .form input {
-  width: 40%;
+  width: 50%;
   border: 1px solid gray;
   padding: 2%;
   border-radius: 5px;
@@ -70,32 +71,49 @@
 }
 .btnPay {
   justify-content: center;
-  min-width: 20%;
-  background-color: #065af3;
+max-width: 25%;
+display: grid;
+justify-content: center;
+background-image: linear-gradient(97deg,#53b2fe,#065af3 130%);
   color: white;
   padding: 1%;
-  border-radius: 20px;
+  border-radius: 35px;
   border: none;
+  font-size: calc(var(--font-scale, 1 )*16px);
+  font-family: inherit;
+    line-height: inherit;
+  font-weight: 900;
+  box-shadow: 0 1px 7px 0 rgb(0 0 0 / 22%);
+  padding: 10px 35px;
+  height: 44px;
   cursor: pointer;
   margin-left: 5%;
 }
 .btnSubmit {
-  min-width: 8%;
-  background-color: #065af3;
+  max-width: 8%;
+  background-image: linear-gradient(97deg,#53b2fe,#065af3 130%);
   border: none;
   color: white;
-  border-radius: 10px;
+  border-radius: 20px;
   /* margin-top: 15px; */
   /* height: fit-content; */
   cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  display: grid;
+    justify-content: center;
 }
-@media screen and (max-width:730px) {
+@media screen and (max-width:930px) {
   .form{
     flex-direction: column;
   }
   .form input {
     width: 100%;
 
+  }
+  .btnSubmit{
+    display: grid;
+    justify-content: center;
   }
   
 }

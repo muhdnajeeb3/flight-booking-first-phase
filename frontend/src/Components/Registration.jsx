@@ -30,8 +30,9 @@ const Registration = () => {
         email: credentials.email,
         password: credentials.password,
       };
+      // register code
       const response = await fetch(
-        "https://makemytripback.herokuapp.com/auth/register",
+        "http://18.182.33.236:4000/users/register",
         {
           method: "POST",
           headers: {

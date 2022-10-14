@@ -71,11 +71,15 @@ body {
   border-radius: 5px;
   /* margin-left: 30%; */
   padding: 0.5%;
+  background-image: linear-gradient(to right, rgb(255, 255, 255), rgb(232, 253, 233)) !important;
+  box-shadow:  0 2px 4px 0 rgb(0 0 0 / 15%) !important;
+
 }
 
 .guidelineImg {
   max-width: 45px;
   max-height: 45px;
+  margin-top: 30px;
 }
 .guidelineText {
   padding: 3px;
@@ -101,6 +105,20 @@ body {
   font-size: 12px;
   margin: 0px;
   text-align: center;
+}
+/* .singleflight_guidelines__Z6B7K {
+  background-image: linear-gradient(to right, rgb(255, 255, 255), rgb(232, 253, 233)) !important;
+  box-shadow:  0 2px 4px 0 rgb(0 0 0 / 15%) !important;
+  width: 100%;
+  margin: 10px auto;
+  padding: 1rem !important;
+} */
+
+.safety{
+  width: 100%;
+  /* margin: 10px auto; */
+  padding: 10px;
+  background-image: linear-gradient(to right, rgb(255, 255, 255), rgb(232, 253, 233)) !important;
 }
 .buttonBookNow {
   width: 13%;

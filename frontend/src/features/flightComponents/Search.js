@@ -24,18 +24,22 @@ import { useLocation, useNavigate } from "react-router-dom";
 // import Slider from "react-slick";
 import "./Search.css";
 
- 
-
 function Search() {
   const location = useLocation();
-  const [selectedButtonColor, setSelectedButtonColor] = useState(location.state.selectedButtonColor)
-const [travellers, setTravellers] = React.useState(location.state.travellers);
-  const [openTravellers, setOpenTravellers] = useState(location.state.openTravellers);
-  const [togglePassengerColor, setTogglePassengerColor] = useState(location.state.togglePassengerColor);
+  const [selectedButtonColor, setSelectedButtonColor] = useState(
+    location.state.selectedButtonColor
+  );
+  const [travellers, setTravellers] = React.useState(location.state.travellers);
+  const [openTravellers, setOpenTravellers] = useState(
+    location.state.openTravellers
+  );
+  const [togglePassengerColor, setTogglePassengerColor] = useState(
+    location.state.togglePassengerColor
+  );
   const [oneway, setOneway] = useState(true);
   const [roundTrip, setRoundTrip] = useState(false);
   const [multiCity, setMultiCity] = useState(false);
-  const [query,setQuery] = useState("");
+  const [query, setQuery] = useState("");
 
   const [from, setFrom] = React.useState(location.state.from);
   const [to, setTo] = React.useState(location.state.to);
@@ -71,12 +75,23 @@ const [travellers, setTravellers] = React.useState(location.state.travellers);
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    navigate("/flights",{ state: {from,to,departure,retrn,travellers,selectedButtonColor,openTravellers,togglePassengerColor}});
+    navigate("/flights", {
+      state: {
+        from,
+        to,
+        departure,
+        retrn,
+        travellers,
+        selectedButtonColor,
+        openTravellers,
+        togglePassengerColor,
+      },
+    });
   };
   const SEARCHFROMHANDLER = (e) => {
-    setFrom(e.target.value)
-    setQuery(e.target.value)
-  }
+    setFrom(e.target.value);
+    setQuery(e.target.value);
+  };
   var settings = {
     dots: true,
     infinite: true,
@@ -158,11 +173,18 @@ const [travellers, setTravellers] = React.useState(location.state.travellers);
                 >
                   FROM
                 </h5>
-                <FormControl sx={{ width: "100%" }} style={{borderColor:"#fff"}}>
+                <FormControl
+                  sx={{ width: "100%" }}
+                  style={{ borderColor: "#fff" }}
+                >
                   <Select
-                    style={{ color: "#fff", height: "20px" ,borderColor:"white" }}
+                    style={{
+                      color: "#fff",
+                      height: "20px",
+                      borderColor: "white",
+                    }}
                     fullWidth
-                    sx={{ width: "100%"}}
+                    sx={{ width: "100%" }}
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     value={from}
@@ -237,35 +259,40 @@ const [travellers, setTravellers] = React.useState(location.state.travellers);
                 >
                   DEPART
                 </h5>
-                        
-                < FormControl sx={{ width: "100%" }} className="datepicker">
 
-                    <LocalizationProvider
-                      sx={{ width: "100%" }}
-                    style={{ color: "#fff", height: "20px" ,borderColor:"white" }}
-
-                      
-                      dateAdapter={AdapterDateFns}
+                <FormControl sx={{ width: "100%" }} className="datepicker">
+                  <LocalizationProvider
+                    sx={{ width: "100%" }}
+                    style={{
+                      color: "#fff",
+                      height: "20px",
+                      borderColor: "white",
+                    }}
+                    dateAdapter={AdapterDateFns}
+                    className="datepicker"
+                  >
+                    <DatePicker
+                      // label="Departure"
+                      // sx={{color:"#fff"}}
+                      placeholder={departure}
                       className="datepicker"
-
-                    >
-                      <DatePicker
-                        // label="Departure"
-                        // sx={{color:"#fff"}}
-                        placeholder={departure}
-                        className="datepicker"
-                        value={departure}
-                        onChange={(newValue) => {
-                          setDeparture(newValue);
-                        }}
-                        renderInput={(params) => <TextField {...params} sx={{
-                          svg: { color:"#fff" },
-                          input: { color:"#fff",height:"10px" },
-                          label: { color:"#fff" },
-                        }} />}
-                      />
-                    </LocalizationProvider>
-                  </FormControl>
+                      value={departure}
+                      onChange={(newValue) => {
+                        setDeparture(newValue);
+                      }}
+                      renderInput={(params) => (
+                        <TextField
+                          {...params}
+                          sx={{
+                            svg: { color: "#fff" },
+                            input: { color: "#fff", height: "10px" },
+                            label: { color: "#fff" },
+                          }}
+                        />
+                      )}
+                    />
+                  </LocalizationProvider>
+                </FormControl>
               </div>
               <div
                 className="col-2"
@@ -288,32 +315,35 @@ const [travellers, setTravellers] = React.useState(location.state.travellers);
                 >
                   RETURN
                 </h5>
-                < FormControl sx={{ width: "100%",height:"-10px" }}>
+                <FormControl sx={{ width: "100%", height: "-10px" }}>
+                  <LocalizationProvider
+                    sx={{ width: "100%", height: "-10px" }}
+                    dateAdapter={AdapterDateFns}
+                  >
+                    <DatePicker
+                      // label="Return"
 
-                    <LocalizationProvider
-                      sx={{ width: "100%",height:"-10px" }}
-                      dateAdapter={AdapterDateFns}
-                    >
-                      <DatePicker
-                        // label="Return"
-                        
-                        // InputProps={{
-                        //   color:"green"
-                        // }}
-                        placeholder={retrn}
-                        value={retrn}
-                        onChange={(newValue) => {
-                          setRetrn(newValue);
-                        }}
-
-                        renderInput={(params) => <TextField {...params} sx={{
-                          svg: { color:"#fff" },
-                          input: { color:"#fff",height:"10px" },
-                          label: { color:"#fff" }
-                        }} />}
-                      />
-                    </LocalizationProvider>
-                  </FormControl>
+                      // InputProps={{
+                      //   color:"green"
+                      // }}
+                      placeholder={retrn}
+                      value={retrn}
+                      onChange={(newValue) => {
+                        setRetrn(newValue);
+                      }}
+                      renderInput={(params) => (
+                        <TextField
+                          {...params}
+                          sx={{
+                            svg: { color: "#fff" },
+                            input: { color: "#fff", height: "10px" },
+                            label: { color: "#fff" },
+                          }}
+                        />
+                      )}
+                    />
+                  </LocalizationProvider>
+                </FormControl>
               </div>
               <div
                 className="col-2"
@@ -336,91 +366,139 @@ const [travellers, setTravellers] = React.useState(location.state.travellers);
                 >
                   PASSENGERS&CLASS
                 </h5>
-                <div className={styles.travellerContainer} style={{width:"100%", margin: "5px", right: "", padding: "0" ,height:"30px"}}>
-                <div onClick={onClickModal}>
-                  <div className={styles.travellersText}></div>
-                  <div className={styles.noOfTraveller} style={{ marginTop: "-26px" }}>
-                    <span style={{color:"#fff"}}>{travellers}</span>
-                    {travellers > 1 ? <span style={{color:"#fff"}}>Travellers</span> : ""}
-                  </div>
-                </div>
-
                 <div
-                  className={
-                    openTravellers ? styles.traveller_modal : styles.noDisplay
-                  }
+                  className={styles.travellerContainer}
+                  style={{
+                    width: "100%",
+                    margin: "5px",
+                    right: "",
+                    padding: "0",
+                    height: "30px",
+                  }}
                 >
-                  <div className={styles.adultChild}>ADULTS (12y +)</div>
-                  <div className={styles.passengerButtonContainer}>
-                    {arr.map((val) => (
-                      <div
-                        key={val}
-                        className={`${selectedButtonColor === val ? styles.clickPassenger : styles.passengerButton}`}
-                        onClick={() => {
-                          setTogglePassengerColor(!togglePassengerColor);
-                          onClickNoOfPass(val);
-                          setSelectedButtonColor(val)
-                        }}
-                      >
-                        {val}
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* for children and inf */}
-                  <div className={styles.infantChildren}>
-                    <div>
-                      <div className={styles.adultChild}>CHILDREN (2y - 12y )</div>
-                      <div className={styles.passengerButtonContainer}>
-                        {ar1.map((val) => (
-                          <div
-                            key={val}
-                            className={
-                              val === 0
-                                ? styles.clickPassenger
-                                : styles.passengerButton
-                            }
-                            onClick={() => {
-                              setTogglePassengerColor(!togglePassengerColor);
-                              onClickNoOfPass(val);
-                            }}
-                          >
-                            {val}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                    <div>
-                      <div className={styles.adultChild} >INFANTS (below 2y)</div>
-                      <div className={styles.passengerButtonContainer}>
-                        {ar1.map((val) => (
-                          <div
-                            key={val}
-                            className={
-                              val === 0
-                                ? styles.clickPassenger
-                                : styles.passengerButton
-                            }
-                            onClick={() => {
-                              setTogglePassengerColor(!togglePassengerColor);
-                              onClickNoOfPass(val);
-                            }}
-                          >
-                            {val}
-                          </div>
-                        ))}
-                      </div>
+                  <div onClick={onClickModal}>
+                    <div className={styles.travellersText}></div>
+                    <div
+                      className={styles.noOfTraveller}
+                      style={{ marginTop: "-26px" }}
+                    >
+                      <span style={{ color: "#fff" }}>{travellers}</span>
+                      {travellers > 1 ? (
+                        <span style={{ color: "#fff" }}>Travellers</span>
+                      ) : (
+                        ""
+                      )}
                     </div>
                   </div>
-                  {/* for children and inf */}
 
-                  <div className={styles.modalApplyText} onClick={onClickModal}>
-                    <div>Apply</div>
+                  <div
+                    className={
+                      openTravellers ? styles.traveller_modal : styles.noDisplay
+                    }
+                  >
+                    <div className={styles.adultChild}>ADULTS (12y +)</div>
+                    <div className={styles.passengerButtonContainer}>
+                      {arr.map((val) => (
+                        <div
+                          key={val}
+                          className={`${
+                            selectedButtonColor === val
+                              ? styles.clickPassenger
+                              : styles.passengerButton
+                          }`}
+                          onClick={() => {
+                            setTogglePassengerColor(!togglePassengerColor);
+                            onClickNoOfPass(val);
+                            setSelectedButtonColor(val);
+                          }}
+                        >
+                          {val}
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* for children and inf */}
+                    <div className={styles.infantChildren}>
+                      <div>
+                        <div className={styles.adultChild}>
+                          CHILDREN (2y - 12y )
+                        </div>
+                        <div className={styles.passengerButtonContainer}>
+                          {ar1.map((val) => (
+                            <div
+                              key={val}
+                              className={
+                                val === 0
+                                  ? styles.clickPassenger
+                                  : styles.passengerButton
+                              }
+                              onClick={() => {
+                                setTogglePassengerColor(!togglePassengerColor);
+                                onClickNoOfPass(val);
+                              }}
+                            >
+                              {val}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                      <div>
+                        <div className={styles.adultChild}>
+                          INFANTS (below 2y)
+                        </div>
+                        <div className={styles.passengerButtonContainer}>
+                          {ar1.map((val) => (
+                            <div
+                              key={val}
+                              className={
+                                val === 0
+                                  ? styles.clickPassenger
+                                  : styles.passengerButton
+                              }
+                              onClick={() => {
+                                setTogglePassengerColor(!togglePassengerColor);
+                                onClickNoOfPass(val);
+                              }}
+                            >
+                              {val}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                    {/* for children and inf */}
+
+                    <div
+                      className={styles.modalApplyText}
+                      onClick={onClickModal}
+                    >
+                      <div>Apply</div>
+                    </div>
                   </div>
                 </div>
-                
               </div>
-              
+              <div
+                // className="col-2"
+                style={{
+                  background: "",
+                  borderRadius: "10px",
+                  width: "160px",
+                  padding: "10px",
+                }}
+              >
+                <Button type="submit" onClick={handleSubmit} className={styles.buttonContainer1}
+            style={{
+              maxWidth: "130px",
+              minWidth: "129px",
+              borderRadius:"20px",
+              fontSize:"16px",
+              fontWeight:"bold",
+              display: "grid",
+              justifyContent: "center",
+              // justifyItems: "end",
+              // placeItems: "",
+              // marginLeft: "",
+            }}>Search</Button>
               </div>
             </>
           )}
@@ -447,11 +525,18 @@ const [travellers, setTravellers] = React.useState(location.state.travellers);
                 >
                   FROM
                 </h5>
-                <FormControl sx={{ width: "100%" }} style={{borderColor:"#fff"}}>
+                <FormControl
+                  sx={{ width: "100%" }}
+                  style={{ borderColor: "#fff" }}
+                >
                   <Select
-                    style={{ color: "#fff", height: "20px" ,borderColor:"white" }}
+                    style={{
+                      color: "#fff",
+                      height: "20px",
+                      borderColor: "white",
+                    }}
                     fullWidth
-                    sx={{ width: "100%"}}
+                    sx={{ width: "100%" }}
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     value={from}
@@ -526,35 +611,40 @@ const [travellers, setTravellers] = React.useState(location.state.travellers);
                 >
                   DEPART
                 </h5>
-                        
-                < FormControl sx={{ width: "100%" }} className="datepicker">
 
-                    <LocalizationProvider
-                      sx={{ width: "100%" }}
-                    style={{ color: "#fff", height: "20px" ,borderColor:"white" }}
-
-                      
-                      dateAdapter={AdapterDateFns}
+                <FormControl sx={{ width: "100%" }} className="datepicker">
+                  <LocalizationProvider
+                    sx={{ width: "100%" }}
+                    style={{
+                      color: "#fff",
+                      height: "20px",
+                      borderColor: "white",
+                    }}
+                    dateAdapter={AdapterDateFns}
+                    className="datepicker"
+                  >
+                    <DatePicker
+                      // label="Departure"
+                      // sx={{color:"#fff"}}
+                      placeholder={departure}
                       className="datepicker"
-
-                    >
-                      <DatePicker
-                        // label="Departure"
-                        // sx={{color:"#fff"}}
-                        placeholder={departure}
-                        className="datepicker"
-                        value={departure}
-                        onChange={(newValue) => {
-                          setDeparture(newValue);
-                        }}
-                        renderInput={(params) => <TextField {...params} sx={{
-                          svg: { color:"#fff" },
-                          input: { color:"#fff",height:"10px" },
-                          label: { color:"#fff" },
-                        }} />}
-                      />
-                    </LocalizationProvider>
-                  </FormControl>
+                      value={departure}
+                      onChange={(newValue) => {
+                        setDeparture(newValue);
+                      }}
+                      renderInput={(params) => (
+                        <TextField
+                          {...params}
+                          sx={{
+                            svg: { color: "#fff" },
+                            input: { color: "#fff", height: "10px" },
+                            label: { color: "#fff" },
+                          }}
+                        />
+                      )}
+                    />
+                  </LocalizationProvider>
+                </FormControl>
               </div>
               <div
                 className="col-2"
@@ -577,32 +667,35 @@ const [travellers, setTravellers] = React.useState(location.state.travellers);
                 >
                   RETURN
                 </h5>
-                < FormControl sx={{ width: "100%",height:"-10px" }}>
+                <FormControl sx={{ width: "100%", height: "-10px" }}>
+                  <LocalizationProvider
+                    sx={{ width: "100%", height: "-10px" }}
+                    dateAdapter={AdapterDateFns}
+                  >
+                    <DatePicker
+                      // label="Return"
 
-                    <LocalizationProvider
-                      sx={{ width: "100%",height:"-10px" }}
-                      dateAdapter={AdapterDateFns}
-                    >
-                      <DatePicker
-                        // label="Return"
-                        
-                        // InputProps={{
-                        //   color:"green"
-                        // }}
-                        placeholder={retrn}
-                        value={retrn}
-                        onChange={(newValue) => {
-                          setRetrn(newValue);
-                        }}
-
-                        renderInput={(params) => <TextField {...params} sx={{
-                          svg: { color:"#fff" },
-                          input: { color:"#fff",height:"10px" },
-                          label: { color:"#fff" }
-                        }} />}
-                      />
-                    </LocalizationProvider>
-                  </FormControl>
+                      // InputProps={{
+                      //   color:"green"
+                      // }}
+                      placeholder={retrn}
+                      value={retrn}
+                      onChange={(newValue) => {
+                        setRetrn(newValue);
+                      }}
+                      renderInput={(params) => (
+                        <TextField
+                          {...params}
+                          sx={{
+                            svg: { color: "#fff" },
+                            input: { color: "#fff", height: "10px" },
+                            label: { color: "#fff" },
+                          }}
+                        />
+                      )}
+                    />
+                  </LocalizationProvider>
+                </FormControl>
               </div>
               <div
                 className="col-2"
@@ -625,100 +718,147 @@ const [travellers, setTravellers] = React.useState(location.state.travellers);
                 >
                   PASSENGERS&CLASS
                 </h5>
-                <div className={styles.travellerContainer} style={{width:"100%", margin: "5px", right: "", padding: "0" ,height:"30px"}}>
-                <div onClick={onClickModal}>
-                  <div className={styles.travellersText}></div>
-                  <div className={styles.noOfTraveller} style={{ marginTop: "-26px" }}>
-                    <span style={{color:"#fff"}}>{travellers}</span>
-                    {travellers > 1 ? <span style={{color:"#fff"}}>Travellers</span> : ""}
-                  </div>
-                </div>
-
                 <div
-                  className={
-                    openTravellers ? styles.traveller_modal : styles.noDisplay
-                  }
+                  className={styles.travellerContainer}
+                  style={{
+                    width: "100%",
+                    margin: "5px",
+                    right: "",
+                    padding: "0",
+                    height: "30px",
+                  }}
                 >
-                  <div className={styles.adultChild}>ADULTS (12y +)</div>
-                  <div className={styles.passengerButtonContainer}>
-                    {arr.map((val) => (
-                      <div
-                        key={val}
-                        className={`${selectedButtonColor === val ? styles.clickPassenger : styles.passengerButton}`}
-                        onClick={() => {
-                          setTogglePassengerColor(!togglePassengerColor);
-                          onClickNoOfPass(val);
-                          setSelectedButtonColor(val)
-                        }}
-                      >
-                        {val}
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* for children and inf */}
-                  <div className={styles.infantChildren}>
-                    <div>
-                      <div className={styles.adultChild}>CHILDREN (2y - 12y )</div>
-                      <div className={styles.passengerButtonContainer}>
-                        {ar1.map((val) => (
-                          <div
-                            key={val}
-                            className={
-                              val === 0
-                                ? styles.clickPassenger
-                                : styles.passengerButton
-                            }
-                            onClick={() => {
-                              setTogglePassengerColor(!togglePassengerColor);
-                              onClickNoOfPass(val);
-                            }}
-                          >
-                            {val}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                    <div>
-                      <div className={styles.adultChild} >INFANTS (below 2y)</div>
-                      <div className={styles.passengerButtonContainer}>
-                        {ar1.map((val) => (
-                          <div
-                            key={val}
-                            className={
-                              val === 0
-                                ? styles.clickPassenger
-                                : styles.passengerButton
-                            }
-                            onClick={() => {
-                              setTogglePassengerColor(!togglePassengerColor);
-                              onClickNoOfPass(val);
-                            }}
-                          >
-                            {val}
-                          </div>
-                        ))}
-                      </div>
+                  <div onClick={onClickModal}>
+                    <div className={styles.travellersText}></div>
+                    <div
+                      className={styles.noOfTraveller}
+                      style={{ marginTop: "-26px" }}
+                    >
+                      <span style={{ color: "#fff" }}>{travellers}</span>
+                      {travellers > 1 ? (
+                        <span style={{ color: "#fff" }}>Travellers</span>
+                      ) : (
+                        ""
+                      )}
                     </div>
                   </div>
-                  {/* for children and inf */}
 
-                  <div className={styles.modalApplyText} onClick={onClickModal}>
-                    <div>Apply</div>
+                  <div
+                    className={
+                      openTravellers ? styles.traveller_modal : styles.noDisplay
+                    }
+                  >
+                    <div className={styles.adultChild}>ADULTS (12y +)</div>
+                    <div className={styles.passengerButtonContainer}>
+                      {arr.map((val) => (
+                        <div
+                          key={val}
+                          className={`${
+                            selectedButtonColor === val
+                              ? styles.clickPassenger
+                              : styles.passengerButton
+                          }`}
+                          onClick={() => {
+                            setTogglePassengerColor(!togglePassengerColor);
+                            onClickNoOfPass(val);
+                            setSelectedButtonColor(val);
+                          }}
+                        >
+                          {val}
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* for children and inf */}
+                    <div className={styles.infantChildren}>
+                      <div>
+                        <div className={styles.adultChild}>
+                          CHILDREN (2y - 12y )
+                        </div>
+                        <div className={styles.passengerButtonContainer}>
+                          {ar1.map((val) => (
+                            <div
+                              key={val}
+                              className={
+                                val === 0
+                                  ? styles.clickPassenger
+                                  : styles.passengerButton
+                              }
+                              onClick={() => {
+                                setTogglePassengerColor(!togglePassengerColor);
+                                onClickNoOfPass(val);
+                              }}
+                            >
+                              {val}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                      <div>
+                        <div className={styles.adultChild}>
+                          INFANTS (below 2y)
+                        </div>
+                        <div className={styles.passengerButtonContainer}>
+                          {ar1.map((val) => (
+                            <div
+                              key={val}
+                              className={
+                                val === 0
+                                  ? styles.clickPassenger
+                                  : styles.passengerButton
+                              }
+                              onClick={() => {
+                                setTogglePassengerColor(!togglePassengerColor);
+                                onClickNoOfPass(val);
+                              }}
+                            >
+                              {val}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                    {/* for children and inf */}
+
+                    <div
+                      className={styles.modalApplyText}
+                      onClick={onClickModal}
+                    >
+                      <div>Apply</div>
+                    </div>
                   </div>
+                  
                 </div>
-                <div className={styles.buttonContainer} style={{width:"100%",display:"grid",justifyContent:"center",marginLeft:"8rem"}}>
-        <div type="submit"  onClick={handleSubmit}>
-          Search
-        </div>
-      </div>
+                
               </div>
+              <div
+                // className="col-2"
+                style={{
+                  background: "",
+                  borderRadius: "10px",
+                  width: "160px",
+                  padding: "10px",
+                }}
+              >
+                <Button type="submit" onClick={handleSubmit} className={styles.buttonContainer1}
+            style={{
+              maxWidth: "130px",
+              minWidth: "129px",
+              borderRadius:"20px",
+              fontSize:"16px",
+              fontWeight:"bold",
+              display: "grid",
+              justifyContent: "center",
+              // justifyItems: "end",
+              // placeItems: "",
+              // marginLeft: "",
+            }}>Search</Button>
               </div>
             </>
           )}
           {multiCity && (
             <>
-            <div
+              <div
                 className="col-2"
                 style={{
                   background: "#0a223d",
@@ -739,11 +879,18 @@ const [travellers, setTravellers] = React.useState(location.state.travellers);
                 >
                   FROM
                 </h5>
-                <FormControl sx={{ width: "100%" }} style={{borderColor:"#fff"}}>
+                <FormControl
+                  sx={{ width: "100%" }}
+                  style={{ borderColor: "#fff" }}
+                >
                   <Select
-                    style={{ color: "#fff", height: "20px" ,borderColor:"white" }}
+                    style={{
+                      color: "#fff",
+                      height: "20px",
+                      borderColor: "white",
+                    }}
                     fullWidth
-                    sx={{ width: "100%"}}
+                    sx={{ width: "100%" }}
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     value={from}
@@ -759,7 +906,7 @@ const [travellers, setTravellers] = React.useState(location.state.travellers);
                   </Select>
                 </FormControl>
               </div>
-              
+
               <div
                 className="col-2"
                 style={{
@@ -781,103 +928,148 @@ const [travellers, setTravellers] = React.useState(location.state.travellers);
                 >
                   PASSENGERS&CLASS
                 </h5>
-                <div className={styles.travellerContainer} style={{width:"100%", margin: "5px", right: "", padding: "0" ,height:"30px"}}>
-                <div onClick={onClickModal}>
-                  <div className={styles.travellersText}></div>
-                  <div className={styles.noOfTraveller} style={{ marginTop: "-26px" }}>
-                    <span style={{color:"#fff"}}>{travellers}</span>
-                    {travellers > 1 ? <span style={{color:"#fff"}}>Travellers</span> : ""}
-                  </div>
-                </div>
-
                 <div
-                  className={
-                    openTravellers ? styles.traveller_modal : styles.noDisplay
-                  }
+                  className={styles.travellerContainer}
+                  style={{
+                    width: "100%",
+                    margin: "5px",
+                    right: "",
+                    padding: "0",
+                    height: "30px",
+                  }}
                 >
-                  <div className={styles.adultChild}>ADULTS (12y +)</div>
-                  <div className={styles.passengerButtonContainer}>
-                    {arr.map((val) => (
-                      <div
-                        key={val}
-                        className={`${selectedButtonColor === val ? styles.clickPassenger : styles.passengerButton}`}
-                        onClick={() => {
-                          setTogglePassengerColor(!togglePassengerColor);
-                          onClickNoOfPass(val);
-                          setSelectedButtonColor(val)
-                        }}
-                      >
-                        {val}
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* for children and inf */}
-                  <div className={styles.infantChildren}>
-                    <div>
-                      <div className={styles.adultChild}>CHILDREN (2y - 12y )</div>
-                      <div className={styles.passengerButtonContainer}>
-                        {ar1.map((val) => (
-                          <div
-                            key={val}
-                            className={
-                              val === 0
-                                ? styles.clickPassenger
-                                : styles.passengerButton
-                            }
-                            onClick={() => {
-                              setTogglePassengerColor(!togglePassengerColor);
-                              onClickNoOfPass(val);
-                            }}
-                          >
-                            {val}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                    <div>
-                      <div className={styles.adultChild} >INFANTS (below 2y)</div>
-                      <div className={styles.passengerButtonContainer}>
-                        {ar1.map((val) => (
-                          <div
-                            key={val}
-                            className={
-                              val === 0
-                                ? styles.clickPassenger
-                                : styles.passengerButton
-                            }
-                            onClick={() => {
-                              setTogglePassengerColor(!togglePassengerColor);
-                              onClickNoOfPass(val);
-                            }}
-                          >
-                            {val}
-                          </div>
-                        ))}
-                      </div>
+                  <div onClick={onClickModal}>
+                    <div className={styles.travellersText}></div>
+                    <div
+                      className={styles.noOfTraveller}
+                      style={{ marginTop: "-26px" }}
+                    >
+                      <span style={{ color: "#fff" }}>{travellers}</span>
+                      {travellers > 1 ? (
+                        <span style={{ color: "#fff" }}>Travellers</span>
+                      ) : (
+                        ""
+                      )}
                     </div>
                   </div>
-                  {/* for children and inf */}
 
-                  <div className={styles.modalApplyText} onClick={onClickModal}>
-                    <div>Apply</div>
+                  <div
+                    className={
+                      openTravellers ? styles.traveller_modal : styles.noDisplay
+                    }
+                  >
+                    <div className={styles.adultChild}>ADULTS (12y +)</div>
+                    <div className={styles.passengerButtonContainer}>
+                      {arr.map((val) => (
+                        <div
+                          key={val}
+                          className={`${
+                            selectedButtonColor === val
+                              ? styles.clickPassenger
+                              : styles.passengerButton
+                          }`}
+                          onClick={() => {
+                            setTogglePassengerColor(!togglePassengerColor);
+                            onClickNoOfPass(val);
+                            setSelectedButtonColor(val);
+                          }}
+                        >
+                          {val}
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* for children and inf */}
+                    <div className={styles.infantChildren}>
+                      <div>
+                        <div className={styles.adultChild}>
+                          CHILDREN (2y - 12y )
+                        </div>
+                        <div className={styles.passengerButtonContainer}>
+                          {ar1.map((val) => (
+                            <div
+                              key={val}
+                              className={
+                                val === 0
+                                  ? styles.clickPassenger
+                                  : styles.passengerButton
+                              }
+                              onClick={() => {
+                                setTogglePassengerColor(!togglePassengerColor);
+                                onClickNoOfPass(val);
+                              }}
+                            >
+                              {val}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                      <div>
+                        <div className={styles.adultChild}>
+                          INFANTS (below 2y)
+                        </div>
+                        <div className={styles.passengerButtonContainer}>
+                          {ar1.map((val) => (
+                            <div
+                              key={val}
+                              className={
+                                val === 0
+                                  ? styles.clickPassenger
+                                  : styles.passengerButton
+                              }
+                              onClick={() => {
+                                setTogglePassengerColor(!togglePassengerColor);
+                                onClickNoOfPass(val);
+                              }}
+                            >
+                              {val}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                    {/* for children and inf */}
+
+                    <div
+                      className={styles.modalApplyText}
+                      onClick={onClickModal}
+                    >
+                      <div>Apply</div>
+                    </div>
                   </div>
-                </div>
-                <div className={styles.buttonContainer} style={{width:"100%",display:"grid",justifyContent:"center",marginLeft:"8rem"}}>
+
+                  {/* <div className={styles.buttonContainer} style={{width:"100%",display:"grid",justifyContent:"center",marginLeft:"8rem"}}>
         <div type="submit"  onClick={handleSubmit}>
           Search
         </div>
-      </div>
+      </div> */}
+                </div>
               </div>
-              
+              <div
+                // className="col-2"
+                style={{
+                  background: "",
+                  borderRadius: "10px",
+                  width: "160px",
+                  padding: "10px",
+                }}
+              >
+                <Button type="submit" onClick={handleSubmit} className={styles.buttonContainer1}
+            style={{
+              maxWidth: "130px",
+              minWidth: "129px",
+              borderRadius:"20px",
+              fontSize:"16px",
+              fontWeight:"bold",
+              display: "grid",
+              justifyContent: "center",
+              // justifyItems: "end",
+              // placeItems: "",
+              // marginLeft: "",
+            }}>Search</Button>
               </div>
-              
             </>
-            
           )}
-          
-          
-          
         </Row>
         <div className="farerow2">
           <Row
@@ -925,7 +1117,7 @@ const [travellers, setTravellers] = React.useState(location.state.travellers);
               {" "}
               {/* <input type="radio" name="fare" className="fareradio"/> */}
               <span className="farespan" style={{ color: "#fff" }}>
-                Armed Forces
+                Armed Forces <span style={{ color: "red" }}>New</span>
                 <br />
                 {/* Fares <span className="new">NEW</span> */}
               </span>{" "}
@@ -992,11 +1184,23 @@ const [travellers, setTravellers] = React.useState(location.state.travellers);
             </Button>
             {/* <Button className="faretypesbutton5" variant=""><input type="radio" name="fare"/>1</Button> */}
           </Row>
-          <div className={styles.buttonContainer} style={{maxWidth:"130px",minWidth:"129px",marginTop:"335rem",display:"grid",justifyContent:"center",justifyItems:"end",placeItems:"",marginLeft:""}}>
-        <div type="submit"  onClick={handleSubmit}>
-          Search
-        </div>
-      </div>
+          {/* <div
+            className={styles.buttonContainer}
+            style={{
+              maxWidth: "130px",
+              minWidth: "129px",
+              marginTop: "335rem",
+              display: "grid",
+              justifyContent: "center",
+              justifyItems: "end",
+              placeItems: "",
+              marginLeft: "",
+            }}
+          >
+            <div type="submit" onClick={handleSubmit}>
+              Search
+            </div>
+          </div> */}
         </div>
 
         {/* </Container> */}
