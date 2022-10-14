@@ -10,6 +10,7 @@
     padding-left: 10px;
     
 }
+
 .dropdown-toggle{
   color: #fff !important;
 }
@@ -35,156 +36,6 @@
 }
 
 /*  */
-.listContainer {
-
-    display: flex;
-    justify-content: center;
-    margin-right: 4rem;
-    margin-top: 20px;
-    position: relative;
-    /* position: sticky; */
-    bottom: 9rem;
-
-    /* background: #e5eef4; */
-  }
-  
-  .listWrapper {
-    width: 70rem;
-    /* max-width: 1024px; */
-    flex-wrap: wrap;
-    display: flex;
-    gap: 20px;
-  }
-  
-  .listSearch {
-    flex: 1;
-    background-color: #fff;
-    padding: 10px;
-    width: 3rem !important;
-    /* border-radius: 10px; */
-    /* position: sticky; */
-    top: 10px;
-    -moz-box-shadow: 0 0 3px #ccc;
-    -webkit-box-shadow: 0 0 3px #ccc;
-    box-shadow: 0 0 6px rgb(158, 156, 156);
-    height: max-content;
-  }
-  
-  .filtertitle{
-    font-size: 16px;
-    font-weight: 900;
-    color: rgba(0,0,0,.85);
-    margin-bottom: 15px;
-    font-family: 'Lato',sans-serif !important;
-
-  }
-  
-  .filtername{
-    display: flex ;
-    flex-direction: row !important ;
-    gap: 5px;
-    margin-bottom: 10px;
-    text-align: end !important;
-    /* background-color: #140c28 !important; */
-  }
-  
-  .filtername>label{
-    font-size: 12px;
-  }
-  
-  .filtername>input{
-    height: 30px;
-    text-align: center !important;
-    border: none;
-    padding: 5px;
-  }
-  .lsitem>span{
-    height: 30px ;
-    padding: 5px;
-    background-color: white;
-    display: flex;
-    /* align-items: start !important; */
-    text-align: start !important;
-    cursor: pointer;
-  }
-  
-  .lsOptions{
-    padding: 10px;
-  }
-  
-  .lsOptionItem{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    color: #555;
-    font-size: 12px;
-  }
-  
-  .lsOptionInput{
-    width: 50px;
-  }
-  
-  .listSearch>button{
-    padding: 10px;
-    background-color: #0071c2;
-    color: white;
-    border: none;
-    width: 100%;
-    font-weight: 500;
-    cursor: pointer;
-  }
-  .lsitem{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin-bottom: 10px;
-    
-  }.lsitem>label{
-    font-size: 12px;
-  }
-  .lsitem>input{
-    height: 30px;
-    border: none;
-    padding: 5px;
-  }
-  .lsitem>input{
-    height: 30px;
-    border: none;
-    padding: 5px;
-  }
-  .lsitem>span{
-    height: 30px;
-    padding: 5px;
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-
-  }
-  .lsOptions{
-    padding:10px
-  }
-  .lsOptionItem{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    color: #555;
-    font-size: 12px;
-  }
-  .lsOptionInput{
-width: 50px;
-  }
-  .listSearch>button{
-    padding: 10px;
-    background-color: #0071c2;
-    color: white;
-    border: none;
-    width: 100%;
-    cursor: pointer;
-  }
-  .listResult {
-    flex: 3;
-  }
   .searchcenter{
     background-color: rgb(10, 10, 42);
 
@@ -239,28 +90,34 @@ width: 50px;
     color: rgb(255, 2, 2) !important;
     /* height: 0 !important; */
   }
-  /* .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
-    color: #fff !important;
-    height: 0 !important;
-    border-color: green !important;
-    border: none !important;
+  @media screen and (max-width:600px){
+    .col-1,.col-2{
+      width: 80% !important;
+      /* margin-right: 12rem; */
+      
+    }
+    
+    .searchfirstsec{
+    display: grid;
+    justify-content: center ;
+    }
+    .Searchbtn{
+      display: grid !important;
+      justify-content: center !important;
+      margin-left: auto;
+      margin-right: 40%;
+    }
+    .farerow3{
+      display: flex !important;
+      /* flex-direction: column !important; */
+      /* margin: 2rem; */
+      gap: 5px;
+      
+      /* width: 100px; */
+    }
+    .faretypes{
+      font-size: x-large;
+    }
+    
   }
-  .flight_travellerContainer__29lBK {
-    width: 30%;
-    height: 2rem;
-    padding-left: 4px;
-    margin-top: 10px;
-    padding-bottom: 4px;
-    margin-bottom: -1px;
-}
-.flight_travellersText__XNJHx {
-  padding-top: 7px;
-  padding-left: 106px;
-  font-size: 1.2em;
-  font-weight: bold;
-  color: rgb(62, 59, 59);
-}
-.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input ::before{
-  color: #fff;
-  
-} */
+ 

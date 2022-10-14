@@ -40,6 +40,7 @@ function Search() {
   const [roundTrip, setRoundTrip] = useState(false);
   const [multiCity, setMultiCity] = useState(false);
   const [query, setQuery] = useState("");
+  const [title, setTitle] = useState("ONEWAY");
 
   const [from, setFrom] = React.useState(location.state.from);
   const [to, setTo] = React.useState(location.state.to);
@@ -61,16 +62,21 @@ function Search() {
     setOneway(true);
     setMultiCity(false);
     setRoundTrip(false);
+    setTitle("ONEWAY")
   };
   const RoundtripHandler = () => {
     setOneway(false);
     setMultiCity(false);
     setRoundTrip(true);
+    setTitle("ROUND TRIP")
+
   };
   const MulticityHandler = () => {
     setOneway(false);
     setMultiCity(true);
     setRoundTrip(false);
+    setTitle("MULTI CITY")
+
   };
   const navigate = useNavigate();
 
@@ -99,6 +105,7 @@ function Search() {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+  
   return (
     <div className="">
       <div className="searchfirstsec" style={{ paddingBottom: "80px" }}>
@@ -138,7 +145,7 @@ function Search() {
             <DropdownButton
               id="dropdown-basic-button"
               variant=""
-              title="SELECT"
+              title={title}
               style={{ color: "#fff", width: "8px", backgroundColor: "" }}
             >
               <Dropdown.Item onClick={OnewayHandler}> ONE WAY</Dropdown.Item>
@@ -478,7 +485,7 @@ function Search() {
                 </div>
               </div>
               <div
-                // className="col-2"
+                className="Searchbtn"
                 style={{
                   background: "",
                   borderRadius: "10px",
@@ -1082,6 +1089,7 @@ function Search() {
               display: "flex",
               flexDirection: "row",
             }}
+            className="farerow3"
           >
             <span
               className="faretypes "
