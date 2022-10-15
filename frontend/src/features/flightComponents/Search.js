@@ -48,6 +48,7 @@ function Search() {
   const [retrn, setRetrn] = React.useState(location.state.retrn);
   const arr = [1, 2, 3, 4, 5, 6, 7, 8];
   let ar1 = [0, 1, 2, 3, 4, 5];
+  let ar2 = [0, 1, 2, 3, 4, ];
 
   // const navigate = useNavigate();
   const onClickModal = (e) => {
@@ -454,7 +455,7 @@ function Search() {
                           INFANTS (below 2y)
                         </div>
                         <div className={styles.passengerButtonContainer}>
-                          {ar1.map((val) => (
+                          {ar2.map((val) => (
                             <div
                               key={val}
                               className={

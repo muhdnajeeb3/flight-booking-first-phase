@@ -13,6 +13,7 @@ import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import Login from "./Login";
+import logo from './logo.jpeg'
 import {
   WorkOutlineOutlined,
   PersonOutlineOutlined
@@ -37,8 +38,9 @@ const Navbar = ({ isUserLoggedIn, user }) => {
             <div className={styles.logoWrapper}>
               <a href="/" className={styles.logoimg}>
                 <img
-                  src="https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/header/logo@2x.png"
+                  src={logo}
                   alt="Logo"
+                  style={{width:"100%",height:"5rem",marginLeft:"2rem"}}
                 />
               </a>
             </div>

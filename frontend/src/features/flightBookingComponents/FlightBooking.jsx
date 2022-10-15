@@ -8,7 +8,7 @@ import { useState } from "react";
 import { CircularProgress } from "@mui/material";
 import { useSelector } from "react-redux";
 import { Form } from "./Form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Login from "../../Components/Login";
 import { ListenerContext } from "../../Contexts/ListenerProvider";
 import { Button, Col, Row } from "react-bootstrap";
@@ -49,8 +49,11 @@ export const FlightBooking = () => {
             <div
               style={{ background: "rgb(10, 10, 42)", minHeight: "16rem" }}
             ></div>
-            <div style={{ position: "relative", bottom: "14rem" }}>
-              <React.Fragment style={{ position: "relative", bottom: "5rem" }}>
+            <div style={{ position: "relative", bottom: "14rem", width: "" }}>
+              <React.Fragment
+                style={{ position: "relative", bottom: "5rem" }}
+                className={styles.bookingdetails}
+              >
                 <div className={styles.header} style={{ color: "#fff" }}>
                   <b>Complete Your Booking</b>
                 </div>
@@ -60,28 +63,220 @@ export const FlightBooking = () => {
                       <SingleBooking flight={flight} />
                     </React.Fragment>
                     {/* <img style={{ width: "100%", marginTop: "1%" }} src={img} /> */}
-                    <img
+                    {/* <img
                       style={{ width: "100%", marginTop: "1%" }}
                       src={img1}
-                    />
-                    {/* <div className="importantinformation">
-                  <Row>
-                    <span>Important Information</span>
-
-                  </Row>
-                </div> */}
+                    /> */}
+                    <div className={styles.importantinformation}>
+                      <Row
+                        style={{
+                          background: "#fff",
+                          marginTop: "15px",
+                          margin: "10px",
+                          fontFamily: "sans-serif",
+                        }}
+                      >
+                        <span
+                          style={{
+                            marginBottom: "12px",
+                            marginTop: "12px",
+                            fontWeight: "900",
+                            fontSize: "18px",
+                            lineHeight: "1.2",
+                          }}
+                        >
+                          Important Information
+                        </span>
+                        <Row>
+                          <span
+                            style={{
+                              marginLeft: "20px",
+                              fontWeight: "900",
+                              fontSize: "14px",
+                              lineHeight: "1.5",
+                              marginBottom: "12px",
+                            }}
+                          >
+                            Check travel guidlines issued by Karnataka below:
+                          </span>
+                        </Row>
+                        <Row>
+                          <span>
+                            <li
+                              style={{
+                                lineHeight: "18px",
+                                fontWeight: "400",
+                                fontSize: "12px",
+                              }}
+                            >
+                              <b>COVID test/vaccination rules: </b>
+                              <span>
+                                All travellers must either carry their COVIDA
+                                vaccination certificate (2 doses token) or a
+                                negative RT-PCR test report.
+                              </span>
+                            </li>
+                            <li
+                              style={{
+                                lineHeight: "18px",
+                                fontWeight: "400",
+                                fontSize: "12px",
+                              }}
+                            >
+                              <b>Test on Arrival : </b>
+                              <span>No test on arrival.</span>
+                            </li>
+                            <li
+                              style={{
+                                lineHeight: "18px",
+                                fontWeight: "400",
+                                fontSize: "12px",
+                              }}
+                            >
+                              <b>Quarantine Guidelines: </b>
+                              <span>
+                                Specific guidelines for quarantine may apply for
+                                some places. Please refer to the complete list
+                                of travel guidelines (link given below) for
+                                further details
+                              </span>
+                            </li>
+                            <li
+                              style={{
+                                lineHeight: "18px",
+                                fontWeight: "400",
+                                fontSize: "12px",
+                              }}
+                            >
+                              <span>
+                                For the complete list of travel guidelines
+                                issued by Indian States and UTs,{" "}
+                                <Link to="">click here</Link>
+                              </span>
+                            </li>
+                            <li
+                              style={{
+                                lineHeight: "18px",
+                                fontWeight: "400",
+                                fontSize: "12px",
+                              }}
+                            >
+                              <span>
+                                Travel guidelines change frequently and the
+                                information listed here is not exhaustive.
+                                Kindly refer to the complete set of rules and
+                                guidelines issued by the airlines and regulatory
+                                authorities for a smooth journey. We accept no
+                                liability in this regard.
+                              </span>
+                            </li>
+                            <li
+                              style={{
+                                lineHeight: "18px",
+                                fontWeight: "400",
+                                fontSize: "12px",
+                              }}
+                            >
+                              <b>
+                                The latest DGCA guidelines state that it is
+                                compulsory to wear a mask that covers the nose
+                                and mouth properly while at the airport and on
+                                the flight. Any lapse might result in
+                                de-boarding.
+                              </b>
+                            </li>
+                          </span>
+                        </Row>
+                        <Row
+                          style={{
+                            marginBottom: "12px",
+                            marginTop: "12px",
+                            fontWeight: "900",
+                            fontSize: "18px",
+                          }}
+                        >
+                          <b style={{ marginLeft: "20px" }}>
+                            Baggage informaton
+                          </b>
+                        </Row>
+                        <Row>
+                          <li
+                            style={{
+                              lineHeight: "18px",
+                              fontWeight: "400",
+                              fontSize: "12px",
+                              marginBottom: "15px",
+                            }}
+                          >
+                            {" "}
+                            Carry no more than 1 check-in baggage and 1 hand
+                            baggage per passenger. Additional pieces of Baggage
+                            will be subject to additional charges per piece in
+                            addition to the excess baggage charges.
+                          </li>
+                        </Row>
+                      </Row>
+                    </div>
                     <div
                       style={{
-                        width: "98%",
-                        margin: "1%",
+                        width: "96%",
+                        margin: "0%",
                         display: "flex",
                         flexDirection: "column",
+                        background: "#fff",
+                        borderRadius: "5px",
+                        marginRight:"113rem"
                       }}
+                      className={styles.bookingdetails}
                     >
-                      <b style={{ marginLeft: "1%", fontSize: "20px" }}>
+                      <b
+                        style={{
+                          marginLeft: "1rem",
+                          fontSize: "20px",
+                          marginBottom: "10px",
+                          marginTop: "10px",
+                        }}
+                      >
                         Travel Details
                       </b>
+                      <Row
+                        style={{
+                          background: "#e5eef4",
+                          width: "95%",
+                          marginLeft: "1rem",
+                          minHeight: "3rem",
+                          borderRadius: "3px",
+                          padding:"10px"
+                        }}
+                      >
+                        
+                        <span style={{ fontSize: "14px", marginTop: "10px" }}>
+                          Login in to view your{" "}
+                          <span
+                            style={{
+                              fontWeight: "900",
+                              fontSize: "14px",
+                              fontFamily: "sans-serif",
+                              marginLeft: "auto",
+                            }}
+                          >
+                            saved traveller list,unlock amazing deals
+                          </span>{" "}
+                          <span style={{ fontSize: "14px", marginTop: "10px" }}>
+                            {" "}
+                            & much more!
+                          </span>
+                        </span>
+                      </Row>
+                      <Row style={{marginTop:"15px",fontFamily:"sans-serif",fontSize:"14px",marginBottom:"10px"}}>
+                        <div style={{display:"flex",flexDirection:"row",justifyContent:"space-between"}}>
+                          <div ><span style={{fontWeight:"400",paddingLeft:"1rem",lineHeight:"1.5"}}>ADULT (12 yrs+)</span></div>
+                          <div style={{paddingRight:"1rem",fontWeight:'400',lineHeight:"1.5"}}><span >0/1 </span><span style={{color:"grey"}}>added</span></div>
+                        </div>
+                      </Row>
                       <Form tag={1} />
+                      <hr />
+
                       <Form tag={2} />
                       <hr />
                       {/* booking details send */}
@@ -92,37 +287,46 @@ export const FlightBooking = () => {
                             marginBottom: "10px",
                             backgroundColor: "#fff",
                             padding: "10px",
-                            margin:"1rem"
+                            margin: "1rem",
                           }}
                         >
                           <Row>
-                            <span style={{lineHeight:"1.5",fontWeight:"700",marginBottom:"15px",fontFamily:"sans-serif",fontSize:"14px"}}>Booking details will be sent to</span>
+                            <span
+                              style={{
+                                lineHeight: "1.5",
+                                fontWeight: "700",
+                                marginBottom: "15px",
+                                fontFamily: "sans-serif",
+                                fontSize: "14px",
+                              }}
+                            >
+                              Booking details will be sent to
+                            </span>
                           </Row>
 
                           <Row
                             style={{ display: "flex", flexDirection: "row" }}
                           >
-                            <Col style={{marginBottom:"15px"}}>
-                            <h5
+                            <Col style={{ marginBottom: "15px" }}>
+                              <h5
                                 style={{
                                   fontWeight: "400",
                                   fontFamily: "sans-serif",
                                   fontSize: "14px",
-                                  marginTop:"10px"
-
+                                  marginTop: "10px",
                                 }}
                               >
                                 Country Code
                               </h5>
                               <input type="text" placeholder="CountryCode" />
                             </Col>
-                            <Col style={{marginBottom:"15px"}}>
+                            <Col style={{ marginBottom: "15px" }}>
                               <h5
                                 style={{
                                   fontWeight: "400",
                                   fontFamily: "sans-serif",
                                   fontSize: "14px",
-                                  marginTop:"10px"
+                                  marginTop: "10px",
                                 }}
                               >
                                 Mobile No
@@ -130,14 +334,13 @@ export const FlightBooking = () => {
 
                               <input type="text" placeholder="Mobile No." />
                             </Col>
-                            <Col style={{marginBottom:"15px"}}>
+                            <Col style={{ marginBottom: "15px" }}>
                               <h5
                                 style={{
                                   fontWeight: "400",
                                   fontFamily: "sans-serif",
                                   fontSize: "14px",
-                                  marginTop:"10px"
-
+                                  marginTop: "10px",
                                 }}
                               >
                                 Email
@@ -155,9 +358,9 @@ export const FlightBooking = () => {
                                   justifyContent: "center",
                                   minWidth: "80px",
                                   padding: "10px",
-                                  borderRadius:"35px",
-                                  maxHeight:"2.5rem",fontSize:"15px"
-
+                                  borderRadius: "35px",
+                                  maxHeight: "2.5rem",
+                                  fontSize: "15px",
                                 }}
                               >
                                 ADD
@@ -170,15 +373,19 @@ export const FlightBooking = () => {
                       <button onClick={handleButton} className={styles.btnPay}>
                         CONTINUE
                       </button>
-                      <Row
+                      
+                    </div>
+                    <Row
                         style={{
                           marginTop: "10px",
                           backgroundColor: "#fff",
                           height: "5rem",
-                          margin: "10px",
-                          marginLeft: "10px",
+                          // margin: "1px",
+                          marginTop:"15px",
+                          marginLeft: "0px",
                           cursor: "not-allowed",
                         }}
+                        className={styles.Seatsandmeals}
                       >
                         <span
                           style={{
@@ -191,7 +398,6 @@ export const FlightBooking = () => {
                           Seats & Meals
                         </span>
                       </Row>
-                    </div>
                   </div>
                   {/* Seats and meals */}
                   <div className={styles.fare}>
@@ -207,6 +413,8 @@ export const FlightBooking = () => {
                           width: "9%",
                           height: "100%",
                           textAlign: "center",
+                          display: "grid",
+                          justifyContent: "center",
                         }}
                         onClick={() => setBfare(!bfare)}
                       >
@@ -245,9 +453,11 @@ export const FlightBooking = () => {
                           borderRadius: "50%",
                           marginRight: "1%",
                           cursor: "pointer",
-                          width: "9%",
+                          width: "10%",
                           height: "100%",
                           textAlign: "center",
+                          display: "grid",
+                          justifyContent: "center",
                         }}
                         onClick={() => setSurge(!surge)}
                       >
