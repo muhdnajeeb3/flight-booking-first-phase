@@ -48,9 +48,9 @@ body {
   cursor: pointer;
 }
 .singleflight {
-  margin-top: 1%;
+  margin-top: 2%;
   height: fit-content;
-  padding: 0.5%;
+  padding: 1%;
   border-radius: 5px;
   background-color: white;
   -moz-box-shadow: 0 0 3px #ccc;

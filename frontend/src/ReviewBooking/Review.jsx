@@ -286,7 +286,7 @@ const Review = () => {
 
                 <div className={style_r.paynow_container}>
                   <p>
-                    By proceeding, I agree to MakeMyTrip’s{" "}
+                    By proceeding, I agree to SHAAB TRIP’s{" "}
                     <span>User Agreement, Terms of Service</span> and{" "}
                     <span>Cancellation & Property Booking Policies</span> .
                   </p>

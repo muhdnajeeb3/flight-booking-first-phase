@@ -854,7 +854,7 @@ const FlightHome = () => {
               <div style={{ borderColor: "black", display: "grid", justifyContent: "start", marginTop: "5px" }}>
                 <Button
                   style={{ height: "30px", borderColor: "blue", borderRadius: "5px", color: "blue", fontFamily: "sans-serif", fontWeight: "600" }}
-                  onClick={() => HANDLEADD()}>
+                  onClick={() => HANDLEADD()} variant="">
                   + ADD ANOTHER CITY
                 </Button>
               </div>
@@ -956,7 +956,7 @@ const FlightHome = () => {
                 </div>
                 <div style={{ borderColor: "black", display: "grid", justifyContent: "start", marginTop: "5px" }}>
                   <Button style={{ height: "30px", borderRadius: "5px", borderColor: "Red", color: "red", fontFamily: "sans-serif", fontWeight: "600" }}
-                    onClick={() => DELETEHANDLER(i)}>
+                    onClick={() => DELETEHANDLER(i)} variant="">
                     X REMOVE
                   </Button>
                 </div>

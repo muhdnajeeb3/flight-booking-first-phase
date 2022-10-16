@@ -11,8 +11,10 @@ import { Form } from "./Form";
 import { Link, useNavigate } from "react-router-dom";
 import Login from "../../Components/Login";
 import { ListenerContext } from "../../Contexts/ListenerProvider";
-import { Button, Col, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import { minHeight } from "@mui/system";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faUserCircle } from "@fortawesome/free-solid-svg-icons";
 export const FlightBooking = () => {
   const navigate = useNavigate();
   const { loading, error, flight } = useSelector((state) => ({
@@ -23,6 +25,8 @@ export const FlightBooking = () => {
   var price = flight.fare;
   const [bfare, setBfare] = useState(false);
   const [surge, setSurge] = useState(false);
+  const [addnewadult,setAddnewadult] = useState([])
+  const [seatsandmeals,setSeatsandmeals] = useState(false)
   const finalAmount = 2 * price + 1860;
   const { setOpen } = useContext(ListenerContext);
 
@@ -35,6 +39,9 @@ export const FlightBooking = () => {
       setOpen(true);
     }
   };
+  const SEATSANDMEALS = () => {
+    setSeatsandmeals(!seatsandmeals)
+  }
   return (
     <div>
       {loading ? (
@@ -46,8 +53,8 @@ export const FlightBooking = () => {
       ) : (
         flight && (
           <>
-            <div
-              style={{ background: "rgb(10, 10, 42)", minHeight: "16rem" }}
+            <div className={styles.bookingheadbg}
+              style={{ minHeight: "16rem" }}
             ></div>
             <div style={{ position: "relative", bottom: "14rem", width: "" }}>
               <React.Fragment
@@ -251,7 +258,7 @@ export const FlightBooking = () => {
                       >
                         
                         <span style={{ fontSize: "14px", marginTop: "10px" }}>
-                          Login in to view your{" "}
+                        <FontAwesomeIcon icon={faUser} /> Login in to view your{" "}
                           <span
                             style={{
                               fontWeight: "900",
@@ -270,11 +277,18 @@ export const FlightBooking = () => {
                       </Row>
                       <Row style={{marginTop:"15px",fontFamily:"sans-serif",fontSize:"14px",marginBottom:"10px"}}>
                         <div style={{display:"flex",flexDirection:"row",justifyContent:"space-between"}}>
-                          <div ><span style={{fontWeight:"400",paddingLeft:"1rem",lineHeight:"1.5"}}>ADULT (12 yrs+)</span></div>
+                          <div  ><span style={{fontWeight:"400",paddingLeft:"1rem",lineHeight:"1.5"}}> <FontAwesomeIcon icon={faUserCircle}  style={{paddingRight:"5px"}}/>ADULT (12 yrs+)</span></div>
                           <div style={{paddingRight:"1rem",fontWeight:'400',lineHeight:"1.5"}}><span >0/1 </span><span style={{color:"grey"}}>added</span></div>
                         </div>
                       </Row>
+                      {addnewadult.map((data, i) => {
+                      return (
+                      <>
                       <Form tag={1} />
+                      </>
+                      )
+                      })}
+                      
                       <hr />
 
                       <Form tag={2} />
@@ -305,7 +319,8 @@ export const FlightBooking = () => {
                           </Row>
 
                           <Row
-                            style={{ display: "flex", flexDirection: "row" }}
+                            // style={{ display: "flex", flexDirection: "row" }}
+                            className={styles.sendtouser}
                           >
                             <Col style={{ marginBottom: "15px" }}>
                               <h5
@@ -318,7 +333,7 @@ export const FlightBooking = () => {
                               >
                                 Country Code
                               </h5>
-                              <input type="text" placeholder="CountryCode" />
+                              <input type="text" placeholder="CountryCode" className={styles.inputdetails} />
                             </Col>
                             <Col style={{ marginBottom: "15px" }}>
                               <h5
@@ -332,7 +347,7 @@ export const FlightBooking = () => {
                                 Mobile No
                               </h5>
 
-                              <input type="text" placeholder="Mobile No." />
+                              <input type="text" placeholder="Mobile No." className={styles.inputdetails} />
                             </Col>
                             <Col style={{ marginBottom: "15px" }}>
                               <h5
@@ -345,9 +360,9 @@ export const FlightBooking = () => {
                               >
                                 Email
                               </h5>
-                              <input type="text" placeholder="Email" />
+                              <input type="text" placeholder="Email" className={styles.inputdetails}/>
                             </Col>
-                            <Col>
+                            {/* <Col>
                               <h5></h5>
                               <button
                                 className={styles.btnSubmit}
@@ -365,16 +380,16 @@ export const FlightBooking = () => {
                               >
                                 ADD
                               </button>
-                            </Col>
+                            </Col> */}
                           </Row>
                         </Row>
                       </div>
-
-                      <button onClick={handleButton} className={styles.btnPay}>
-                        CONTINUE
-                      </button>
+                      
                       
                     </div>
+                    <button onClick={handleButton} className={styles.btnPay}>
+                        CONTINUE
+                      </button>
                     <Row
                         style={{
                           marginTop: "10px",
@@ -386,6 +401,7 @@ export const FlightBooking = () => {
                           cursor: "not-allowed",
                         }}
                         className={styles.Seatsandmeals}
+                        onClick={SEATSANDMEALS}
                       >
                         <span
                           style={{
@@ -398,6 +414,26 @@ export const FlightBooking = () => {
                           Seats & Meals
                         </span>
                       </Row>
+                      {seatsandmeals && (
+                        <>
+                        <div className={styles.Seatsandmealsdetails}>
+
+                        <Container fluid style={{width:"100%" ,backgroundColor:"#fff",marginRight:"100px"}} >
+                          <Row style={{display:"flex",flexDirection:"row",marginTop:"10px"}}>
+                            <Button style={{width:"20%"}}><span>Seats</span></Button>
+                            <Button style={{width:"20%"}}><span>Meals</span></Button>
+                          </Row>
+                        </Container>
+                        <Container fluid style={{width:"100%" ,backgroundColor:"lightgrey",marginRight:"100px",marginTop:"10px",display:"grid",justifyContent:"center"}}>
+                          <Row style={{alignItems:"center",padding:"7px 10px",minHeight:"34px",backgroundColor:"#b5ffd6",width:"98%",borderRadius:"2px",marginTop:"10px",marginBottom:"10px"}}>
+                            <span style={{lineHeight:'1.5'}}>Less than 48 hours to departure.Pre-book your preferred seat now before they run out!</span>
+                          </Row>
+                        </Container>
+                        </div>
+
+
+                        </>
+                      )}
                   </div>
                   {/* Seats and meals */}
                   <div className={styles.fare}>

@@ -1,5 +1,6 @@
 .searchfirstsec{
-    background-color: rgb(10, 10, 42);
+    /* background-color: rgb(10, 10, 42); */
+    background-image: linear-gradient(0deg,#15457b,#051423);
     /* background-image: linear-gradient(0deg,#15457b,#051423); */
     width: 100%;
    

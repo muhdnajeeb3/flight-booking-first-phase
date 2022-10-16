@@ -85,7 +85,7 @@ export const Form = ({ tag }) => {
       <hr />
 
           <Row>
-        <Button variant="" style={{color:"blue",minWidth:"50%",marginLeft:"10px",height:"3rem",display:"grid",justifyContent:"start",lineHeight:"1.2"}} className={styles.addnew}>+ ADD NEW ADULT</Button>
+        <Button variant="" style={{color:"blue",minWidth:"50%",marginLeft:"10px",height:"3rem",display:"grid",justifyContent:"start",lineHeight:"1.2",border:"none"}} className={styles.addnew} >+ ADD NEW ADULT</Button>
       </Row>
           {/* <Row style={{marginTop:"30px",marginLeft:"20px"}}>
           <div style={{width:"20px",display:"flex",flexDirection:"",gap:"10px"}} onChange={(e)=>setGender(e.target.value)}>
