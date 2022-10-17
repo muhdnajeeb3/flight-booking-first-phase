@@ -10,7 +10,7 @@ const FareTypes = () => {
           <p>Regular fees</p>
         </div>
         <div className={styles.selectBox}>
-          <input type="radio" name="fares" />
+          <input type="radio" name="fares"  />
           <p>Armed Forces</p>
         </div>
         <div className={styles.selectBox}>
@@ -29,10 +29,10 @@ const FareTypes = () => {
       <div className={styles.div2}>
         <div className={styles.second}>Trending Searches:</div>
         <div className={styles.selectBox1}>
-          <p>Chennai to Hydrabad</p>
+          <p>#Chennai to Hydrabad</p>
         </div>
         <div className={styles.selectBox1}>
-          <p>Delhi to Kolkata</p>
+          <p>#Delhi to Kolkata</p>
         </div>
       </div>
     </div>

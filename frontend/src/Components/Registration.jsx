@@ -116,7 +116,7 @@ const Registration = () => {
       </div>
 
       <div className={styles.terms_text}>
-        By proceeding, you agree to MakeMyTrip's
+        By proceeding, you agree to SHAABTRIP's
         <span>Privacy Policy</span> ,<span>Privacy Policy</span> and
         <span>T&Cs</span>
       </div>

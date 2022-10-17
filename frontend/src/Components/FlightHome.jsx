@@ -70,17 +70,18 @@ const FlightHome = () => {
       <div className={styles.flight_container}>
         <div className={styles.tripInternational}>
           <div className={styles.multiple_trip}>
-            <div>
+            
+            <div className={styles.orm}>
               <Button className="radiobutton" style={{ border: "none" }} variant="">
                 <input
                   type="radio"
                   value="select"
                   name="select"
-                  className="onewaytitle"
+                  className="onewayinput"
                   onChange={ONEWAY}
                   onClick={() => setOneWay(true)}
                 />
-                <span className="onewaytitle">ONE WAY</span>
+                <b className="onewaytitle">ONE WAY</b>
               </Button>
             </div>
             <div>
@@ -180,7 +181,7 @@ const FlightHome = () => {
               {/* departure and return date start */}
               <div className={styles.DepRetContainer}>
                 {/* departure date starts */}
-                <div style={{ width: "95%", marginTop: "-5px" }}>
+                <div style={{ width: "96%", marginTop: "-5px" }}>
                   < FormControl sx={{ width: "100%" }}>
 
                     <LocalizationProvider
@@ -203,7 +204,7 @@ const FlightHome = () => {
               {/* return */}
               <div className={styles.DepRetContainer}>
                 {/* departure date starts */}
-                <div style={{ width: "95%", marginTop: "-4px" }}>
+                <div style={{ width: "96%", marginTop: "-4px" }}>
                   < FormControl sx={{ width: "100%" }}>
 
                     <LocalizationProvider
@@ -396,7 +397,7 @@ const FlightHome = () => {
               {/* departure and return date start */}
               <div className={styles.DepRetContainer}>
                 {/* departure date starts */}
-                <div style={{ width: "90%", marginTop: "-5px" }}>
+                <div style={{ width: "96%", marginTop: "-5px" }}>
                   < FormControl sx={{ width: "100%" }}>
 
                     <LocalizationProvider
@@ -434,7 +435,7 @@ const FlightHome = () => {
               {/* return */}
               <div className={styles.DepRetContainer}>
                 {/* departure date starts */}
-                <div style={{ width: "90%", marginTop: "-5px" }}>
+                <div style={{ width: "96%", marginTop: "-5px" }}>
                   < FormControl sx={{ width: "100%" }}>
 
                     <LocalizationProvider
@@ -625,7 +626,7 @@ const FlightHome = () => {
               {/* departure and return date start */}
               <div className={styles.DepRetContainer}>
                 {/* departure date starts */}
-                <div style={{ width: "90%", marginTop: "-5px" }}>
+                <div style={{ width: "96%", marginTop: "-5px" }}>
                   < FormControl sx={{ width: "100%" }}>
 
                     <LocalizationProvider
@@ -668,7 +669,7 @@ const FlightHome = () => {
               {/* departure and return date end */}
 
               {/* number of travellers start */}
-              <div className={styles.travellerContainer} style={{ marginTop: "0px", right: "12px", }}>
+              <div className={styles.travellerContainer} style={{ marginTop: "px", right: "12px", }}>
                 <div onClick={onClickModal}>
                   <div className={styles.travellersText}>TRAVELLERS</div>
                   <div className={styles.noOfTraveller} style={{ marginTop: "-6px" }}>
@@ -816,7 +817,7 @@ const FlightHome = () => {
               {/* departure and return date start */}
               <div className={styles.DepRetContainer} style={{ marginRight: "auto", }}>
                 {/* departure date starts */}
-                <div style={{ width: "90%", marginTop: "-5px" }}>
+                <div style={{ width: "96%", marginTop: "-5px" }}>
                   < FormControl sx={{ width: "100%" }}>
 
                     <LocalizationProvider
@@ -853,7 +854,7 @@ const FlightHome = () => {
               </div>
               <div style={{ borderColor: "black", display: "grid", justifyContent: "start", marginTop: "5px" }}>
                 <Button
-                  style={{ height: "30px", borderColor: "blue", borderRadius: "5px", color: "blue", fontFamily: "sans-serif", fontWeight: "600" }}
+                  style={{ height: "30px", borderColor: "grey", borderRadius: "5px", color: "green", fontFamily: "sans-serif", fontWeight: "600" ,fontSize:"14px",display:"grid",justifyContent:"center"}}
                   onClick={() => HANDLEADD()} variant="">
                   + ADD ANOTHER CITY
                 </Button>
@@ -935,7 +936,7 @@ const FlightHome = () => {
                 {/* departure and return date start */}
                 <div className={styles.DepRetContainer} style={{ marginRight: "auto", }}>
                   {/* departure date starts */}
-                  <div style={{ width: "90%", marginTop: "-5px" }}>
+                  <div style={{ width: "96%", marginTop: "-5px" }}>
                     < FormControl sx={{ width: "100%" }}>
 
                       <LocalizationProvider
@@ -955,7 +956,7 @@ const FlightHome = () => {
                   </div>
                 </div>
                 <div style={{ borderColor: "black", display: "grid", justifyContent: "start", marginTop: "5px" }}>
-                  <Button style={{ height: "30px", borderRadius: "5px", borderColor: "Red", color: "red", fontFamily: "sans-serif", fontWeight: "600" }}
+                  <Button style={{ height: "30px", borderRadius: "5px", borderColor: "Red", color: "red", fontFamily: "sans-serif", fontWeight: "600" ,fontSize:"14px",display:"grid",justifyContent:"center"}}
                     onClick={() => DELETEHANDLER(i)} variant="">
                     X REMOVE
                   </Button>

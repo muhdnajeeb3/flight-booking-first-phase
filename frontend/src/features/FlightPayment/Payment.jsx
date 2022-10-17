@@ -194,7 +194,7 @@ export const Payment = () => {
           <div style={{ marginTop: "50px", fontSize: "12px", width: "80%" }}>
             <b>
               By continuing to pay, I understand and agree with the privacy
-              policy, the user agreement and terms of service of makemytrip.
+              policy, the user agreement and terms of service of SHAABTRIP.
             </b>
           </div>
         </div>

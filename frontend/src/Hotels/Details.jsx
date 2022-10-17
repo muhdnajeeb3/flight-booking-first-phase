@@ -29,7 +29,7 @@ const Details = () => {
     " Trip Ideas",
     " Travel Blog",
     " PNR Status",
-    " MakeMyTrip Advertising Solutions",
+    " SHAABTRIP Advertising Solutions",
   ];
 
   let str2=[

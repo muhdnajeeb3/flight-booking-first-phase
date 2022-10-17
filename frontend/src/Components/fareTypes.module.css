@@ -15,7 +15,7 @@
   .selectBox {
     align-items: center;
     background-color: #eaf5ff;
-    border-radius: 4px 0px 0px 4px;
+    border-radius: 5px 0px 0px 4px;
     color: #4a4a4a;
     display: flex;
     margin-left: 5px;
@@ -24,14 +24,17 @@
     font-weight: 700;
     line-height: 14px;
     /* padding: 8px 8px 8px 26px; */
-    height: 100%;
+    min-height: 4rem;
     text-align: left;
+    padding: 5px;
+
   }
   .div {
     align-items: center;
     color: #4a4a4a;
     display: flex;
     font-size: 14px;
+    
   }
   .first {
     color: #9b9b9b;
@@ -84,10 +87,29 @@
 @media only screen and (max-width: 620px){
   .div{
     flex-wrap: wrap;
+    margin-bottom: 10px;
   }
    .selectBox > p{
     font-size: 0.8em;
   } 
+  .selectBox > input {
+    display: none;
+  }
+  .first{
+    display: flex;
+    flex-direction: column;
+  }
+  .div2{
+    margin-bottom: 35px;
+  }
+  .selectBox1{
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .selectBox{
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
   
   .none{
     display: none;
