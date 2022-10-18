@@ -11,6 +11,7 @@
     height: 100%;
 } */
 
+
 .sliderContainer {
     width: 100%;
     margin: auto;
@@ -214,5 +215,11 @@
     
     .knowMore p {
         font-size: 12px;
+    }
+    .caroselimg{
+        width: 50%;
+        height: 80% !important;
+        /* object-fit: cover; */
+
     }
 }

@@ -58,7 +58,7 @@ export const CarousalUI = () => {
                                         <div className="each-slide">
                                             <div className='ind-slide'>
                                                 <div className='imageSection'>
-                                                    <img src={item.first.thumbnail_image} alt="" />
+                                                    <img src={item.first.thumbnail_image} alt="" className='caroselimg' />
                                                     <p>T&C's Apply</p>
                                                 </div>
                                                 <div className='contentSection'>
@@ -77,7 +77,7 @@ export const CarousalUI = () => {
                                         <div className='each-slide'>
                                             <div className='ind-slide'>
                                                 <div className='imageSection'>
-                                                    <img src={item.second.thumbnail_image} alt="" />
+                                                    <img src={item.second.thumbnail_image} alt="" className='caroselimg'/>
                                                     <p>T&C's Apply</p>
                                                 </div>
                                                 <div className='contentSection'>

@@ -194,7 +194,11 @@ body {
     width:173px;
   }
 }
-
+@media only screen and (max-width: 417px) {
+  .first{
+    width:153px;
+  }
+}
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (max-width: 1323px) {
   .guidelineText {

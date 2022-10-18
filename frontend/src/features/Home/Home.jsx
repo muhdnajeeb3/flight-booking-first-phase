@@ -8,8 +8,7 @@ import Details from "../../Hotels/Details"
 import Footer from "../../Hotels/Footer"
 import styles from "./home.module.css";
 import { ListenerContext } from "../../Contexts/ListenerProvider";
-import Mmt from "../../Hotels/Mmt"
-import FirstSection from "./FirstSection";
+// import Mmt from "../../Hotels/Mmt"
 import Stickyfooter from "../../Components/Stickyfooter";
 
 export const Home = () => {
@@ -40,8 +39,8 @@ export const Home = () => {
         </div>
         <div className={styles.poster}>
           <img
-            src="https://mmt.servedbyadbutler.com/getad.img/;libID=3405582"
-            style={{ width: "100%", height: "80%" }}
+            src="https://mmt.servedbyadbutler.com/getad.img/;libID=3405582" alt=""
+            style={{ width: "100%", height: "5rem" }}
           />
         </div>
         <div style={{ marginTop: 50 }}>

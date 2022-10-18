@@ -4,7 +4,7 @@
 }
 
 .each-simple-slide>div {
-    height: 15vh;
+    height: 13vh;
     padding: 0px 30px;
     border-radius: 7px;
     background-color: #fff;
@@ -89,7 +89,7 @@
     }
 
     .each-simple-slide>div{
-        height: 10vh;
+        height: 12vh;
     }
     
 }

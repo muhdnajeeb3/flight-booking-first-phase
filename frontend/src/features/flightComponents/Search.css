@@ -7,13 +7,18 @@
     min-height: 15rem;
     padding-top: 40px;
     position: relative;
-    position: sticky !important;
+    /* position: fixed !important; */
     padding-left: 10px;
     
 }
 
 .dropdown-toggle{
   color: #fff !important;
+}
+.flight_travellersText__XNJHx {
+/* padding-left: 160px; */
+border: #000 !important;
+/* display: none; */
 }
 
 .searchrow{
@@ -22,6 +27,7 @@
     /* justify-content: space-between; */
     gap: 4px;
     margin-left: 5rem !important;
+    
 }
 .btnsearch{
     
@@ -47,49 +53,28 @@
     height: 9rem;
   }
   /* filter */
-  .filtername{
-    margin-right: auto;
-    text-align: start !important;
-    /* margin-left: 2rem; */
-    font-size: 14px;
-    font-weight: 500;
-    margin-right:5rem;
-    position: relative;
-  }
-  .filterprice{
-    font-size: medium
-  }
-  .filtersec{
-    -moz-box-shadow: 0 0 3px #ccc;
-    -webkit-box-shadow: 0 0 3px #ccc;
-    box-shadow: 0 0 5px rgb(158, 156, 156);
-  }
-  /* filtersec */
-  .filterright{
-    /* float: right; */
-    width: 50%;
-  }
-  .filterleft{
-    width: 50%;
-
-    float: left !important;
-  }
-  .filtermain{
-    background-color: #e5eef4;;
-    position: relative;
-    bottom: 2rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    
-  }.filterleft{
-    position: relative;
-    bottom: 7rem;
-    margin-right: 53rem !important;
-  }
+  
   /* date */
   .datepicker{
     color: rgb(255, 2, 2) !important;
     /* height: 0 !important; */
+  }
+  .farerow2{
+    display: flex;
+    flex-direction: row;
+  }
+  .farerow3{
+    gap: 1px;
+    width: "";flex-direction: row;
+  }
+  .farespan{
+    /* padding: 8px 12px; */
+    font-size: calc(var(--font-scale, 1)*12px);
+    font-weight: 700;
+    display: inline-flex;
+  }
+  .farerow3{
+    padding-left: 6rem !important;
   }
   @media screen and (max-width:600px){
     .col-1,.col-2{
@@ -112,13 +97,40 @@
       display: flex !important;
       /* flex-direction: column !important; */
       /* margin: 2rem; */
-      gap: 5px;
+      gap: 4px;
+      min-width: 23rem !important;
+      /* flex-wrap: wrap; */
+      /* max-height: 2rem !important; */
       
       /* width: 100px; */
     }
+    
     .faretypes{
-      font-size: x-large;
+      /* font-size: x-large; */
     }
     
   }
+  @media screen and (max-width:420px){
+    .farespan{
+      font-size: 12px !important;
+      /* margin-right: 10px !important; */
+    }
+    .farerow2{
+      /* min-width: 19rem !important; */
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: start;
+      /* margin-right: 14rem; */
+    }
+    .farerow3{
+      padding-left: 2rem !important;
+    }
+    .searchrow{
+      /* margin-right: 9rem !important; */
+    margin-left: 2rem !important;
+
+    
+    }
+  }
+
  

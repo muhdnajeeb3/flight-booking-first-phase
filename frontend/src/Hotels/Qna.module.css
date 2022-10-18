@@ -58,9 +58,10 @@
 
    .top{
       padding: 0px 20px 0px 20px;
+      margin-top: 15px;
    }
 
-   .bottom{
+   .botom{
       padding: 0px 20px 0px 20px;
    }
 }

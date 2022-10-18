@@ -371,6 +371,12 @@ box-shadow: 0 0 1.5px rgb(158, 156, 156);
     font-weight: 500;
     
 }
+@media screen and (max-width:420px){
+    .farespan{
+        font-size: 10px !important;
+        padding: 1rem !important;
+    }
+}
 
 /* search button */
 .searchbutton{

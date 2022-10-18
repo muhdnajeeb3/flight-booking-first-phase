@@ -470,6 +470,119 @@ function FirstSection() {
         <Button className="searchbutton" onClick={SEARCHHANDLER}>
           <span className="search">SEARCH</span>
         </Button>
+        <Row
+            style={{
+              top: "3rem",
+              position: "relative",
+              minHeight: "3rem",
+              background: "transparent",
+              marginLeft: "6rem",
+              display: "flex",
+              flexDirection: "row",
+            }}
+            className="farerow3"
+          >
+            <span
+              className="faretypes "
+              style={{ marginTop: "", bottom: "17px", color: "#fff" }}
+            >
+              Fare Type:
+            </span>
+            <Button
+              className="faretypesbutton"
+              variant=""
+              style={{
+                backgroundColor: "#364c63",
+                borderRadius: "6px 0 0 6px",
+                maxWidth: "25%",
+              }}
+            >
+              {/* <input type="checkbox" name="fare" className="fareradio" style={{borderRadius:"40px",marginRight:"5px"}} /> */}
+              <span className="farespan" style={{ color: "#fff" }}>
+                Regular
+                {/* <br />
+                  Fares */}
+              </span>{" "}
+            </Button>
+            <Button
+              className="faretypesbutton1"
+              variant=""
+              style={{
+                backgroundColor: "#364c63",
+                borderRadius: " 0 0 ",
+                maxWidth: "35%",
+              }}
+            >
+              {" "}
+              {/* <input type="radio" name="fare" className="fareradio"/> */}
+              <span className="farespan" style={{ color: "#fff" }}>
+                Armed Forces <span style={{ color: "red" }}>New</span>
+                <br />
+                {/* Fares <span className="new">NEW</span> */}
+              </span>{" "}
+            </Button>
+            <Button
+              className="faretypesbutton2"
+              variant=""
+              style={{
+                backgroundColor: "#364c63",
+                borderRadius: " 0 0 ",
+                maxWidth: "25%",
+              }}
+            >
+              {/* <input type="radio" name="fare" className="fareradio"/> */}
+              <span className="farespan" style={{ color: "#fff" }}>
+                Student <br />
+                {/* Fares */}
+              </span>{" "}
+            </Button>
+            <Button
+              className="faretypesbutton3"
+              variant=""
+              style={{
+                backgroundColor: "#364c63",
+                borderRadius: " 0 0 ",
+                maxWidth: "25%",
+              }}
+            >
+              {/* <input type="radio" name="fare" className="fareradio"/> */}
+              <span className="farespan" style={{ color: "#fff" }}>
+                Senior Citizen <br />
+                {/* Fares */}
+              </span>{" "}
+            </Button>
+            <Button
+              className="faretypesbutton4"
+              variant=""
+              style={{
+                backgroundColor: "#364c63",
+                borderRadius: " 0 0 ",
+                maxWidth: "25%",
+              }}
+            >
+              {/* <input type="radio" name="fare" className="fareradio"/> */}
+              <span className="farespan" style={{ color: "#fff" }}>
+                Doctor & Nurses <br />
+                {/* Fares */}
+              </span>{" "}
+            </Button>
+            <Button
+              className="faretypesbutton4"
+              variant=""
+              style={{
+                backgroundColor: "#364c63",
+                borderRadius: " 0 6px 6px 0 ",
+                maxWidth: "25%",
+              }}
+            >
+              {/* <input type="radio" name="fare" className="fareradio"/> */}
+              <span className="farespan" style={{ color: "#fff" }}>
+                Double Seat <br />
+                {/* Fares */}
+              </span>{" "}
+            </Button>
+            {/* <Button className="faretypesbutton5" variant=""><input type="radio" name="fare"/>1</Button> */}
+          </Row>-
       </Container>
     </div>
   );

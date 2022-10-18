@@ -2,7 +2,7 @@ import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import DatePicker from "@mui/lab/DatePicker";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import styles from "../../Components/flight.module.css";
-
+import './FirstSection.css'
 import {
   FormControl,
   InputLabel,
@@ -1086,7 +1086,7 @@ function Search() {
               position: "relative",
               minHeight: "3rem",
               background: "transparent",
-              marginLeft: "6rem",
+              
               display: "flex",
               flexDirection: "row",
             }}
@@ -1104,7 +1104,7 @@ function Search() {
               style={{
                 backgroundColor: "#364c63",
                 borderRadius: "6px 0 0 6px",
-                maxWidth: "15%",
+                maxWidth: "25%",
               }}
             >
               {/* <input type="checkbox" name="fare" className="fareradio" style={{borderRadius:"40px",marginRight:"5px"}} /> */}
@@ -1120,7 +1120,7 @@ function Search() {
               style={{
                 backgroundColor: "#364c63",
                 borderRadius: " 0 0 ",
-                maxWidth: "15%",
+                maxWidth: "35%",
               }}
             >
               {" "}
@@ -1137,12 +1137,12 @@ function Search() {
               style={{
                 backgroundColor: "#364c63",
                 borderRadius: " 0 0 ",
-                maxWidth: "15%",
+                maxWidth: "25%",
               }}
             >
               {/* <input type="radio" name="fare" className="fareradio"/> */}
               <span className="farespan" style={{ color: "#fff" }}>
-                Student <br />
+                Student 
                 {/* Fares */}
               </span>{" "}
             </Button>
@@ -1152,7 +1152,7 @@ function Search() {
               style={{
                 backgroundColor: "#364c63",
                 borderRadius: " 0 0 ",
-                maxWidth: "15%",
+                maxWidth: "25%",
               }}
             >
               {/* <input type="radio" name="fare" className="fareradio"/> */}
@@ -1167,7 +1167,7 @@ function Search() {
               style={{
                 backgroundColor: "#364c63",
                 borderRadius: " 0 0 ",
-                maxWidth: "15%",
+                maxWidth: "25%",
               }}
             >
               {/* <input type="radio" name="fare" className="fareradio"/> */}
@@ -1182,7 +1182,7 @@ function Search() {
               style={{
                 backgroundColor: "#364c63",
                 borderRadius: " 0 6px 6px 0 ",
-                maxWidth: "15%",
+                maxWidth: "25%",
               }}
             >
               {/* <input type="radio" name="fare" className="fareradio"/> */}
@@ -1193,23 +1193,7 @@ function Search() {
             </Button>
             {/* <Button className="faretypesbutton5" variant=""><input type="radio" name="fare"/>1</Button> */}
           </Row>
-          {/* <div
-            className={styles.buttonContainer}
-            style={{
-              maxWidth: "130px",
-              minWidth: "129px",
-              marginTop: "335rem",
-              display: "grid",
-              justifyContent: "center",
-              justifyItems: "end",
-              placeItems: "",
-              marginLeft: "",
-            }}
-          >
-            <div type="submit" onClick={handleSubmit}>
-              Search
-            </div>
-          </div> */}
+          
         </div>
 
         {/* </Container> */}
