@@ -72,6 +72,9 @@
     .simpleCardContent {
         font-size: 14px;
     }
+    .each-simple-slide>div{
+        height: 10vh;
+    }
 }
 
 @media only screen and (max-width:574px) {
@@ -86,6 +89,7 @@
     }
 
     .each-simple-slide>div{
-        height: 20vh;
+        height: 10vh;
     }
+    
 }

@@ -117,7 +117,10 @@
 
  
 }
-
+.DepRetContaineraddcity{
+  flex-grow: 0.3;
+  width: 20%;
+}
 /* no. of travellers */
 .travellerContainer {
   border: 1px solid rgb(191, 179, 179);
@@ -280,22 +283,12 @@
   );
 
 }
-
-@media only screen and (max-width: 1320px) {
-
-  /* .fromToConnecting {
-    margin: auto;
-    margin-bottom: 20px;
-  } */
-  
-  /* .travellerContainer {
-    width: 30%;
-    padding-left: 4px;
-    margin-top: 20px;
-    padding-bottom: 4px;
-    margin-bottom: 15px;
-  } */
+.addcitybtn{
+  font-size: 14px !important;
+  font-weight: 600 !important;
 }
+
+
 @media only screen and (max-width: 1020px) {
   .bookingSearch > div:nth-child(1){
     width: 100%;
@@ -335,10 +328,11 @@
     
   }
   
+  
 
   .buttonContainer {
     bottom: 5.5%;
-    left: 32%;
+    left: 37%;
   }
 }
 
@@ -362,8 +356,12 @@
   }
   
   .buttonContainer {
-    bottom: 5%;
-    left: 25%;
+    bottom: 4%;
+    left: 30%;
+  }
+  .addcitybtn{
+    font-size: 12px !important;
+    font-weight: 400 !important; 
   }
 
   .traveller_modalmulti {
@@ -431,7 +429,8 @@
     gap: 10px !important;
   }
   .buttonContainer{
-    margin-top: 30px;
+    /* margin-top: 30px; */
+    bottom: 4%;
   }
   .book{
     justify-content: flex-start;

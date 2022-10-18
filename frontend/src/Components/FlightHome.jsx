@@ -669,7 +669,7 @@ const FlightHome = () => {
               {/* departure and return date end */}
 
               {/* number of travellers start */}
-              <div className={styles.travellerContainer} style={{ marginTop: "px", right: "12px", }}>
+              <div className={styles.travellerContainer} style={{ marginTop: "-3px", right: "12px", }}>
                 <div onClick={onClickModal}>
                   <div className={styles.travellersText}>TRAVELLERS</div>
                   <div className={styles.noOfTraveller} style={{ marginTop: "-6px" }}>
@@ -815,7 +815,7 @@ const FlightHome = () => {
               </div>
 
               {/* departure and return date start */}
-              <div className={styles.DepRetContainer} style={{ marginRight: "auto", }}>
+              <div className={styles.DepRetContaineraddcity} style={{ marginRight: "", }}>
                 {/* departure date starts */}
                 <div style={{ width: "96%", marginTop: "-5px" }}>
                   < FormControl sx={{ width: "100%" }}>
@@ -852,10 +852,10 @@ const FlightHome = () => {
             </div> */}
                 {/* return date starts (just for ui purpose)*/}
               </div>
-              <div style={{ borderColor: "black", display: "grid", justifyContent: "start", marginTop: "5px" }}>
+              <div style={{ borderColor: "black", display: "grid", justifyContent: "start", marginTop: "" }}>
                 <Button
-                  style={{ height: "30px", borderColor: "grey", borderRadius: "5px", color: "green", fontFamily: "sans-serif", fontWeight: "600" ,fontSize:"14px",display:"grid",justifyContent:"center"}}
-                  onClick={() => HANDLEADD()} variant="">
+                  style={{ height: "auto", border: "none", color: "green", fontFamily: "sans-serif" ,display:"grid",justifyContent:"center"}}
+                  onClick={() => HANDLEADD()} variant="" className={styles.addcitybtn}>
                   + ADD ANOTHER CITY
                 </Button>
               </div>
@@ -934,7 +934,7 @@ const FlightHome = () => {
                 </div>
 
                 {/* departure and return date start */}
-                <div className={styles.DepRetContainer} style={{ marginRight: "auto", }}>
+                <div className={styles.DepRetContaineraddcity} style={{ marginRight: "auto", }}>
                   {/* departure date starts */}
                   <div style={{ width: "96%", marginTop: "-5px" }}>
                     < FormControl sx={{ width: "100%" }}>

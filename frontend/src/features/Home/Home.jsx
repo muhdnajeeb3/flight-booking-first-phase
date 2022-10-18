@@ -10,6 +10,7 @@ import styles from "./home.module.css";
 import { ListenerContext } from "../../Contexts/ListenerProvider";
 import Mmt from "../../Hotels/Mmt"
 import FirstSection from "./FirstSection";
+import Stickyfooter from "../../Components/Stickyfooter";
 
 export const Home = () => {
 
@@ -28,7 +29,8 @@ export const Home = () => {
   return (
     <>
       <FlightHome />
-      {/* <FirstSection /> */}
+      <Stickyfooter />
+      
       {/* <Mmt/> */}
       <div className={styles.container} style={{ boxSizing: 'border-box' }}>
        

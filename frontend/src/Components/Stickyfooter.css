@@ -1,0 +1,38 @@
+.stickyfooter{
+    position: fixed;
+    bottom: 0;
+    z-index: 12;
+    display: none;
+    width: 110%;
+}
+.colfooter{
+    width: 100% !important;
+    justify-content: center !important;
+display: grid !important;
+color: white;
+}
+
+.stickyfooterrow{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: black;
+}
+@media screen and (max-width:580px) {
+    .stickyfooter{
+        position: fixed;
+        
+        bottom: 0;
+        z-index: 12;
+        display: flex;
+       
+    }
+}
+/* @media screen and (min-width:550px) {
+    .stickyfooter{
+        position: fixed;
+        bottom: 0;
+        z-index: 12;
+        display: flex;
+    }
+} */
