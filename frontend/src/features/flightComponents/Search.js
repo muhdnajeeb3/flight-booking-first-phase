@@ -346,6 +346,7 @@ function Search() {
                             svg: { color: "#fff" },
                             input: { color: "#fff", height: "10px" },
                             label: { color: "#fff" },
+                            
                           }}
                         />
                       )}
@@ -382,6 +383,7 @@ function Search() {
                     right: "",
                     padding: "0",
                     height: "30px",
+                    // border:"none"
                   }}
                 >
                   <div onClick={onClickModal}>

@@ -303,7 +303,7 @@ export const Flight = () => {
               <div className={styles.guidelines}>
                 <img
                   className={styles.guidelineImg}
-                  src="https://logodix.com/logo/1033309.jpg"
+                  src="https://logodix.com/logo/1033309.jpg" alt=""
                 />
                 <div style={{ marginTop: "5px"  }} className={styles.safety}>
                 {/* <img

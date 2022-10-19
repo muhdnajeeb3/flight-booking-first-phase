@@ -48,7 +48,7 @@ body {
   cursor: pointer;
 }
 .singleflight {
-  margin-top: 2%;
+  margin-top: 3%;
   height: fit-content;
   padding: 1%;
   border-radius: 5px;
@@ -124,10 +124,11 @@ body {
   width: 13%;
   margin: 0px;
   margin-right: 5%;
-  padding: 0px;
+  padding: 15px !important;
   font-size: 14px;
   font-weight: 700;
   margin-top: 2%;
+  color:black !important;
 }
 .details {
   padding: 1%;
@@ -166,10 +167,14 @@ body {
     width: 98%;
     font-size: 10px;
   }
+  .singleflight {
+    width: 100% !important;
+  }
+
   .maincontainer {
     padding: 2%;
     margin: 1%;
-    width: 90%;
+    width: 95%;
   }
   .guidelineText {
     font-size: 6px;

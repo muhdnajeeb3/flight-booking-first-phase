@@ -20,6 +20,12 @@
 border: #000 !important;
 /* display: none; */
 }
+.farerow2{
+  padding-right: 1rem ;
+}
+.farerow3{
+  padding-right: 1rem;
+}
 
 .searchrow{
     /* background-color: rgb(10, 10, 42); */
