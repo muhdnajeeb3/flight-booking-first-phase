@@ -5,6 +5,10 @@
 
   display: flex;
   flex-direction: row;
+  background-color: #e5eef4;
+  position: relative;
+  bottom: 4.3rem;
+
   
 }
 
@@ -83,6 +87,7 @@
   box-shadow: 0 0 5px rgb(158, 156, 156);
   width: 96%;
   border-radius: 5px;
+  background: #fff;
 }
 .Seatsandmeals{
   -moz-box-shadow: 0 0 3px #ccc;
@@ -101,6 +106,8 @@
   background-color: #f4f4f4;
   border-radius: 5px;
   height: fit-content;
+  position: relative;
+  bottom:9.6rem;
 }
 .form {
   gap: 1rem;
@@ -196,7 +203,7 @@ background-image: linear-gradient(97deg,#53b2fe,#065af3 130%);
   }
   
 }
-@media screen and (max-width:750px){
+@media screen and (max-width:780px){
   .inputdetails{
     width: 100%;
   }
@@ -220,18 +227,18 @@ max-width: 35%;
     flex-direction: column;
   }
   .fare{
-    width:78% !important ;
+    width: 20rem !important ;
     margin-top: 10px;
     margin-bottom: 10px;
   }
   .info_cont {
     /* padding: 1%; */
     /* background-color: rgb(248, 248, 248); */
-    width: 400px !important;
+    width: 110% !important;
     /* margin-right: 1%; */
   }
 }
-@media screen and (max-width:450px){
+@media screen and (max-width:550px){
   .main_cont {
     flex-direction: column;
   }
@@ -243,7 +250,7 @@ max-width: 35%;
   .info_cont {
     /* padding: 1%; */
     /* background-color: rgb(248, 248, 248); */
-    width: 300px !important;
+    width: 110% !important;
     /* margin-right: 1%; */
   }
 }

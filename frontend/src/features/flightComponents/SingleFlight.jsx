@@ -10,7 +10,7 @@ import {
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faIndianRupeeSign, faRupeeSign, faUser } from "@fortawesome/free-solid-svg-icons";
 export const SingleFlight = ({
   arrival,
   arrival_time,
@@ -87,33 +87,36 @@ export const SingleFlight = ({
             }}
           >
             {/* <FontAwesomeIcon icon={faUser} /> Login in to view */}
-            <img src="	https://imgak.mmtcdn.com/flights/assets/media/mobile/common/hdpi/6E.png?v=9" className={styles.imgairline}/>
-            <span style={{marginLeft:"5px"}}>{name}</span>
+            <img src="	https://imgak.mmtcdn.com/flights/assets/media/mobile/common/hdpi/6E.png?v=9" alt="airlines" className={styles.imgairline}/>
+            <span style={{marginLeft:"8px"}}>{name}</span>
           </div>
           <div className={styles.divsec}>
             <div className={styles.inner_cont}>
-              <b>{departure_time}</b>
-              <p>{departure}</p>
+              <b className={styles.departtime}>{departure_time}</b>
+              <p className={styles.departsub}>{departure}</p>
             </div>
             <div className={styles.inner_cont}>
-              <span>{duration}</span>
+              <span style={{fontSize:"12px",width:""}}>{duration}</span>
               <hr className={styles.line} />
               <span
                 style={{
-                  fontSize: "12px",
+                  fontSize: "10px",
                   color: "gray",
                   // textAlign: "center",
+                  margin:"auto",
+                  whiteSpace:"nowrap"
                 }}
               >
                 {stops}
               </span>
             </div>
             <div className={styles.inner_cont}>
-              <b>{arrival_time}</b>
-              <p>{arrival}</p>
+              <b className={styles.arrivaltime}>{arrival_time}</b>
+              <p className={styles.arrivalsub}>{arrival}</p>
             </div>
             <div className={styles.inner_cont}>
-              <b>{fare}/-</b>
+              {/* <FontAwesomeIcon icon={faIndianRupeeSign} /> */}
+              <b className={styles.price}>{fare}/-</b>
             </div>
             <div className={styles.btnbook}>
 

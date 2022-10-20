@@ -13,6 +13,8 @@ body {
 }
 .container {
   /* width: 70%; */
+  width: 880px;
+
   display: flex;
   flex-direction: column;
   margin-top: 60px;
@@ -72,6 +74,18 @@ body {
   padding: 0px;
   /* margin-left: 30%; */
 }
+.departtime,.price,.arrivaltime{
+  font-weight: 900;
+  font-size: 16px;
+  font-family: sans-serif;
+}
+.departsub,.arrivalsub{
+  font-size: 10px;
+  width: 100%;
+  font-weight: 400;
+  color: #000;
+}
+
 .guidelines {
   background-color: white;
   display: flex;
@@ -180,7 +194,7 @@ body {
 .divsec{
   display: flex;
   flex-direction: row !important;
-  width:80%;
+  width:90%;
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -189,6 +203,7 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
+    
   }
   .guidelines,.sort{
     margin-bottom: 10px;
@@ -198,7 +213,7 @@ body {
     /* display: flex;
     flex-direction: row;
     flex-wrap: wrap; */
-    margin-left: -9px;
+    margin-left: -8px;
     display: grid;
     width: 100%;
     grid-template-columns: 1fr 1fr;
@@ -214,6 +229,7 @@ body {
   }
   .container {
     width: 98%;
+   
     
     /* font-size: 10px; */
   }
@@ -282,8 +298,20 @@ body {
   }
 }
 @media only screen and (max-width: 417px) {
+  .box{
+    color: #4a4a4a!important;
+    line-height: inherit;
+    margin: 0;
+    background: #c3e9f4 0 0!important;
+  }
   .first{
     width:153px;
+  }
+  .singleflight{
+    margin-bottom: 5px;
+    -moz-box-shadow: 0 0 2px #ccc;
+    -webkit-box-shadow: 0 0 2px #ccc;
+    box-shadow: 0 0 2px rgb(158, 156, 156);
   }
   .maincontainer {
     padding: 1%;
@@ -301,6 +329,28 @@ body {
   .container {
     width: 98%;
     font-size: 12px;
+  }
+  .inner_cont{
+    width: 25%;
+    /* justify-content: end; */
+   
+
+  }
+  /* .divsec > .inner_cont{
+    justify-content: end;
+    margin-left: auto;
+  } */
+  .line{
+    width: 70%;
+  }
+  .filterDiv {
+    /* display: none; */
+    /* display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; */
+    margin-left: -5px;
+    display: grid;
+    width: 100%;
   }
 }
 /* Medium devices (landscape tablets, 768px and up) */
