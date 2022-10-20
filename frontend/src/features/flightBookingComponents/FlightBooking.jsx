@@ -15,14 +15,11 @@ import { Button, Card, Col, Container, FormCheck, Row } from "react-bootstrap";
 import { minHeight } from "@mui/system";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faBowlFood,
   faIndianRupee,
-  faRupee,
-  faRupeeSign,
   faUser,
   faUserCircle,
 } from "@fortawesome/free-solid-svg-icons";
-export const FlightBooking = () => {
+export const FlightBooking = (props) => {
   const navigate = useNavigate();
   const { loading, error, flight } = useSelector((state) => ({
     loading: state.flightBooking.loading,
@@ -49,6 +46,10 @@ export const FlightBooking = () => {
       setOpen(true);
     }
   };
+  const addnewadultform = () => {
+    const AddNewAdult = [...addnewadult, []];
+    setAddnewadult(AddNewAdult);
+  };
   const SEATSANDMEALS = () => {
     setSeatsandmeals(!seatsandmeals);
   };
@@ -73,18 +74,29 @@ export const FlightBooking = () => {
           <>
             <div
               className={styles.bookingheadbg}
-              style={{ minHeight: "16rem" }}
+              style={{ minHeight: "17rem" }}
             ></div>
-            <div >
+            <div>
               <React.Fragment
                 style={{ position: "relative", bottom: "5rem" }}
                 className={styles.bookingdetails}
               >
-                <div className={styles.header} style={{ position: "relative", bottom: "14rem", width: "" ,color:"#fff"}}>
+                <div
+                  className={styles.header}
+                  style={{
+                    position: "relative",
+                    bottom: "14rem",
+                    width: "",
+                    color: "#fff",
+                  }}
+                >
                   <b>Complete Your Booking</b>
                 </div>
                 <div className={styles.main_cont}>
-                  <div className={styles.info_cont} style={{ position: "relative", bottom: "10rem", width: "" }}>
+                  <div
+                    className={styles.info_cont}
+                    style={{ position: "relative", bottom: "10rem", width: "" }}
+                  >
                     <React.Fragment key={flight._id}>
                       <SingleBooking flight={flight} />
                     </React.Fragment>
@@ -251,7 +263,7 @@ export const FlightBooking = () => {
                         display: "flex",
                         flexDirection: "column",
                         background: "#fff",
-                        borderRadius: "5px",
+                        borderRadius: "3px",
                         marginRight: "113rem",
                       }}
                       className={styles.bookingdetails}
@@ -338,17 +350,54 @@ export const FlightBooking = () => {
                           </div>
                         </div>
                       </Row>
-                      {addnewadult.map((data, i) => {
-                        return (
-                          <>
-                            <Form tag={1} />
-                          </>
-                        );
-                      })}
+                      {addnewadult.map((data,i)=>(
+                        <>
+                        <Form tag={1} key={i}/>
+                      
+                        </>
+                      ))}
 
                       <hr />
 
                       <Form tag={2} />
+                      <Row>
+                        <Button
+                          variant=""
+                          style={{
+                            color: "blue",
+                            minWidth: "50%",
+                            marginLeft: "10px",
+                            height: "3rem",
+                            display: "grid",
+                            justifyContent: "start",
+                            lineHeight: "1.2",
+                            border: "none",
+                          }}
+                          className={styles.addnew}
+                          onClick={() => addnewadultform()}
+                        >
+                          + ADD NEW ADULT
+                        </Button>
+                      </Row>
+                      {/* <Row>
+                        <Button
+                          variant=""
+                          style={{
+                            color: "blue",
+                            minWidth: "50%",
+                            marginLeft: "10px",
+                            height: "3rem",
+                            display: "grid",
+                            justifyContent: "start",
+                            lineHeight: "1.2",
+                            border: "none",
+                          }}
+                          className={styles.addnew}
+                          
+                        >
+                          + ADD NEW ADULT
+                        </Button>
+                      </Row> */}
                       <hr />
                       {/* booking details send */}
                       <div>

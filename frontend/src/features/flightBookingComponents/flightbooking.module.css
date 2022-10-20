@@ -6,8 +6,9 @@
   display: flex;
   flex-direction: row;
   background-color: #e5eef4;
-  position: relative;
-  bottom: 4.3rem;
+  /* position: relative;
+  bottom: 4.3rem; */
+  margin-top: -4.3rem;
 
   
 }
@@ -25,7 +26,7 @@
   background-color: white;
   padding: 1%;
   width: 96%;
-  border-radius: 5px;
+  border-radius: 3px;
   display: flex;
   flex-direction: column;
   -moz-box-shadow: 0 0 3px #ccc;
@@ -69,10 +70,10 @@
   /* margin-right: 30px; */
 }
 .formbox{
-  -moz-box-shadow: 0 0 3px #ccc;
-  -webkit-box-shadow: 0 0 3px #ccc;
-  box-shadow: 0 0 2px rgb(158, 156, 156);
-  padding: 1rem;
+  -moz-box-shadow: 0 0 2px #ccc;
+  -webkit-box-shadow: 0 0 2px #ccc;
+  box-shadow: 0 0 1px rgb(158, 156, 156);
+  padding: 1rem !important;
   /* width: 98%; */
   /* margin-right: 30px; */
 }
@@ -86,7 +87,7 @@
   -webkit-box-shadow: 0 0 3px #ccc;
   box-shadow: 0 0 5px rgb(158, 156, 156);
   width: 96%;
-  border-radius: 5px;
+  border-radius: 3px;
   background: #fff;
 }
 .Seatsandmeals{
@@ -119,21 +120,42 @@
 
   padding: 2%;
 }
-.genderbutton :after, :before {
+
+.genderbutton{
+  display: inline-block;
+  position: relative;
+  /* color: #0087ca; */
+  cursor: pointer;
+  /* margin: 1rem; */
+  padding: 10px;
+ 
+}
+
+.genderbutton:active{
+  background-color: lightblue !important;
+  /* box-shadow: 0 5px #F68B8B; */
+transform: translateY(4px);
+}
+.genderbutton:focus {
+  outline: blue auto 5px; 
+}
+
+
+/* .genderbutton :after, :before {
   -webkit-tap-highlight-color: transparent !important;
   padding: 0 !important;
   margin: 0 !important;
   -webkit-font-smoothing: antialiased !important;
   background: rgb(229, 238, 244) !important;
   box-sizing: border-box;
-}
-.genderbutton{
+} */
+/* .genderbutton{
   border-color: black !important;
   border: #151616 !important;
-  /* color: #065af3 !important; */
+  
   width: 15% !important;
-  /* background: lightcyan !important; */
-}
+  
+} */
 .form input {
   width: 50%;
   border: 1px solid gray;
@@ -141,6 +163,9 @@
   border-radius: 5px;
   display: flex;
   flex-wrap: wrap;
+}
+.form > input > ::placeholder{
+  font-family: sans-serif !important;
 }
 .btnPay {
   justify-content: center;
@@ -190,6 +215,19 @@ background-image: linear-gradient(97deg,#53b2fe,#065af3 130%);
 .sendtouser{
   display: flex;
   flex-direction: row !important;
+}
+.addnew{
+  outline: none !important;
+  background: transparent !important;
+    font-size: calc(var(--font-scale, 1)*12px) !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    color: #008cff !important;
+    font-family: inherit !important;
+    line-height: inherit !important;
+    /* margin: 0 !important; */
+    border-radius: 0 !important;
+    margin-bottom: -1.5rem;
 }
 @media screen and (max-width:930px) {
   

@@ -8,9 +8,9 @@ import {
   flightBookingLoading,
 } from "../flightBookingComponents/flightBookingSlice";
 import { useDispatch } from "react-redux";
-import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faIndianRupeeSign, faRupeeSign, faUser } from "@fortawesome/free-solid-svg-icons";
+// import { useState } from "react";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faIndianRupeeSign, faRupeeSign, faUser } from "@fortawesome/free-solid-svg-icons";
 export const SingleFlight = ({
   arrival,
   arrival_time,
@@ -21,9 +21,9 @@ export const SingleFlight = ({
   name,
   stops,
   _id,
-  Origin,
+ 
 }) => {
-  const [viewPrices, setViewPrices] = useState(false);
+  // const [viewPrices, setViewPrices] = useState(false);
   const dispatch = useDispatch();
   const handlePageChange = (id) => {
     dispatch(flightBookingLoading());
@@ -38,11 +38,11 @@ export const SingleFlight = ({
       });
     navigate(`/flightBooking/${id}`);
   };
-  const VIEWPRICES = (_id) => {
-    if (_id === viewPrices) {
-      setViewPrices(true);
-    }
-  };
+  // const VIEWPRICES = (_id) => {
+  //   if (_id === viewPrices) {
+  //     setViewPrices(true);
+  //   }
+  // };
   const buttonactionondiv = (id) => {
      if (window.innerWidth<580) {
       dispatch(flightBookingLoading());

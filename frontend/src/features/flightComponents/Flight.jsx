@@ -15,7 +15,7 @@ export const Flight = () => {
   const [query,setQuery] = useState("")
   const [fare, setFare] = useState(true);
   const [check, setCheck] = useState(true);
-  const [value, setValue] = useState([0, 45]);
+  const [value, setValue] = useState([0, 4500]);
   const [stopCheck, setStopCheck] = useState(true);
   const [data,setData] = useState([])
   let { loading, error, flights } = useSelector((state) => ({
