@@ -22,6 +22,18 @@ export const Form = ({ tag }) => {
     lastName: lastName,
     gender: gender
   };
+  var btn = document.getElementById('btn');
+
+  if(btn){
+
+    btn.addEventListener('click', function onClick(event) {
+      // 👇️ change background color
+      event.target.style.backgroundColor  = 'skyblue';
+      
+      // 👇️ optionally change text color
+      // document.body.style.color = 'white';
+    });
+  }
   // const addnewadultform = () => {
   //   const addnewadult = [...addnewadult, []];
   //   setAddnewadult(addnewadult);
@@ -64,7 +76,7 @@ export const Form = ({ tag }) => {
 
     </Row>
     {/* <hr /> */}
-    <Row style={{backgroundColor:"rgb(255, 237, 209)",padding:"10px",width:"100%",marginLeft:"1%"}}>
+    <Row  style={{backgroundColor:"rgb(255, 237, 209)",padding:"10px",width:"100%",marginLeft:"0px"}}>
       <span style={{fontWeight:"700",fontSize:"13px"}}>
       Enter name as mentioned on your passport or Government approved IDs.
       </span>
@@ -87,8 +99,8 @@ export const Form = ({ tag }) => {
 
           />
           <div style={{display:"flex",flexDirection:"row", gap:"25px", marginBottom:"10px"}}>
-          <Button type="checkbox"  value="MALE" name="gender" variant="custom" className={styles.genderbutton} onClick={(e) => setGender(e.target.value)} style={{borderColor:"black"}}>Male</Button>
-          <Button type="checkbox" value="FEMALE" name="gender" variant="" className={styles.genderbutton } onClick={(e) => setGender(e.target.value)} style={{borderColor:"black"}}>Female</Button>
+          <Button type="checkbox" id="btn" value="MALE" name="gender" variant="custom" className={styles.genderbutton} onClick={(e) => setGender(e.target.value)} style={{borderColor:"black"}}><span style={{fontWeight:"600",fontFamily:"sans-serif",fontSize:"14px"}}>MALE</span></Button>
+          <Button type="checkbox"  value="FEMALE" name="gender" variant="" className={styles.genderbutton } onClick={(e) => setGender(e.target.value)} style={{borderColor:"black"}}><span style={{fontWeight:"600",fontFamily:"sans-serif",fontSize:"14px"}}>FEMALE</span></Button>
           </div>
           
       </div>

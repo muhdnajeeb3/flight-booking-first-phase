@@ -151,7 +151,7 @@ export const Flight = () => {
           <CircularProgress />
         </div>
       ) : error ? (
-        <h1>Something Went Wrong</h1>
+        <h1 style={{textShadow:"red -2px 0 ,cyan -2px 0",marginLeft:"2rem"}}>Something Went Wrong</h1>
       ) : (
         flights && (
           <>

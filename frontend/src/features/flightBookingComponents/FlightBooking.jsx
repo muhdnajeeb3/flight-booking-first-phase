@@ -75,7 +75,7 @@ export const FlightBooking = (props) => {
           <CircularProgress />
         </div>
       ) : error ? (
-        <h1>Something Went Wrong</h1>
+        <h1 style={{textShadow:"red -2px 0 cyan -2px 0",marginLeft:"2rem"}}>Something Went Wrong</h1>
       ) : (
         flight && (
           <>
@@ -129,6 +129,7 @@ export const FlightBooking = (props) => {
                             fontWeight: "900",
                             fontSize: "18px",
                             lineHeight: "1.2",
+                            marginLeft:"20px"
                           }}
                         >
                           Important Information
@@ -148,13 +149,15 @@ export const FlightBooking = (props) => {
                         </Row>
                         <Row>
                           <span>
+                            <ul>
+
                             <li
                               style={{
                                 lineHeight: "18px",
                                 fontWeight: "400",
                                 fontSize: "12px",
                               }}
-                            >
+                              >
                               <b>COVID test/vaccination rules: </b>
                               <span>
                                 All travellers must either carry their COVIDA
@@ -168,7 +171,7 @@ export const FlightBooking = (props) => {
                                 fontWeight: "400",
                                 fontSize: "12px",
                               }}
-                            >
+                              >
                               <b>Test on Arrival : </b>
                               <span>No test on arrival.</span>
                             </li>
@@ -193,7 +196,7 @@ export const FlightBooking = (props) => {
                                 fontWeight: "400",
                                 fontSize: "12px",
                               }}
-                            >
+                              >
                               <span>
                                 For the complete list of travel guidelines
                                 issued by Indian States and UTs,{" "}
@@ -222,7 +225,7 @@ export const FlightBooking = (props) => {
                                 fontWeight: "400",
                                 fontSize: "12px",
                               }}
-                            >
+                              >
                               <b>
                                 The latest DGCA guidelines state that it is
                                 compulsory to wear a mask that covers the nose
@@ -231,6 +234,7 @@ export const FlightBooking = (props) => {
                                 de-boarding.
                               </b>
                             </li>
+                        </ul>
                           </span>
                         </Row>
                         <Row
@@ -246,12 +250,14 @@ export const FlightBooking = (props) => {
                           </b>
                         </Row>
                         <Row>
+                          <ul>
                           <li
                             style={{
                               lineHeight: "18px",
                               fontWeight: "400",
                               fontSize: "12px",
                               marginBottom: "15px",
+                              marginLeft:"30px"
                             }}
                           >
                             {" "}
@@ -260,6 +266,7 @@ export const FlightBooking = (props) => {
                             will be subject to additional charges per piece in
                             addition to the excess baggage charges.
                           </li>
+                          </ul>
                         </Row>
                       </Row>
                     </div>
@@ -446,19 +453,13 @@ export const FlightBooking = (props) => {
                                 Country Code
                               </h5>
                               <PhoneInput
-                                country={"eg"}
+                                country={"in"}
                                 enableSearch={true}
                                 value={phone}
                                 onChange={(phone) => setPhone(phone)}
                                 // className="react-tel-input form-control"
-                                style={{maxWidth:"auto"}}
-                                // inputProps={{
-                                //   name: 'phone',
-                                //   required: true,
-                                //   autoFocus: true,
-                                //   maxWidth:"1rem",
-                                //   minHeight:"111rem"
-                                // }}
+                                
+                               
                                 inputClass="w-100 "
                                 
                                 // containerClass="w-auto"
