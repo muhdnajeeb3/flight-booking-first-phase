@@ -8,7 +8,7 @@
   background-color: #e5eef4;
   /* position: relative;
   bottom: 4.3rem; */
-  margin-top: -4.3rem;
+  margin-top: -5.3rem;
 
   
 }
@@ -61,6 +61,8 @@
   box-shadow: 0 0 5px rgb(158, 156, 156);
   /* width: 98%; */
   /* margin-right: 30px; */
+  margin-top: 15px !important;
+
 }
 .Seatsandmealsdetails{
   -moz-box-shadow: 0 0 3px #ccc;
@@ -89,6 +91,7 @@
   width: 96%;
   border-radius: 3px;
   background: #fff;
+  margin-top: 15px;
 }
 .Seatsandmeals{
   -moz-box-shadow: 0 0 3px #ccc;
@@ -135,10 +138,10 @@
   background-color: orange;
 }
 
-/* .genderbutton:focus{
+.genderbutton:focus{
   background-color: skyblue !important;
   color: #fff !important;
-} */
+}
 
 
 .genderbutton:active::before{
@@ -275,6 +278,10 @@ input:focus {
     margin-bottom: -1.5rem;
 }
 @media screen and (max-width:930px) {
+  .main_cont{
+  margin-top: -4.3rem;
+
+  }
   
   .form input {
     width: 100%;

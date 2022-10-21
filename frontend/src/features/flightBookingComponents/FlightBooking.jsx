@@ -40,6 +40,7 @@ export const FlightBooking = (props) => {
   const [phone, setPhone] = useState("");
   const [mobile, setMobile] = useState("");
   const [email, setEmail] = useState("");
+  console.log("mibile",mobile);
 
   const finalAmount = 2 * price + 1860;
   const { setOpen } = useContext(ListenerContext);
@@ -339,7 +340,7 @@ export const FlightBooking = (props) => {
                           <div>
                             <span
                               style={{
-                                fontWeight: "400",
+                                fontWeight: "500",
                                 paddingLeft: "1rem",
                                 lineHeight: "1.5",
                               }}
@@ -348,6 +349,7 @@ export const FlightBooking = (props) => {
                               <FontAwesomeIcon
                                 icon={faUserCircle}
                                 style={{ paddingRight: "5px" }}
+                                size="xl"
                               />
                               ADULT (12 yrs+)
                             </span>
@@ -370,7 +372,7 @@ export const FlightBooking = (props) => {
                         </>
                       ))}
 
-                      <hr />
+                      {/* <hr /> */}
 
                       <Form tag={2} />
                       <Row>
@@ -457,6 +459,7 @@ export const FlightBooking = (props) => {
                                 enableSearch={true}
                                 value={phone}
                                 onChange={(phone) => setPhone(phone)}
+                                
                                 // className="react-tel-input form-control"
                                 
                                
@@ -486,7 +489,7 @@ export const FlightBooking = (props) => {
                                 placeholder="Mobile No."
                                 required
                                 className={styles.inputdetails}
-                                onChange={(mobile) => setMobile(mobile)}
+                                onChange={(e) => setMobile(e.target.value)}
 
                                 
                               />
@@ -506,7 +509,7 @@ export const FlightBooking = (props) => {
                                 type="email"
                                 required
                                 placeholder="Email"
-                                onChange={(email) => setEmail(email)}
+                                onChange={(e) => setEmail(e.target.value)}
 
                                 className={styles.inputdetails}
                               />
