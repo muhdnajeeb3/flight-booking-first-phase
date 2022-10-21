@@ -9,8 +9,11 @@ import { height } from "@mui/system";
 export const Form = ({ tag }) => {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [gender, setGender] = useState("Male");
+  const [gender, setGender] = useState("");
   const [alert, setAlert] = useState(false);
+  console.log(name);
+  console.log(lastName);
+  console.log(gender);
   // const [addnewadult, setAddnewadult] = useState([]);
 
   const dispatch = useDispatch();
@@ -83,10 +86,9 @@ export const Form = ({ tag }) => {
           className={styles.nametraveller}
 
           />
-          <div style={{display:"flex",flexDirection:"row", gap:"25px"}}>
-
-          <Button type="checkbox"  value="MALE" name="gender" variant="custom" className={styles.genderbutton} onChange={(e) => setGender(e.target.value)} style={{borderColor:"black"}}>Male</Button>
-          <Button type="checkbox" value="FEMALE" name="gender" variant="" className={styles.genderbutton } onChange={(e) => setGender(e.target.value)} style={{borderColor:"black"}}>Female</Button>
+          <div style={{display:"flex",flexDirection:"row", gap:"25px", marginBottom:"10px"}}>
+          <Button type="checkbox"  value="MALE" name="gender" variant="custom" className={styles.genderbutton} onClick={(e) => setGender(e.target.value)} style={{borderColor:"black"}}>Male</Button>
+          <Button type="checkbox" value="FEMALE" name="gender" variant="" className={styles.genderbutton } onClick={(e) => setGender(e.target.value)} style={{borderColor:"black"}}>Female</Button>
           </div>
           
       </div>

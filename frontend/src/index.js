@@ -11,6 +11,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
+import 'react-phone-input-2/lib/style.css'
 
 ReactDOM.render(
   <React.StrictMode>

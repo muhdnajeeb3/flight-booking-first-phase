@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import img1 from "../../imgs/img1.png";
 import promo from "../../imgs/promo.png";
 import styles from "./flightbooking.module.css";
+import  "./flightbooking.module.css"
 import img from "../../imgs/img.png";
 import { SingleBooking } from "./SingleBooking";
 import { useState } from "react";
@@ -13,6 +14,9 @@ import Login from "../../Components/Login";
 import { ListenerContext } from "../../Contexts/ListenerProvider";
 import { Button, Card, Col, Container, FormCheck, Row } from "react-bootstrap";
 import { minHeight } from "@mui/system";
+import PhoneInput from "react-phone-input-2";
+
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faIndianRupee,
@@ -33,6 +37,9 @@ export const FlightBooking = (props) => {
   const [seatsandmeals, setSeatsandmeals] = useState(false);
   const [meals, setMeals] = useState(false);
   const [seats, setSeats] = useState(true);
+  const [phone, setPhone] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [email, setEmail] = useState("");
 
   const finalAmount = 2 * price + 1860;
   const { setOpen } = useContext(ListenerContext);
@@ -350,10 +357,9 @@ export const FlightBooking = (props) => {
                           </div>
                         </div>
                       </Row>
-                      {addnewadult.map((data,i)=>(
+                      {addnewadult.map((data, i) => (
                         <>
-                        <Form tag={1} key={i}/>
-                      
+                          <Form tag={1} key={i} />
                         </>
                       ))}
 
@@ -439,10 +445,27 @@ export const FlightBooking = (props) => {
                               >
                                 Country Code
                               </h5>
-                              <input
-                                type="text"
-                                placeholder="CountryCode"
-                                className={styles.inputdetails}
+                              <PhoneInput
+                                country={"eg"}
+                                enableSearch={true}
+                                value={phone}
+                                onChange={(phone) => setPhone(phone)}
+                                // className="react-tel-input form-control"
+                                style={{maxWidth:"auto"}}
+                                // inputProps={{
+                                //   name: 'phone',
+                                //   required: true,
+                                //   autoFocus: true,
+                                //   maxWidth:"1rem",
+                                //   minHeight:"111rem"
+                                // }}
+                                inputClass="w-100 "
+                                
+                                // containerClass="w-auto"
+                                // containerStyle={{maxWidth:'10%'}}
+                               
+                                
+                                
                               />
                             </Col>
                             <Col style={{ marginBottom: "15px" }}>
@@ -458,9 +481,13 @@ export const FlightBooking = (props) => {
                               </h5>
 
                               <input
-                                type="text"
+                                type="number"
                                 placeholder="Mobile No."
+                                required
                                 className={styles.inputdetails}
+                                onChange={(mobile) => setMobile(mobile)}
+
+                                
                               />
                             </Col>
                             <Col style={{ marginBottom: "15px" }}>
@@ -475,8 +502,11 @@ export const FlightBooking = (props) => {
                                 Email
                               </h5>
                               <input
-                                type="text"
+                                type="email"
+                                required
                                 placeholder="Email"
+                                onChange={(email) => setEmail(email)}
+
                                 className={styles.inputdetails}
                               />
                             </Col>

@@ -27,6 +27,7 @@ const FlightHome = () => {
   const [travellers, setTravellers] = React.useState(null);
   const arr = [1, 2, 3, 4, 5, 6, 7, 8];
   let ar1 = [0, 1, 2, 3, 4, 5];
+  let ar2 = [0, 1, 2, 3, 4];
   const [openTravellers, setOpenTravellers] = useState(false);
   const [togglePassengerColor, setTogglePassengerColor] = useState(false);
   const navigate = useNavigate();
@@ -304,7 +305,7 @@ const FlightHome = () => {
                     <div>
                       <div className={styles.adultChild} >INFANTS (below 2y)</div>
                       <div className={styles.passengerButtonContainer}>
-                        {ar1.map((val) => (
+                        {ar2.map((val) => (
                           <div
                             key={val}
                             className={
