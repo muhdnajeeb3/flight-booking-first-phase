@@ -40,7 +40,7 @@ const Navbar = ({ isUserLoggedIn, user }) => {
                 <img
                   src={logo}
                   alt="Logo"
-                  style={{width:"100px",height:"30px",marginLeft:"2rem",marginTop:""}}
+                  style={{width:"100%",height:"30px",marginLeft:"2rem",marginTop:"5px",marginBottom:"5px"}}
                 />
               </a>
             </div>
