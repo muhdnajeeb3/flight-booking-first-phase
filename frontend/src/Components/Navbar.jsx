@@ -13,7 +13,7 @@ import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import Login from "./Login";
-import logo from './logo.jpeg'
+import logo from './logo.png'
 import {
   WorkOutlineOutlined,
   PersonOutlineOutlined
