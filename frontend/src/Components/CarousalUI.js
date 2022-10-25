@@ -42,12 +42,14 @@ export const CarousalUI = () => {
                             onClick={() => setOffers(1)}
                             style={{ borderBottom: offers === 1 ? "3px solid #008cff" : "" }}
                         >FLIGHTS</p>
+                        
                         {/* <p
                             className="indLinks"
                             onClick={() => setOffers(2)}
                             style={{ borderBottom: offers === 2 ? "3px solid #008cff" : "" }}
                         >HOTELS</p> */}
                     </div>
+                   
                 </div>
                 {offers === 0 ?
                     <Slide {...properties}>

@@ -94,6 +94,9 @@
 
 .indLinks {
     margin: 0px 10px;
+    font-weight: 700;
+    font-size: 16px ;
+    font-family: sans-serif;
 }
 
 .indLinks:hover {
@@ -152,6 +155,7 @@
 .knowMore {
     display: flex;
     justify-content: end;
+    
 }
 
 .knowMore p {

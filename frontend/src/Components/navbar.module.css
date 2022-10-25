@@ -7,6 +7,7 @@
     z-index: 100;
 }
 
+
 /* navbar content */
 .navbarContent {
     display: flex;
@@ -94,8 +95,9 @@
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    display: flex;
+    display: grid;
     justify-content: center;
+    /* padding: 1.2rem; */
     align-items: center;
     background-image: linear-gradient(94deg, #91d253, #3ba184);
 }
@@ -118,11 +120,12 @@
 }
 
 .profileModal {
-    width: 125%;
+    /* width: 125%; */
     background-color: #fff;
     position: absolute;
-    top: 50px;
+    top: 60px;
     right: 0;
+    /* left: 0px; */
     z-index: 10;
     border-radius: 5px;
     box-shadow: 0 8px 8px 5px rgb(10 10 10 / 4%);
@@ -139,6 +142,8 @@
     margin: 5px 0px;
     border-radius: 5px;
     align-items: center;
+    gap: 40px;
+    /* width: 10%; */
 }
 
 .indProfileModalTab p {
@@ -149,6 +154,18 @@
 }
 
 @media only screen and (max-width: 768px) {
+    .navbarWrapper{
+        /* background-image: url("data:image/webp;base64,UklGRio1AABXRUJQVlA4IB41AAC…37vkL6ql9AAEwSYeqwhYlCGDJim/ia9q4/cBJXThdjE9wAA=="); */
+        /* background-repeat: round; */
+        /* background-color: transparent;
+        height: 129px; */
+        /* display: flex; */
+    /* align-items: flex-start; */
+    /* padding: 40px 25px 20px; */
+    }
+.navbarContent {
+    
+}
 
     .hamburgr_menu {
         display: block;

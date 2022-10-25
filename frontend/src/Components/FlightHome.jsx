@@ -4,7 +4,9 @@ import ConnectingAirportsIcon from "@mui/icons-material/ConnectingAirports";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
+// import Select from "@mui/material/Select";
+import Select from 'react-select'
+
 import TextField from "@mui/material/TextField";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
@@ -12,6 +14,8 @@ import DatePicker from "@mui/lab/DatePicker";
 import FareTypes from "./FareTypes";
 import { useNavigate } from "react-router-dom";
 import { Button, Col, Row } from "react-bootstrap";
+import FromTo from "./FromToSelect";
+
 
 const FlightHome = () => {
   const [from, setFrom] = React.useState("");
@@ -35,6 +39,11 @@ const FlightHome = () => {
     setOpenTravellers(!openTravellers);
     e.stopPropagation();
   };
+  const options = [
+    { value: 'delhi', label: 'Delhi' },
+    { value: 'kochi', label: 'Kochi' },
+    { value: 'kolkata', label: 'Kolkata' }
+  ]
 
   const onClickNoOfPass = (val) => {
     setTravellers(val);
@@ -125,56 +134,51 @@ const FlightHome = () => {
               <div className={styles.fromToConnecting}>
                 <div className={styles.fromTo}>
                   <div className={styles.from}>
-                    <FormControl sx={{ width: "100%" }}>
+                    <Col style={{borderColor:"black",width:""}} className={styles.fromcol}>
+                    <Row><span style={{marginLeft:"1rem"}}>From</span></Row>
+                    <Row><span style={{marginBottom:"-30px",marginLeft:"1rem",fontWeight:"900",fontSize:"18px",fontFamily:"sans-serif"}}>Delhi</span><br />
+                    <p style={{marginLeft:"1rem",marginBottom:"10px",fontSize:"14px",fontFamily:"sans-serif"}}>International Airport</p></Row>
+
+
+         {/* <Select options={options} styles={{width:"100%"}} /> */}
+
+                    </Col>
+                    {/* <FormControl sx={{ width: "100%" }}>
                       <InputLabel
                         sx={{ width: "100%" }}
                         id="demo-simple-select-label"
                       >
                         From
                       </InputLabel>
-                      <Select
-                        fullWidth
-                        sx={{ width: "100%" }}
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={from}
-                        label="from"
-                        onChange={(e) => setFrom(e.target.value)}
-                      >
-                        <MenuItem value={"New Delhi"}>New Delhi</MenuItem>
-                        <MenuItem value={"Mumbai"}>Mumbai</MenuItem>
-                        <MenuItem value={"Pune"}>Pune</MenuItem>
-                        <MenuItem value={"Bengaluru"}>Bengaluru</MenuItem>
-                      </Select>
-                    </FormControl>
+         <Select options={options} styles={{width:"100%"}} />
+                      
+                      
+                    </FormControl> */}
                   </div>
                   <div className={styles.connectingIcon}>
                     <ConnectingAirportsIcon fontSize="large" color="grey" />
                   </div>
                   <div className={styles.to}>
-                    <FormControl sx={{ width: "100%" }}>
-                      <InputLabel
+                  <Col style={{borderColor:"black",width:""}} className={styles.fromcol}>
+                    <Row><span style={{marginLeft:"1rem"}}>To</span></Row>
+                    <Row><span style={{marginBottom:"-30px",marginLeft:"1rem",fontWeight:"900",fontSize:"18px",fontFamily:"sans-serif"}}>Kolkata</span><br />
+                    <p style={{marginLeft:"1rem",marginBottom:"10px",fontSize:"14px",fontFamily:"sans-serif"}}>International Airport</p></Row>
+
+
+         {/* <Select options={options} styles={{width:"100%"}} /> */}
+
+                    </Col>
+                    {/* <FormControl sx={{ width: "100%" }}> */}
+                      {/* <InputLabel
                         fullWidth
                         sx={{ width: "100%" }}
                         id="demo-simple-select-label"
                       >
                         To
-                      </InputLabel>
-                      <Select
+                      </InputLabel> */}
+                      {/* <Select options={options} styles={{width:"100%"}} /> */}
 
-                        sx={{ width: "100%" }}
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={to}
-                        label="to"
-                        onChange={(e) => setTo(e.target.value)}
-                      >
-                        <MenuItem value={"Bengaluru"}>Bengaluru</MenuItem>
-                        <MenuItem value={"Mumbai"}>Mumbai</MenuItem>
-                        <MenuItem value={"Pune"}>Pune</MenuItem>
-                        <MenuItem value={"New Delhi"}>New Delhi</MenuItem>
-                      </Select>
-                    </FormControl>
+                    {/* </FormControl> */}
                   </div>
                 </div>
               </div>
@@ -982,7 +986,7 @@ const FlightHome = () => {
       </div>
       <div className={styles.buttonContainer}>
         <div type="submit" onClick={handleSubmit}>
-          Search
+          SEARCH
         </div>
       </div>
     </div>

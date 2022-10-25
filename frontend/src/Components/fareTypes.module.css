@@ -5,30 +5,64 @@
   font-size: 14px;
   justify-content: space-between;
   margin: 0px 0px 20px;
-  height: 50px;
+  height: 45px;
   width: 98%;
   margin: auto;
   margin-top: 19px;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
+  gap: 10px;
 
+}
+.farep{
+  cursor: pointer;
+  font-size: 12px;
+  color: #4a4a4a;
+  line-height: 14px;
+
+}
+.rednew{
+  width: 29px;
+    height: 14px;
+    flex-grow: 0;
+    margin: 19.4px 33.5px 6.6px 38.5px;
+    font-family: Lato;
+    font-size: 12px;
+    font-weight: 900;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #ec2127;
 }
   .selectBox {
     align-items: center;
-    background-color: #eaf5ff;
-    border-radius: 5px 0px 0px 4px;
+    background: #f2f2f2;
+    /* border-radius: 5px 0px 0px 4px; */
     color: #4a4a4a;
     display: flex;
-    margin-left: 5px;
+    margin-left: 1px;
     font-size: 12px;
-    width: 80px;
+    /* width: 80px; */
+    font-family: sans-serif !important;
+    gap: 2px;
+    min-width: 80px;
+    max-width: 134px;
     font-weight: 700;
+   height: 45px;
+    align-items: center;
     line-height: 14px;
     /* padding: 8px 8px 8px 26px; */
     min-height: 4rem;
     text-align: left;
-    padding: 5px;
+    padding: 8px 8px 8px 6px;
 
   }
+  .selectBox :active{
+    background: #eaf5ff;
+  }
+
+  
   .div {
     align-items: center;
     color: #4a4a4a;
@@ -55,10 +89,17 @@
   .selectBox1 {
     /* border: 1px solid green; */
     background-color: #f2f2f2;
-    color: #4a4a4a;
+    /* color: #4a4a4a; */
+    color: black;
     margin: 0 5px;
     font-size: 0.9em;
     padding: 2px;
+    border-radius: 4px;
+    flex-direction: column;
+    padding: 8px 10px;
+    border-radius: 4px;
+    margin-left: 10px;
+    background: #f2f2f2;
    
       
   }
@@ -90,7 +131,7 @@
     margin-bottom: 10px;
   }
    .selectBox > p{
-    font-size: 0.8em;
+    /* font-size:10px; */
   } 
   .selectBox > input {
     display: none;

@@ -31,7 +31,7 @@ const Navbar = ({ isUserLoggedIn, user }) => {
   return (
     <>
       <nav className={styles.navbarWrapper}>
-        <div className={styles.navbarContent}>
+        <div className={styles.navbarContent} >
           {/* 1st part of navbar .ie. left side of navbar */}
           <div className={styles.leftSideNavbar}>
             {/* logo wrapper */}
@@ -40,7 +40,7 @@ const Navbar = ({ isUserLoggedIn, user }) => {
                 <img
                   src={logo}
                   alt="Logo"
-                  style={{width:"100%",height:"5rem",marginLeft:"2rem"}}
+                  style={{width:"100px",height:"30px",marginLeft:"2rem",marginTop:""}}
                 />
               </a>
             </div>
@@ -154,11 +154,12 @@ const Navbar = ({ isUserLoggedIn, user }) => {
                     </div>
                     <p>Hi {user ? user.split(" ")[0] : ""}</p>
                     {openProfile &&
-                      <div className={styles.profileModal}>
+                      <div className={styles.profileModal} style={{marginLeft:"-6rem",position:"relative"}}>
                         <div className={styles.profileModalTab}>
                           <div
                             className={styles.indProfileModalTab}
                             onClick={() => navigate("/myprofile")}
+                            style={{width:"9rem"}}
                           >
                             <PersonOutlineOutlined
                               style={{ fontSize: 25, color: "#e4e4e4" }}
