@@ -84,7 +84,7 @@ export const slider0 = [
         {
             "id": 9,
             "title": "GENERAL",
-            "subTitle": "MakeMyTrip NFT: Presenting Virtual Vacations",
+            "subTitle": "SHAABTRIP NFT: Presenting Virtual Vacations",
             "offer": "A limited-edition NFT collection available",
             "thumbnail_image": "https://promos.makemytrip.com/notification/xhdpi/116X116-NFT-14032022.jpg",
             "image": "https://promos.makemytrip.com/images/trip-guarantee-cabs-tb-dt-04082021.jpg"

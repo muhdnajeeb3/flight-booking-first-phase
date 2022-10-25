@@ -37,7 +37,7 @@ const Details = () => {
     ' Investor Relations',
     ' Careers',
     ' Corporate Travel',
-    ' MMTFoundation',
+    ' SHAABTRIPFoundation',
     ' CSR Policy',
     ' myPartner - Travel Agent Portal',
     ' ForeignExchange',

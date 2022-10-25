@@ -1,7 +1,7 @@
 import React from "react";
 import style_f from "./Footer.module.css";
 
-import { FaTwitter } from "react-icons/fa";
+import { FaInstagram, FaTwitter } from "react-icons/fa";
 
 import { FaFacebookF } from "react-icons/fa";
 
@@ -13,9 +13,10 @@ const Footer = () => {
       <div className={style_f.container}>
         <div className={style_f.f_icon}>
 
-          <a href="/">  <FaTwitter className={style_f.twitter} /></a>
+          <a href="https://twitter.com/shaab_travels?t=QJPMij9F5gyf3_COdzPF1g&s=09">  <FaTwitter className={style_f.twitter} /></a>
 
-          <a href="/"> <FaFacebookF className={style_f.facebook} /> </a>
+          <a href="https://www.facebook.com/shaabtravels"> <FaFacebookF className={style_f.facebook} /> </a>
+          <a href="https://instagram.com/shaabtrip?igshid=YmMyMTA2M2Y="> <FaInstagram className={style_f.facebook} /> </a>
 
         </div>
 
