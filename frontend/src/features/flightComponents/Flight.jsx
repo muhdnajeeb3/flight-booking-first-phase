@@ -17,6 +17,7 @@ export const Flight = () => {
   const [check, setCheck] = useState(true);
   const [value, setValue] = useState([0, 4500]);
   const [stopCheck, setStopCheck] = useState(true);
+  const [airlineNames, setAirlineNames] = useState(true);
   const [data,setData] = useState([])
   let { loading, error, flights } = useSelector((state) => ({
     loading: state.flight.loading,
@@ -130,6 +131,10 @@ export const Flight = () => {
     if (info.startsWith("1_stop")) {
       flights = flight.filter((item) => item.stops !== "Non stop");
       setFlight(flights);
+    }
+    if(info.startsWith("airlinename")){
+      flights = flight.filter((item) => item.name === "IndiGo");
+      setFlight(flights)
     }
   };
 
@@ -271,14 +276,21 @@ export const Flight = () => {
                   <span>1 Stop</span>
                 </div>
               </div>
-              <div className={styles.first}>
+              <div className={styles.first}
+              onChange={(e) => {
+                check ? handleFilters(e.target.name) : getFlight();
+              }}
+              >
                 <b>Airlines</b>
                 <div className={styles.filterCheck}>
-                  <input type="checkbox" />
+                  <input type="checkbox" 
+                 />
                   <span>Air India (3)</span>
                 </div>
                 <div className={styles.filterCheck}>
-                  <input type="checkbox" />
+                  <input type="checkbox" 
+                   onClick={()=> setAirlineNames(!airlineNames)}
+                   name="airlinename"/>
                   <span>Indigo (3)</span>
                 </div>
                 <div className={styles.filterCheck}>

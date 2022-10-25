@@ -13,9 +13,9 @@ const Footer = () => {
       <div className={style_f.container}>
         <div className={style_f.f_icon}>
 
-          <a href="https://twitter.com/makemytrip/">  <FaTwitter className={style_f.twitter} /></a>
+          <a href="/">  <FaTwitter className={style_f.twitter} /></a>
 
-          <a href="https://www.facebook.com/makemytrip/"> <FaFacebookF className={style_f.facebook} /> </a>
+          <a href="/"> <FaFacebookF className={style_f.facebook} /> </a>
 
         </div>
 
