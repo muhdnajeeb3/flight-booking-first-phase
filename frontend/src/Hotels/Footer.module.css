@@ -57,11 +57,14 @@ font-weight: 900;
     text-decoration: none;
     color: white;
     font-weight: 800;
+    font-family: sans-serif;
+   
 }
 .counteryName{
     display: flex;
     gap: 3px;
     justify-content: flex-end;
+   
 }
 
 @media (min-width:768px) and (max-width:1250px) {

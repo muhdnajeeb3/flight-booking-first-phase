@@ -24,9 +24,13 @@ const Footer = () => {
 
           <span className={style_f.copyright}> © 2022 SHAAB TRIP PVT. LTD.</span>
           <span className={style_f.counteryName} >  Country
-            <a href="https://www.makemytrip.com/" className={style_f.country}>India</a>
+          <span className={style_f.country}>INDIA</span>|
+          <span className={style_f.country}>USA</span>|
+          <span className={style_f.country}>UAE</span>
+
+            {/* <a href="https://www.makemytrip.com/" className={style_f.country}>India</a>
             <a href="https://www.makemytrip.com/" className={style_f.country} >USA</a>
-            <a href="https://www.makemytrip.com/" className={style_f.country}>UAE</a>
+            <a href="https://www.makemytrip.com/" className={style_f.country}>UAE</a> */}
 
           </span>
 

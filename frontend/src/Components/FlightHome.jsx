@@ -26,7 +26,7 @@ const FlightHome = () => {
   const [roundTrip, setRoundTrip] = useState("");
   const [multiCity, setMultiCity] = useState("");
   const [newCity, setNewCity] = useState([]);
-  const [select, setSelect] = useState("");
+  const [select, setSelect] = useState(false);
 
   const [travellers, setTravellers] = React.useState(null);
   const arr = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -86,8 +86,17 @@ const FlightHome = () => {
     deletenewcity.splice(i, 1);
     setNewCity(deletenewcity);
   };
-  if(from){
-    setSelect(!select)
+  if(select === true){
+    // setSelect()
+  }
+  if(select === false){
+    setSelect(null)
+  }
+  const selecthandler = () => {
+    setSelect(false)
+  }
+  if(selecthandler){
+    
   }
   return (
     <div className={styles.flight_wrapper}>
@@ -191,20 +200,48 @@ const FlightHome = () => {
                           International Airport
                         </p>
                       </Row>
-                      {select && (
+                      {select ? (
                         <>
                           <Select
                             options={options}
                             styles={{ width: "100%" }}
-                            onChange={(e) =>setFrom(e.target.value)}
+                            // onChange={() =>setSelect(null)}
+                            onChange={selecthandler}
                             className={styles.select}
                             
-                            // closeMenuOnSelect={true}
-                            // onMenuOpen={() => setSelect({ menuIsOpen: true })}
-                            // onMenuClose={() => setSelect({ menuIsOpen: false })}
+                            components={{
+                              // SelectContainer:()=>false
+                              // Menu: () => null,               // Remove menu
+                              // MenuList: () => null,           // Remove menu list
+                              // DropdownIndicator: () => null,
+                               // Remove dropdown icon
+                              //  SelectContainer:()=> null,
+                              IndicatorSeparator: () => null  // Remove separator
+                          }}
+                          
                           />
+                          
                         </>
-                      )}
+                      ) : <>
+                      <Select
+                            options={options}
+                            styles={{ width: "100%" }}
+                            // onChange={() =>setSelect(null)}
+                            onChange={selecthandler}
+                            className={styles.select}
+                            
+                            components={{
+                              // SelectContainer:()=>false
+                              // Menu: () => null,               // Remove menu
+                              // MenuList: () => null,           // Remove menu list
+                              // DropdownIndicator: () => null,
+                               // Remove dropdown icon
+                               SelectContainer:()=> null,
+                              IndicatorSeparator: () => null  // Remove separator
+                          }}
+                          
+                          />
+                      </>}
                     </Col>
                     {/* <FormControl sx={{ width: "100%" }}>
                       <InputLabel

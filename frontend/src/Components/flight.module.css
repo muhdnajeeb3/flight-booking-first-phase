@@ -55,7 +55,7 @@
   bottom: 2.9rem;
   margin-bottom: 0;
 }
-.select:disabled{
+.select:visited{
 display: none;
 }
 /* .select:active{
