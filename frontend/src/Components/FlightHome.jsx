@@ -15,10 +15,11 @@ import FareTypes from "./FareTypes";
 import { useNavigate } from "react-router-dom";
 import { Button, Col, Row } from "react-bootstrap";
 import FromTo from "./FromToSelect";
+import './flight.module.css'
 
 const FlightHome = () => {
-  const [from, setFrom] = React.useState("");
-  const [to, setTo] = React.useState("");
+  const [from, setFrom] = React.useState("Delhi");
+  const [to, setTo] = React.useState("Kolkata");
   const [departure, setDeparture] = React.useState(null);
   const [retrn, setRetrn] = React.useState(null);
   const [selectedButtonColor, setSelectedButtonColor] = useState(1);
@@ -27,6 +28,7 @@ const FlightHome = () => {
   const [multiCity, setMultiCity] = useState("");
   const [newCity, setNewCity] = useState([]);
   const [select, setSelect] = useState(false);
+  const [selectTo, setSelectTo] = useState(false);
 
   const [travellers, setTravellers] = React.useState(null);
   const arr = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -40,9 +42,9 @@ const FlightHome = () => {
     e.stopPropagation();
   };
   const options = [
-    { value: "delhi", label: "Delhi" },
-    { value: "kochi", label: "Kochi" },
-    { value: "kolkata", label: "Kolkata" },
+    { value: "Delhi", label: "Delhi" },
+    { value: "Kochi", label: "Kochi" },
+    { value: "Kolkata", label: "Kolkata" },
   ];
 
   const onClickNoOfPass = (val) => {
@@ -86,17 +88,24 @@ const FlightHome = () => {
     deletenewcity.splice(i, 1);
     setNewCity(deletenewcity);
   };
-  if(select === true){
+  if (select === true) {
     // setSelect()
   }
-  if(select === false){
-    setSelect(null)
+  if (select === false) {
+    setSelect(null);
   }
-  const selecthandler = () => {
-    setSelect(false)
-  }
-  if(selecthandler){
-    
+  const FROMHANDLER = (e) => {
+    setSelect(false);
+    setFrom(e.value);
+  };
+  console.log(from);
+  const TOHANDLER = (e) => {
+    setSelectTo(false);
+    setTo(e.value);
+  };
+  console.log("toooo", to);
+
+  if (!select) {
   }
   return (
     <div className={styles.flight_wrapper}>
@@ -171,7 +180,7 @@ const FlightHome = () => {
                     <Col
                       style={{ borderColor: "black", width: "" }}
                       className={styles.fromcol}
-                      onClick={() => setSelect(true)}
+                      onClick={() => setSelect(!select)}
                     >
                       <Row>
                         <span style={{ marginLeft: "1rem" }}>FROM</span>
@@ -186,7 +195,7 @@ const FlightHome = () => {
                             fontFamily: "sans-serif",
                           }}
                         >
-                          Delhi
+                          {from}
                         </span>
                         <br />
                         <p
@@ -206,54 +215,44 @@ const FlightHome = () => {
                             options={options}
                             styles={{ width: "100%" }}
                             // onChange={() =>setSelect(null)}
-                            onChange={selecthandler}
+                            onChange={FROMHANDLER}
                             className={styles.select}
-                            
+                            value={options.find(function (option) {
+                              return option.value === from;
+                            })}
                             components={{
                               // SelectContainer:()=>false
                               // Menu: () => null,               // Remove menu
-                              // MenuList: () => null,           // Remove menu list
+                              // MenuList: () => true,           // Remove menu list
                               // DropdownIndicator: () => null,
-                               // Remove dropdown icon
+                              // Remove dropdown icon
                               //  SelectContainer:()=> null,
-                              IndicatorSeparator: () => null  // Remove separator
-                          }}
-                          
+                              IndicatorSeparator: () => null, // Remove separator
+                            }}
                           />
-                          
                         </>
-                      ) : <>
-                      <Select
+                      ) : (
+                        <>
+                          <Select
                             options={options}
                             styles={{ width: "100%" }}
                             // onChange={() =>setSelect(null)}
-                            onChange={selecthandler}
+                            onChange={FROMHANDLER}
                             className={styles.select}
-                            
                             components={{
                               // SelectContainer:()=>false
                               // Menu: () => null,               // Remove menu
                               // MenuList: () => null,           // Remove menu list
                               // DropdownIndicator: () => null,
-                               // Remove dropdown icon
-                               SelectContainer:()=> null,
-                              IndicatorSeparator: () => null  // Remove separator
-                          }}
-                          
+                              // Remove dropdown icon
+                              SelectContainer: () => null,
+                              IndicatorSeparator: () => null, // Remove separator
+                            }}
                           />
-                      </>}
+                        </>
+                      )}
                     </Col>
-                    {/* <FormControl sx={{ width: "100%" }}>
-                      <InputLabel
-                        sx={{ width: "100%" }}
-                        id="demo-simple-select-label"
-                      >
-                        From
-                      </InputLabel>
-         <Select options={options} styles={{width:"100%"}} />
-                      
-                      
-                    </FormControl> */}
+                    
                   </div>
                   <div className={styles.connectingIcon}>
                     <ConnectingAirportsIcon fontSize="large" color="grey" />
@@ -262,6 +261,7 @@ const FlightHome = () => {
                     <Col
                       style={{ borderColor: "black", width: "" }}
                       className={styles.fromcol}
+                      onClick={() => setSelectTo(!selectTo)}
                     >
                       <Row>
                         <span style={{ marginLeft: "1rem" }}>TO</span>
@@ -276,7 +276,7 @@ const FlightHome = () => {
                             fontFamily: "sans-serif",
                           }}
                         >
-                          Kolkata
+                          {to}
                         </span>
                         <br />
                         <p
@@ -290,20 +290,51 @@ const FlightHome = () => {
                           International Airport
                         </p>
                       </Row>
+                      {selectTo ? (
+                        <>
+                          <Select
+                            options={options}
+                            styles={{ width: "100%" }}
+                            // onChange={() =>setSelect(null)}
+                            onChange={TOHANDLER}
+                            className={styles.select}
+                            value={options.find(function (option) {
+                              return option.value === from;
+                            })}
+                            components={{
+                              // SelectContainer:()=>false
+                              // Menu: () => null,               // Remove menu
+                              // MenuList: () => true,           // Remove menu list
+                              // DropdownIndicator: () => null,
+                              // Remove dropdown icon
+                              //  SelectContainer:()=> null,
+                              IndicatorSeparator: () => null, // Remove separator
+                            }}
+                          />
+                        </>
+                      ) : (
+                        <>
+                          <Select
+                            options={options}
+                            styles={{ width: "100%" }}
+                            // onChange={() =>setSelect(null)}
+                            onChange={TOHANDLER}
+                            className={styles.select}
+                            components={{
+                              // SelectContainer:()=>false
+                              // Menu: () => null,               // Remove menu
+                              // MenuList: () => null,           // Remove menu list
+                              // DropdownIndicator: () => null,
+                              // Remove dropdown icon
+                              SelectContainer: () => null,
+                              IndicatorSeparator: () => null, // Remove separator
+                            }}
+                          />
+                        </>
+                      )}
 
                       {/* <Select options={options} styles={{width:"100%"}} /> */}
                     </Col>
-                    {/* <FormControl sx={{ width: "100%" }}> */}
-                    {/* <InputLabel
-                        fullWidth
-                        sx={{ width: "100%" }}
-                        id="demo-simple-select-label"
-                      >
-                        To
-                      </InputLabel> */}
-                    {/* <Select options={options} styles={{width:"100%"}} /> */}
-
-                    {/* </FormControl> */}
                   </div>
                 </div>
               </div>
@@ -312,21 +343,30 @@ const FlightHome = () => {
               <div className={styles.DepRetContainer}>
                 {/* departure date starts */}
                 <div style={{ width: "96%", marginTop: "-5px" }}>
-                  <FormControl sx={{ width: "100%" }}>
+                  {/* <Col
+                    style={{ borderColor: "black", width: "" }}
+                    className={styles.fromcol}
+                  > */}
+                  <FormControl sx={{ width: "100%" ,border:"none"}} >
                     <LocalizationProvider
                       sx={{ width: "100%" }}
                       dateAdapter={AdapterDateFns}
+                      // className={styles.hey}
+                      style={{minHeight:"5rem"}}
                     >
                       <DatePicker
+                      //  className={styles.hey}
                         label="Departure"
                         value={departure}
                         onChange={(newValue) => {
                           setDeparture(newValue);
                         }}
-                        renderInput={(params) => <TextField {...params} />}
+                        style={{minHeight:"5rem"}}
+                        renderInput={(params) => <TextField {...params} style={{minHeight:"5rem"}}/>}
                       />
                     </LocalizationProvider>
                   </FormControl>
+                  {/* </Col> */}
                 </div>
               </div>
               {/* return */}
