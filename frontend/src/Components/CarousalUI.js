@@ -5,6 +5,7 @@ import { NavigateBefore, NavigateNext } from '@mui/icons-material';
 import "../CSS/CarousalUI.css";
 import { slider0, slider1, slider2 } from '../CarouselData';
 import { ListenerContext } from '../Contexts/ListenerProvider';
+import { Link } from 'react-router-dom';
 
 export const CarousalUI = () => {
 
@@ -71,7 +72,7 @@ export const CarousalUI = () => {
                                                         <p className="offerCardOffers">{item.first.offer}</p>
                                                     </div>
                                                     <div className='knowMore'>
-                                                        <p>KNOW MORE</p>
+                                                        <Link to="/flightoffers" style={{textDecoration:"none"}}><p>KNOW MORE</p></Link>
                                                     </div>
                                                 </div>
                                             </div>
@@ -90,7 +91,7 @@ export const CarousalUI = () => {
                                                         <p className="offerCardOffers">{item.second.offer}</p>
                                                     </div>
                                                     <div className='knowMore'>
-                                                        <p>KNOW MORE</p>
+                                                    <Link to="/flightoffers" style={{textDecoration:"none"}}><p>KNOW MORE</p></Link>
                                                     </div>
                                                 </div>
                                             </div>
@@ -120,7 +121,7 @@ export const CarousalUI = () => {
                                                             <p className="offerCardOffers">{item.first.offer}</p>
                                                         </div>
                                                         <div className='knowMore'>
-                                                            <p>KNOW MORE</p>
+                                                        <Link to="/flightoffers" style={{textDecoration:"none"}}><p>KNOW MORE</p></Link>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -169,7 +170,7 @@ export const CarousalUI = () => {
                                                             <p className="offerCardOffers">{item.first.offer}</p>
                                                         </div>
                                                         <div className='knowMore'>
-                                                            <p>KNOW MORE</p>
+                                                        <Link to="/flightoffers" style={{textDecoration:"none"}}><p>KNOW MORE</p></Link>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -188,7 +189,8 @@ export const CarousalUI = () => {
                                                             <p className="offerCardOffers">{item.second.offer}</p>
                                                         </div>
                                                         <div className='knowMore'>
-                                                            <p>KNOW MORE</p>
+                                                        <Link to="/flightoffers" style={{textDecoration:"none"}}><p>KNOW MORE</p></Link>
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>

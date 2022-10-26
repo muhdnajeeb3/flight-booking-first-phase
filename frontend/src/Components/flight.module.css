@@ -47,7 +47,16 @@
 .fromcol{
   border: 1px solid grey !important;
   border-radius: 10px;
+  max-height: 6rem;
 }
+.select{
+  z-index: 50;
+  bottom: 2.9rem;
+  margin-bottom: 0;
+}
+/* .select:active{
+  display: none;
+} */
 .multiple_trip {
   flex-grow: 1;
   display: flex;

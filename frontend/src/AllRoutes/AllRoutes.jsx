@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import Seosonoffers from "../Components/Seosonoffers";
 import { FlightBooking } from "../features/flightBookingComponents/FlightBooking";
 import { Flight } from "../features/flightComponents/Flight";
 import { FlightPayment } from "../features/FlightPayment/FlightPayment";
@@ -20,6 +21,7 @@ export const AllRoutes = () => {
       <Route path="/flightpayment/:price" element={<FlightPayment />} />
       <Route path="/myprofile" element={<Profile />} />
       <Route path="/mytrips" element={<Trips />} />
+      <Route path="/flightoffers" element={<Seosonoffers />} />
       <Route path="/hotels/:id" element={<Hotel />} />
       <Route path="/hotels" element={<ProductPage />} />
       <Route path="/hotels/review/:id" element={<Review />} />

@@ -5,7 +5,7 @@ import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 // import Select from "@mui/material/Select";
-import Select from 'react-select'
+import Select from "react-select";
 
 import TextField from "@mui/material/TextField";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
@@ -16,17 +16,17 @@ import { useNavigate } from "react-router-dom";
 import { Button, Col, Row } from "react-bootstrap";
 import FromTo from "./FromToSelect";
 
-
 const FlightHome = () => {
   const [from, setFrom] = React.useState("");
   const [to, setTo] = React.useState("");
   const [departure, setDeparture] = React.useState(null);
   const [retrn, setRetrn] = React.useState(null);
-  const [selectedButtonColor, setSelectedButtonColor] = useState(1)
+  const [selectedButtonColor, setSelectedButtonColor] = useState(1);
   const [oneWay, setOneWay] = useState(true);
   const [roundTrip, setRoundTrip] = useState("");
   const [multiCity, setMultiCity] = useState("");
   const [newCity, setNewCity] = useState([]);
+  const [select, setSelect] = useState(false);
 
   const [travellers, setTravellers] = React.useState(null);
   const arr = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -40,16 +40,27 @@ const FlightHome = () => {
     e.stopPropagation();
   };
   const options = [
-    { value: 'delhi', label: 'Delhi' },
-    { value: 'kochi', label: 'Kochi' },
-    { value: 'kolkata', label: 'Kolkata' }
-  ]
+    { value: "delhi", label: "Delhi" },
+    { value: "kochi", label: "Kochi" },
+    { value: "kolkata", label: "Kolkata" },
+  ];
 
   const onClickNoOfPass = (val) => {
     setTravellers(val);
   };
   const handleSubmit = () => {
-    navigate("/flights",{ state: {from,to,departure,retrn,travellers,selectedButtonColor,openTravellers,togglePassengerColor}});
+    navigate("/flights", {
+      state: {
+        from,
+        to,
+        departure,
+        retrn,
+        travellers,
+        selectedButtonColor,
+        openTravellers,
+        togglePassengerColor,
+      },
+    });
   };
   const MULTICITYHANDLER = () => {
     setOneWay("");
@@ -80,9 +91,12 @@ const FlightHome = () => {
       <div className={styles.flight_container}>
         <div className={styles.tripInternational}>
           <div className={styles.multiple_trip}>
-            
             <div className={styles.orm}>
-              <Button className="radiobutton" style={{ border: "none" }} variant="">
+              <Button
+                className="radiobutton"
+                style={{ border: "none" }}
+                variant=""
+              >
                 <input
                   type="radio"
                   value="select"
@@ -95,7 +109,11 @@ const FlightHome = () => {
               </Button>
             </div>
             <div>
-              <Button className="radiobutton1" style={{ border: "none" }} variant="">
+              <Button
+                className="radiobutton1"
+                style={{ border: "none" }}
+                variant=""
+              >
                 <input
                   type="radio"
                   className="onewaytitle"
@@ -108,7 +126,11 @@ const FlightHome = () => {
               </Button>
             </div>
             <div>
-              <Button className="radiobutton2" style={{ border: "none" }} variant="">
+              <Button
+                className="radiobutton2"
+                style={{ border: "none" }}
+                variant=""
+              >
                 <input
                   type="radio"
                   className="onewaytitle"
@@ -134,14 +156,53 @@ const FlightHome = () => {
               <div className={styles.fromToConnecting}>
                 <div className={styles.fromTo}>
                   <div className={styles.from}>
-                    <Col style={{borderColor:"black",width:""}} className={styles.fromcol}>
-                    <Row><span style={{marginLeft:"1rem"}}>From</span></Row>
-                    <Row><span style={{marginBottom:"-30px",marginLeft:"1rem",fontWeight:"900",fontSize:"18px",fontFamily:"sans-serif"}}>Delhi</span><br />
-                    <p style={{marginLeft:"1rem",marginBottom:"10px",fontSize:"14px",fontFamily:"sans-serif"}}>International Airport</p></Row>
-
-
-         {/* <Select options={options} styles={{width:"100%"}} /> */}
-
+                    <Col
+                      style={{ borderColor: "black", width: "" }}
+                      className={styles.fromcol}
+                      onClick={() => setSelect(true)}
+                    >
+                      <Row>
+                        <span style={{ marginLeft: "1rem" }}>From</span>
+                      </Row>
+                      <Row>
+                        <span
+                          style={{
+                            marginBottom: "-30px",
+                            marginLeft: "1rem",
+                            fontWeight: "900",
+                            fontSize: "18px",
+                            fontFamily: "sans-serif",
+                          }}
+                        >
+                          Delhi
+                        </span>
+                        <br />
+                        <p
+                          style={{
+                            marginLeft: "1rem",
+                            marginBottom: "10px",
+                            fontSize: "14px",
+                            fontFamily: "sans-serif",
+                          }}
+                        >
+                          International Airport
+                        </p>
+                      </Row>
+                      {select && (
+                        <>
+                          <Select
+                            options={options}
+                            styles={{ width: "100%" }}
+                            onChange={() =>setSelect(!select)}
+                            className={styles.select}
+                            is
+                            
+                            // closeMenuOnSelect={true}
+                            // onMenuOpen={() => setSelect({ menuIsOpen: true })}
+                            // onMenuClose={() => setSelect({ menuIsOpen: false })}
+                          />
+                        </>
+                      )}
                     </Col>
                     {/* <FormControl sx={{ width: "100%" }}>
                       <InputLabel
@@ -159,24 +220,49 @@ const FlightHome = () => {
                     <ConnectingAirportsIcon fontSize="large" color="grey" />
                   </div>
                   <div className={styles.to}>
-                  <Col style={{borderColor:"black",width:""}} className={styles.fromcol}>
-                    <Row><span style={{marginLeft:"1rem"}}>To</span></Row>
-                    <Row><span style={{marginBottom:"-30px",marginLeft:"1rem",fontWeight:"900",fontSize:"18px",fontFamily:"sans-serif"}}>Kolkata</span><br />
-                    <p style={{marginLeft:"1rem",marginBottom:"10px",fontSize:"14px",fontFamily:"sans-serif"}}>International Airport</p></Row>
+                    <Col
+                      style={{ borderColor: "black", width: "" }}
+                      className={styles.fromcol}
+                    >
+                      <Row>
+                        <span style={{ marginLeft: "1rem" }}>To</span>
+                      </Row>
+                      <Row>
+                        <span
+                          style={{
+                            marginBottom: "-30px",
+                            marginLeft: "1rem",
+                            fontWeight: "900",
+                            fontSize: "18px",
+                            fontFamily: "sans-serif",
+                          }}
+                        >
+                          Kolkata
+                        </span>
+                        <br />
+                        <p
+                          style={{
+                            marginLeft: "1rem",
+                            marginBottom: "10px",
+                            fontSize: "14px",
+                            fontFamily: "sans-serif",
+                          }}
+                        >
+                          International Airport
+                        </p>
+                      </Row>
 
-
-         {/* <Select options={options} styles={{width:"100%"}} /> */}
-
+                      {/* <Select options={options} styles={{width:"100%"}} /> */}
                     </Col>
                     {/* <FormControl sx={{ width: "100%" }}> */}
-                      {/* <InputLabel
+                    {/* <InputLabel
                         fullWidth
                         sx={{ width: "100%" }}
                         id="demo-simple-select-label"
                       >
                         To
                       </InputLabel> */}
-                      {/* <Select options={options} styles={{width:"100%"}} /> */}
+                    {/* <Select options={options} styles={{width:"100%"}} /> */}
 
                     {/* </FormControl> */}
                   </div>
@@ -187,8 +273,7 @@ const FlightHome = () => {
               <div className={styles.DepRetContainer}>
                 {/* departure date starts */}
                 <div style={{ width: "96%", marginTop: "-5px" }}>
-                  < FormControl sx={{ width: "100%" }}>
-
+                  <FormControl sx={{ width: "100%" }}>
                     <LocalizationProvider
                       sx={{ width: "100%" }}
                       dateAdapter={AdapterDateFns}
@@ -204,14 +289,12 @@ const FlightHome = () => {
                     </LocalizationProvider>
                   </FormControl>
                 </div>
-                
               </div>
               {/* return */}
               <div className={styles.DepRetContainer}>
                 {/* departure date starts */}
                 <div style={{ width: "96%", marginTop: "-4px" }}>
-                  < FormControl sx={{ width: "100%" }}>
-
+                  <FormControl sx={{ width: "100%" }}>
                     <LocalizationProvider
                       sx={{ width: "100%" }}
                       dateAdapter={AdapterDateFns}
@@ -222,7 +305,6 @@ const FlightHome = () => {
                         onChange={(newValue) => {
                           setRetrn(newValue);
                         }}
-
                         renderInput={(params) => <TextField {...params} />}
                       />
                     </LocalizationProvider>
@@ -246,16 +328,24 @@ const FlightHome = () => {
                 {/* return date starts (just for ui purpose)*/}
               </div>
 
-
-
               {/* departure and return date end */}
 
               {/* number of travellers start */}
-              
-              <div className={styles.travellerContainer} style={{ marginTop: "10px", right: "12px", position: "relative" }}>
+
+              <div
+                className={styles.travellerContainer}
+                style={{
+                  marginTop: "10px",
+                  right: "12px",
+                  position: "relative",
+                }}
+              >
                 <div onClick={onClickModal}>
                   <div className={styles.travellersText}>TRAVELLERS</div>
-                  <div className={styles.noOfTraveller} style={{ marginTop: "-6px" }}>
+                  <div
+                    className={styles.noOfTraveller}
+                    style={{ marginTop: "-6px" }}
+                  >
                     <span>{travellers}</span>
                     {travellers > 1 ? "Travellers" : ""}
                   </div>
@@ -271,11 +361,15 @@ const FlightHome = () => {
                     {arr.map((val) => (
                       <div
                         key={val}
-                        className={`${selectedButtonColor === val ? styles.clickPassenger : styles.passengerButton}`}
+                        className={`${
+                          selectedButtonColor === val
+                            ? styles.clickPassenger
+                            : styles.passengerButton
+                        }`}
                         onClick={() => {
                           setTogglePassengerColor(!togglePassengerColor);
                           onClickNoOfPass(val);
-                          setSelectedButtonColor(val)
+                          setSelectedButtonColor(val);
                         }}
                       >
                         {val}
@@ -286,7 +380,9 @@ const FlightHome = () => {
                   {/* for children and inf */}
                   <div className={styles.infantChildren}>
                     <div>
-                      <div className={styles.adultChild}>CHILDREN (2y - 12y )</div>
+                      <div className={styles.adultChild}>
+                        CHILDREN (2y - 12y )
+                      </div>
                       <div className={styles.passengerButtonContainer}>
                         {ar1.map((val) => (
                           <div
@@ -307,7 +403,9 @@ const FlightHome = () => {
                       </div>
                     </div>
                     <div>
-                      <div className={styles.adultChild} >INFANTS (below 2y)</div>
+                      <div className={styles.adultChild}>
+                        INFANTS (below 2y)
+                      </div>
                       <div className={styles.passengerButtonContainer}>
                         {ar2.map((val) => (
                           <div
@@ -381,7 +479,6 @@ const FlightHome = () => {
                         To
                       </InputLabel>
                       <Select
-
                         sx={{ width: "100%" }}
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
@@ -403,8 +500,7 @@ const FlightHome = () => {
               <div className={styles.DepRetContainer}>
                 {/* departure date starts */}
                 <div style={{ width: "96%", marginTop: "-5px" }}>
-                  < FormControl sx={{ width: "100%" }}>
-
+                  <FormControl sx={{ width: "100%" }}>
                     <LocalizationProvider
                       sx={{ width: "100%" }}
                       dateAdapter={AdapterDateFns}
@@ -441,8 +537,7 @@ const FlightHome = () => {
               <div className={styles.DepRetContainer}>
                 {/* departure date starts */}
                 <div style={{ width: "96%", marginTop: "-5px" }}>
-                  < FormControl sx={{ width: "100%" }}>
-
+                  <FormControl sx={{ width: "100%" }}>
                     <LocalizationProvider
                       sx={{ width: "100%" }}
                       dateAdapter={AdapterDateFns}
@@ -476,15 +571,23 @@ const FlightHome = () => {
                 {/* return date starts (just for ui purpose)*/}
               </div>
 
-
-
               {/* departure and return date end */}
 
               {/* number of travellers start */}
-              <div className={styles.travellerContainer} style={{ marginTop: "10px", right: "12px", position: "relative" }}>
+              <div
+                className={styles.travellerContainer}
+                style={{
+                  marginTop: "10px",
+                  right: "12px",
+                  position: "relative",
+                }}
+              >
                 <div onClick={onClickModal}>
                   <div className={styles.travellersText}>TRAVELLERS</div>
-                  <div className={styles.noOfTraveller} style={{ marginTop: "-6px" }}>
+                  <div
+                    className={styles.noOfTraveller}
+                    style={{ marginTop: "-6px" }}
+                  >
                     <span>{travellers}</span>
                     {travellers > 1 ? "Travellers" : ""}
                   </div>
@@ -500,11 +603,15 @@ const FlightHome = () => {
                     {arr.map((val) => (
                       <div
                         key={val}
-                        className={`${selectedButtonColor === val ? styles.clickPassenger : styles.passengerButton}`}
+                        className={`${
+                          selectedButtonColor === val
+                            ? styles.clickPassenger
+                            : styles.passengerButton
+                        }`}
                         onClick={() => {
                           setTogglePassengerColor(!togglePassengerColor);
                           onClickNoOfPass(val);
-                          setSelectedButtonColor(val)
+                          setSelectedButtonColor(val);
                         }}
                       >
                         {val}
@@ -515,7 +622,9 @@ const FlightHome = () => {
                   {/* for children and inf */}
                   <div className={styles.infantChildren}>
                     <div>
-                      <div className={styles.adultChild}>CHILDREN (2y - 12y )</div>
+                      <div className={styles.adultChild}>
+                        CHILDREN (2y - 12y )
+                      </div>
                       <div className={styles.passengerButtonContainer}>
                         {ar1.map((val) => (
                           <div
@@ -536,7 +645,9 @@ const FlightHome = () => {
                       </div>
                     </div>
                     <div>
-                      <div className={styles.adultChild} >INFANTS (below 2y)</div>
+                      <div className={styles.adultChild}>
+                        INFANTS (below 2y)
+                      </div>
                       <div className={styles.passengerButtonContainer}>
                         {ar1.map((val) => (
                           <div
@@ -610,7 +721,6 @@ const FlightHome = () => {
                         To
                       </InputLabel>
                       <Select
-
                         sx={{ width: "100%" }}
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
@@ -632,8 +742,7 @@ const FlightHome = () => {
               <div className={styles.DepRetContainer}>
                 {/* departure date starts */}
                 <div style={{ width: "96%", marginTop: "-5px" }}>
-                  < FormControl sx={{ width: "100%" }}>
-
+                  <FormControl sx={{ width: "100%" }}>
                     <LocalizationProvider
                       sx={{ width: "100%" }}
                       dateAdapter={AdapterDateFns}
@@ -668,16 +777,19 @@ const FlightHome = () => {
               </div>
               {/* return */}
 
-
-
-
               {/* departure and return date end */}
 
               {/* number of travellers start */}
-              <div className={styles.travellerContainer} style={{ marginTop: "-3px", right: "12px", }}>
+              <div
+                className={styles.travellerContainer}
+                style={{ marginTop: "-3px", right: "12px" }}
+              >
                 <div onClick={onClickModal}>
                   <div className={styles.travellersText}>TRAVELLERS</div>
-                  <div className={styles.noOfTraveller} style={{ marginTop: "-6px" }}>
+                  <div
+                    className={styles.noOfTraveller}
+                    style={{ marginTop: "-6px" }}
+                  >
                     <span>{travellers}</span>
                     {travellers > 1 ? "Travellers" : ""}
                   </div>
@@ -685,7 +797,9 @@ const FlightHome = () => {
 
                 <div
                   className={
-                    multiCity && openTravellers ? styles.traveller_modalmulti : styles.noDisplay
+                    multiCity && openTravellers
+                      ? styles.traveller_modalmulti
+                      : styles.noDisplay
                   }
                 >
                   <div className={styles.adultChild}>ADULTS (12y +)</div>
@@ -693,11 +807,15 @@ const FlightHome = () => {
                     {arr.map((val) => (
                       <div
                         key={val}
-                        className={`${selectedButtonColor === val ? styles.clickPassenger : styles.passengerButton}`}
+                        className={`${
+                          selectedButtonColor === val
+                            ? styles.clickPassenger
+                            : styles.passengerButton
+                        }`}
                         onClick={() => {
                           setTogglePassengerColor(!togglePassengerColor);
                           onClickNoOfPass(val);
-                          setSelectedButtonColor(val)
+                          setSelectedButtonColor(val);
                         }}
                       >
                         {val}
@@ -708,7 +826,9 @@ const FlightHome = () => {
                   {/* for children and inf */}
                   <div className={styles.infantChildren}>
                     <div>
-                      <div className={styles.adultChild}>CHILDREN (2y - 12y )</div>
+                      <div className={styles.adultChild}>
+                        CHILDREN (2y - 12y )
+                      </div>
                       <div className={styles.passengerButtonContainer}>
                         {ar1.map((val) => (
                           <div
@@ -729,7 +849,9 @@ const FlightHome = () => {
                       </div>
                     </div>
                     <div>
-                      <div className={styles.adultChild} >INFANTS (below 2y)</div>
+                      <div className={styles.adultChild}>
+                        INFANTS (below 2y)
+                      </div>
                       <div className={styles.passengerButtonContainer}>
                         {ar1.map((val) => (
                           <div
@@ -751,7 +873,6 @@ const FlightHome = () => {
                     </div>
                   </div>
 
-
                   {/* for children and inf */}
 
                   <div className={styles.modalApplyText} onClick={onClickModal}>
@@ -761,7 +882,7 @@ const FlightHome = () => {
               </div>
             </div>
             {/* add another city */}
-            <div className={styles.bookingSearch} style={{ marginTop: "10px" }} >
+            <div className={styles.bookingSearch} style={{ marginTop: "10px" }}>
               <div className={styles.fromToConnecting}>
                 <div className={styles.fromTo}>
                   <div className={styles.from}>
@@ -801,7 +922,6 @@ const FlightHome = () => {
                         To
                       </InputLabel>
                       <Select
-
                         sx={{ width: "100%" }}
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
@@ -820,11 +940,13 @@ const FlightHome = () => {
               </div>
 
               {/* departure and return date start */}
-              <div className={styles.DepRetContaineraddcity} style={{ marginRight: "", }}>
+              <div
+                className={styles.DepRetContaineraddcity}
+                style={{ marginRight: "" }}
+              >
                 {/* departure date starts */}
                 <div style={{ width: "96%", marginTop: "-5px" }}>
-                  < FormControl sx={{ width: "100%" }}>
-
+                  <FormControl sx={{ width: "100%" }}>
                     <LocalizationProvider
                       sx={{ width: "100%" }}
                       dateAdapter={AdapterDateFns}
@@ -857,132 +979,165 @@ const FlightHome = () => {
             </div> */}
                 {/* return date starts (just for ui purpose)*/}
               </div>
-              <div style={{ borderColor: "black", display: "grid", justifyContent: "start", marginTop: "" }}>
+              <div
+                style={{
+                  borderColor: "black",
+                  display: "grid",
+                  justifyContent: "start",
+                  marginTop: "",
+                }}
+              >
                 <Button
-                  style={{ height: "auto", border: "none", color: "green", fontFamily: "sans-serif" ,display:"grid",justifyContent:"center"}}
-                  onClick={() => HANDLEADD()} variant="" className={styles.addcitybtn}>
+                  style={{
+                    height: "auto",
+                    border: "none",
+                    color: "green",
+                    fontFamily: "sans-serif",
+                    display: "grid",
+                    justifyContent: "center",
+                  }}
+                  onClick={() => HANDLEADD()}
+                  variant=""
+                  className={styles.addcitybtn}
+                >
                   + ADD ANOTHER CITY
                 </Button>
               </div>
               {/* return */}
 
-
-
-
               {/* departure and return date end */}
 
               {/* number of travellers start */}
-
             </div>
           </>
         )}
         {/* new city */}
-        {multiCity && newCity.map((data, i) => {
-          return (
-            <>
-              <div className={styles.bookingSearch} style={{ marginTop: "10px" }} >
-                <div className={styles.fromToConnecting}>
-                  <div className={styles.fromTo}>
-                    <div className={styles.from}>
-                      <FormControl sx={{ width: "100%" }}>
-                        <InputLabel
-                          sx={{ width: "100%" }}
-                          id="demo-simple-select-label"
-                        >
-                          From
-                        </InputLabel>
-                        <Select
-                          fullWidth
-                          sx={{ width: "100%" }}
-                          labelId="demo-simple-select-label"
-                          id="demo-simple-select"
-                          value={from}
-                          label="from"
-                          onChange={(e) => setFrom(e.target.value)}
-                        >
-                          <MenuItem value={"New Delhi"}>New Delhi</MenuItem>
-                          <MenuItem value={"Mumbai"}>Mumbai</MenuItem>
-                          <MenuItem value={"Pune"}>Pune</MenuItem>
-                          <MenuItem value={"Bengaluru"}>Bengaluru</MenuItem>
-                        </Select>
-                      </FormControl>
+        {multiCity &&
+          newCity.map((data, i) => {
+            return (
+              <>
+                <div
+                  className={styles.bookingSearch}
+                  style={{ marginTop: "10px" }}
+                >
+                  <div className={styles.fromToConnecting}>
+                    <div className={styles.fromTo}>
+                      <div className={styles.from}>
+                        <FormControl sx={{ width: "100%" }}>
+                          <InputLabel
+                            sx={{ width: "100%" }}
+                            id="demo-simple-select-label"
+                          >
+                            From
+                          </InputLabel>
+                          <Select
+                            fullWidth
+                            sx={{ width: "100%" }}
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={from}
+                            label="from"
+                            onChange={(e) => setFrom(e.target.value)}
+                          >
+                            <MenuItem value={"New Delhi"}>New Delhi</MenuItem>
+                            <MenuItem value={"Mumbai"}>Mumbai</MenuItem>
+                            <MenuItem value={"Pune"}>Pune</MenuItem>
+                            <MenuItem value={"Bengaluru"}>Bengaluru</MenuItem>
+                          </Select>
+                        </FormControl>
+                      </div>
+                      <div className={styles.connectingIcon}>
+                        <ConnectingAirportsIcon fontSize="large" color="grey" />
+                      </div>
+                      <div className={styles.to}>
+                        <FormControl sx={{ width: "100%" }}>
+                          <InputLabel
+                            fullWidth
+                            sx={{ width: "100%" }}
+                            id="demo-simple-select-label"
+                          >
+                            To
+                          </InputLabel>
+                          <Select
+                            sx={{ width: "100%" }}
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={to}
+                            label="to"
+                            onChange={(e) => setTo(e.target.value)}
+                          >
+                            <MenuItem value={"Bengaluru"}>Bengaluru</MenuItem>
+                            <MenuItem value={"Mumbai"}>Mumbai</MenuItem>
+                            <MenuItem value={"Pune"}>Pune</MenuItem>
+                            <MenuItem value={"New Delhi"}>New Delhi</MenuItem>
+                          </Select>
+                        </FormControl>
+                      </div>
                     </div>
-                    <div className={styles.connectingIcon}>
-                      <ConnectingAirportsIcon fontSize="large" color="grey" />
-                    </div>
-                    <div className={styles.to}>
-                      <FormControl sx={{ width: "100%" }}>
-                        <InputLabel
-                          fullWidth
-                          sx={{ width: "100%" }}
-                          id="demo-simple-select-label"
-                        >
-                          To
-                        </InputLabel>
-                        <Select
+                  </div>
 
+                  {/* departure and return date start */}
+                  <div
+                    className={styles.DepRetContaineraddcity}
+                    style={{ marginRight: "auto" }}
+                  >
+                    {/* departure date starts */}
+                    <div style={{ width: "96%", marginTop: "-5px" }}>
+                      <FormControl sx={{ width: "100%" }}>
+                        <LocalizationProvider
                           sx={{ width: "100%" }}
-                          labelId="demo-simple-select-label"
-                          id="demo-simple-select"
-                          value={to}
-                          label="to"
-                          onChange={(e) => setTo(e.target.value)}
+                          dateAdapter={AdapterDateFns}
                         >
-                          <MenuItem value={"Bengaluru"}>Bengaluru</MenuItem>
-                          <MenuItem value={"Mumbai"}>Mumbai</MenuItem>
-                          <MenuItem value={"Pune"}>Pune</MenuItem>
-                          <MenuItem value={"New Delhi"}>New Delhi</MenuItem>
-                        </Select>
+                          <DatePicker
+                            label="Departure"
+                            value={departure}
+                            onChange={(newValue) => {
+                              setDeparture(newValue);
+                            }}
+                            renderInput={(params) => <TextField {...params} />}
+                          />
+                        </LocalizationProvider>
                       </FormControl>
                     </div>
                   </div>
-                </div>
-
-                {/* departure and return date start */}
-                <div className={styles.DepRetContaineraddcity} style={{ marginRight: "auto", }}>
-                  {/* departure date starts */}
-                  <div style={{ width: "96%", marginTop: "-5px" }}>
-                    < FormControl sx={{ width: "100%" }}>
-
-                      <LocalizationProvider
-                        sx={{ width: "100%" }}
-                        dateAdapter={AdapterDateFns}
-                      >
-                        <DatePicker
-                          label="Departure"
-                          value={departure}
-                          onChange={(newValue) => {
-                            setDeparture(newValue);
-                          }}
-                          renderInput={(params) => <TextField {...params} />}
-                        />
-                      </LocalizationProvider>
-                    </FormControl>
+                  <div
+                    style={{
+                      borderColor: "black",
+                      display: "grid",
+                      justifyContent: "start",
+                      marginTop: "5px",
+                    }}
+                  >
+                    <Button
+                      style={{
+                        height: "30px",
+                        borderRadius: "5px",
+                        borderColor: "Red",
+                        color: "red",
+                        fontFamily: "sans-serif",
+                        fontWeight: "600",
+                        fontSize: "14px",
+                        display: "grid",
+                        justifyContent: "center",
+                      }}
+                      onClick={() => DELETEHANDLER(i)}
+                      variant=""
+                    >
+                      X REMOVE
+                    </Button>
                   </div>
+                  {/* return */}
+
+                  {/* departure and return date end */}
+
+                  {/* number of travellers start */}
                 </div>
-                <div style={{ borderColor: "black", display: "grid", justifyContent: "start", marginTop: "5px" }}>
-                  <Button style={{ height: "30px", borderRadius: "5px", borderColor: "Red", color: "red", fontFamily: "sans-serif", fontWeight: "600" ,fontSize:"14px",display:"grid",justifyContent:"center"}}
-                    onClick={() => DELETEHANDLER(i)} variant="">
-                    X REMOVE
-                  </Button>
-                </div>
-                {/* return */}
-
-
-
-
-                {/* departure and return date end */}
-
-                {/* number of travellers start */}
-
-              </div>
-            </>
-          )
-        })}
+              </>
+            );
+          })}
         {/* location of departure and arrival  including date and passenger end  */}
 
         <FareTypes />
-
       </div>
       <div className={styles.buttonContainer}>
         <div type="submit" onClick={handleSubmit}>
