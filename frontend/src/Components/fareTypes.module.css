@@ -43,19 +43,20 @@
     display: flex;
     margin-left: 1px;
     font-size: 12px;
+    justify-content: center !important;
     /* width: 80px; */
     font-family: sans-serif !important;
     gap: 2px;
     min-width: 80px;
     max-width: 134px;
     font-weight: 700;
-   height: 45px;
+   max-height: 45px !important;
     align-items: center;
     line-height: 14px;
     /* padding: 8px 8px 8px 26px; */
     min-height: 4rem;
     text-align: left;
-    padding: 8px 8px 8px 6px;
+    padding: 8px 8px 0px 6px;
 
   }
   .selectBox :active{

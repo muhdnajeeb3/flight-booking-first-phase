@@ -26,7 +26,7 @@ const FlightHome = () => {
   const [roundTrip, setRoundTrip] = useState("");
   const [multiCity, setMultiCity] = useState("");
   const [newCity, setNewCity] = useState([]);
-  const [select, setSelect] = useState(false);
+  const [select, setSelect] = useState("");
 
   const [travellers, setTravellers] = React.useState(null);
   const arr = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -86,6 +86,9 @@ const FlightHome = () => {
     deletenewcity.splice(i, 1);
     setNewCity(deletenewcity);
   };
+  if(from){
+    setSelect(!select)
+  }
   return (
     <div className={styles.flight_wrapper}>
       <div className={styles.flight_container}>
@@ -162,7 +165,7 @@ const FlightHome = () => {
                       onClick={() => setSelect(true)}
                     >
                       <Row>
-                        <span style={{ marginLeft: "1rem" }}>From</span>
+                        <span style={{ marginLeft: "1rem" }}>FROM</span>
                       </Row>
                       <Row>
                         <span
@@ -193,9 +196,8 @@ const FlightHome = () => {
                           <Select
                             options={options}
                             styles={{ width: "100%" }}
-                            onChange={() =>setSelect(!select)}
+                            onChange={(e) =>setFrom(e.target.value)}
                             className={styles.select}
-                            is
                             
                             // closeMenuOnSelect={true}
                             // onMenuOpen={() => setSelect({ menuIsOpen: true })}
@@ -225,7 +227,7 @@ const FlightHome = () => {
                       className={styles.fromcol}
                     >
                       <Row>
-                        <span style={{ marginLeft: "1rem" }}>To</span>
+                        <span style={{ marginLeft: "1rem" }}>TO</span>
                       </Row>
                       <Row>
                         <span

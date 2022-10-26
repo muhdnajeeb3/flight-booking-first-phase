@@ -50,9 +50,13 @@
   max-height: 6rem;
 }
 .select{
-  z-index: 50;
+  z-index: 99950;
+  /* overflow: hidden; */
   bottom: 2.9rem;
   margin-bottom: 0;
+}
+.select:disabled{
+display: none;
 }
 /* .select:active{
   display: none;

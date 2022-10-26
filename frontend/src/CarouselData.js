@@ -15,7 +15,7 @@ export const slider0 = [
             "title": "DOM HOTELS",
             "subTitle": "ARRIVED: The Great Escape Sale on Homestays!",
             "offer": "Grab FLAT 25% OFF* on 3000+ properties & stay the way you like",
-            "thumbnail_image": "https://promos.makemytrip.com/notification/xhdpi/116X116-NFT-14032022.jpg",
+            "thumbnail_image": "https://promos.makemytrip.com/notification/xhdpi/BannerAndmanGoa-1Mar_Desktop-116x116.jpg",
             "image": "https://promos.makemytrip.com/images/intl-cmpn-tb-dt-new.png"
         }
     },
@@ -86,8 +86,8 @@ export const slider0 = [
             "title": "GENERAL",
             "subTitle": "SHAABTRIP NFT: Presenting Virtual Vacations",
             "offer": "A limited-edition NFT collection available",
-            "thumbnail_image": "https://promos.makemytrip.com/notification/xhdpi/116X116-NFT-14032022.jpg",
-            "image": "https://promos.makemytrip.com/images/trip-guarantee-cabs-tb-dt-04082021.jpg"
+            "thumbnail_image": "https://promos.makemytrip.com/notification/xhdpi/BannerAndmanGoa-1Mar_Desktop-116x116.jpg",
+            "image": "https://promos.makemytrip.com/images/intl-cmpn-tb-dt-new.png"
         },
         "second":
         {

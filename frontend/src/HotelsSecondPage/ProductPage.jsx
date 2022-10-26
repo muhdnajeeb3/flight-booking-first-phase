@@ -200,7 +200,7 @@ const ProductPage = () => {
                     <div className={stylef.boxdiv}>
                       <div className={stylef.checkboxdiv}>
                         <input type="checkbox" name="vehicle1" value="Bike" />
-                        <span>MMT Value Stays</span>
+                        <span>SHAABTRIP Value Stays</span>
                       </div>
 
                       <div className={stylef.vlaue}></div>

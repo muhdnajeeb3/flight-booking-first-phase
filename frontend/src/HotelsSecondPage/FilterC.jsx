@@ -169,7 +169,7 @@ const FilterC = () => {
             <div className={stylef.checkboxdiv}>
               <input type="checkbox" name="vehicle1" value="Bike" />
               <span>
-                MMT Value Stays - Quality <br /> Budget Hotels
+                 SHAAB TRIP Value Stays - Quality <br /> Budget Hotels
               </span>
             </div>
 
