@@ -214,6 +214,8 @@ const FlightHome = () => {
                           <Select
                             options={options}
                             styles={{ width: "100%" }}
+                            
+                            menuIsOpen={true}
                             // onChange={() =>setSelect(null)}
                             onChange={FROMHANDLER}
                             className={styles.select}
