@@ -94,3 +94,29 @@ font-weight: 900;
         font-size: 14px;
     }
 }
+@media only screen and (max-width:580px) {
+.container{
+    margin-bottom: 2rem;
+    /* padding: 5rem; */
+}
+.twitter{
+    font-size: 25px;
+}
+
+.facebook{
+    font-size: 25px;
+    /* margin-bottom: 3rem; */
+
+}
+    
+.copyright{
+    font-size: 14px;
+}
+
+.country{
+    font-size: 14px;
+}
+.f_icon,.f_cright{
+    margin-bottom: 2rem;
+}
+}
