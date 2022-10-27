@@ -15,7 +15,7 @@ import FareTypes from "./FareTypes";
 import { useNavigate } from "react-router-dom";
 import { Button, Col, Row } from "react-bootstrap";
 import FromTo from "./FromToSelect";
-import './flight.module.css'
+import "./flight.module.css";
 import { borderRadius } from "@mui/system";
 
 const FlightHome = () => {
@@ -104,21 +104,21 @@ const FlightHome = () => {
     setFrom(e.value);
   };
   const ROUNDTRIPFROMHANDLER = (e) => {
-    setSelectOne(false)
-    setFrom(e.value)
-  }
+    setSelectOne(false);
+    setFrom(e.value);
+  };
   const MULTICITYFROMHANDLER = (e) => {
-    setSelectOne(false)
-    setFrom(e.value)
-  }
+    setSelectOne(false);
+    setFrom(e.value);
+  };
   const ANOTHERCITYFROMHANDLER = (e) => {
-    setSelectAnotherCity(false)
-    setFrom(e.value)
-  }
+    setSelectAnotherCity(false);
+    setFrom(e.value);
+  };
   const NEWCITYFROMHANDLER = (e) => {
-    setSelectNewCity(false)
-    setFrom(e.value)
-  }
+    setSelectNewCity(false);
+    setFrom(e.value);
+  };
   console.log(from);
   const TOHANDLER = (e) => {
     setSelectTo(false);
@@ -204,7 +204,16 @@ const FlightHome = () => {
                       onClick={() => setSelect(!select)}
                     >
                       <Row>
-                        <span style={{ marginLeft: "1rem",fontWeight:"700",fontSize:"14px",color:"#4a4a4a" }}>FROM</span>
+                        <span
+                          style={{
+                            marginLeft: "1rem",
+                            fontWeight: "700",
+                            fontSize: "14px",
+                            color: "#4a4a4a",
+                          }}
+                        >
+                          FROM
+                        </span>
                       </Row>
                       <Row>
                         <span
@@ -235,7 +244,6 @@ const FlightHome = () => {
                           <Select
                             options={options}
                             styles={{ width: "100%" }}
-                            
                             menuIsOpen={true}
                             // onChange={() =>setSelect(null)}
                             onChange={FROMHANDLER}
@@ -275,7 +283,6 @@ const FlightHome = () => {
                         </>
                       )}
                     </Col>
-                    
                   </div>
                   <div className={styles.connectingIcon}>
                     <ConnectingAirportsIcon fontSize="large" color="grey" />
@@ -287,8 +294,16 @@ const FlightHome = () => {
                       onClick={() => setSelectTo(!selectTo)}
                     >
                       <Row>
-                      <span style={{ marginLeft: "1rem",fontWeight:"700",fontSize:"14px",color:"#4a4a4a" }}>TO</span>
-
+                        <span
+                          style={{
+                            marginLeft: "1rem",
+                            fontWeight: "700",
+                            fontSize: "14px",
+                            color: "#4a4a4a",
+                          }}
+                        >
+                          TO
+                        </span>
                       </Row>
                       <Row>
                         <span
@@ -365,52 +380,40 @@ const FlightHome = () => {
               </div>
 
               {/* departure and return date start */}
-              <div className={styles.DepRetContainer} >
+              <div className={styles.DepRetContainer}>
                 {/* departure date starts */}
-                <div style={{ width: "96%", marginTop: "-5px"}}>
+                <div style={{ width: "96%", marginTop: "-5px" }}>
                   {/* <Col
                     style={{ borderColor: "black", width: "" }}
                     className={styles.fromcol}
                   > */}
-                  <FormControl sx={{ width: "100%" }} inputProps={{
-                          style: {
-                            height: "48px",
-                          },
-                        }}
-                         
-                        >
+                  <FormControl sx={{ width: "100%" }}>
                     <LocalizationProvider
-
                       sx={{ width: "100%" }}
                       dateAdapter={AdapterDateFns}
-                      // className={styles.hey}
-                      style={{minHeight:"5rem"}}
-                      inputProps={{
-                        style: {
-                          height: "48px",
-                        },
-                      }}
-                      
-                     
                     >
-                       <DatePicker
+                      <DatePicker
                         label="Departure"
                         value={departure}
                         onChange={(newValue) => {
                           setDeparture(newValue);
                         }}
-                        renderInput={(params) => <TextField defaultValue="Normal" size="4x"  {...params} 
-                        sx={{
-                          "& .MuiInputBase-input": {
-                            height: "47px",
-                            // border:"1px solid lightgrey",
-                            borderRadius:"10px"
-                          }
-                        }}
-                        />}
-                        
+                        renderInput={(params) => (
+                          <TextField
+                            defaultValue="Normal"
+                            size="4x"
+                            {...params}
+                            sx={{
+                              "& .MuiInputBase-input": {
+                                height: "47px",
+                                // border:"1px solid lightgrey",
+                                borderRadius: "10px",
+                                width: "70%",
+                              },
+                            }}
+                          />
+                        )}
                       />
-                      
                     </LocalizationProvider>
                   </FormControl>
                   {/* </Col> */}
@@ -419,7 +422,7 @@ const FlightHome = () => {
               {/* return */}
               <div className={styles.DepRetContainer}>
                 {/* departure date starts */}
-                <div style={{ width: "96%", marginTop: "-4px" }}>
+                <div style={{ width: "96%" }} className={styles.RetContainer}>
                   <FormControl sx={{ width: "100%" }}>
                     <LocalizationProvider
                       sx={{ width: "100%" }}
@@ -431,14 +434,18 @@ const FlightHome = () => {
                         onChange={(newValue) => {
                           setRetrn(newValue);
                         }}
-                        renderInput={(params) => <TextField {...params} sx={{
-                          "& .MuiInputBase-input": {
-                            height: "47px",
-                            // border:"1px solid lightgrey",
-                            borderRadius:"10px"
-                          }
-                        }}/>}
-                        
+                        renderInput={(params) => (
+                          <TextField
+                            {...params}
+                            sx={{
+                              "& .MuiInputBase-input": {
+                                height: "47px",
+                                // border:"1px solid lightgrey",
+                                borderRadius: "10px",
+                              },
+                            }}
+                          />
+                        )}
                       />
                     </LocalizationProvider>
                   </FormControl>
@@ -465,14 +472,7 @@ const FlightHome = () => {
 
               {/* number of travellers start */}
 
-              <div
-                className={styles.travellerContainer}
-                style={{
-                  marginTop: "10px",
-                  right: "12px",
-                  position: "relative",
-                }}
-              >
+              <div className={styles.travellerContainer}>
                 <div onClick={onClickModal}>
                   <div className={styles.travellersText}>TRAVELLERS</div>
                   <div
@@ -573,7 +573,7 @@ const FlightHome = () => {
         {roundTrip && (
           <>
             <div className={styles.bookingSearch}>
-            <div className={styles.fromToConnecting}>
+              <div className={styles.fromToConnecting}>
                 <div className={styles.fromTo}>
                   <div className={styles.from}>
                     <Col
@@ -582,8 +582,16 @@ const FlightHome = () => {
                       onClick={() => setSelectOne(!selectOne)}
                     >
                       <Row>
-                      <span style={{ marginLeft: "1rem",fontWeight:"700",fontSize:"14px",color:"#4a4a4a" }}>FROM</span>
-
+                        <span
+                          style={{
+                            marginLeft: "1rem",
+                            fontWeight: "700",
+                            fontSize: "14px",
+                            color: "#4a4a4a",
+                          }}
+                        >
+                          FROM
+                        </span>
                       </Row>
                       <Row>
                         <span
@@ -614,7 +622,6 @@ const FlightHome = () => {
                           <Select
                             options={options}
                             styles={{ width: "100%" }}
-                            
                             menuIsOpen={true}
                             // onChange={() =>setSelect(null)}
                             onChange={ROUNDTRIPFROMHANDLER}
@@ -654,7 +661,6 @@ const FlightHome = () => {
                         </>
                       )}
                     </Col>
-                    
                   </div>
                   <div className={styles.connectingIcon}>
                     <ConnectingAirportsIcon fontSize="large" color="grey" />
@@ -666,8 +672,16 @@ const FlightHome = () => {
                       onClick={() => setSelectTo(!selectTo)}
                     >
                       <Row>
-                      <span style={{ marginLeft: "1rem",fontWeight:"700",fontSize:"14px",color:"#4a4a4a" }}>TO</span>
-
+                        <span
+                          style={{
+                            marginLeft: "1rem",
+                            fontWeight: "700",
+                            fontSize: "14px",
+                            color: "#4a4a4a",
+                          }}
+                        >
+                          TO
+                        </span>
                       </Row>
                       <Row>
                         <span
@@ -700,7 +714,6 @@ const FlightHome = () => {
                             styles={{ width: "100%" }}
                             // onChange={() =>setSelect(null)}
                             menuIsOpen={true}
-
                             onChange={TOHANDLER}
                             className={styles.select}
                             value={options.find(function (option) {
@@ -725,7 +738,6 @@ const FlightHome = () => {
                             // onChange={() =>setSelect(null)}
                             onChange={TOHANDLER}
                             menuIsOpen={true}
-
                             className={styles.select}
                             components={{
                               // SelectContainer:()=>false
@@ -761,13 +773,18 @@ const FlightHome = () => {
                         onChange={(newValue) => {
                           setDeparture(newValue);
                         }}
-                        renderInput={(params) => <TextField {...params} sx={{
-                          "& .MuiInputBase-input": {
-                            height: "47px",
-                            // border:"1px solid lightgrey",
-                            borderRadius:"10px"
-                          }
-                        }}/>}
+                        renderInput={(params) => (
+                          <TextField
+                            {...params}
+                            sx={{
+                              "& .MuiInputBase-input": {
+                                height: "47px",
+                                // border:"1px solid lightgrey",
+                                borderRadius: "10px",
+                              },
+                            }}
+                          />
+                        )}
                       />
                     </LocalizationProvider>
                   </FormControl>
@@ -792,7 +809,10 @@ const FlightHome = () => {
               {/* return */}
               <div className={styles.DepRetContainer}>
                 {/* departure date starts */}
-                <div style={{ width: "96%", marginTop: "-5px" }}>
+                <div
+                  style={{ width: "96%", marginTop: "" }}
+                  className={styles.RetContainer}
+                >
                   <FormControl sx={{ width: "100%" }}>
                     <LocalizationProvider
                       sx={{ width: "100%" }}
@@ -804,13 +824,18 @@ const FlightHome = () => {
                         onChange={(newValue) => {
                           setRetrn(newValue);
                         }}
-                        renderInput={(params) => <TextField {...params} sx={{
-                          "& .MuiInputBase-input": {
-                            height: "47px",
-                            // border:"1px solid lightgrey",
-                            borderRadius:"10px"
-                          }
-                        }}/>}
+                        renderInput={(params) => (
+                          <TextField
+                            {...params}
+                            sx={{
+                              "& .MuiInputBase-input": {
+                                height: "47px",
+                                // border:"1px solid lightgrey",
+                                borderRadius: "10px",
+                              },
+                            }}
+                          />
+                        )}
                       />
                     </LocalizationProvider>
                   </FormControl>
@@ -836,14 +861,7 @@ const FlightHome = () => {
               {/* departure and return date end */}
 
               {/* number of travellers start */}
-              <div
-                className={styles.travellerContainer}
-                style={{
-                  marginTop: "10px",
-                  right: "12px",
-                  position: "relative",
-                }}
-              >
+              <div className={styles.travellerContainer}>
                 <div onClick={onClickModal}>
                   <div className={styles.travellersText}>TRAVELLERS</div>
                   <div
@@ -944,7 +962,7 @@ const FlightHome = () => {
         {multiCity && (
           <>
             <div className={styles.bookingSearch}>
-            <div className={styles.fromToConnecting}>
+              <div className={styles.fromToConnecting}>
                 <div className={styles.fromTo}>
                   <div className={styles.from}>
                     <Col
@@ -953,8 +971,16 @@ const FlightHome = () => {
                       onClick={() => setSelectTwo(!selectTwo)}
                     >
                       <Row>
-                      <span style={{ marginLeft: "1rem",fontWeight:"700",fontSize:"14px",color:"#4a4a4a" }}>FROM</span>
-
+                        <span
+                          style={{
+                            marginLeft: "1rem",
+                            fontWeight: "700",
+                            fontSize: "14px",
+                            color: "#4a4a4a",
+                          }}
+                        >
+                          FROM
+                        </span>
                       </Row>
                       <Row>
                         <span
@@ -985,7 +1011,6 @@ const FlightHome = () => {
                           <Select
                             options={options}
                             styles={{ width: "100%" }}
-                            
                             menuIsOpen={true}
                             // onChange={() =>setSelect(null)}
                             onChange={MULTICITYFROMHANDLER}
@@ -1025,7 +1050,6 @@ const FlightHome = () => {
                         </>
                       )}
                     </Col>
-                    
                   </div>
                   <div className={styles.connectingIcon}>
                     <ConnectingAirportsIcon fontSize="large" color="grey" />
@@ -1037,8 +1061,16 @@ const FlightHome = () => {
                       onClick={() => setSelectTo(!selectTo)}
                     >
                       <Row>
-                      <span style={{ marginLeft: "1rem",fontWeight:"700",fontSize:"14px",color:"#4a4a4a" }}>TO</span>
-
+                        <span
+                          style={{
+                            marginLeft: "1rem",
+                            fontWeight: "700",
+                            fontSize: "14px",
+                            color: "#4a4a4a",
+                          }}
+                        >
+                          TO
+                        </span>
                       </Row>
                       <Row>
                         <span
@@ -1072,7 +1104,6 @@ const FlightHome = () => {
                             // onChange={() =>setSelect(null)}
                             onChange={TOHANDLER}
                             menuIsOpen={true}
-
                             className={styles.select}
                             value={options.find(function (option) {
                               return option.value === from;
@@ -1118,7 +1149,7 @@ const FlightHome = () => {
               {/* departure and return date start */}
               <div className={styles.DepRetContainer}>
                 {/* departure date starts */}
-                <div style={{ width: "96%", marginTop: "-5px" }}>
+                <div style={{ width: "96%", marginTop: "-4px" }}>
                   <FormControl sx={{ width: "100%" }}>
                     <LocalizationProvider
                       sx={{ width: "100%" }}
@@ -1130,13 +1161,18 @@ const FlightHome = () => {
                         onChange={(newValue) => {
                           setDeparture(newValue);
                         }}
-                        renderInput={(params) => <TextField {...params} sx={{
-                          "& .MuiInputBase-input": {
-                            height: "47px",
-                            // border:"1px solid lightgrey",
-                            borderRadius:"10px"
-                          }
-                        }}/>}
+                        renderInput={(params) => (
+                          <TextField
+                            {...params}
+                            sx={{
+                              "& .MuiInputBase-input": {
+                                height: "47px",
+                                // border:"1px solid lightgrey",
+                                borderRadius: "10px",
+                              },
+                            }}
+                          />
+                        )}
                       />
                     </LocalizationProvider>
                   </FormControl>
@@ -1164,8 +1200,8 @@ const FlightHome = () => {
 
               {/* number of travellers start */}
               <div
-                className={styles.travellerContainer}
-                style={{ marginTop: "-3px", right: "12px" }}
+                className={styles.travellerContainermulticity}
+                // style={{  left: "-30px" }}
               >
                 <div onClick={onClickModal}>
                   <div className={styles.travellersText}>TRAVELLERS</div>
@@ -1266,7 +1302,7 @@ const FlightHome = () => {
             </div>
             {/* add another city */}
             <div className={styles.bookingSearch} style={{ marginTop: "10px" }}>
-            <div className={styles.fromToConnecting}>
+              <div className={styles.fromToConnecting}>
                 <div className={styles.fromTo}>
                   <div className={styles.from}>
                     <Col
@@ -1275,8 +1311,16 @@ const FlightHome = () => {
                       onClick={() => setSelectAnotherCity(!selectAnotherCity)}
                     >
                       <Row>
-                      <span style={{ marginLeft: "1rem",fontWeight:"700",fontSize:"14px",color:"#4a4a4a" }}>FROM</span>
-
+                        <span
+                          style={{
+                            marginLeft: "1rem",
+                            fontWeight: "700",
+                            fontSize: "14px",
+                            color: "#4a4a4a",
+                          }}
+                        >
+                          FROM
+                        </span>
                       </Row>
                       <Row>
                         <span
@@ -1307,7 +1351,6 @@ const FlightHome = () => {
                           <Select
                             options={options}
                             styles={{ width: "100%" }}
-                            
                             menuIsOpen={true}
                             // onChange={() =>setSelect(null)}
                             onChange={ANOTHERCITYFROMHANDLER}
@@ -1347,7 +1390,6 @@ const FlightHome = () => {
                         </>
                       )}
                     </Col>
-                    
                   </div>
                   <div className={styles.connectingIcon}>
                     <ConnectingAirportsIcon fontSize="large" color="grey" />
@@ -1359,8 +1401,16 @@ const FlightHome = () => {
                       onClick={() => setSelectTo(!selectTo)}
                     >
                       <Row>
-                      <span style={{ marginLeft: "1rem",fontWeight:"700",fontSize:"14px",color:"#4a4a4a" }}>TO</span>
-
+                        <span
+                          style={{
+                            marginLeft: "1rem",
+                            fontWeight: "700",
+                            fontSize: "14px",
+                            color: "#4a4a4a",
+                          }}
+                        >
+                          TO
+                        </span>
                       </Row>
                       <Row>
                         <span
@@ -1394,7 +1444,6 @@ const FlightHome = () => {
                             // onChange={() =>setSelect(null)}
                             onChange={TOHANDLER}
                             menuIsOpen={true}
-
                             className={styles.select}
                             value={options.find(function (option) {
                               return option.value === from;
@@ -1438,7 +1487,7 @@ const FlightHome = () => {
               </div>
               {/* departure and return date start */}
               <div
-                className={styles.DepRetContaineraddcity}
+                className={styles.DepRetContainer}
                 style={{ marginRight: "" }}
               >
                 {/* departure date starts */}
@@ -1454,13 +1503,18 @@ const FlightHome = () => {
                         onChange={(newValue) => {
                           setDeparture(newValue);
                         }}
-                        renderInput={(params) => <TextField {...params} sx={{
-                          "& .MuiInputBase-input": {
-                            height: "47px",
-                            // border:"1px solid lightgrey",
-                            borderRadius:"10px"
-                          }
-                        }}/>}
+                        renderInput={(params) => (
+                          <TextField
+                            {...params}
+                            sx={{
+                              "& .MuiInputBase-input": {
+                                height: "47px",
+                                // border:"1px solid lightgrey",
+                                borderRadius: "10px",
+                              },
+                            }}
+                          />
+                        )}
                       />
                     </LocalizationProvider>
                   </FormControl>
@@ -1469,32 +1523,26 @@ const FlightHome = () => {
 
                 {/* return date starts (just for ui purpose)*/}
                 {/* <div>
-              <LocalizationProvider dateAdapter={AdapterDateFns}>
-                <DatePicker
-                  label="Return"
-                  value={retrn}
-                  onChange={(newValue) => {
-                    setRetrn(newValue);
-                  }}
-                  renderInput={(params) => <TextField {...params} />}
-                />
-              </LocalizationProvider>
+              
             </div> */}
                 {/* return date starts (just for ui purpose)*/}
               </div>
               <div
                 style={{
-                  borderColor: "black",
+                  // borderColor: "black",
                   display: "grid",
-                  justifyContent: "start",
-                  marginTop: "",
+                  justifyContent: "center",
+                  paddingTop: "10px",
                 }}
+                className={styles.travellerContainermulticity}
+
               >
                 <Button
                   style={{
                     height: "auto",
                     border: "none",
                     color: "green",
+                    borderColor:"black",
                     fontFamily: "sans-serif",
                     display: "grid",
                     justifyContent: "center",
@@ -1524,178 +1572,191 @@ const FlightHome = () => {
                   style={{ marginTop: "10px" }}
                 >
                   <div className={styles.fromToConnecting}>
-                <div className={styles.fromTo}>
-                  <div className={styles.from}>
-                    <Col
-                      style={{ borderColor: "black", width: "" }}
-                      className={styles.fromcol}
-                      onClick={() => setSelectNewCity(!selectNewCity)}
-                    >
-                      <Row>
-                      <span style={{ marginLeft: "1rem",fontWeight:"700",fontSize:"14px",color:"#4a4a4a" }}>FROM</span>
+                    <div className={styles.fromTo}>
+                      <div className={styles.from}>
+                        <Col
+                          style={{ borderColor: "black", width: "" }}
+                          className={styles.fromcol}
+                          onClick={() => setSelectNewCity(!selectNewCity)}
+                        >
+                          <Row>
+                            <span
+                              style={{
+                                marginLeft: "1rem",
+                                fontWeight: "700",
+                                fontSize: "14px",
+                                color: "#4a4a4a",
+                              }}
+                            >
+                              FROM
+                            </span>
+                          </Row>
+                          <Row>
+                            <span
+                              style={{
+                                marginBottom: "-30px",
+                                marginLeft: "1rem",
+                                fontWeight: "900",
+                                fontSize: "18px",
+                                fontFamily: "sans-serif",
+                              }}
+                            >
+                              {from}
+                            </span>
+                            <br />
+                            <p
+                              style={{
+                                marginLeft: "1rem",
+                                marginBottom: "10px",
+                                fontSize: "14px",
+                                fontFamily: "sans-serif",
+                              }}
+                            >
+                              International Airport
+                            </p>
+                          </Row>
+                          {selectNewCity ? (
+                            <>
+                              <Select
+                                options={options}
+                                styles={{ width: "100%" }}
+                                menuIsOpen={true}
+                                // onChange={() =>setSelect(null)}
+                                onChange={NEWCITYFROMHANDLER}
+                                className={styles.select}
+                                value={options.find(function (option) {
+                                  return option.value === from;
+                                })}
+                                components={{
+                                  // SelectContainer:()=>false
+                                  // Menu: () => null,               // Remove menu
+                                  // MenuList: () => true,           // Remove menu list
+                                  // DropdownIndicator: () => null,
+                                  // Remove dropdown icon
+                                  //  SelectContainer:()=> null,
+                                  IndicatorSeparator: () => null, // Remove separator
+                                }}
+                              />
+                            </>
+                          ) : (
+                            <>
+                              <Select
+                                options={options}
+                                styles={{ width: "100%" }}
+                                // onChange={() =>setSelect(null)}
+                                onChange={FROMHANDLER}
+                                className={styles.select}
+                                components={{
+                                  // SelectContainer:()=>false
+                                  // Menu: () => null,               // Remove menu
+                                  // MenuList: () => null,           // Remove menu list
+                                  // DropdownIndicator: () => null,
+                                  // Remove dropdown icon
+                                  SelectContainer: () => null,
+                                  IndicatorSeparator: () => null, // Remove separator
+                                }}
+                              />
+                            </>
+                          )}
+                        </Col>
+                      </div>
+                      <div className={styles.connectingIcon}>
+                        <ConnectingAirportsIcon fontSize="large" color="grey" />
+                      </div>
+                      <div className={styles.to}>
+                        <Col
+                          style={{ borderColor: "black", width: "" }}
+                          className={styles.fromcol}
+                          onClick={() => setSelectTo(!selectTo)}
+                        >
+                          <Row>
+                            <span
+                              style={{
+                                marginLeft: "1rem",
+                                fontWeight: "700",
+                                fontSize: "14px",
+                                color: "#4a4a4a",
+                              }}
+                            >
+                              TO
+                            </span>
+                          </Row>
+                          <Row>
+                            <span
+                              style={{
+                                marginBottom: "-30px",
+                                marginLeft: "1rem",
+                                fontWeight: "900",
+                                fontSize: "18px",
+                                fontFamily: "sans-serif",
+                              }}
+                            >
+                              {to}
+                            </span>
+                            <br />
+                            <p
+                              style={{
+                                marginLeft: "1rem",
+                                marginBottom: "10px",
+                                fontSize: "14px",
+                                fontFamily: "sans-serif",
+                              }}
+                            >
+                              International Airport
+                            </p>
+                          </Row>
+                          {selectTo ? (
+                            <>
+                              <Select
+                                options={options}
+                                styles={{ width: "100%" }}
+                                // onChange={() =>setSelect(null)}
+                                onChange={TOHANDLER}
+                                className={styles.select}
+                                value={options.find(function (option) {
+                                  return option.value === from;
+                                })}
+                                components={{
+                                  // SelectContainer:()=>false
+                                  // Menu: () => null,               // Remove menu
+                                  // MenuList: () => true,           // Remove menu list
+                                  // DropdownIndicator: () => null,
+                                  // Remove dropdown icon
+                                  //  SelectContainer:()=> null,
+                                  IndicatorSeparator: () => null, // Remove separator
+                                }}
+                              />
+                            </>
+                          ) : (
+                            <>
+                              <Select
+                                options={options}
+                                styles={{ width: "100%" }}
+                                // onChange={() =>setSelect(null)}
+                                onChange={TOHANDLER}
+                                menuIsOpen={true}
+                                className={styles.select}
+                                components={{
+                                  // SelectContainer:()=>false
+                                  // Menu: () => null,               // Remove menu
+                                  // MenuList: () => null,           // Remove menu list
+                                  // DropdownIndicator: () => null,
+                                  // Remove dropdown icon
+                                  SelectContainer: () => null,
+                                  IndicatorSeparator: () => null, // Remove separator
+                                }}
+                              />
+                            </>
+                          )}
 
-                      </Row>
-                      <Row>
-                        <span
-                          style={{
-                            marginBottom: "-30px",
-                            marginLeft: "1rem",
-                            fontWeight: "900",
-                            fontSize: "18px",
-                            fontFamily: "sans-serif",
-                          }}
-                        >
-                          {from}
-                        </span>
-                        <br />
-                        <p
-                          style={{
-                            marginLeft: "1rem",
-                            marginBottom: "10px",
-                            fontSize: "14px",
-                            fontFamily: "sans-serif",
-                          }}
-                        >
-                          International Airport
-                        </p>
-                      </Row>
-                      {selectNewCity ? (
-                        <>
-                          <Select
-                            options={options}
-                            styles={{ width: "100%" }}
-                            
-                            menuIsOpen={true}
-                            // onChange={() =>setSelect(null)}
-                            onChange={NEWCITYFROMHANDLER}
-                            className={styles.select}
-                            value={options.find(function (option) {
-                              return option.value === from;
-                            })}
-                            components={{
-                              // SelectContainer:()=>false
-                              // Menu: () => null,               // Remove menu
-                              // MenuList: () => true,           // Remove menu list
-                              // DropdownIndicator: () => null,
-                              // Remove dropdown icon
-                              //  SelectContainer:()=> null,
-                              IndicatorSeparator: () => null, // Remove separator
-                            }}
-                          />
-                        </>
-                      ) : (
-                        <>
-                          <Select
-                            options={options}
-                            styles={{ width: "100%" }}
-                            // onChange={() =>setSelect(null)}
-                            onChange={FROMHANDLER}
-                            className={styles.select}
-                            components={{
-                              // SelectContainer:()=>false
-                              // Menu: () => null,               // Remove menu
-                              // MenuList: () => null,           // Remove menu list
-                              // DropdownIndicator: () => null,
-                              // Remove dropdown icon
-                              SelectContainer: () => null,
-                              IndicatorSeparator: () => null, // Remove separator
-                            }}
-                          />
-                        </>
-                      )}
-                    </Col>
-                    
+                          {/* <Select options={options} styles={{width:"100%"}} /> */}
+                        </Col>
+                      </div>
+                    </div>
                   </div>
-                  <div className={styles.connectingIcon}>
-                    <ConnectingAirportsIcon fontSize="large" color="grey" />
-                  </div>
-                  <div className={styles.to}>
-                    <Col
-                      style={{ borderColor: "black", width: "" }}
-                      className={styles.fromcol}
-                      onClick={() => setSelectTo(!selectTo)}
-                    >
-                      <Row>
-                      <span style={{ marginLeft: "1rem",fontWeight:"700",fontSize:"14px",color:"#4a4a4a" }}>TO</span>
-
-                      </Row>
-                      <Row>
-                        <span
-                          style={{
-                            marginBottom: "-30px",
-                            marginLeft: "1rem",
-                            fontWeight: "900",
-                            fontSize: "18px",
-                            fontFamily: "sans-serif",
-                          }}
-                        >
-                          {to}
-                        </span>
-                        <br />
-                        <p
-                          style={{
-                            marginLeft: "1rem",
-                            marginBottom: "10px",
-                            fontSize: "14px",
-                            fontFamily: "sans-serif",
-                          }}
-                        >
-                          International Airport
-                        </p>
-                      </Row>
-                      {selectTo ? (
-                        <>
-                          <Select
-                            options={options}
-                            styles={{ width: "100%" }}
-                            // onChange={() =>setSelect(null)}
-                            onChange={TOHANDLER}
-                            className={styles.select}
-                            value={options.find(function (option) {
-                              return option.value === from;
-                            })}
-                            components={{
-                              // SelectContainer:()=>false
-                              // Menu: () => null,               // Remove menu
-                              // MenuList: () => true,           // Remove menu list
-                              // DropdownIndicator: () => null,
-                              // Remove dropdown icon
-                              //  SelectContainer:()=> null,
-                              IndicatorSeparator: () => null, // Remove separator
-                            }}
-                          />
-                        </>
-                      ) : (
-                        <>
-                          <Select
-                            options={options}
-                            styles={{ width: "100%" }}
-                            // onChange={() =>setSelect(null)}
-                            onChange={TOHANDLER}
-                            menuIsOpen={true}
-
-                            className={styles.select}
-                            components={{
-                              // SelectContainer:()=>false
-                              // Menu: () => null,               // Remove menu
-                              // MenuList: () => null,           // Remove menu list
-                              // DropdownIndicator: () => null,
-                              // Remove dropdown icon
-                              SelectContainer: () => null,
-                              IndicatorSeparator: () => null, // Remove separator
-                            }}
-                          />
-                        </>
-                      )}
-
-                      {/* <Select options={options} styles={{width:"100%"}} /> */}
-                    </Col>
-                  </div>
-                </div>
-              </div>
                   {/* departure and return date start */}
                   <div
-                    className={styles.DepRetContaineraddcity}
+                    className={styles.DepRetContainer}
                     style={{ marginRight: "auto" }}
                   >
                     {/* departure date starts */}
@@ -1711,13 +1772,18 @@ const FlightHome = () => {
                             onChange={(newValue) => {
                               setDeparture(newValue);
                             }}
-                            renderInput={(params) => <TextField {...params} sx={{
-                              "& .MuiInputBase-input": {
-                                height: "47px",
-                                // border:"1px solid lightgrey",
-                                borderRadius:"10px"
-                              }
-                            }}/>}
+                            renderInput={(params) => (
+                              <TextField
+                                {...params}
+                                sx={{
+                                  "& .MuiInputBase-input": {
+                                    height: "47px",
+                                    // border:"1px solid lightgrey",
+                                    borderRadius: "10px",
+                                  },
+                                }}
+                              />
+                            )}
                           />
                         </LocalizationProvider>
                       </FormControl>
@@ -1725,17 +1791,18 @@ const FlightHome = () => {
                   </div>
                   <div
                     style={{
-                      borderColor: "black",
+                      
                       display: "grid",
-                      justifyContent: "start",
-                      marginTop: "5px",
+                      justifyContent: "center",
+                      paddingTop: "15px",
                     }}
+                    className={styles.travellerContainermulticity}
                   >
                     <Button
                       style={{
                         height: "30px",
                         borderRadius: "5px",
-                        borderColor: "Red",
+                        borderColor: "black",
                         color: "red",
                         fontFamily: "sans-serif",
                         fontWeight: "600",
@@ -1746,6 +1813,7 @@ const FlightHome = () => {
                       onClick={() => DELETEHANDLER(i)}
                       variant=""
                     >
+                      
                       X REMOVE
                     </Button>
                   </div>

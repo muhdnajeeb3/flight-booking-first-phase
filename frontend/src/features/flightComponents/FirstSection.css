@@ -21,6 +21,12 @@
     margin-left: 5rem;
     margin-bottom: 5rem;
 }
+.onewayinput{
+cursor: pointer;
+}
+.onewaytitle{
+    cursor: pointer !important;
+}
 
 .roww{
 background-color: #fff;

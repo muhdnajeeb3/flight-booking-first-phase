@@ -41,7 +41,7 @@
     /* display: none; */
     /* margin-top: 10px; */
     margin-bottom: 10px;
-    margin-top: 0 !important;
+    /* margin-top: 0 !; */
   }
 }
 /* fromcol */
@@ -51,6 +51,10 @@
   max-height: 5rem;
   min-height: 5rem !important;
   cursor: pointer;
+}
+.fromcol:hover{
+   background-color: aliceblue;
+  
 }
 .select{
   z-index: 99950;
@@ -95,7 +99,8 @@ display: none;
 /* search bar from and to start */
 .bookingSearch {
   display: flex;
-  flex-wrap: wrap;
+  /* gap: -330px; */
+  /* flex-wrap: wrap; */
   /* border: 1px solid red; */
 }
 .bookingSearch > div:nth-child(1){
@@ -146,9 +151,20 @@ display: none;
   
   flex-grow: 0.3;
   width: 20%;
+  position: relative;
+  /* top: 1px; */
+  bottom: 2px;
+  right:15px;
   
 
  
+}
+/* .datePicker:hover{
+  background-color: aliceblue;
+
+} */
+.RetContainer{
+  margin-top: 2px;
 }
 .DepRetContaineraddcity{
   flex-grow: 0.3;
@@ -159,12 +175,30 @@ display: none;
   border: 1px solid lightgray;
   border-radius: 5px;
   /* flex-grow: 0.3; */
-  width: 20%;
-  height: 75px;
+  width: 25%;
+  height: 80px;
   position: relative;
+  bottom: 9px;
   cursor: pointer;
   margin-left: 15px;
   z-index: 15;
+  right: 35px;
+  margin-top: 9px;
+}
+.travellerContainermulticity{
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  /* flex-grow: 0.3; */
+  width: 25%;
+  height: 80px;
+  position: relative;
+  bottom: 9px;
+  cursor: pointer;
+  margin-left: 15px;
+  z-index: 15;
+  right: 30px;
+  margin-top: 9px;
+
 }
 .travellerContainer:hover {
   background-color: aliceblue;
@@ -292,7 +326,7 @@ display: none;
   background-image: var(--color-btn-primary-bg,linear-gradient(93deg,#53b2fe,#065af3));
   position: absolute;
   bottom: 7.5%;
-  left: 44%;
+  left: 42%;
   padding: 0.1% 45px;
   border-radius: 34px;
   color: white;
@@ -325,7 +359,7 @@ display: none;
 }
 
 
-@media only screen and (max-width: 1020px) {
+@media only screen and (max-width: 1070px) {
   .bookingSearch > div:nth-child(1){
     width: 100%;
     
@@ -338,29 +372,67 @@ display: none;
     width: 47%;
     
   }
+  .bookingSearch {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    /* border: 1px solid red; */
+  }
     .fromToConnecting {
     margin: auto;
     margin-bottom: 20px;
+  }
+  .RetContainer{
+    margin-top: -5px;
+  }
+  .DepRetContainer{
+  right: 0;
+  width: 100%;
+  /* top: 10px; */
+  margin-bottom: 10px;
+    
   }
   
 
   .travellerContainer{
     flex-grow: 1;
+    margin-top: 10px;
+    right: 12px;
+   
   }
   .buttonContainer {
     bottom: 5%;
     left: 40%;
   }
+  .travellerContainermulticity{
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    /* flex-grow: 0.3; */
+    width: 25%;
+    height: 80px;
+    position: relative;
+    bottom: 9px;
+    cursor: pointer;
+    margin-left: 15px;
+    z-index: 15;
+    right: 0px;
+    left: 7px;
+    margin-top: 4px;
+  
+  }
 }
 @media only screen and (max-width: 1050px) {
+  .travellerContainermulticity{
+  /* left: 0; */
+  }
   .fromToConnecting {
     margin-left: 1%;
     
    
   }
   .DepRetContainer{
-    margin-left: auto;
-    margin-right: auto;
+    /* margin-left: auto;
+    margin-right: auto; */
     
   }
   
@@ -446,11 +518,17 @@ display: none;
   /* border: 1px solid red; */
   padding: 15px;
 }
+.travellerContainermulticity{
+  left: 0;
+  }
 .travellerContainer{
   z-index: 10;
 }
 }
 @media screen and (max-width:600px) {
+  .travellerContainermulticity{
+    left: -12px;
+    }
   .fromTo {
     display: flex;
     flex-direction: column;
@@ -483,3 +561,20 @@ display: none;
   
     }
 }
+@media screen and (max-width:467px) {
+  .travellerContainermulticity{
+    right: 5px;
+    min-width: 96%;
+    display: flex;
+
+    }
+    .DepRetContainer{
+      min-width: 99%;
+      right: 2px;
+
+    }
+    .RetContainer{
+      left: 5px;
+      position: relative;
+    }
+  }

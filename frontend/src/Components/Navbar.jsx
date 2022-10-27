@@ -152,7 +152,7 @@ const Navbar = ({ isUserLoggedIn, user }) => {
                     <div className={styles.user}>
                       <p>{user ? user.split("")[0] : ""}</p>
                     </div>
-                    <p>Hi {user ? user.split(" ")[0] : ""}</p>
+                    <p className={styles.username}>Hi {user ? user.split(" ")[0] : ""}</p>
                     {openProfile &&
                       <div className={styles.profileModal} >
                         <div className={styles.profileModalTab}>
