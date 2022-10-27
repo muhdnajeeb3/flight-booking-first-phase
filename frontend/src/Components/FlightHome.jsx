@@ -16,6 +16,7 @@ import { useNavigate } from "react-router-dom";
 import { Button, Col, Row } from "react-bootstrap";
 import FromTo from "./FromToSelect";
 import './flight.module.css'
+import { borderRadius } from "@mui/system";
 
 const FlightHome = () => {
   const [from, setFrom] = React.useState("Delhi");
@@ -203,7 +204,7 @@ const FlightHome = () => {
                       onClick={() => setSelect(!select)}
                     >
                       <Row>
-                        <span style={{ marginLeft: "1rem" }}>FROM</span>
+                        <span style={{ marginLeft: "1rem",fontWeight:"700",fontSize:"14px",color:"#4a4a4a" }}>FROM</span>
                       </Row>
                       <Row>
                         <span
@@ -286,7 +287,8 @@ const FlightHome = () => {
                       onClick={() => setSelectTo(!selectTo)}
                     >
                       <Row>
-                        <span style={{ marginLeft: "1rem" }}>TO</span>
+                      <span style={{ marginLeft: "1rem",fontWeight:"700",fontSize:"14px",color:"#4a4a4a" }}>TO</span>
+
                       </Row>
                       <Row>
                         <span
@@ -363,19 +365,22 @@ const FlightHome = () => {
               </div>
 
               {/* departure and return date start */}
-              <div className={styles.DepRetContainer}>
+              <div className={styles.DepRetContainer} >
                 {/* departure date starts */}
-                <div style={{ width: "96%", marginTop: "-5px" }}>
+                <div style={{ width: "96%", marginTop: "-5px"}}>
                   {/* <Col
                     style={{ borderColor: "black", width: "" }}
                     className={styles.fromcol}
                   > */}
-                  <FormControl sx={{ width: "100%" ,border:"none"}} inputProps={{
+                  <FormControl sx={{ width: "100%" }} inputProps={{
                           style: {
                             height: "48px",
                           },
-                        }}>
+                        }}
+                         
+                        >
                     <LocalizationProvider
+
                       sx={{ width: "100%" }}
                       dateAdapter={AdapterDateFns}
                       // className={styles.hey}
@@ -385,6 +390,8 @@ const FlightHome = () => {
                           height: "48px",
                         },
                       }}
+                      
+                     
                     >
                        <DatePicker
                         label="Departure"
@@ -392,9 +399,16 @@ const FlightHome = () => {
                         onChange={(newValue) => {
                           setDeparture(newValue);
                         }}
-                        renderInput={(params) => <TextField {...params} 
-                        
+                        renderInput={(params) => <TextField defaultValue="Normal" size="4x"  {...params} 
+                        sx={{
+                          "& .MuiInputBase-input": {
+                            height: "47px",
+                            // border:"1px solid lightgrey",
+                            borderRadius:"10px"
+                          }
+                        }}
                         />}
+                        
                       />
                       
                     </LocalizationProvider>
@@ -417,7 +431,14 @@ const FlightHome = () => {
                         onChange={(newValue) => {
                           setRetrn(newValue);
                         }}
-                        renderInput={(params) => <TextField {...params} />}
+                        renderInput={(params) => <TextField {...params} sx={{
+                          "& .MuiInputBase-input": {
+                            height: "47px",
+                            // border:"1px solid lightgrey",
+                            borderRadius:"10px"
+                          }
+                        }}/>}
+                        
                       />
                     </LocalizationProvider>
                   </FormControl>
@@ -561,7 +582,8 @@ const FlightHome = () => {
                       onClick={() => setSelectOne(!selectOne)}
                     >
                       <Row>
-                        <span style={{ marginLeft: "1rem" }}>FROM</span>
+                      <span style={{ marginLeft: "1rem",fontWeight:"700",fontSize:"14px",color:"#4a4a4a" }}>FROM</span>
+
                       </Row>
                       <Row>
                         <span
@@ -644,7 +666,8 @@ const FlightHome = () => {
                       onClick={() => setSelectTo(!selectTo)}
                     >
                       <Row>
-                        <span style={{ marginLeft: "1rem" }}>TO</span>
+                      <span style={{ marginLeft: "1rem",fontWeight:"700",fontSize:"14px",color:"#4a4a4a" }}>TO</span>
+
                       </Row>
                       <Row>
                         <span
@@ -738,7 +761,13 @@ const FlightHome = () => {
                         onChange={(newValue) => {
                           setDeparture(newValue);
                         }}
-                        renderInput={(params) => <TextField {...params} />}
+                        renderInput={(params) => <TextField {...params} sx={{
+                          "& .MuiInputBase-input": {
+                            height: "47px",
+                            // border:"1px solid lightgrey",
+                            borderRadius:"10px"
+                          }
+                        }}/>}
                       />
                     </LocalizationProvider>
                   </FormControl>
@@ -775,7 +804,13 @@ const FlightHome = () => {
                         onChange={(newValue) => {
                           setRetrn(newValue);
                         }}
-                        renderInput={(params) => <TextField {...params} />}
+                        renderInput={(params) => <TextField {...params} sx={{
+                          "& .MuiInputBase-input": {
+                            height: "47px",
+                            // border:"1px solid lightgrey",
+                            borderRadius:"10px"
+                          }
+                        }}/>}
                       />
                     </LocalizationProvider>
                   </FormControl>
@@ -918,7 +953,8 @@ const FlightHome = () => {
                       onClick={() => setSelectTwo(!selectTwo)}
                     >
                       <Row>
-                        <span style={{ marginLeft: "1rem" }}>FROM</span>
+                      <span style={{ marginLeft: "1rem",fontWeight:"700",fontSize:"14px",color:"#4a4a4a" }}>FROM</span>
+
                       </Row>
                       <Row>
                         <span
@@ -1001,7 +1037,8 @@ const FlightHome = () => {
                       onClick={() => setSelectTo(!selectTo)}
                     >
                       <Row>
-                        <span style={{ marginLeft: "1rem" }}>TO</span>
+                      <span style={{ marginLeft: "1rem",fontWeight:"700",fontSize:"14px",color:"#4a4a4a" }}>TO</span>
+
                       </Row>
                       <Row>
                         <span
@@ -1093,7 +1130,13 @@ const FlightHome = () => {
                         onChange={(newValue) => {
                           setDeparture(newValue);
                         }}
-                        renderInput={(params) => <TextField {...params} />}
+                        renderInput={(params) => <TextField {...params} sx={{
+                          "& .MuiInputBase-input": {
+                            height: "47px",
+                            // border:"1px solid lightgrey",
+                            borderRadius:"10px"
+                          }
+                        }}/>}
                       />
                     </LocalizationProvider>
                   </FormControl>
@@ -1232,7 +1275,8 @@ const FlightHome = () => {
                       onClick={() => setSelectAnotherCity(!selectAnotherCity)}
                     >
                       <Row>
-                        <span style={{ marginLeft: "1rem" }}>FROM</span>
+                      <span style={{ marginLeft: "1rem",fontWeight:"700",fontSize:"14px",color:"#4a4a4a" }}>FROM</span>
+
                       </Row>
                       <Row>
                         <span
@@ -1315,7 +1359,8 @@ const FlightHome = () => {
                       onClick={() => setSelectTo(!selectTo)}
                     >
                       <Row>
-                        <span style={{ marginLeft: "1rem" }}>TO</span>
+                      <span style={{ marginLeft: "1rem",fontWeight:"700",fontSize:"14px",color:"#4a4a4a" }}>TO</span>
+
                       </Row>
                       <Row>
                         <span
@@ -1409,7 +1454,13 @@ const FlightHome = () => {
                         onChange={(newValue) => {
                           setDeparture(newValue);
                         }}
-                        renderInput={(params) => <TextField {...params} />}
+                        renderInput={(params) => <TextField {...params} sx={{
+                          "& .MuiInputBase-input": {
+                            height: "47px",
+                            // border:"1px solid lightgrey",
+                            borderRadius:"10px"
+                          }
+                        }}/>}
                       />
                     </LocalizationProvider>
                   </FormControl>
@@ -1478,10 +1529,11 @@ const FlightHome = () => {
                     <Col
                       style={{ borderColor: "black", width: "" }}
                       className={styles.fromcol}
-                      onClick={() => setSelect(!select)}
+                      onClick={() => setSelectNewCity(!selectNewCity)}
                     >
                       <Row>
-                        <span style={{ marginLeft: "1rem" }}>FROM</span>
+                      <span style={{ marginLeft: "1rem",fontWeight:"700",fontSize:"14px",color:"#4a4a4a" }}>FROM</span>
+
                       </Row>
                       <Row>
                         <span
@@ -1564,7 +1616,8 @@ const FlightHome = () => {
                       onClick={() => setSelectTo(!selectTo)}
                     >
                       <Row>
-                        <span style={{ marginLeft: "1rem" }}>TO</span>
+                      <span style={{ marginLeft: "1rem",fontWeight:"700",fontSize:"14px",color:"#4a4a4a" }}>TO</span>
+
                       </Row>
                       <Row>
                         <span
@@ -1658,7 +1711,13 @@ const FlightHome = () => {
                             onChange={(newValue) => {
                               setDeparture(newValue);
                             }}
-                            renderInput={(params) => <TextField {...params} />}
+                            renderInput={(params) => <TextField {...params} sx={{
+                              "& .MuiInputBase-input": {
+                                height: "47px",
+                                // border:"1px solid lightgrey",
+                                borderRadius:"10px"
+                              }
+                            }}/>}
                           />
                         </LocalizationProvider>
                       </FormControl>

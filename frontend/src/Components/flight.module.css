@@ -46,7 +46,7 @@
 /* fromcol */
 .fromcol{
   border: 1px solid lightgray !important;
-  border-radius: 10px;
+  border-radius: 7px;
   max-height: 5rem;
   min-height: 5rem !important;
 }
@@ -61,7 +61,10 @@
   background-color: lightblue !important;
   border-radius: 7px;
 }
-
+.datePicker{
+  background-color: lightblue !important;
+  min-height: 5rem;
+}
 
 
 .select:visited{
@@ -151,11 +154,11 @@ display: none;
 }
 /* no. of travellers */
 .travellerContainer {
-  border: 1px solid rgb(191, 179, 179);
+  border: 1px solid lightgray;
   border-radius: 5px;
   /* flex-grow: 0.3; */
   width: 20%;
-  height: 55px;
+  height: 75px;
   position: relative;
   cursor: pointer;
   margin-left: 15px;
