@@ -377,19 +377,21 @@ const FlightHome = () => {
                       // className={styles.hey}
                       style={{minHeight:"5rem"}}
                     >
-                      <DatePicker
-                      //  className={styles.hey}
+                       <DatePicker
                         label="Departure"
                         value={departure}
                         onChange={(newValue) => {
                           setDeparture(newValue);
                         }}
-                        style={{minHeight:"5rem"}}
-                        renderInput={(params) => <TextField {...params} style={{minHeight:"5rem"}} 
-                        InputProps={{
-                          minHeight:"5rem"
-                        }}/>}
+                        renderInput={(params) => <TextField {...params} 
+                        inputProps={{
+                          style: {
+                            height: "48px",
+                          },
+                        }}
+                        />}
                       />
+                      
                     </LocalizationProvider>
                   </FormControl>
                   {/* </Col> */}
@@ -1222,7 +1224,7 @@ const FlightHome = () => {
                     <Col
                       style={{ borderColor: "black", width: "" }}
                       className={styles.fromcol}
-                      onClick={() => setSelect(!select)}
+                      onClick={() => setSelectAnotherCity(!selectAnotherCity)}
                     >
                       <Row>
                         <span style={{ marginLeft: "1rem" }}>FROM</span>
@@ -1281,7 +1283,7 @@ const FlightHome = () => {
                             options={options}
                             styles={{ width: "100%" }}
                             // onChange={() =>setSelect(null)}
-                            onChange={FROMHANDLER}
+                            onChange={ANOTHERCITYFROMHANDLER}
                             className={styles.select}
                             components={{
                               // SelectContainer:()=>false
