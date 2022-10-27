@@ -38,7 +38,7 @@ const FareTypes = () => {
           <p className="farep">Double Seat <br />Fares</p>
         </div>
       </div>
-      <div className={styles.div2}>
+      {/* <div className={styles.div2}>
         <div className={styles.second}>Trending Searches:</div>
         <div className={styles.selectBox1}>
           <p style={{fontSize:"12px",lineHeight:"12px",marginBottom:"3px"}}>Chennai <FontAwesomeIcon icon={faArrowRight} style={{color:"skyblue"}}/> Hydrabad</p>
@@ -46,7 +46,7 @@ const FareTypes = () => {
         <div className={styles.selectBox1}>
           <p style={{fontSize:"12px",lineHeight:"12px",marginBottom:"3px"}}>Delhi <FontAwesomeIcon icon={faArrowRight} style={{color:"skyblue"}}/> Kolkata</p>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

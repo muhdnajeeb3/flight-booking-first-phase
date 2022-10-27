@@ -154,7 +154,7 @@ const Navbar = ({ isUserLoggedIn, user }) => {
                     </div>
                     <p>Hi {user ? user.split(" ")[0] : ""}</p>
                     {openProfile &&
-                      <div className={styles.profileModal} style={{marginLeft:"-6rem",position:"relative"}}>
+                      <div className={styles.profileModal} >
                         <div className={styles.profileModalTab}>
                           <div
                             className={styles.indProfileModalTab}
@@ -162,7 +162,7 @@ const Navbar = ({ isUserLoggedIn, user }) => {
                             style={{width:"9rem"}}
                           >
                             <PersonOutlineOutlined
-                              style={{ fontSize: 25, color: "#e4e4e4" }}
+                              style={{ fontSize: 25, color: "grey" }}
                             />
                             <p>My Profile</p>
                           </div>
@@ -171,7 +171,7 @@ const Navbar = ({ isUserLoggedIn, user }) => {
                             onClick={() => navigate("/mytrips")}
                           >
                             <WorkOutlineOutlined
-                              style={{ fontSize: 25, color: "#e4e4e4" }}
+                              style={{ fontSize: 25, color: "grey" }}
                             />
                             <p>My Trips</p>
                           </div>

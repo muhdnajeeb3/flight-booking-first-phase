@@ -139,10 +139,10 @@
 
 .indProfileModalTab {
     display: flex;
-    margin: 5px 0px;
+    /* margin: 5px 0px; */
     border-radius: 5px;
     align-items: center;
-    gap: 40px;
+    /* gap: 40px; */
     /* width: 10%; */
 }
 

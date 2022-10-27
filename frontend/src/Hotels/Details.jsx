@@ -192,12 +192,12 @@ const Details = () => {
     <>
       <div className={style_dl.container}>
         <div className={style_dl.smalldiv}>
-          <h5>PRODUCT OFFERING</h5>
+          {/* <h5>PRODUCT OFFERING</h5>
           <p>
             {str.map((ele) => {
               return <span>{ele},</span>;
             })}
-          </p>
+          </p> */}
 
           <h5>SHAAB TRIP</h5>
          <p>
@@ -213,33 +213,33 @@ const Details = () => {
             })}
           </p>
 
-          <h5>TOP CITIES</h5>
+          {/* <h5>TOP CITIES</h5>
           <p>
             {str4.map((ele) => {
               return <span>{ele},</span>;
             })}
-          </p>
+          </p> */}
 
-          <h5> TOP PROPERTIES</h5>
+          {/* <h5> TOP PROPERTIES</h5>
           <p>
             {str5.map((ele) => {
               return <span>{ele},</span>;
             })}
-          </p>
+          </p> */}
 
-          <h5>TRENDING RESORT CITIES</h5>
+          {/* <h5>TRENDING RESORT CITIES</h5>
           <p>
             {str6.map((ele) => {
               return <span>{ele},</span>;
             })}
-          </p>
+          </p> */}
 
-          <h5>TOP HOMESTAY CITIES</h5>
+          {/* <h5>TOP HOMESTAY CITIES</h5>
           <p>
             {str7.map((ele) => {
               return <span>{ele},</span>;
             })}
-          </p>
+          </p> */}
         </div>
       </div>
     </>
