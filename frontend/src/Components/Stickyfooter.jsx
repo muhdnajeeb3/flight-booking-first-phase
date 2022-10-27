@@ -14,7 +14,7 @@ function Stickyfooter() {
                 <Col className='colfooter'><Link to="/" style={{color:"#fff",textDecoration:"none"}}><FontAwesomeIcon icon={faHome} size="xl" style={{marginTop:'15px'}}/><br /><b style={{marginBottom:'15px',marginTop:"-15px"}}>Home</b></Link></Col>
                 <Col className='colfooter'><Link to="/mytrips" style={{color:"#fff",textDecoration:"none"}}><FontAwesomeIcon icon={faBagShopping} size="xl" style={{marginTop:'15px'}}/><br /><b style={{marginBottom:'15px',marginTop:"-15px"}}>My Trips</b></Link></Col>
                 <Col className='colfooter'><Link to="/" style={{color:"#fff",textDecoration:"none"}}><FontAwesomeIcon icon={faPercentage} size="xl" style={{marginTop:'15px'}}/><br /><b style={{marginBottom:'15px',marginTop:"-15px"}}>Offers</b></Link></Col>
-                <Col className='colfooter'><Link to="/" style={{color:"#fff",textDecoration:"none"}}><FontAwesomeIcon icon={faWallet} size="xl" style={{marginTop:'15px'}}/><br /><b style={{marginBottom:'15px',marginTop:"-15px"}}>Wallet</b></Link></Col>
+                {/* <Col className='colfooter'><Link to="/" style={{color:"#fff",textDecoration:"none"}}><FontAwesomeIcon icon={faWallet} size="xl" style={{marginTop:'15px'}}/><br /><b style={{marginBottom:'15px',marginTop:"-15px"}}>Wallet</b></Link></Col> */}
 
 
             </Row>

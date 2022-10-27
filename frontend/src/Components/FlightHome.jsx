@@ -370,12 +370,21 @@ const FlightHome = () => {
                     style={{ borderColor: "black", width: "" }}
                     className={styles.fromcol}
                   > */}
-                  <FormControl sx={{ width: "100%" ,border:"none"}} >
+                  <FormControl sx={{ width: "100%" ,border:"none"}} inputProps={{
+                          style: {
+                            height: "48px",
+                          },
+                        }}>
                     <LocalizationProvider
                       sx={{ width: "100%" }}
                       dateAdapter={AdapterDateFns}
                       // className={styles.hey}
                       style={{minHeight:"5rem"}}
+                      inputProps={{
+                        style: {
+                          height: "48px",
+                        },
+                      }}
                     >
                        <DatePicker
                         label="Departure"
@@ -384,11 +393,7 @@ const FlightHome = () => {
                           setDeparture(newValue);
                         }}
                         renderInput={(params) => <TextField {...params} 
-                        inputProps={{
-                          style: {
-                            height: "48px",
-                          },
-                        }}
+                        
                         />}
                       />
                       
