@@ -10,7 +10,7 @@ const FareTypes = () => {
           <input type="radio" name="fares" />
           <p className="farep">Regular <br />Fares</p>
         </div>
-        <div className={styles.selectBox}>
+        {/* <div className={styles.selectBox}>
           <input type="radio" name="fares" />
           <p className="farep">
             Armed Forces <br />
@@ -20,7 +20,7 @@ const FareTypes = () => {
             </span>
           </p>
           
-        </div>
+        </div> */}
         <div className={styles.selectBox}>
           <input type="radio" name="fares" />
           <p className="farep">Student <br />fares</p>

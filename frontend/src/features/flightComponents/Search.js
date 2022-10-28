@@ -1116,23 +1116,7 @@ function Search() {
                   Fares */}
               </span>{" "}
             </Button>
-            <Button
-              className="faretypesbutton1"
-              variant=""
-              style={{
-                backgroundColor: "#364c63",
-                borderRadius: " 0 0 ",
-                maxWidth: "35%",
-              }}
-            >
-              {" "}
-              {/* <input type="radio" name="fare" className="fareradio"/> */}
-              <span className="farespan" style={{ color: "#fff" }}>
-                Armed Forces <span style={{ color: "red" }}>New</span>
-                <br />
-                {/* Fares <span className="new">NEW</span> */}
-              </span>{" "}
-            </Button>
+            
             <Button
               className="faretypesbutton2"
               variant=""

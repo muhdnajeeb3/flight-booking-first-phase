@@ -87,8 +87,8 @@ export const Form = ({ tag }) => {
 
           />
           <div style={{display:"flex",flexDirection:"row", gap:"25px", marginBottom:"10px"}}>
-          <Button type="checkbox"  value="MALE" name="gender" variant="" className={styles.genderbutton} onClick={(e) => setGender(e.target.value)} style={{borderColor:"black"}}>MALE</Button>
-          <Button type="checkbox" value="FEMALE" name="gender" variant="" className={styles.genderbutton } onClick={(e) => setGender(e.target.value)} style={{borderColor:"black"}}>FEMALE</Button>
+          <Button type="checkbox"  value="MALE" name="gender" variant="" className={styles.genderbutton} onClick={(e) => setGender(e.target.value)} style={{borderColor:"black",background:gender === "MALE" ? "#e5eef4" : "#fff",fontWeight:gender === "MALE" ? "700" : "400"}}>MALE</Button>
+          <Button type="checkbox" value="FEMALE" name="gender" variant="" className={styles.genderbutton } onClick={(e) => setGender(e.target.value)} style={{borderColor:"black",background:gender === "FEMALE" ? "#e5eef4" : "#fff",fontWeight:gender === "FEMALE" ? "700" : "400"}}>FEMALE</Button>
           </div>
           
       </div>

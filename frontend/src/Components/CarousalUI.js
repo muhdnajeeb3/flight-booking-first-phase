@@ -41,7 +41,8 @@ export const CarousalUI = () => {
                         <p
                             className="indLinks"
                             onClick={() => setOffers(1)}
-                            style={{ borderBottom: offers === 1 ? "3px solid #008cff" : "" }}
+                            
+                            style={{ borderBottom: offers === 1 ? "3px solid #008cff" : "",color:offers === 1 ? "green" : "black" }}
                         >FLIGHTS</p>
                         
                         {/* <p
@@ -62,7 +63,7 @@ export const CarousalUI = () => {
                                             <div className='ind-slide'>
                                                 <div className='imageSection'>
                                                     <img src={item.first.thumbnail_image} alt="" className='caroselimg' />
-                                                    <p>T&C's Apply</p>
+                                                    <p >T&C's Apply</p>
                                                 </div>
                                                 <div className='contentSection'>
                                                     <div>

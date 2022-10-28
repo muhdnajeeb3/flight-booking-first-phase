@@ -8,7 +8,7 @@
   height: 45px;
   width: 98%;
   margin: auto;
-  margin-top: 19px;
+  margin-top: 10px;
   margin-bottom: 25px;
   gap: 10px;
 
@@ -54,7 +54,7 @@
     align-items: center;
     line-height: 14px;
     /* padding: 8px 8px 8px 26px; */
-    min-height: 4rem;
+    min-height: 3rem;
     text-align: left;
     padding: 8px 8px 0px 6px;
 
@@ -79,6 +79,9 @@
     margin: 0px 5px 0px 0px;
     width: 56px;
   }
+  .selectBox > p{
+    margin-top:12px;
+  } 
   .div2 {
    
     color: #4a4a4a;
@@ -132,11 +135,11 @@
     margin-bottom: 10px;
   }
    .selectBox > p{
-    /* font-size:10px; */
+    margin-top:10px;
   } 
-  .selectBox > input {
+  /* .selectBox > input {
     display: none;
-  }
+  } */
   .first{
     display: flex;
     flex-direction: column;

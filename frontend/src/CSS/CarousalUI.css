@@ -86,10 +86,14 @@
 .sliderTitle {
     display: flex;
 }
+.indLinks::after {
+    color: green;
+}
 
 .sliderLinks {
     margin-left: 20px;
     display: flex;
+    margin-top: 7px;
 }
 
 .indLinks {
@@ -97,11 +101,10 @@
     font-weight: 700;
     font-size: 16px ;
     font-family: sans-serif;
-}
-
-.indLinks:hover {
     cursor: pointer;
 }
+
+
 
 .imageSection {
     display: flex;
@@ -119,6 +122,7 @@
 .imageSection p {
     font-size: 12px;
     color: #9B9B9B;
+    margin-top: 10px;
 }
 
 .contentSection {

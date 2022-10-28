@@ -201,7 +201,7 @@ export const FlightBooking = (props) => {
                               <span>
                                 For the complete list of travel guidelines
                                 issued by Indian States and UTs,{" "}
-                                <Link to="">click here</Link>
+                                {/* <Link to="">click here</Link> */}
                               </span>
                             </li>
                             <li
@@ -366,15 +366,16 @@ export const FlightBooking = (props) => {
                           </div>
                         </div>
                       </Row>
-                      {addnewadult.map((data, i) => (
-                        <>
-                          <Form tag={1} key={i} />
-                        </>
-                      ))}
+                     
 
                       {/* <hr /> */}
 
-                      <Form tag={2} />
+                      <Form tag={1} />
+                      {addnewadult.map((data, i) => (
+                        <>
+                          <Form tag={2} key={i} />
+                        </>
+                      ))}
                       <Row>
                         <Button
                           variant=""

@@ -12,6 +12,25 @@
   /* border: 1px solid green; */
   height: auto;
 }
+/* mobile version row */
+.mobilesection{
+  margin-top: 20px;
+  max-height: 5rem;
+ 
+}
+.mobilesectionrow{
+  display: flex !important;
+  flex-direction: row !important;
+  margin-top: 30px !important;
+  max-height: 8rem !important;
+  min-height: 7rem !important;
+  background-color: #fff;
+  width: 80%;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  border-radius: 10px ;
+  padding: 5px;
+}
 .flight_container {
   /* border: 10px solid green; */
   background-color: white;
@@ -33,7 +52,9 @@
   flex-grow: 8;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: end;
+  text-align: end;
+  margin-left: auto;
   font-size: bold;
 }
 @media only screen and (max-width: 900px) {
@@ -84,6 +105,7 @@ display: none;
   display: flex;
   height: 70px;
   justify-content: flex-start;
+  margin-top: -19px;
 }
 .multiple_trip > div {
   display: flex;
@@ -94,6 +116,7 @@ display: none;
 }
 .multiple_trip > div > div {
   margin-left: 6px;
+ 
 }
 
 /* search bar from and to start */
@@ -562,6 +585,10 @@ display: none;
     }
 }
 @media screen and (max-width:467px) {
+  .multiple_trip{
+  margin-top: 0;
+
+  }
   .travellerContainermulticity{
     right: 5px;
     min-width: 96%;
