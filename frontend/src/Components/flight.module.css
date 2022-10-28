@@ -19,18 +19,10 @@
  
 }
 .mobilesectionrow{
-  display: flex !important;
-  flex-direction: row !important;
-  margin-top: 30px !important;
-  max-height: 8rem !important;
-  min-height: 7rem !important;
-  background-color: #fff;
-  width: 80%;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  border-radius: 10px ;
-  padding: 5px;
+  display: none !important;
+ 
 }
+
 .flight_container {
   /* border: 10px solid green; */
   background-color: white;
@@ -583,6 +575,22 @@ display: none;
     margin-top: 10px;
   
     }
+    .mobilesectionrow{
+      display: flex !important;
+      flex-direction: row !important;
+      /* flex-wrap: nowrap; */
+      margin-top: 30px !important;
+      margin-bottom: 30px !important;
+      /* max-height: 8rem !important; */
+      min-height: 7rem !important;
+      background-color: #fff;
+      width: 90%;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      border-radius: 10px ;
+      padding: 5px;
+    }
+    
 }
 @media screen and (max-width:467px) {
   .multiple_trip{

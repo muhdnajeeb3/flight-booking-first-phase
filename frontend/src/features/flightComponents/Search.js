@@ -393,7 +393,7 @@ function Search() {
                       style={{ marginTop: "-26px" }}
                     >
                       <span style={{ color: "#fff" }}>{travellers}</span>
-                      {travellers > 1 ? (
+                      {travellers > 0 ? (
                         <span style={{ color: "#fff" }}>Travellers</span>
                       ) : (
                         ""
