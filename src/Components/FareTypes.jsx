@@ -1,5 +1,5 @@
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./fareTypes.module.css";
 const FareTypes = () => {
   return (
