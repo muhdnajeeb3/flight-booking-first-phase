@@ -399,6 +399,7 @@ display: none;
   }
   .RetContainer{
     margin-top: -5px;
+    margin-left: 16px;
   }
   .DepRetContainer{
   right: 0;
@@ -450,6 +451,7 @@ display: none;
     margin-right: auto; */
     
   }
+ 
   
   
 
@@ -458,7 +460,11 @@ display: none;
     left: 37%;
   }
 }
-
+@media only screen and (max-width: 800px) {
+  .RetContainer{
+    margin-left: 7px;
+  }
+}
 
 @media only screen and (max-width: 500px) {
   .traveller_modal {
@@ -533,6 +539,7 @@ display: none;
   /* border: 1px solid red; */
   padding: 15px;
 }
+
 .travellerContainermulticity{
   left: 0;
   }
@@ -548,6 +555,10 @@ display: none;
     display: flex;
     flex-direction: column;
     z-index: 1;
+
+  }
+  .RetContainer{
+    margin-left: 0px;
 
   }
   .from{

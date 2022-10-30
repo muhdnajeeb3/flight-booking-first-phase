@@ -5,7 +5,9 @@
 
 .each-simple-slide>div {
     height: 15vh;
-    padding: 0px 30px;
+    /* padding: 0px 30px; */
+    padding: 1rem;
+
     border-radius: 7px;
     background-color: #fff;
     margin: 0px 5px;
@@ -62,6 +64,14 @@
 .simple-right-arrow:hover {
     cursor: pointer;
 }
+/* @media only screen and (max-width:1077px) {
+    .each-simple-slide>div{
+        height: 15vh;
+        padding: 1rem;
+    }
+
+} */
+
 
 @media (min-width:575px) and (max-width:767px) {
     .simple-ind-slide img {
@@ -73,7 +83,7 @@
         font-size: 14px;
     }
     .each-simple-slide>div{
-        height: 10vh;
+        height: 13vh;
     }
 }
 
