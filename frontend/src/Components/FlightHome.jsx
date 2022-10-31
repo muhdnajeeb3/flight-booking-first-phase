@@ -9,9 +9,9 @@ import Select from "react-select";
 import icon1 from "./logo.png";
 
 import TextField from "@mui/material/TextField";
-import AdapterDateFns from "@mui/lab/AdapterDateFns";
-import LocalizationProvider from "@mui/lab/LocalizationProvider";
-import DatePicker from "@mui/lab/DatePicker";
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
+import {LocalizationProvider} from "@mui/x-date-pickers";
+import { DatePicker } from '@mui/x-date-pickers';
 import FareTypes from "./FareTypes";
 import { Link, useNavigate } from "react-router-dom";
 import { Button, Col, Container, Row } from "react-bootstrap";
@@ -31,8 +31,8 @@ import { display } from "@mui/system";
 const FlightHome = () => {
   const [from, setFrom] = React.useState("Delhi");
   const [to, setTo] = React.useState("Kolkata");
-  const [departure, setDeparture] = React.useState(null);
-  const [retrn, setRetrn] = React.useState(null);
+  const [departure, setDeparture] = React.useState(new Date());
+  const [retrn, setRetrn] = React.useState(new Date());
   const [selectedButtonColor, setSelectedButtonColor] = useState(1);
   const [oneWay, setOneWay] = useState(true);
   const [roundTrip, setRoundTrip] = useState("");
@@ -534,6 +534,9 @@ const FlightHome = () => {
                         >
                           <DatePicker
                             label="DEPARTURE"
+                            required
+                            
+                            minDate={new Date()}
                             value={departure}
                             onChange={(newValue) => {
                               setDeparture(newValue);
@@ -541,14 +544,14 @@ const FlightHome = () => {
                             renderInput={(params) => (
                               <TextField
                                 defaultValue="Normal"
-                                size="4x"
+                                // size="4x"
                                 {...params}
                                 sx={{
                                   "& .MuiInputBase-input": {
                                     height: "47px",
                                     // border:"1px solid lightgrey",
-                                    borderRadius: "10px",
-                                    width: "70%",
+                                    // borderRadius: "10px",
+                                    // width: "70%",
                                   },
                                 }}
                               />
@@ -573,6 +576,7 @@ const FlightHome = () => {
                         >
                           <DatePicker
                             label="RETURN"
+                            minDate={new Date()}
                             value={retrn}
                             onChange={(newValue) => {
                               setRetrn(newValue);
@@ -585,6 +589,7 @@ const FlightHome = () => {
                                     height: "47px",
                                     // border:"1px solid lightgrey",
                                     borderRadius: "10px",
+                                  
                                   },
                                 }}
                               />
@@ -595,23 +600,10 @@ const FlightHome = () => {
                     </div>
                     {/* departure date end */}
 
-                    {/* return date starts (just for ui purpose)*/}
-                    {/* <div>
-              <LocalizationProvider dateAdapter={AdapterDateFns}>
-                <DatePicker
-                  label="Return"
-                  value={retrn}
-                  onChange={(newValue) => {
-                    setRetrn(newValue);
-                  }}
-                  renderInput={(params) => <TextField {...params} />}
-                />
-              </LocalizationProvider>
-            </div> */}
+                   
                     {/* return date starts (just for ui purpose)*/}
                   </div>
 
-                  {/* departure and return date end */}
 
                   {/* number of travellers start */}
 
@@ -921,6 +913,7 @@ const FlightHome = () => {
                         >
                           <DatePicker
                             label="DEPARTURE"
+                            minDate={new Date()}
                             value={departure}
                             onChange={(newValue) => {
                               setDeparture(newValue);
@@ -972,6 +965,7 @@ const FlightHome = () => {
                         >
                           <DatePicker
                             label="RETURN"
+                            minDate={new Date()}
                             value={retrn}
                             onChange={(newValue) => {
                               setRetrn(newValue);
@@ -1318,6 +1312,7 @@ const FlightHome = () => {
                         >
                           <DatePicker
                             label="DEPARTURE"
+                            minDate={new Date()}
                             value={departure}
                             onChange={(newValue) => {
                               setDeparture(newValue);
@@ -1672,6 +1667,7 @@ const FlightHome = () => {
                         >
                           <DatePicker
                             label="DEPARTURE"
+                            minDate={new Date()}
                             value={departure}
                             onChange={(newValue) => {
                               setDeparture(newValue);
@@ -1945,6 +1941,7 @@ const FlightHome = () => {
                             >
                               <DatePicker
                                 label="DEPARTURE"
+                                minDate={new Date()}
                                 value={departure}
                                 onChange={(newValue) => {
                                   setDeparture(newValue);
@@ -2302,6 +2299,7 @@ const FlightHome = () => {
                         >
                           <DatePicker
                             label="DEPARTURE"
+                            minDate={new Date()}
                             value={departure}
                             onChange={(newValue) => {
                               setDeparture(newValue);
@@ -2341,6 +2339,7 @@ const FlightHome = () => {
                         >
                           <DatePicker
                             label="RETURN"
+                            minDate={new Date()}
                             value={retrn}
                             onChange={(newValue) => {
                               setRetrn(newValue);
@@ -2364,18 +2363,7 @@ const FlightHome = () => {
                     {/* departure date end */}
 
                     {/* return date starts (just for ui purpose)*/}
-                    {/* <div>
-              <LocalizationProvider dateAdapter={AdapterDateFns}>
-                <DatePicker
-                  label="Return"
-                  value={retrn}
-                  onChange={(newValue) => {
-                    setRetrn(newValue);
-                  }}
-                  renderInput={(params) => <TextField {...params} />}
-                />
-              </LocalizationProvider>
-            </div> */}
+                   
                     {/* return date starts (just for ui purpose)*/}
                   </div>
 
@@ -2689,6 +2677,7 @@ const FlightHome = () => {
                         >
                           <DatePicker
                             label="DEPARTURE"
+                            minDate={new Date()}
                             value={departure}
                             onChange={(newValue) => {
                               setDeparture(newValue);
@@ -2740,6 +2729,8 @@ const FlightHome = () => {
                         >
                           <DatePicker
                             label="RETURN"
+                            minDate={new Date()}
+
                             value={retrn}
                             onChange={(newValue) => {
                               setRetrn(newValue);
@@ -3086,6 +3077,7 @@ const FlightHome = () => {
                         >
                           <DatePicker
                             label="DEPARTURE"
+                            minDate={new Date()}
                             value={departure}
                             onChange={(newValue) => {
                               setDeparture(newValue);
@@ -3440,6 +3432,7 @@ const FlightHome = () => {
                         >
                           <DatePicker
                             label="DEPARTURE"
+                            minDate={new Date()}
                             value={departure}
                             onChange={(newValue) => {
                               setDeparture(newValue);
@@ -3713,6 +3706,7 @@ const FlightHome = () => {
                             >
                               <DatePicker
                                 label="DEPARTURE"
+                              minDate={new Date()}
                                 value={departure}
                                 onChange={(newValue) => {
                                   setDeparture(newValue);
