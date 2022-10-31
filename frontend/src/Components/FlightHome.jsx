@@ -71,6 +71,7 @@ const FlightHome = () => {
 
   const onClickNoOfPass = (val) => {
     setTravellers(val);
+    
   };
   const handleSubmit = () => {
     navigate("/flights", {
@@ -2313,8 +2314,8 @@ const FlightHome = () => {
                                   "& .MuiInputBase-input": {
                                     height: "47px",
                                     // border:"1px solid lightgrey",
-                                    borderRadius: "10px",
-                                    width: "70%",
+                                    // borderRadius: "10px",
+                                    // width: "70%",
                                   },
                                 }}
                               />
@@ -2360,15 +2361,8 @@ const FlightHome = () => {
                         </LocalizationProvider>
                       </FormControl>
                     </div>
-                    {/* departure date end */}
-
-                    {/* return date starts (just for ui purpose)*/}
-                   
-                    {/* return date starts (just for ui purpose)*/}
+                    {/* departure date end */}                   
                   </div>
-
-                  {/* departure and return date end */}
-
                   {/* number of travellers start */}
 
                   <div className={styles.travellerContainer}>
@@ -2464,6 +2458,16 @@ const FlightHome = () => {
                           </div>
                         </div>
                       </div>
+                      {/* <div className={styles.passengerButtonContainer}>
+                      <div className={styles.adultChild}>
+                            CHOOSE TRAVEL CLASS
+                          </div>
+                            <Row style={{display:"flex",flexDirection:"row"}}>
+                              <Col><span>Economy/Premium Economy</span></Col>
+                              <Col><span>Premium Economy</span></Col>
+                              <Col><span>Buisness</span></Col>
+                            </Row>
+                          </div> */}
                       {/* for children and inf */}
 
                       <div

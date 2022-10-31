@@ -135,9 +135,19 @@ border: #000 !important;
     .searchrow{
       /* margin-right: 9rem !important; */
     margin-left: 2rem !important;
+    
 
     
     }
+    .col-1,.col-2{
+      width: 100% !important;
+      /* margin-right: 2rem; */
+      /* margin-right: 12rem; */
+      right: 1.5rem;
+      position: relative;
+      
+    }
+   
   }
 
  

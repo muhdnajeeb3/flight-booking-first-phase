@@ -336,7 +336,7 @@ export const Flight = () => {
               </div>
               <div className={styles.sort}>
                 <div className={styles.sortInnerDiv}>
-                  <p style={{ fontWeight: "800" }}>Sorted by:</p>
+                  <span style={{ fontWeight: "800" }}>Sorted by:</span>
                   <p
                     onClick={() => {
                       sorting("departure");

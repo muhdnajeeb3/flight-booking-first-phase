@@ -1,6 +1,6 @@
-import AdapterDateFns from "@mui/lab/AdapterDateFns";
-import DatePicker from "@mui/lab/DatePicker";
-import LocalizationProvider from "@mui/lab/LocalizationProvider";
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
+import {LocalizationProvider} from "@mui/x-date-pickers";
+import { DatePicker } from '@mui/x-date-pickers';
 import styles from "../../Components/flight.module.css";
 import './FirstSection.css'
 import {
@@ -58,6 +58,7 @@ function Search() {
 
   const onClickNoOfPass = (val) => {
     setTravellers(val);
+    console.log(val);
   };
   const OnewayHandler = () => {
     setOneway(true);
@@ -106,6 +107,7 @@ function Search() {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+  const lap = window.innerWidth > 1071
   
   return (
     <div className="">
@@ -380,9 +382,14 @@ function Search() {
                   style={{
                     width: "100%",
                     margin: "5px",
+                    border:"1px solid darkblue",
                     right: "",
                     padding: "0",
                     height: "30px",
+                    left:lap ? "-5px" : "0",
+                    // marginRight:lap ? "" : "2.2rem",
+                    // marginTop:"19px"
+                    top:"5px"
                     // border:"none"
                   }}
                 >
@@ -394,7 +401,7 @@ function Search() {
                     >
                       <span style={{ color: "#fff" }}>{travellers}</span>
                       {travellers > 0 ? (
-                        <span style={{ color: "#fff" }}>Travellers</span>
+                        <span style={{ color: "#fff",fontSize:"15px",fontFamily:"sans-serif" }}>Travellers</span>
                       ) : (
                         ""
                       )}
@@ -434,20 +441,22 @@ function Search() {
                           CHILDREN (2y - 12y )
                         </div>
                         <div className={styles.passengerButtonContainer}>
-                          {ar1.map((val) => (
+                          {ar1.map((val1) => (
                             <div
-                              key={val}
+                              key={val1}
                               className={
-                                val === 0
+                                val1 === 0
                                   ? styles.clickPassenger
                                   : styles.passengerButton
                               }
                               onClick={() => {
                                 setTogglePassengerColor(!togglePassengerColor);
-                                onClickNoOfPass(val);
+                                onClickNoOfPass(val1);
+                                console.log("bbbbbbbbb",val1);
                               }}
                             >
-                              {val}
+                              {val1} 
+                              
                             </div>
                           ))}
                         </div>
@@ -946,6 +955,7 @@ function Search() {
                     right: "",
                     padding: "0",
                     height: "30px",
+                    marginLeft:"225px"
                   }}
                 >
                   <div onClick={onClickModal}>
@@ -955,7 +965,7 @@ function Search() {
                       style={{ marginTop: "-26px" }}
                     >
                       <span style={{ color: "#fff" }}>{travellers}</span>
-                      {travellers > 1 ? (
+                      {travellers > 0 ? (
                         <span style={{ color: "#fff" }}>Travellers</span>
                       ) : (
                         ""

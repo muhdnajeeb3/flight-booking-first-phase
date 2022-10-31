@@ -96,7 +96,7 @@ display: none;
   flex-grow: 1;
   display: flex;
   height: 70px;
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
   margin-top: -19px;
 }
 .multiple_trip > div {
@@ -216,7 +216,7 @@ display: none;
 
 }
 .travellerContainer:hover {
-  background-color: aliceblue;
+  /* background-color: aliceblue; */
 }
 
 .travellersText {
@@ -257,16 +257,16 @@ display: none;
   display: none;
 }
 .traveller_modal {
-  /* position: absolute; */
-  width: 314px;
-  height: 100px;
+  position: absolute;
+  /* width: 314px; */
   height: 200px;
   z-index: 20;
   top: 30px;
-  left: -100%;
+  left: 0%;
   background: white;
   /* border: 1px solid red; */
   padding: 15px;
+  border-radius: 10px;
 }
 /*  multi*/
 .traveller_modalmulti {
@@ -311,6 +311,7 @@ display: none;
 .passengerButtonContainer {
   display: flex;
   margin-top: 4px;
+  
 }
 
 .passengerButton {
@@ -331,9 +332,10 @@ display: none;
 }
 
 .infantChildren {
-  margin-left: 5px;
+  /* margin-left: 5px; */
   display: flex;
   justify-content: space-between;
+  
 }
 
 .buttonContainer {
@@ -469,19 +471,24 @@ display: none;
 @media only screen and (max-width: 500px) {
   .traveller_modal {
     /* position: absolute; */
-    max-width: 315px;
-    height: 100px;
-    height: 200px;
-    margin: -1.7rem;
+    max-width: 285px;
+    /* height: 100px; */
+    height: 300px;
+    /* margin: -1.7rem; */
     /* display: flex; */
     /* flex-wrap: wrap; */
     /* flex-direction: column; */
     z-index: 20;
     top: 0px;
-    left: -100%;
+    left: -25px;
     background: white;
     /* border: 1px solid red; */
     padding: 15px;
+  }
+  .infantChildren{
+    display: flex;
+    flex-direction: column;
+
   }
   
   .buttonContainer {
@@ -622,5 +629,8 @@ display: none;
     .RetContainer{
       left: 5px;
       position: relative;
+    }
+    .flight_container {
+      width: 90% !important;
     }
   }
