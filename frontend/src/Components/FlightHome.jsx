@@ -45,6 +45,8 @@ const FlightHome = () => {
   const [selectAnotherCity, setSelectAnotherCity] = useState(false);
   const [selectNewCity, setSelectNewCity] = useState(false);
   const [flightopen, setFlightopen] = useState(false);
+  const [cabinClass, setCabinClass] = useState(false);
+  const [cabinClassType, setCabinClassType] = useState("");
 
   const [travellers, setTravellers] = React.useState(null);
   const arr = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -145,11 +147,28 @@ const FlightHome = () => {
     setSelectTo(false);
     setTo(e.value);
   };
-  console.log("toooo", to);
+  const BUISSNESS = () => {
+    setCabinClass(true);
+    setCabinClassType("BUISNESS");
+   
+  };
+  const ECONOMY = () => {
+    setCabinClass(true);
+    setCabinClassType("ECONOMY");
 
-  if (window.innerWidth < 580) {
+   
+  };
+  const PRIMIUMECONOMY = () => {
+    setCabinClass(true);
+    setCabinClassType("ECONOMY/PREMIUM ECONOMY");
+
+   
+  };
+ 
+
+  if (window.innerWidth < 500) {
   }
-  const ismobile = window.innerWidth < 600;
+  const ismobile = window.innerWidth < 500;
   return (
     <div className={styles.flight_wrapper}>
       {/* <Container className={styles.mobilesection}> */}
@@ -388,12 +407,6 @@ const FlightHome = () => {
                                   return option.value === from;
                                 })}
                                 components={{
-                                  // SelectContainer:()=>false
-                                  // Menu: () => null,               // Remove menu
-                                  // MenuList: () => true,           // Remove menu list
-                                  // DropdownIndicator: () => null,
-                                  // Remove dropdown icon
-                                  //  SelectContainer:()=> null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
                                 getOptionLabel={(e) => (
@@ -420,11 +433,6 @@ const FlightHome = () => {
                                 onChange={FROMHANDLER}
                                 className={styles.select}
                                 components={{
-                                  // SelectContainer:()=>false
-                                  // Menu: () => null,               // Remove menu
-                                  // MenuList: () => null,           // Remove menu list
-                                  // DropdownIndicator: () => null,
-                                  // Remove dropdown icon
                                   SelectContainer: () => null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
@@ -494,12 +502,6 @@ const FlightHome = () => {
                                   return option.value === from;
                                 })}
                                 components={{
-                                  // SelectContainer:()=>false
-                                  // Menu: () => null,               // Remove menu
-                                  // MenuList: () => true,           // Remove menu list
-                                  // DropdownIndicator: () => null,
-                                  // Remove dropdown icon
-                                  //  SelectContainer:()=> null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
                               />
@@ -513,11 +515,6 @@ const FlightHome = () => {
                                 onChange={TOHANDLER}
                                 className={styles.select}
                                 components={{
-                                  // SelectContainer:()=>false
-                                  // Menu: () => null,               // Remove menu
-                                  // MenuList: () => null,           // Remove menu list
-                                  // DropdownIndicator: () => null,
-                                  // Remove dropdown icon
                                   SelectContainer: () => null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
@@ -560,9 +557,6 @@ const FlightHome = () => {
                                 sx={{
                                   "& .MuiInputBase-input": {
                                     height: "47px",
-                                    // border:"1px solid lightgrey",
-                                    // borderRadius: "10px",
-                                    // width: "70%",
                                   },
                                 }}
                               />
@@ -724,6 +718,17 @@ const FlightHome = () => {
                         </div>
                       </div>
                       {/* for children and inf */}
+                      {/* economy */}
+                           <div className={styles.passengerButtonContainer} style={{display:"flex",flexDirection:"column"}}>
+                      <div className={styles.adultChild}>
+                            CHOOSE CABIN CLASS
+                          </div>
+                            <Row style={{display:"flex",flexDirection:"column"}}>
+                              <Col style={{background:cabinClass && cabinClassType === "ECONOMY" ? "rgb(0, 140, 255)" : "#fff",color:cabinClass && cabinClassType === "ECONOMY" ? "#fff" : "black"}} className={styles.economybtn} onClick={ECONOMY}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Economy/Premium Economy</span></Col>
+                              <Col style={{background:cabinClass && cabinClassType === "ECONOMY/PREMIUM ECONOMY" ? "rgb(0, 140, 255)" : "#fff",color:cabinClass && cabinClassType === "ECONOMY/PREMIUM ECONOMY" ? "#fff" : "black"}} className={styles.economybtn} onClick={PRIMIUMECONOMY}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Premium Economy</span></Col>
+                              <Col style={{background:cabinClass && cabinClassType === "BUISNESS" ? "rgb(0, 140, 255)" : "",color:cabinClass && cabinClassType === "BUISNESS" ? "#fff" : "black"}} className={styles.economybtn} onClick={BUISSNESS}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Buisness</span></Col>
+                            </Row>
+                          </div>
 
                       <div
                         className={styles.modalApplyText}
@@ -740,7 +745,7 @@ const FlightHome = () => {
                           </span>
                         </div>
                       </div>
-                    </div>
+                    </div> 
                   </div>
                 </div>
               </>
@@ -806,12 +811,6 @@ const FlightHome = () => {
                                   return option.value === from;
                                 })}
                                 components={{
-                                  // SelectContainer:()=>false
-                                  // Menu: () => null,               // Remove menu
-                                  // MenuList: () => true,           // Remove menu list
-                                  // DropdownIndicator: () => null,
-                                  // Remove dropdown icon
-                                  //  SelectContainer:()=> null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
                               />
@@ -825,11 +824,6 @@ const FlightHome = () => {
                                 onChange={FROMHANDLER}
                                 className={styles.select}
                                 components={{
-                                  // SelectContainer:()=>false
-                                  // Menu: () => null,               // Remove menu
-                                  // MenuList: () => null,           // Remove menu list
-                                  // DropdownIndicator: () => null,
-                                  // Remove dropdown icon
                                   SelectContainer: () => null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
@@ -900,12 +894,7 @@ const FlightHome = () => {
                                   return option.value === from;
                                 })}
                                 components={{
-                                  // SelectContainer:()=>false
-                                  // Menu: () => null,               // Remove menu
-                                  // MenuList: () => true,           // Remove menu list
-                                  // DropdownIndicator: () => null,
-                                  // Remove dropdown icon
-                                  //  SelectContainer:()=> null,
+                              
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
                               />
@@ -920,11 +909,7 @@ const FlightHome = () => {
                                 menuIsOpen={true}
                                 className={styles.select}
                                 components={{
-                                  // SelectContainer:()=>false
-                                  // Menu: () => null,               // Remove menu
-                                  // MenuList: () => null,           // Remove menu list
-                                  // DropdownIndicator: () => null,
-                                  // Remove dropdown icon
+                                
                                   SelectContainer: () => null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
@@ -972,19 +957,7 @@ const FlightHome = () => {
                     </div>
                     {/* departure date end */}
 
-                    {/* return date starts (just for ui purpose)*/}
-                    {/* <div>
-              <LocalizationProvider dateAdapter={AdapterDateFns}>
-                <DatePicker
-                  label="Return"
-                  value={retrn}
-                  onChange={(newValue) => {
-                    setRetrn(newValue);
-                  }}
-                  renderInput={(params) => <TextField {...params} />}
-                />
-              </LocalizationProvider>
-            </div> */}
+     
                     {/* return date starts (just for ui purpose)*/}
                   </div>
                   {/* return */}
@@ -1024,19 +997,7 @@ const FlightHome = () => {
                     </div>
                     {/* departure date end */}
 
-                    {/* return date starts (just for ui purpose)*/}
-                    {/* <div>
-              <LocalizationProvider dateAdapter={AdapterDateFns}>
-                <DatePicker
-                  label="Return"
-                  value={retrn}
-                  onChange={(newValue) => {
-                    setRetrn(newValue);
-                  }}
-                  renderInput={(params) => <TextField {...params} />}
-                />
-              </LocalizationProvider>
-            </div> */}
+                 
                     {/* return date starts (just for ui purpose)*/}
                   </div>
 
@@ -1149,6 +1110,17 @@ const FlightHome = () => {
                         </div>
                       </div>
                       {/* for children and inf */}
+                      {/* economy */}
+                      <div className={styles.passengerButtonContainer} style={{display:"flex",flexDirection:"column"}}>
+                      <div className={styles.adultChild}>
+                            CHOOSE CABIN CLASS
+                          </div>
+                            <Row style={{display:"flex",flexDirection:"column"}}>
+                              <Col style={{background:cabinClass && cabinClassType === "ECONOMY" ? "rgb(0, 140, 255)" : "#fff",color:cabinClass && cabinClassType === "ECONOMY" ? "#fff" : "black"}} className={styles.economybtn} onClick={ECONOMY}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Economy/Premium Economy</span></Col>
+                              <Col style={{background:cabinClass && cabinClassType === "ECONOMY/PREMIUM ECONOMY" ? "rgb(0, 140, 255)" : "#fff",color:cabinClass && cabinClassType === "ECONOMY/PREMIUM ECONOMY" ? "#fff" : "black"}} className={styles.economybtn} onClick={PRIMIUMECONOMY}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Premium Economy</span></Col>
+                              <Col style={{background:cabinClass && cabinClassType === "BUISNESS" ? "rgb(0, 140, 255)" : "",color:cabinClass && cabinClassType === "BUISNESS" ? "#fff" : "black"}} className={styles.economybtn} onClick={BUISSNESS}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Buisness</span></Col>
+                            </Row>
+                          </div>
 
                       <div
                         className={styles.modalApplyText}
@@ -1395,24 +1367,9 @@ const FlightHome = () => {
                     </div>
                     {/* departure date end */}
 
-                    {/* return date starts (just for ui purpose)*/}
-                    {/* <div>
-              <LocalizationProvider dateAdapter={AdapterDateFns}>
-                <DatePicker
-                  label="Return"
-                  value={retrn}
-                  onChange={(newValue) => {
-                    setRetrn(newValue);
-                  }}
-                  renderInput={(params) => <TextField {...params} />}
-                />
-              </LocalizationProvider>
-            </div> */}
+                   
                     {/* return date starts (just for ui purpose)*/}
                   </div>
-                  {/* return */}
-
-                  {/* departure and return date end */}
 
                   {/* number of travellers start */}
                   <div
@@ -1525,6 +1482,17 @@ const FlightHome = () => {
                       </div>
 
                       {/* for children and inf */}
+                      {/* economy */}
+                      <div className={styles.passengerButtonContainer} style={{display:"flex",flexDirection:"column"}}>
+                      <div className={styles.adultChild}>
+                            CHOOSE CABIN CLASS
+                          </div>
+                            <Row style={{display:"flex",flexDirection:"column"}}>
+                              <Col style={{background:cabinClass && cabinClassType === "ECONOMY" ? "rgb(0, 140, 255)" : "#fff",color:cabinClass && cabinClassType === "ECONOMY" ? "#fff" : "black"}} className={styles.economybtn} onClick={ECONOMY}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Economy/Premium Economy</span></Col>
+                              <Col style={{background:cabinClass && cabinClassType === "ECONOMY/PREMIUM ECONOMY" ? "rgb(0, 140, 255)" : "#fff",color:cabinClass && cabinClassType === "ECONOMY/PREMIUM ECONOMY" ? "#fff" : "black"}} className={styles.economybtn} onClick={PRIMIUMECONOMY}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Premium Economy</span></Col>
+                              <Col style={{background:cabinClass && cabinClassType === "BUISNESS" ? "rgb(0, 140, 255)" : "",color:cabinClass && cabinClassType === "BUISNESS" ? "#fff" : "black"}} className={styles.economybtn} onClick={BUISSNESS}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Buisness</span></Col>
+                            </Row>
+                          </div>
 
                       <div
                         className={styles.modalApplyText}
@@ -2233,12 +2201,7 @@ const FlightHome = () => {
                                   return option.value === from;
                                 })}
                                 components={{
-                                  // SelectContainer:()=>false
-                                  // Menu: () => null,               // Remove menu
-                                  // MenuList: () => true,           // Remove menu list
-                                  // DropdownIndicator: () => null,
-                                  // Remove dropdown icon
-                                  //  SelectContainer:()=> null,
+                            
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
                                 getOptionLabel={(e) => (
@@ -2265,11 +2228,7 @@ const FlightHome = () => {
                                 onChange={FROMHANDLER}
                                 className={styles.select}
                                 components={{
-                                  // SelectContainer:()=>false
-                                  // Menu: () => null,               // Remove menu
-                                  // MenuList: () => null,           // Remove menu list
-                                  // DropdownIndicator: () => null,
-                                  // Remove dropdown icon
+                   
                                   SelectContainer: () => null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
@@ -2339,12 +2298,6 @@ const FlightHome = () => {
                                   return option.value === from;
                                 })}
                                 components={{
-                                  // SelectContainer:()=>false
-                                  // Menu: () => null,               // Remove menu
-                                  // MenuList: () => true,           // Remove menu list
-                                  // DropdownIndicator: () => null,
-                                  // Remove dropdown icon
-                                  //  SelectContainer:()=> null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
                               />
@@ -2358,11 +2311,6 @@ const FlightHome = () => {
                                 onChange={TOHANDLER}
                                 className={styles.select}
                                 components={{
-                                  // SelectContainer:()=>false
-                                  // Menu: () => null,               // Remove menu
-                                  // MenuList: () => null,           // Remove menu list
-                                  // DropdownIndicator: () => null,
-                                  // Remove dropdown icon
                                   SelectContainer: () => null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
@@ -2561,16 +2509,17 @@ const FlightHome = () => {
                           </div>
                         </div>
                       </div>
-                      {/* <div className={styles.passengerButtonContainer}>
+                      {/* economy */}
+                      <div className={styles.passengerButtonContainer} style={{display:"flex",flexDirection:"column"}}>
                       <div className={styles.adultChild}>
-                            CHOOSE TRAVEL CLASS
+                            CHOOSE CABIN CLASS
                           </div>
-                            <Row style={{display:"flex",flexDirection:"row"}}>
-                              <Col><span>Economy/Premium Economy</span></Col>
-                              <Col><span>Premium Economy</span></Col>
-                              <Col><span>Buisness</span></Col>
+                            <Row style={{display:"flex",flexDirection:"column"}}>
+                              <Col style={{background:cabinClass && cabinClassType === "ECONOMY" ? "rgb(0, 140, 255)" : "#fff",color:cabinClass && cabinClassType === "ECONOMY" ? "#fff" : "black"}} className={styles.economybtn} onClick={ECONOMY}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Economy/Premium Economy</span></Col>
+                              <Col style={{background:cabinClass && cabinClassType === "ECONOMY/PREMIUM ECONOMY" ? "rgb(0, 140, 255)" : "#fff",color:cabinClass && cabinClassType === "ECONOMY/PREMIUM ECONOMY" ? "#fff" : "black"}} className={styles.economybtn} onClick={PRIMIUMECONOMY}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Premium Economy</span></Col>
+                              <Col style={{background:cabinClass && cabinClassType === "BUISNESS" ? "rgb(0, 140, 255)" : "",color:cabinClass && cabinClassType === "BUISNESS" ? "#fff" : "black"}} className={styles.economybtn} onClick={BUISSNESS}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Buisness</span></Col>
                             </Row>
-                          </div> */}
+                          </div>
                       {/* for children and inf */}
 
                       <div
@@ -2747,12 +2696,7 @@ const FlightHome = () => {
                                   return option.value === from;
                                 })}
                                 components={{
-                                  // SelectContainer:()=>false
-                                  // Menu: () => null,               // Remove menu
-                                  // MenuList: () => true,           // Remove menu list
-                                  // DropdownIndicator: () => null,
-                                  // Remove dropdown icon
-                                  //  SelectContainer:()=> null,
+                                 
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
                               />
@@ -2767,11 +2711,6 @@ const FlightHome = () => {
                                 menuIsOpen={true}
                                 className={styles.select}
                                 components={{
-                                  // SelectContainer:()=>false
-                                  // Menu: () => null,               // Remove menu
-                                  // MenuList: () => null,           // Remove menu list
-                                  // DropdownIndicator: () => null,
-                                  // Remove dropdown icon
                                   SelectContainer: () => null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
@@ -2818,21 +2757,6 @@ const FlightHome = () => {
                       </FormControl>
                     </div>
                     {/* departure date end */}
-
-                    {/* return date starts (just for ui purpose)*/}
-                    {/* <div>
-              <LocalizationProvider dateAdapter={AdapterDateFns}>
-                <DatePicker
-                  label="Return"
-                  value={retrn}
-                  onChange={(newValue) => {
-                    setRetrn(newValue);
-                  }}
-                  renderInput={(params) => <TextField {...params} />}
-                />
-              </LocalizationProvider>
-            </div> */}
-                    {/* return date starts (just for ui purpose)*/}
                   </div>
                   {/* return */}
                   <div className={styles.DepRetContainer}>
@@ -2870,20 +2794,6 @@ const FlightHome = () => {
                       </FormControl>
                     </div>
                     {/* departure date end */}
-
-                    {/* return date starts (just for ui purpose)*/}
-                    {/* <div>
-              <LocalizationProvider dateAdapter={AdapterDateFns}>
-                <DatePicker
-                  label="Return"
-                  value={retrn}
-                  onChange={(newValue) => {
-                    setRetrn(newValue);
-                  }}
-                  renderInput={(params) => <TextField {...params} />}
-                />
-              </LocalizationProvider>
-            </div> */}
                     {/* return date starts (just for ui purpose)*/}
                   </div>
 
@@ -2998,6 +2908,17 @@ const FlightHome = () => {
                         </div>
                       </div>
                       {/* for children and inf */}
+                      {/* economy */}
+                      <div className={styles.passengerButtonContainer} style={{display:"flex",flexDirection:"column"}}>
+                      <div className={styles.adultChild}>
+                            CHOOSE CABIN CLASS
+                          </div>
+                            <Row style={{display:"flex",flexDirection:"column"}}>
+                              <Col style={{background:cabinClass && cabinClassType === "ECONOMY" ? "rgb(0, 140, 255)" : "#fff",color:cabinClass && cabinClassType === "ECONOMY" ? "#fff" : "black"}} className={styles.economybtn} onClick={ECONOMY}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Economy/Premium Economy</span></Col>
+                              <Col style={{background:cabinClass && cabinClassType === "ECONOMY/PREMIUM ECONOMY" ? "rgb(0, 140, 255)" : "#fff",color:cabinClass && cabinClassType === "ECONOMY/PREMIUM ECONOMY" ? "#fff" : "black"}} className={styles.economybtn} onClick={PRIMIUMECONOMY}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Premium Economy</span></Col>
+                              <Col style={{background:cabinClass && cabinClassType === "BUISNESS" ? "rgb(0, 140, 255)" : "",color:cabinClass && cabinClassType === "BUISNESS" ? "#fff" : "black"}} className={styles.economybtn} onClick={BUISSNESS}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Buisness</span></Col>
+                            </Row>
+                          </div>
 
                       <div
                         className={styles.modalApplyText}
@@ -3357,6 +3278,17 @@ const FlightHome = () => {
                       </div>
 
                       {/* for children and inf */}
+                      {/* economy */}
+                      <div className={styles.passengerButtonContainer} style={{display:"flex",flexDirection:"column"}}>
+                      <div className={styles.adultChild}>
+                            CHOOSE CABIN CLASS
+                          </div>
+                            <Row style={{display:"flex",flexDirection:"column"}}>
+                              <Col style={{background:cabinClass && cabinClassType === "ECONOMY" ? "rgb(0, 140, 255)" : "#fff",color:cabinClass && cabinClassType === "ECONOMY" ? "#fff" : "black"}} className={styles.economybtn} onClick={ECONOMY}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Economy/Premium Economy</span></Col>
+                              <Col style={{background:cabinClass && cabinClassType === "ECONOMY/PREMIUM ECONOMY" ? "rgb(0, 140, 255)" : "#fff",color:cabinClass && cabinClassType === "ECONOMY/PREMIUM ECONOMY" ? "#fff" : "black"}} className={styles.economybtn} onClick={PRIMIUMECONOMY}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Premium Economy</span></Col>
+                              <Col style={{background:cabinClass && cabinClassType === "BUISNESS" ? "rgb(0, 140, 255)" : "",color:cabinClass && cabinClassType === "BUISNESS" ? "#fff" : "black"}} className={styles.economybtn} onClick={BUISSNESS}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Buisness</span></Col>
+                            </Row>
+                          </div>
 
                       <div
                         className={styles.modalApplyText}
@@ -3710,12 +3642,6 @@ const FlightHome = () => {
                                       return option.value === from;
                                     })}
                                     components={{
-                                      // SelectContainer:()=>false
-                                      // Menu: () => null,               // Remove menu
-                                      // MenuList: () => true,           // Remove menu list
-                                      // DropdownIndicator: () => null,
-                                      // Remove dropdown icon
-                                      //  SelectContainer:()=> null,
                                       IndicatorSeparator: () => null, // Remove separator
                                     }}
                                   />
@@ -3729,11 +3655,6 @@ const FlightHome = () => {
                                     onChange={FROMHANDLER}
                                     className={styles.select}
                                     components={{
-                                      // SelectContainer:()=>false
-                                      // Menu: () => null,               // Remove menu
-                                      // MenuList: () => null,           // Remove menu list
-                                      // DropdownIndicator: () => null,
-                                      // Remove dropdown icon
                                       SelectContainer: () => null,
                                       IndicatorSeparator: () => null, // Remove separator
                                     }}
@@ -3805,12 +3726,6 @@ const FlightHome = () => {
                                       return option.value === from;
                                     })}
                                     components={{
-                                      // SelectContainer:()=>false
-                                      // Menu: () => null,               // Remove menu
-                                      // MenuList: () => true,           // Remove menu list
-                                      // DropdownIndicator: () => null,
-                                      // Remove dropdown icon
-                                      //  SelectContainer:()=> null,
                                       IndicatorSeparator: () => null, // Remove separator
                                     }}
                                   />
@@ -3825,11 +3740,7 @@ const FlightHome = () => {
                                     menuIsOpen={true}
                                     className={styles.select}
                                     components={{
-                                      // SelectContainer:()=>false
-                                      // Menu: () => null,               // Remove menu
-                                      // MenuList: () => null,           // Remove menu list
-                                      // DropdownIndicator: () => null,
-                                      // Remove dropdown icon
+                                     
                                       SelectContainer: () => null,
                                       IndicatorSeparator: () => null, // Remove separator
                                     }}

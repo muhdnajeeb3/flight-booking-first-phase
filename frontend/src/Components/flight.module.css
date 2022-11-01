@@ -257,7 +257,7 @@ display: none;
 .traveller_modal {
   position: absolute;
   /* width: 314px; */
-  height: 200px;
+  min-height: 20rem;
   z-index: 20;
   top: 30px;
   left: 0%;
@@ -274,8 +274,9 @@ display: none;
   /* position: absolute; */
   position: relative;
   width: 314px;
-  height: 100px;
-  height: 200px;
+ 
+  min-height: 20rem;
+
   /* top: 30px; */
   z-index: 999999;
   bottom: 35px;
@@ -380,6 +381,16 @@ display: none;
   font-size: 14px !important;
   font-weight: 600 !important;
 }
+.economybtn{
+  -moz-box-shadow: 0 0 3px #ccc;
+  -webkit-box-shadow: 0 0 3px #ccc;
+  box-shadow: 0 0 4px rgb(158, 156, 156);
+  width: 90% !important;
+  margin-top: 10px !important;
+  margin-left: 10px;
+  border-radius: 4px;
+
+}
 
 
 @media only screen and (max-width: 1070px) {
@@ -478,19 +489,22 @@ display: none;
 @media only screen and (max-width: 500px) {
   .traveller_modal {
     /* position: absolute; */
-    max-width: 285px;
+    width: 300px;
     /* height: 100px; */
-    height: 300px;
+    min-height: 25rem;
     /* margin: -1.7rem; */
     /* display: flex; */
     /* flex-wrap: wrap; */
     /* flex-direction: column; */
     z-index: 20;
-    top: 0px;
-    left: -25px;
+    top: 25px;
+    left: 0;
     background: white;
     /* border: 1px solid red; */
     padding: 15px;
+  }
+  .traveller_modalmulti{
+    min-height: 25rem;
   }
   .infantChildren{
     display: flex;
@@ -509,23 +523,36 @@ display: none;
 
   .traveller_modalmulti {
     position: absolute;
-    width: 300px;
-    height: 100px;
+    width: 350px ;
     height: 200px;
     z-index: 20;
-    top: 30px;
+    top: 30px ;
     left: -100%;
     background: white;
     /* border: 1px solid red; */
     padding: 15px;
+  }
+  .mobilesectionrow{
+    display: flex !important;
+    flex-direction: row !important;
+    /* flex-wrap: nowrap; */
+    margin-top: 30px !important;
+    margin-bottom: 30px !important;
+    /* max-height: 8rem !important; */
+    min-height: 7rem !important;
+    background-color: #fff;
+    width: 90%;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border-radius: 10px ;
+    padding: 5px;
   }
 }
 @media screen and (min-width: 250px) and (max-width: 400px) {
   .traveller_modalmulti {
     /* position: absolute; */
     width: 280px;
-    height: 100px;
-    height: 200px;
+   
     z-index: 20;
     top: 30px;
     left: -100%;
@@ -600,21 +627,7 @@ display: none;
     margin-top: 10px;
   
     }
-    .mobilesectionrow{
-      display: flex !important;
-      flex-direction: row !important;
-      /* flex-wrap: nowrap; */
-      margin-top: 30px !important;
-      margin-bottom: 30px !important;
-      /* max-height: 8rem !important; */
-      min-height: 7rem !important;
-      background-color: #fff;
-      width: 90%;
-      margin-left: auto !important;
-      margin-right: auto !important;
-      border-radius: 10px ;
-      padding: 5px;
-    }
+    
     
 }
 @media screen and (max-width:467px) {
@@ -643,4 +656,7 @@ display: none;
     .flight_container {
       width: 90% !important;
     }
+  .traveller_modal {
+width: 280px;
   }
+}
