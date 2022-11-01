@@ -202,6 +202,7 @@ display: none;
 }
 .travellerContainermulticity{
   border: 1px solid lightgray;
+  /* background-color: #008cff; */
   border-radius: 5px;
   /* flex-grow: 0.3; */
   width: 25%;
@@ -210,13 +211,10 @@ display: none;
   bottom: 9px;
   cursor: pointer;
   margin-left: 15px;
-  z-index: 15;
-  right: 30px;
+  /* z-index: 1; */
+  right: 30px ;
   margin-top: 9px;
 
-}
-.travellerContainer:hover {
-  /* background-color: aliceblue; */
 }
 
 .travellersText {
@@ -267,19 +265,27 @@ display: none;
   /* border: 1px solid red; */
   padding: 15px;
   border-radius: 10px;
+  -moz-box-shadow: 0 0 3px #ccc;
+  -webkit-box-shadow: 0 0 3px #ccc;
+  box-shadow: 0 0 2px rgb(158, 156, 156);
 }
 /*  multi*/
 .traveller_modalmulti {
   /* position: absolute; */
+  position: relative;
   width: 314px;
   height: 100px;
   height: 200px;
-  z-index: 20;
-  top: 30px;
-  left: -100%;
+  /* top: 30px; */
+  z-index: 999999;
+  bottom: 35px;
+  /* left: -100%; */
   background: white;
   /* border: 1px solid red; */
   padding: 15px;
+  -moz-box-shadow: 0 0 3px #ccc;
+  -webkit-box-shadow: 0 0 3px #ccc;
+  box-shadow: 0 0 2px rgb(158, 156, 156);
 }
 
 .adultChild {
@@ -297,7 +303,7 @@ display: none;
     #6c9feb 50%,
     #3339e9 100%
   );
-  width: 20%;
+  width: 25%;
   margin: auto;
   color: rgb(255, 255, 255);
   font-weight: bolder;
@@ -429,10 +435,10 @@ display: none;
     width: 25%;
     height: 80px;
     position: relative;
-    bottom: 9px;
+    /* bottom: 9px; */
     cursor: pointer;
     margin-left: 15px;
-    z-index: 15;
+    /* z-index: 0; */
     right: 0px;
     left: 7px;
     margin-top: 4px;
@@ -440,8 +446,9 @@ display: none;
   }
 }
 @media only screen and (max-width: 1050px) {
-  .travellerContainermulticity{
-  /* left: 0; */
+  .traveller_modalmulti{
+    z-index: 20111111111111111111111111111111111111;
+    /* min-height: 20rem !important */
   }
   .fromToConnecting {
     margin-left: 1%;
@@ -620,6 +627,9 @@ display: none;
     min-width: 96%;
     display: flex;
 
+    }
+    .traveller_modalmulti{
+      left: auto;
     }
     .DepRetContainer{
       min-width: 99%;

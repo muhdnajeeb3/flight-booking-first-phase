@@ -9,9 +9,9 @@ import Select from "react-select";
 import icon1 from "./logo.png";
 
 import TextField from "@mui/material/TextField";
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
-import {LocalizationProvider} from "@mui/x-date-pickers";
-import { DatePicker } from '@mui/x-date-pickers';
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { DatePicker } from "@mui/x-date-pickers";
 import FareTypes from "./FareTypes";
 import { Link, useNavigate } from "react-router-dom";
 import { Button, Col, Container, Row } from "react-bootstrap";
@@ -71,7 +71,6 @@ const FlightHome = () => {
 
   const onClickNoOfPass = (val) => {
     setTravellers(val);
-    
   };
   const handleSubmit = () => {
     navigate("/flights", {
@@ -138,9 +137,9 @@ const FlightHome = () => {
     setFrom(e.value);
   };
   const SWITCHHANDLER = () => {
-    setFrom(to)
-    setTo(from)
-  }
+    setFrom(to);
+    setTo(from);
+  };
   console.log(from);
   const TOHANDLER = (e) => {
     setSelectTo(false);
@@ -155,75 +154,73 @@ const FlightHome = () => {
     <div className={styles.flight_wrapper}>
       {/* <Container className={styles.mobilesection}> */}
       {/* <div style={{ display: flightopen ? "none" : "" }}> */}
-        <Row
-          className={styles.mobilesectionrow}
-          style={{ display: flightopen ? "none" : "" }}
-        >
-          <Col className="colfooter" onClick={() => setFlightopen(true)}>
-            <Link to="" style={{ color: "black", textDecoration: "none" }}>
-              <FontAwesomeIcon
-                icon={faPlaneDeparture}
-                size="xl"
-                style={{
-                  marginTop: "15px",
-                  marginLeft: "9px",
-                  marginBottom: "10px",
-                }}
-              />
-              <br />
-              <b style={{ marginBottom: "15px", marginTop: "-15px" }}>
-                Flights
-              </b>
-            </Link>
-          </Col>
-          <Col className="colfooter">
-            <Link to="" style={{ color: "black", textDecoration: "none" }}>
-              <FontAwesomeIcon
-                icon={faHotel}
-                size="xl"
-                style={{
-                  marginTop: "15px",
-                  marginLeft: "10px",
-                  marginBottom: "10px",
-                }}
-              />
-              <br />
-              <b style={{ marginBottom: "15px", marginTop: "-15px" }}>Hotels</b>
-            </Link>
-          </Col>
-          <Col className="colfooter">
-            <Link to="" style={{ color: "black", textDecoration: "none" }}>
-              <FontAwesomeIcon
-                icon={faBus}
-                size="xl"
-                style={{
-                  marginTop: "15px",
-                  marginLeft: "10px",
-                  marginBottom: "10px",
-                }}
-              />
-              <br />
-              <b style={{ marginBottom: "15px", marginTop: "-15px" }}>Buses</b>
-            </Link>
-          </Col>
-          <Col className="colfooter">
-            <Link to="/" style={{ color: "black", textDecoration: "none" }}>
-              <FontAwesomeIcon
-                icon={faParachuteBox}
-                size="xl"
-                style={{
-                  marginTop: "15px",
-                  marginLeft: "10px",
-                  marginBottom: "10px",
-                }}
-              />
-              <br />
-              <b style={{ marginBottom: "15px", marginTop: "-15px" }}>
-                Holiday Packages
-              </b>
-            </Link>
-          </Col>
-        </Row>
+      <Row
+        className={styles.mobilesectionrow}
+        style={{ display: flightopen ? "none" : "" }}
+      >
+        <Col className="colfooter" onClick={() => setFlightopen(true)}>
+          <Link to="" style={{ color: "black", textDecoration: "none" }}>
+            <FontAwesomeIcon
+              icon={faPlaneDeparture}
+              size="xl"
+              style={{
+                marginTop: "15px",
+                marginLeft: "9px",
+                marginBottom: "10px",
+              }}
+            />
+            <br />
+            <b style={{ marginBottom: "15px", marginTop: "-15px" }}>Flights</b>
+          </Link>
+        </Col>
+        <Col className="colfooter">
+          <Link to="" style={{ color: "black", textDecoration: "none" }}>
+            <FontAwesomeIcon
+              icon={faHotel}
+              size="xl"
+              style={{
+                marginTop: "15px",
+                marginLeft: "10px",
+                marginBottom: "10px",
+              }}
+            />
+            <br />
+            <b style={{ marginBottom: "15px", marginTop: "-15px" }}>Hotels</b>
+          </Link>
+        </Col>
+        <Col className="colfooter">
+          <Link to="" style={{ color: "black", textDecoration: "none" }}>
+            <FontAwesomeIcon
+              icon={faBus}
+              size="xl"
+              style={{
+                marginTop: "15px",
+                marginLeft: "10px",
+                marginBottom: "10px",
+              }}
+            />
+            <br />
+            <b style={{ marginBottom: "15px", marginTop: "-15px" }}>Buses</b>
+          </Link>
+        </Col>
+        <Col className="colfooter">
+          <Link to="/" style={{ color: "black", textDecoration: "none" }}>
+            <FontAwesomeIcon
+              icon={faParachuteBox}
+              size="xl"
+              style={{
+                marginTop: "15px",
+                marginLeft: "10px",
+                marginBottom: "10px",
+              }}
+            />
+            <br />
+            <b style={{ marginBottom: "15px", marginTop: "-15px" }}>
+              Holiday Packages
+            </b>
+          </Link>
+        </Col>
+      </Row>
       {/* </div> */}
       {/* </Container> */}
       {flightopen ? (
@@ -233,7 +230,7 @@ const FlightHome = () => {
             style={{
               display: ismobile ? "none" : "",
               display: flightopen ? "" : "none",
-              marginTop:"-10px"
+              marginTop: "-10px",
             }}
           >
             <div className={styles.tripInternational}>
@@ -244,19 +241,27 @@ const FlightHome = () => {
                     style={{ border: "none" }}
                     variant=""
                   >
-                    <div style={{display:"flex",justifyContent:"space-between"}}>
-                      <div><input
-                      type="radio"
-                      value="select"
-                      name="select"
-                      className="onewayinput"
-                      onChange={ONEWAY}
-                      onClick={() => setOneWay(true)}
-                    /></div>
-                     <div> <b className="onewaytitle">ONE WAY</b>
-                     </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <div>
+                        <input
+                          type="radio"
+                          value="select"
+                          name="select"
+                          className="onewayinput"
+                          onChange={ONEWAY}
+                          onClick={() => setOneWay(true)}
+                        />
+                      </div>
+                      <div>
+                        {" "}
+                        <b className="onewaytitle">ONE WAY</b>
+                      </div>
                     </div>
-                    
                   </Button>
                 </div>
                 <div>
@@ -265,25 +270,26 @@ const FlightHome = () => {
                     style={{ border: "none" }}
                     variant=""
                   >
-                                        <div style={{display:"flex",justifyContent:"space-between"}}>
-
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                      }}
+                    >
                       <div>
-                      <input
-                      type="radio"
-                      className="onewayinput"
-                      value="select1"
-                      name="select"
-                      onChange={ROUNDTRIP}
-                      onClick={() => setRoundTrip(true)}
-                    />
-
+                        <input
+                          type="radio"
+                          className="onewayinput"
+                          value="select1"
+                          name="select"
+                          onChange={ROUNDTRIP}
+                          onClick={() => setRoundTrip(true)}
+                        />
                       </div>
                       <div>
-                    <span className="onewaytitle">ROUND TRIP</span>
-
+                        <span className="onewaytitle">ROUND TRIP</span>
                       </div>
                     </div>
-                    
                   </Button>
                 </div>
                 <div>
@@ -292,24 +298,26 @@ const FlightHome = () => {
                     style={{ border: "none" }}
                     variant=""
                   >
-                    <div style={{display:"flex",justifyContent:"space-between"}}>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                      }}
+                    >
                       <div>
-                      <input
-                      type="radio"
-                      className="onewayinput"
-                      value="select2"
-                      name="select"
-                      onClick={() => setMultiCity(true)}
-                      onChange={MULTICITYHANDLER}
-                    />
+                        <input
+                          type="radio"
+                          className="onewayinput"
+                          value="select2"
+                          name="select"
+                          onClick={() => setMultiCity(true)}
+                          onChange={MULTICITYHANDLER}
+                        />
                       </div>
                       <div>
-                    <span className="onewaytitle">MULTI CITY</span>
-
-
+                        <span className="onewaytitle">MULTI CITY</span>
                       </div>
                     </div>
-                    
                   </Button>
                 </div>
               </div>
@@ -425,7 +433,10 @@ const FlightHome = () => {
                           )}
                         </Col>
                       </div>
-                      <div className={styles.connectingIcon} onClick={SWITCHHANDLER}>
+                      <div
+                        className={styles.connectingIcon}
+                        onClick={SWITCHHANDLER}
+                      >
                         <ConnectingAirportsIcon fontSize="large" color="grey" />
                       </div>
                       <div className={styles.to}>
@@ -536,7 +547,6 @@ const FlightHome = () => {
                           <DatePicker
                             label="DEPARTURE"
                             required
-                            
                             minDate={new Date()}
                             value={departure}
                             onChange={(newValue) => {
@@ -590,7 +600,6 @@ const FlightHome = () => {
                                     height: "47px",
                                     // border:"1px solid lightgrey",
                                     borderRadius: "10px",
-                                  
                                   },
                                 }}
                               />
@@ -601,10 +610,8 @@ const FlightHome = () => {
                     </div>
                     {/* departure date end */}
 
-                   
                     {/* return date starts (just for ui purpose)*/}
                   </div>
-
 
                   {/* number of travellers start */}
 
@@ -615,8 +622,23 @@ const FlightHome = () => {
                         className={styles.noOfTraveller}
                         style={{ marginTop: "-6px" }}
                       >
-                        <span>{travellers}</span>
-                        {travellers > 0 ? "Travellers" : ""}
+                        <span style={{ fontFamily: "sans-serif" }}>
+                          {travellers}
+                        </span>
+
+                        {travellers > 0 ? (
+                          <span
+                            style={{
+                              fontSize: "16px",
+                              fontFamily: "sans-serif",
+                              fontWeight: "400",
+                            }}
+                          >
+                            Travellers
+                          </span>
+                        ) : (
+                          ""
+                        )}
                       </div>
                     </div>
 
@@ -707,7 +729,16 @@ const FlightHome = () => {
                         className={styles.modalApplyText}
                         onClick={onClickModal}
                       >
-                        <div>Apply</div>
+                        <div>
+                          <span
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "14px",
+                            }}
+                          >
+                            Apply
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -807,7 +838,11 @@ const FlightHome = () => {
                           )}
                         </Col>
                       </div>
-                      <div className={styles.connectingIcon} onClick={SWITCHHANDLER}v>
+                      <div
+                        className={styles.connectingIcon}
+                        onClick={SWITCHHANDLER}
+                        v
+                      >
                         <ConnectingAirportsIcon fontSize="large" color="grey" />
                       </div>
                       <div className={styles.to}>
@@ -1016,7 +1051,19 @@ const FlightHome = () => {
                         style={{ marginTop: "-6px" }}
                       >
                         <span>{travellers}</span>
-                        {travellers > 0 ? "Travellers" : ""}
+                        {travellers > 0 ? (
+                          <span
+                            style={{
+                              fontSize: "16px",
+                              fontFamily: "sans-serif",
+                              fontWeight: "400",
+                            }}
+                          >
+                            Travellers
+                          </span>
+                        ) : (
+                          ""
+                        )}
                       </div>
                     </div>
 
@@ -1080,7 +1127,7 @@ const FlightHome = () => {
                             INFANTS (below 2y)
                           </div>
                           <div className={styles.passengerButtonContainer}>
-                            {ar1.map((val) => (
+                            {ar2.map((val) => (
                               <div
                                 key={val}
                                 className={
@@ -1107,7 +1154,16 @@ const FlightHome = () => {
                         className={styles.modalApplyText}
                         onClick={onClickModal}
                       >
-                        <div>Apply</div>
+                        <div>
+                          <span
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "14px",
+                            }}
+                          >
+                            Apply
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1207,7 +1263,10 @@ const FlightHome = () => {
                           )}
                         </Col>
                       </div>
-                      <div className={styles.connectingIcon} onClick={SWITCHHANDLER}>
+                      <div
+                        className={styles.connectingIcon}
+                        onClick={SWITCHHANDLER}
+                      >
                         <ConnectingAirportsIcon fontSize="large" color="grey" />
                       </div>
                       <div className={styles.to}>
@@ -1367,7 +1426,19 @@ const FlightHome = () => {
                         style={{ marginTop: "-6px" }}
                       >
                         <span>{travellers}</span>
-                        {travellers > 0 ? "Travellers" : ""}
+                        {travellers > 0 ? (
+                          <span
+                            style={{
+                              fontSize: "16px",
+                              fontFamily: "sans-serif",
+                              fontWeight: "400",
+                            }}
+                          >
+                            Travellers
+                          </span>
+                        ) : (
+                          ""
+                        )}
                       </div>
                     </div>
 
@@ -1431,7 +1502,7 @@ const FlightHome = () => {
                             INFANTS (below 2y)
                           </div>
                           <div className={styles.passengerButtonContainer}>
-                            {ar1.map((val) => (
+                            {ar2.map((val) => (
                               <div
                                 key={val}
                                 className={
@@ -1459,7 +1530,16 @@ const FlightHome = () => {
                         className={styles.modalApplyText}
                         onClick={onClickModal}
                       >
-                        <div>Apply</div>
+                        <div>
+                          <span
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "14px",
+                            }}
+                          >
+                            Apply
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1560,7 +1640,10 @@ const FlightHome = () => {
                           )}
                         </Col>
                       </div>
-                      <div className={styles.connectingIcon} onClick={SWITCHHANDLER}>
+                      <div
+                        className={styles.connectingIcon}
+                        onClick={SWITCHHANDLER}
+                      >
                         <ConnectingAirportsIcon fontSize="large" color="grey" />
                       </div>
                       <div className={styles.to}>
@@ -1712,7 +1795,7 @@ const FlightHome = () => {
                         // border: "",
                         color: "blue",
                         border: "1px solid blue",
-                        maxHeight:"2rem",
+                        maxHeight: "2rem",
 
                         fontFamily: "sans-serif",
                         display: "grid",
@@ -1831,7 +1914,10 @@ const FlightHome = () => {
                               )}
                             </Col>
                           </div>
-                          <div className={styles.connectingIcon} onClick={SWITCHHANDLER}>
+                          <div
+                            className={styles.connectingIcon}
+                            onClick={SWITCHHANDLER}
+                          >
                             <ConnectingAirportsIcon
                               fontSize="large"
                               color="grey"
@@ -1987,8 +2073,9 @@ const FlightHome = () => {
                           onClick={() => DELETEHANDLER(i)}
                           variant=""
                         >
-                          <span style={{color:"red"}}>X <span style={{color:"black"}}>REMOVE</span></span> 
-                          
+                          <span style={{ color: "red" }}>
+                            X <span style={{ color: "black" }}>REMOVE</span>
+                          </span>
                         </Button>
                       </div>
                       {/* return */}
@@ -2006,16 +2093,17 @@ const FlightHome = () => {
           </div>
           <div
             className={styles.buttonContainer}
-            style={{ display: ismobile ? "none" : "" ,display:flightopen ? "" : "none"}}
+            style={{
+              display: ismobile ? "none" : "",
+              display: flightopen ? "" : "none",
+            }}
           >
-            <div type="submit" onClick={handleSubmit} >
+            <div type="submit" onClick={handleSubmit}>
               SEARCH
             </div>
           </div>
         </>
-      ) : 
-
-      (
+      ) : (
         <>
           <div
             className={styles.flight_container}
@@ -2190,7 +2278,10 @@ const FlightHome = () => {
                           )}
                         </Col>
                       </div>
-                      <div className={styles.connectingIcon} onClick={SWITCHHANDLER}>
+                      <div
+                        className={styles.connectingIcon}
+                        onClick={SWITCHHANDLER}
+                      >
                         <ConnectingAirportsIcon fontSize="large" color="grey" />
                       </div>
                       <div className={styles.to}>
@@ -2361,7 +2452,7 @@ const FlightHome = () => {
                         </LocalizationProvider>
                       </FormControl>
                     </div>
-                    {/* departure date end */}                   
+                    {/* departure date end */}
                   </div>
                   {/* number of travellers start */}
 
@@ -2373,7 +2464,19 @@ const FlightHome = () => {
                         style={{ marginTop: "-6px" }}
                       >
                         <span>{travellers}</span>
-                        {travellers > 0 ? "Travellers" : ""}
+                        {travellers > 0 ? (
+                          <span
+                            style={{
+                              fontSize: "16px",
+                              fontFamily: "sans-serif",
+                              fontWeight: "400",
+                            }}
+                          >
+                            Travellers
+                          </span>
+                        ) : (
+                          ""
+                        )}
                       </div>
                     </div>
 
@@ -2474,7 +2577,16 @@ const FlightHome = () => {
                         className={styles.modalApplyText}
                         onClick={onClickModal}
                       >
-                        <div>Apply</div>
+                        <div>
+                          <span
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "14px",
+                            }}
+                          >
+                            Apply
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -2574,7 +2686,10 @@ const FlightHome = () => {
                           )}
                         </Col>
                       </div>
-                      <div className={styles.connectingIcon} onClick={SWITCHHANDLER}>
+                      <div
+                        className={styles.connectingIcon}
+                        onClick={SWITCHHANDLER}
+                      >
                         <ConnectingAirportsIcon fontSize="large" color="grey" />
                       </div>
                       <div className={styles.to}>
@@ -2734,7 +2849,6 @@ const FlightHome = () => {
                           <DatePicker
                             label="RETURN"
                             minDate={new Date()}
-
                             value={retrn}
                             onChange={(newValue) => {
                               setRetrn(newValue);
@@ -2783,8 +2897,22 @@ const FlightHome = () => {
                         className={styles.noOfTraveller}
                         style={{ marginTop: "-6px" }}
                       >
-                        <span>{travellers}</span>
-                        {travellers > 0 ? "Travellers" : ""}
+                        <span style={{ fontFamily: "sans-serif" }}>
+                          {travellers}
+                        </span>
+                        {travellers > 0 ? (
+                          <span
+                            style={{
+                              fontSize: "16px",
+                              fontFamily: "sans-serif",
+                              fontWeight: "400",
+                            }}
+                          >
+                            Travellers
+                          </span>
+                        ) : (
+                          ""
+                        )}
                       </div>
                     </div>
 
@@ -2848,7 +2976,7 @@ const FlightHome = () => {
                             INFANTS (below 2y)
                           </div>
                           <div className={styles.passengerButtonContainer}>
-                            {ar1.map((val) => (
+                            {ar2.map((val) => (
                               <div
                                 key={val}
                                 className={
@@ -2875,7 +3003,16 @@ const FlightHome = () => {
                         className={styles.modalApplyText}
                         onClick={onClickModal}
                       >
-                        <div>Apply</div>
+                        <div>
+                          <span
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "14px",
+                            }}
+                          >
+                            Apply
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -2975,7 +3112,10 @@ const FlightHome = () => {
                           )}
                         </Col>
                       </div>
-                      <div className={styles.connectingIcon} onClick={SWITCHHANDLER}>
+                      <div
+                        className={styles.connectingIcon}
+                        onClick={SWITCHHANDLER}
+                      >
                         <ConnectingAirportsIcon fontSize="large" color="grey" />
                       </div>
                       <div className={styles.to}>
@@ -3052,11 +3192,6 @@ const FlightHome = () => {
                                 onChange={TOHANDLER}
                                 className={styles.select}
                                 components={{
-                                  // SelectContainer:()=>false
-                                  // Menu: () => null,               // Remove menu
-                                  // MenuList: () => null,           // Remove menu list
-                                  // DropdownIndicator: () => null,
-                                  // Remove dropdown icon
                                   SelectContainer: () => null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
@@ -3105,24 +3240,8 @@ const FlightHome = () => {
                     {/* departure date end */}
 
                     {/* return date starts (just for ui purpose)*/}
-                    {/* <div>
-              <LocalizationProvider dateAdapter={AdapterDateFns}>
-                <DatePicker
-                  label="Return"
-                  value={retrn}
-                  onChange={(newValue) => {
-                    setRetrn(newValue);
-                  }}
-                  renderInput={(params) => <TextField {...params} />}
-                />
-              </LocalizationProvider>
-            </div> */}
-                    {/* return date starts (just for ui purpose)*/}
                   </div>
                   {/* return */}
-
-                  {/* departure and return date end */}
-
                   {/* number of travellers start */}
                   <div
                     className={styles.travellerContainermulticity}
@@ -3134,8 +3253,23 @@ const FlightHome = () => {
                         className={styles.noOfTraveller}
                         style={{ marginTop: "-6px" }}
                       >
-                        <span>{travellers}</span>
-                        {travellers > 0 ? "Travellers" : ""}
+                        <span style={{ fontFamily: "sans-serif" }}>
+                          {travellers}
+                        </span>
+
+                        {travellers > 0 ? (
+                          <span
+                            style={{
+                              fontSize: "16px",
+                              fontFamily: "sans-serif",
+                              fontWeight: "400",
+                            }}
+                          >
+                            Travellers
+                          </span>
+                        ) : (
+                          ""
+                        )}
                       </div>
                     </div>
 
@@ -3145,6 +3279,7 @@ const FlightHome = () => {
                           ? styles.traveller_modalmulti
                           : styles.noDisplay
                       }
+                      style={{borderRadius:"5px",zIndex:"",backgroundColor:"fff"}}
                     >
                       <div className={styles.adultChild}>ADULTS (12y +)</div>
                       <div className={styles.passengerButtonContainer}>
@@ -3199,7 +3334,7 @@ const FlightHome = () => {
                             INFANTS (below 2y)
                           </div>
                           <div className={styles.passengerButtonContainer}>
-                            {ar1.map((val) => (
+                            {ar2.map((val) => (
                               <div
                                 key={val}
                                 className={
@@ -3227,7 +3362,16 @@ const FlightHome = () => {
                         className={styles.modalApplyText}
                         onClick={onClickModal}
                       >
-                        <div>Apply</div>
+                        <div>
+                          <span
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "14px",
+                            }}
+                          >
+                            Apply
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -3328,7 +3472,10 @@ const FlightHome = () => {
                           )}
                         </Col>
                       </div>
-                      <div className={styles.connectingIcon} onClick={SWITCHHANDLER}>
+                      <div
+                        className={styles.connectingIcon}
+                        onClick={SWITCHHANDLER}
+                      >
                         <ConnectingAirportsIcon fontSize="large" color="grey" />
                       </div>
                       <div className={styles.to}>
@@ -3405,11 +3552,6 @@ const FlightHome = () => {
                                 onChange={TOHANDLER}
                                 className={styles.select}
                                 components={{
-                                  // SelectContainer:()=>false
-                                  // Menu: () => null,               // Remove menu
-                                  // MenuList: () => null,           // Remove menu list
-                                  // DropdownIndicator: () => null,
-                                  // Remove dropdown icon
                                   SelectContainer: () => null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
@@ -3471,6 +3613,7 @@ const FlightHome = () => {
                       display: "grid",
                       justifyContent: "center",
                       paddingTop: "10px",
+                      // zIndex:"1"
                     }}
                     className={styles.travellerContainermulticity}
                   >
@@ -3484,7 +3627,7 @@ const FlightHome = () => {
                         fontFamily: "sans-serif",
                         display: "grid",
                         justifyContent: "center",
-                        maxHeight:"2rem"
+                        maxHeight: "2rem",
                       }}
                       onClick={() => HANDLEADD()}
                       variant=""
@@ -3599,7 +3742,10 @@ const FlightHome = () => {
                               )}
                             </Col>
                           </div>
-                          <div className={styles.connectingIcon} onClick={SWITCHHANDLER}>
+                          <div
+                            className={styles.connectingIcon}
+                            onClick={SWITCHHANDLER}
+                          >
                             <ConnectingAirportsIcon
                               fontSize="large"
                               color="grey"
@@ -3710,7 +3856,7 @@ const FlightHome = () => {
                             >
                               <DatePicker
                                 label="DEPARTURE"
-                              minDate={new Date()}
+                                minDate={new Date()}
                                 value={departure}
                                 onChange={(newValue) => {
                                   setDeparture(newValue);
@@ -3755,7 +3901,9 @@ const FlightHome = () => {
                           onClick={() => DELETEHANDLER(i)}
                           variant=""
                         >
-                          <span style={{color:"red"}}>X <span style={{color:"black"}}>REMOVE</span></span> 
+                          <span style={{ color: "red" }}>
+                            X <span style={{ color: "black" }}>REMOVE</span>
+                          </span>
                         </Button>
                       </div>
                       {/* return */}
@@ -3780,9 +3928,7 @@ const FlightHome = () => {
             </div>
           </div>
         </>
-      )
-      
-      }
+      )}
     </div>
   );
 };
