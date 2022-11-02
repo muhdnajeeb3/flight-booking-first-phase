@@ -18,12 +18,9 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import "./flight.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faBagShopping,
   faBus,
-  faHome,
   faHotel,
   faParachuteBox,
-  faPercentage,
   faPlaneDeparture,
 } from "@fortawesome/free-solid-svg-icons";
 import { display } from "@mui/system";
@@ -71,8 +68,15 @@ const FlightHome = () => {
     { value: "Kolkata", label: "Kolkata" },
   ];
 
-  const onClickNoOfPass = (val) => {
-    setTravellers(val);
+  const onClickNoOfPass = (val1,val2,val3) =>  {
+    // return
+    setTravellers( val1 + val2 + val3);
+    console.log("one",val1);
+    console.log("two",val2);
+    console.log("three",val3);
+    // console.log("three",val3);
+
+    
   };
   const handleSubmit = () => {
     navigate("/flights", {
@@ -112,9 +116,7 @@ const FlightHome = () => {
     deletenewcity.splice(i, 1);
     setNewCity(deletenewcity);
   };
-  if (select === true) {
-    // setSelect()
-  }
+ 
   if (select === false) {
     setSelect(null);
   }
@@ -150,21 +152,15 @@ const FlightHome = () => {
   const BUISSNESS = () => {
     setCabinClass(true);
     setCabinClassType("BUISNESS");
-   
   };
   const ECONOMY = () => {
     setCabinClass(true);
     setCabinClassType("ECONOMY");
-
-   
   };
   const PRIMIUMECONOMY = () => {
     setCabinClass(true);
     setCabinClassType("ECONOMY/PREMIUM ECONOMY");
-
-   
   };
- 
 
   if (window.innerWidth < 500) {
   }
@@ -445,7 +441,7 @@ const FlightHome = () => {
                         className={styles.connectingIcon}
                         onClick={SWITCHHANDLER}
                       >
-                        <ConnectingAirportsIcon fontSize="large" color="grey" />
+                        <ConnectingAirportsIcon className={styles.connecticon} fontSize="large" color="grey" />
                       </div>
                       <div className={styles.to}>
                         <Col
@@ -581,6 +577,7 @@ const FlightHome = () => {
                         >
                           <DatePicker
                             label="RETURN"
+                            
                             minDate={new Date()}
                             value={retrn}
                             onChange={(newValue) => {
@@ -619,6 +616,10 @@ const FlightHome = () => {
                         <span style={{ fontFamily: "sans-serif" }}>
                           {travellers}
                         </span>
+                        
+                        <span style={{ fontFamily: "sans-serif" ,fontSize:"12px",fontWeight:"400"}}>
+                          {cabinClassType}
+                        </span>
 
                         {travellers > 0 ? (
                           <span
@@ -645,21 +646,21 @@ const FlightHome = () => {
                     >
                       <div className={styles.adultChild}>ADULTS (12y +)</div>
                       <div className={styles.passengerButtonContainer}>
-                        {arr.map((val) => (
+                        {arr.map((val1) => (
                           <div
-                            key={val}
+                            key={val1}
                             className={`${
-                              selectedButtonColor === val
+                              selectedButtonColor === val1
                                 ? styles.clickPassenger
                                 : styles.passengerButton
                             }`}
                             onClick={() => {
                               setTogglePassengerColor(!togglePassengerColor);
-                              onClickNoOfPass(val);
-                              setSelectedButtonColor(val);
+                              onClickNoOfPass(val1,);
+                              setSelectedButtonColor(val1);
                             }}
                           >
-                            {val}
+                            {val1}
                           </div>
                         ))}
                       </div>
@@ -671,22 +672,26 @@ const FlightHome = () => {
                             CHILDREN (2y - 12y )
                           </div>
                           <div className={styles.passengerButtonContainer}>
-                            {ar1.map((val) => (
+                            {ar1.map((val2,val1) => (
                               <div
-                                key={val}
+                                key={val2}
                                 className={
-                                  val === 0
+                                  val2 === 0
                                     ? styles.clickPassenger
                                     : styles.passengerButton
                                 }
                                 onClick={() => {
                                   setTogglePassengerColor(
                                     !togglePassengerColor
+
                                   );
-                                  onClickNoOfPass(val);
+                              setSelectedButtonColor(val2); 
+
+                                  onClickNoOfPass(val2,val1);
+                                  console.log(val2+val1);
                                 }}
                               >
-                                {val}
+                                {val2}
                               </div>
                             ))}
                           </div>
@@ -696,11 +701,11 @@ const FlightHome = () => {
                             INFANTS (below 2y)
                           </div>
                           <div className={styles.passengerButtonContainer}>
-                            {ar2.map((val) => (
+                            {ar2.map((val3) => (
                               <div
-                                key={val}
+                                key={val3}
                                 className={
-                                  val === 0
+                                  val3 === 0
                                     ? styles.clickPassenger
                                     : styles.passengerButton
                                 }
@@ -708,10 +713,11 @@ const FlightHome = () => {
                                   setTogglePassengerColor(
                                     !togglePassengerColor
                                   );
-                                  onClickNoOfPass(val);
+                                  onClickNoOfPass(val3);
+                                  console.log("kkkkkkkkkkk",val3);
                                 }}
                               >
-                                {val}
+                                {val3}
                               </div>
                             ))}
                           </div>
@@ -719,16 +725,89 @@ const FlightHome = () => {
                       </div>
                       {/* for children and inf */}
                       {/* economy */}
-                           <div className={styles.passengerButtonContainer} style={{display:"flex",flexDirection:"column"}}>
-                      <div className={styles.adultChild}>
-                            CHOOSE CABIN CLASS
-                          </div>
-                            <Row style={{display:"flex",flexDirection:"column"}}>
-                              <Col style={{background:cabinClass && cabinClassType === "ECONOMY" ? "rgb(0, 140, 255)" : "#fff",color:cabinClass && cabinClassType === "ECONOMY" ? "#fff" : "black"}} className={styles.economybtn} onClick={ECONOMY}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Economy/Premium Economy</span></Col>
-                              <Col style={{background:cabinClass && cabinClassType === "ECONOMY/PREMIUM ECONOMY" ? "rgb(0, 140, 255)" : "#fff",color:cabinClass && cabinClassType === "ECONOMY/PREMIUM ECONOMY" ? "#fff" : "black"}} className={styles.economybtn} onClick={PRIMIUMECONOMY}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Premium Economy</span></Col>
-                              <Col style={{background:cabinClass && cabinClassType === "BUISNESS" ? "rgb(0, 140, 255)" : "",color:cabinClass && cabinClassType === "BUISNESS" ? "#fff" : "black"}} className={styles.economybtn} onClick={BUISSNESS}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Buisness</span></Col>
-                            </Row>
-                          </div>
+                      <div
+                        className={styles.passengerButtonContainer}
+                        style={{ display: "flex", flexDirection: "column" }}
+                      >
+                        <div className={styles.adultChild}>
+                          CHOOSE CABIN CLASS
+                        </div>
+                        <Row
+                          style={{ display: "flex", flexDirection: "column" }}
+                        >
+                          <Col
+                            style={{
+                              background:
+                                cabinClass && cabinClassType === "ECONOMY"
+                                  ? "rgb(0, 140, 255)"
+                                  : "#fff",
+                              color:
+                                cabinClass && cabinClassType === "ECONOMY"
+                                  ? "#fff"
+                                  : "black",
+                            }}
+                            className={styles.economybtn}
+                            onClick={ECONOMY}
+                          >
+                            <span
+                              style={{
+                                fontFamily: "sans-serif",
+                                fontWeight: "400",
+                              }}
+                            >
+                              Economy/Premium Economy
+                            </span>
+                          </Col>
+                          <Col
+                            style={{
+                              background:
+                                cabinClass &&
+                                cabinClassType === "ECONOMY/PREMIUM ECONOMY"
+                                  ? "rgb(0, 140, 255)"
+                                  : "#fff",
+                              color:
+                                cabinClass &&
+                                cabinClassType === "ECONOMY/PREMIUM ECONOMY"
+                                  ? "#fff"
+                                  : "black",
+                            }}
+                            className={styles.economybtn}
+                            onClick={PRIMIUMECONOMY}
+                          >
+                            <span
+                              style={{
+                                fontFamily: "sans-serif",
+                                fontWeight: "400",
+                              }}
+                            >
+                              Premium Economy
+                            </span>
+                          </Col>
+                          <Col
+                            style={{
+                              background:
+                                cabinClass && cabinClassType === "BUISNESS"
+                                  ? "rgb(0, 140, 255)"
+                                  : "",
+                              color:
+                                cabinClass && cabinClassType === "BUISNESS"
+                                  ? "#fff"
+                                  : "black",
+                            }}
+                            className={styles.economybtn}
+                            onClick={BUISSNESS}
+                          >
+                            <span
+                              style={{
+                                fontFamily: "sans-serif",
+                                fontWeight: "400",
+                              }}
+                            >
+                              Buisness
+                            </span>
+                          </Col>
+                        </Row>
+                      </div>
 
                       <div
                         className={styles.modalApplyText}
@@ -745,7 +824,7 @@ const FlightHome = () => {
                           </span>
                         </div>
                       </div>
-                    </div> 
+                    </div>
                   </div>
                 </div>
               </>
@@ -894,7 +973,6 @@ const FlightHome = () => {
                                   return option.value === from;
                                 })}
                                 components={{
-                              
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
                               />
@@ -909,7 +987,6 @@ const FlightHome = () => {
                                 menuIsOpen={true}
                                 className={styles.select}
                                 components={{
-                                
                                   SelectContainer: () => null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
@@ -957,7 +1034,6 @@ const FlightHome = () => {
                     </div>
                     {/* departure date end */}
 
-     
                     {/* return date starts (just for ui purpose)*/}
                   </div>
                   {/* return */}
@@ -997,7 +1073,6 @@ const FlightHome = () => {
                     </div>
                     {/* departure date end */}
 
-                 
                     {/* return date starts (just for ui purpose)*/}
                   </div>
 
@@ -1111,16 +1186,89 @@ const FlightHome = () => {
                       </div>
                       {/* for children and inf */}
                       {/* economy */}
-                      <div className={styles.passengerButtonContainer} style={{display:"flex",flexDirection:"column"}}>
-                      <div className={styles.adultChild}>
-                            CHOOSE CABIN CLASS
-                          </div>
-                            <Row style={{display:"flex",flexDirection:"column"}}>
-                              <Col style={{background:cabinClass && cabinClassType === "ECONOMY" ? "rgb(0, 140, 255)" : "#fff",color:cabinClass && cabinClassType === "ECONOMY" ? "#fff" : "black"}} className={styles.economybtn} onClick={ECONOMY}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Economy/Premium Economy</span></Col>
-                              <Col style={{background:cabinClass && cabinClassType === "ECONOMY/PREMIUM ECONOMY" ? "rgb(0, 140, 255)" : "#fff",color:cabinClass && cabinClassType === "ECONOMY/PREMIUM ECONOMY" ? "#fff" : "black"}} className={styles.economybtn} onClick={PRIMIUMECONOMY}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Premium Economy</span></Col>
-                              <Col style={{background:cabinClass && cabinClassType === "BUISNESS" ? "rgb(0, 140, 255)" : "",color:cabinClass && cabinClassType === "BUISNESS" ? "#fff" : "black"}} className={styles.economybtn} onClick={BUISSNESS}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Buisness</span></Col>
-                            </Row>
-                          </div>
+                      <div
+                        className={styles.passengerButtonContainer}
+                        style={{ display: "flex", flexDirection: "column" }}
+                      >
+                        <div className={styles.adultChild}>
+                          CHOOSE CABIN CLASS
+                        </div>
+                        <Row
+                          style={{ display: "flex", flexDirection: "column" }}
+                        >
+                          <Col
+                            style={{
+                              background:
+                                cabinClass && cabinClassType === "ECONOMY"
+                                  ? "rgb(0, 140, 255)"
+                                  : "#fff",
+                              color:
+                                cabinClass && cabinClassType === "ECONOMY"
+                                  ? "#fff"
+                                  : "black",
+                            }}
+                            className={styles.economybtn}
+                            onClick={ECONOMY}
+                          >
+                            <span
+                              style={{
+                                fontFamily: "sans-serif",
+                                fontWeight: "400",
+                              }}
+                            >
+                              Economy/Premium Economy
+                            </span>
+                          </Col>
+                          <Col
+                            style={{
+                              background:
+                                cabinClass &&
+                                cabinClassType === "ECONOMY/PREMIUM ECONOMY"
+                                  ? "rgb(0, 140, 255)"
+                                  : "#fff",
+                              color:
+                                cabinClass &&
+                                cabinClassType === "ECONOMY/PREMIUM ECONOMY"
+                                  ? "#fff"
+                                  : "black",
+                            }}
+                            className={styles.economybtn}
+                            onClick={PRIMIUMECONOMY}
+                          >
+                            <span
+                              style={{
+                                fontFamily: "sans-serif",
+                                fontWeight: "400",
+                              }}
+                            >
+                              Premium Economy
+                            </span>
+                          </Col>
+                          <Col
+                            style={{
+                              background:
+                                cabinClass && cabinClassType === "BUISNESS"
+                                  ? "rgb(0, 140, 255)"
+                                  : "",
+                              color:
+                                cabinClass && cabinClassType === "BUISNESS"
+                                  ? "#fff"
+                                  : "black",
+                            }}
+                            className={styles.economybtn}
+                            onClick={BUISSNESS}
+                          >
+                            <span
+                              style={{
+                                fontFamily: "sans-serif",
+                                fontWeight: "400",
+                              }}
+                            >
+                              Buisness
+                            </span>
+                          </Col>
+                        </Row>
+                      </div>
 
                       <div
                         className={styles.modalApplyText}
@@ -1367,7 +1515,6 @@ const FlightHome = () => {
                     </div>
                     {/* departure date end */}
 
-                   
                     {/* return date starts (just for ui purpose)*/}
                   </div>
 
@@ -1483,16 +1630,89 @@ const FlightHome = () => {
 
                       {/* for children and inf */}
                       {/* economy */}
-                      <div className={styles.passengerButtonContainer} style={{display:"flex",flexDirection:"column"}}>
-                      <div className={styles.adultChild}>
-                            CHOOSE CABIN CLASS
-                          </div>
-                            <Row style={{display:"flex",flexDirection:"column"}}>
-                              <Col style={{background:cabinClass && cabinClassType === "ECONOMY" ? "rgb(0, 140, 255)" : "#fff",color:cabinClass && cabinClassType === "ECONOMY" ? "#fff" : "black"}} className={styles.economybtn} onClick={ECONOMY}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Economy/Premium Economy</span></Col>
-                              <Col style={{background:cabinClass && cabinClassType === "ECONOMY/PREMIUM ECONOMY" ? "rgb(0, 140, 255)" : "#fff",color:cabinClass && cabinClassType === "ECONOMY/PREMIUM ECONOMY" ? "#fff" : "black"}} className={styles.economybtn} onClick={PRIMIUMECONOMY}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Premium Economy</span></Col>
-                              <Col style={{background:cabinClass && cabinClassType === "BUISNESS" ? "rgb(0, 140, 255)" : "",color:cabinClass && cabinClassType === "BUISNESS" ? "#fff" : "black"}} className={styles.economybtn} onClick={BUISSNESS}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Buisness</span></Col>
-                            </Row>
-                          </div>
+                      <div
+                        className={styles.passengerButtonContainer}
+                        style={{ display: "flex", flexDirection: "column" }}
+                      >
+                        <div className={styles.adultChild}>
+                          CHOOSE CABIN CLASS
+                        </div>
+                        <Row
+                          style={{ display: "flex", flexDirection: "column" }}
+                        >
+                          <Col
+                            style={{
+                              background:
+                                cabinClass && cabinClassType === "ECONOMY"
+                                  ? "rgb(0, 140, 255)"
+                                  : "#fff",
+                              color:
+                                cabinClass && cabinClassType === "ECONOMY"
+                                  ? "#fff"
+                                  : "black",
+                            }}
+                            className={styles.economybtn}
+                            onClick={ECONOMY}
+                          >
+                            <span
+                              style={{
+                                fontFamily: "sans-serif",
+                                fontWeight: "400",
+                              }}
+                            >
+                              Economy/Premium Economy
+                            </span>
+                          </Col>
+                          <Col
+                            style={{
+                              background:
+                                cabinClass &&
+                                cabinClassType === "ECONOMY/PREMIUM ECONOMY"
+                                  ? "rgb(0, 140, 255)"
+                                  : "#fff",
+                              color:
+                                cabinClass &&
+                                cabinClassType === "ECONOMY/PREMIUM ECONOMY"
+                                  ? "#fff"
+                                  : "black",
+                            }}
+                            className={styles.economybtn}
+                            onClick={PRIMIUMECONOMY}
+                          >
+                            <span
+                              style={{
+                                fontFamily: "sans-serif",
+                                fontWeight: "400",
+                              }}
+                            >
+                              Premium Economy
+                            </span>
+                          </Col>
+                          <Col
+                            style={{
+                              background:
+                                cabinClass && cabinClassType === "BUISNESS"
+                                  ? "rgb(0, 140, 255)"
+                                  : "",
+                              color:
+                                cabinClass && cabinClassType === "BUISNESS"
+                                  ? "#fff"
+                                  : "black",
+                            }}
+                            className={styles.economybtn}
+                            onClick={BUISSNESS}
+                          >
+                            <span
+                              style={{
+                                fontFamily: "sans-serif",
+                                fontWeight: "400",
+                              }}
+                            >
+                              Buisness
+                            </span>
+                          </Col>
+                        </Row>
+                      </div>
 
                       <div
                         className={styles.modalApplyText}
@@ -2201,7 +2421,6 @@ const FlightHome = () => {
                                   return option.value === from;
                                 })}
                                 components={{
-                            
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
                                 getOptionLabel={(e) => (
@@ -2228,7 +2447,6 @@ const FlightHome = () => {
                                 onChange={FROMHANDLER}
                                 className={styles.select}
                                 components={{
-                   
                                   SelectContainer: () => null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
@@ -2510,16 +2728,89 @@ const FlightHome = () => {
                         </div>
                       </div>
                       {/* economy */}
-                      <div className={styles.passengerButtonContainer} style={{display:"flex",flexDirection:"column"}}>
-                      <div className={styles.adultChild}>
-                            CHOOSE CABIN CLASS
-                          </div>
-                            <Row style={{display:"flex",flexDirection:"column"}}>
-                              <Col style={{background:cabinClass && cabinClassType === "ECONOMY" ? "rgb(0, 140, 255)" : "#fff",color:cabinClass && cabinClassType === "ECONOMY" ? "#fff" : "black"}} className={styles.economybtn} onClick={ECONOMY}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Economy/Premium Economy</span></Col>
-                              <Col style={{background:cabinClass && cabinClassType === "ECONOMY/PREMIUM ECONOMY" ? "rgb(0, 140, 255)" : "#fff",color:cabinClass && cabinClassType === "ECONOMY/PREMIUM ECONOMY" ? "#fff" : "black"}} className={styles.economybtn} onClick={PRIMIUMECONOMY}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Premium Economy</span></Col>
-                              <Col style={{background:cabinClass && cabinClassType === "BUISNESS" ? "rgb(0, 140, 255)" : "",color:cabinClass && cabinClassType === "BUISNESS" ? "#fff" : "black"}} className={styles.economybtn} onClick={BUISSNESS}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Buisness</span></Col>
-                            </Row>
-                          </div>
+                      <div
+                        className={styles.passengerButtonContainer}
+                        style={{ display: "flex", flexDirection: "column" }}
+                      >
+                        <div className={styles.adultChild}>
+                          CHOOSE CABIN CLASS
+                        </div>
+                        <Row
+                          style={{ display: "flex", flexDirection: "column" }}
+                        >
+                          <Col
+                            style={{
+                              background:
+                                cabinClass && cabinClassType === "ECONOMY"
+                                  ? "rgb(0, 140, 255)"
+                                  : "#fff",
+                              color:
+                                cabinClass && cabinClassType === "ECONOMY"
+                                  ? "#fff"
+                                  : "black",
+                            }}
+                            className={styles.economybtn}
+                            onClick={ECONOMY}
+                          >
+                            <span
+                              style={{
+                                fontFamily: "sans-serif",
+                                fontWeight: "400",
+                              }}
+                            >
+                              Economy/Premium Economy
+                            </span>
+                          </Col>
+                          <Col
+                            style={{
+                              background:
+                                cabinClass &&
+                                cabinClassType === "ECONOMY/PREMIUM ECONOMY"
+                                  ? "rgb(0, 140, 255)"
+                                  : "#fff",
+                              color:
+                                cabinClass &&
+                                cabinClassType === "ECONOMY/PREMIUM ECONOMY"
+                                  ? "#fff"
+                                  : "black",
+                            }}
+                            className={styles.economybtn}
+                            onClick={PRIMIUMECONOMY}
+                          >
+                            <span
+                              style={{
+                                fontFamily: "sans-serif",
+                                fontWeight: "400",
+                              }}
+                            >
+                              Premium Economy
+                            </span>
+                          </Col>
+                          <Col
+                            style={{
+                              background:
+                                cabinClass && cabinClassType === "BUISNESS"
+                                  ? "rgb(0, 140, 255)"
+                                  : "",
+                              color:
+                                cabinClass && cabinClassType === "BUISNESS"
+                                  ? "#fff"
+                                  : "black",
+                            }}
+                            className={styles.economybtn}
+                            onClick={BUISSNESS}
+                          >
+                            <span
+                              style={{
+                                fontFamily: "sans-serif",
+                                fontWeight: "400",
+                              }}
+                            >
+                              Buisness
+                            </span>
+                          </Col>
+                        </Row>
+                      </div>
                       {/* for children and inf */}
 
                       <div
@@ -2696,7 +2987,6 @@ const FlightHome = () => {
                                   return option.value === from;
                                 })}
                                 components={{
-                                 
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
                               />
@@ -2909,16 +3199,89 @@ const FlightHome = () => {
                       </div>
                       {/* for children and inf */}
                       {/* economy */}
-                      <div className={styles.passengerButtonContainer} style={{display:"flex",flexDirection:"column"}}>
-                      <div className={styles.adultChild}>
-                            CHOOSE CABIN CLASS
-                          </div>
-                            <Row style={{display:"flex",flexDirection:"column"}}>
-                              <Col style={{background:cabinClass && cabinClassType === "ECONOMY" ? "rgb(0, 140, 255)" : "#fff",color:cabinClass && cabinClassType === "ECONOMY" ? "#fff" : "black"}} className={styles.economybtn} onClick={ECONOMY}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Economy/Premium Economy</span></Col>
-                              <Col style={{background:cabinClass && cabinClassType === "ECONOMY/PREMIUM ECONOMY" ? "rgb(0, 140, 255)" : "#fff",color:cabinClass && cabinClassType === "ECONOMY/PREMIUM ECONOMY" ? "#fff" : "black"}} className={styles.economybtn} onClick={PRIMIUMECONOMY}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Premium Economy</span></Col>
-                              <Col style={{background:cabinClass && cabinClassType === "BUISNESS" ? "rgb(0, 140, 255)" : "",color:cabinClass && cabinClassType === "BUISNESS" ? "#fff" : "black"}} className={styles.economybtn} onClick={BUISSNESS}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Buisness</span></Col>
-                            </Row>
-                          </div>
+                      <div
+                        className={styles.passengerButtonContainer}
+                        style={{ display: "flex", flexDirection: "column" }}
+                      >
+                        <div className={styles.adultChild}>
+                          CHOOSE CABIN CLASS
+                        </div>
+                        <Row
+                          style={{ display: "flex", flexDirection: "column" }}
+                        >
+                          <Col
+                            style={{
+                              background:
+                                cabinClass && cabinClassType === "ECONOMY"
+                                  ? "rgb(0, 140, 255)"
+                                  : "#fff",
+                              color:
+                                cabinClass && cabinClassType === "ECONOMY"
+                                  ? "#fff"
+                                  : "black",
+                            }}
+                            className={styles.economybtn}
+                            onClick={ECONOMY}
+                          >
+                            <span
+                              style={{
+                                fontFamily: "sans-serif",
+                                fontWeight: "400",
+                              }}
+                            >
+                              Economy/Premium Economy
+                            </span>
+                          </Col>
+                          <Col
+                            style={{
+                              background:
+                                cabinClass &&
+                                cabinClassType === "ECONOMY/PREMIUM ECONOMY"
+                                  ? "rgb(0, 140, 255)"
+                                  : "#fff",
+                              color:
+                                cabinClass &&
+                                cabinClassType === "ECONOMY/PREMIUM ECONOMY"
+                                  ? "#fff"
+                                  : "black",
+                            }}
+                            className={styles.economybtn}
+                            onClick={PRIMIUMECONOMY}
+                          >
+                            <span
+                              style={{
+                                fontFamily: "sans-serif",
+                                fontWeight: "400",
+                              }}
+                            >
+                              Premium Economy
+                            </span>
+                          </Col>
+                          <Col
+                            style={{
+                              background:
+                                cabinClass && cabinClassType === "BUISNESS"
+                                  ? "rgb(0, 140, 255)"
+                                  : "",
+                              color:
+                                cabinClass && cabinClassType === "BUISNESS"
+                                  ? "#fff"
+                                  : "black",
+                            }}
+                            className={styles.economybtn}
+                            onClick={BUISSNESS}
+                          >
+                            <span
+                              style={{
+                                fontFamily: "sans-serif",
+                                fontWeight: "400",
+                              }}
+                            >
+                              Buisness
+                            </span>
+                          </Col>
+                        </Row>
+                      </div>
 
                       <div
                         className={styles.modalApplyText}
@@ -3200,7 +3563,11 @@ const FlightHome = () => {
                           ? styles.traveller_modalmulti
                           : styles.noDisplay
                       }
-                      style={{borderRadius:"5px",zIndex:"",backgroundColor:"fff"}}
+                      style={{
+                        borderRadius: "5px",
+                        zIndex: "",
+                        backgroundColor: "fff",
+                      }}
                     >
                       <div className={styles.adultChild}>ADULTS (12y +)</div>
                       <div className={styles.passengerButtonContainer}>
@@ -3279,16 +3646,89 @@ const FlightHome = () => {
 
                       {/* for children and inf */}
                       {/* economy */}
-                      <div className={styles.passengerButtonContainer} style={{display:"flex",flexDirection:"column"}}>
-                      <div className={styles.adultChild}>
-                            CHOOSE CABIN CLASS
-                          </div>
-                            <Row style={{display:"flex",flexDirection:"column"}}>
-                              <Col style={{background:cabinClass && cabinClassType === "ECONOMY" ? "rgb(0, 140, 255)" : "#fff",color:cabinClass && cabinClassType === "ECONOMY" ? "#fff" : "black"}} className={styles.economybtn} onClick={ECONOMY}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Economy/Premium Economy</span></Col>
-                              <Col style={{background:cabinClass && cabinClassType === "ECONOMY/PREMIUM ECONOMY" ? "rgb(0, 140, 255)" : "#fff",color:cabinClass && cabinClassType === "ECONOMY/PREMIUM ECONOMY" ? "#fff" : "black"}} className={styles.economybtn} onClick={PRIMIUMECONOMY}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Premium Economy</span></Col>
-                              <Col style={{background:cabinClass && cabinClassType === "BUISNESS" ? "rgb(0, 140, 255)" : "",color:cabinClass && cabinClassType === "BUISNESS" ? "#fff" : "black"}} className={styles.economybtn} onClick={BUISSNESS}><span style={{fontFamily:"sans-serif",fontWeight:"400"}}>Buisness</span></Col>
-                            </Row>
-                          </div>
+                      <div
+                        className={styles.passengerButtonContainer}
+                        style={{ display: "flex", flexDirection: "column" }}
+                      >
+                        <div className={styles.adultChild}>
+                          CHOOSE CABIN CLASS
+                        </div>
+                        <Row
+                          style={{ display: "flex", flexDirection: "column" }}
+                        >
+                          <Col
+                            style={{
+                              background:
+                                cabinClass && cabinClassType === "ECONOMY"
+                                  ? "rgb(0, 140, 255)"
+                                  : "#fff",
+                              color:
+                                cabinClass && cabinClassType === "ECONOMY"
+                                  ? "#fff"
+                                  : "black",
+                            }}
+                            className={styles.economybtn}
+                            onClick={ECONOMY}
+                          >
+                            <span
+                              style={{
+                                fontFamily: "sans-serif",
+                                fontWeight: "400",
+                              }}
+                            >
+                              Economy/Premium Economy
+                            </span>
+                          </Col>
+                          <Col
+                            style={{
+                              background:
+                                cabinClass &&
+                                cabinClassType === "ECONOMY/PREMIUM ECONOMY"
+                                  ? "rgb(0, 140, 255)"
+                                  : "#fff",
+                              color:
+                                cabinClass &&
+                                cabinClassType === "ECONOMY/PREMIUM ECONOMY"
+                                  ? "#fff"
+                                  : "black",
+                            }}
+                            className={styles.economybtn}
+                            onClick={PRIMIUMECONOMY}
+                          >
+                            <span
+                              style={{
+                                fontFamily: "sans-serif",
+                                fontWeight: "400",
+                              }}
+                            >
+                              Premium Economy
+                            </span>
+                          </Col>
+                          <Col
+                            style={{
+                              background:
+                                cabinClass && cabinClassType === "BUISNESS"
+                                  ? "rgb(0, 140, 255)"
+                                  : "",
+                              color:
+                                cabinClass && cabinClassType === "BUISNESS"
+                                  ? "#fff"
+                                  : "black",
+                            }}
+                            className={styles.economybtn}
+                            onClick={BUISSNESS}
+                          >
+                            <span
+                              style={{
+                                fontFamily: "sans-serif",
+                                fontWeight: "400",
+                              }}
+                            >
+                              Buisness
+                            </span>
+                          </Col>
+                        </Row>
+                      </div>
 
                       <div
                         className={styles.modalApplyText}
@@ -3740,7 +4180,6 @@ const FlightHome = () => {
                                     menuIsOpen={true}
                                     className={styles.select}
                                     components={{
-                                     
                                       SelectContainer: () => null,
                                       IndicatorSeparator: () => null, // Remove separator
                                     }}

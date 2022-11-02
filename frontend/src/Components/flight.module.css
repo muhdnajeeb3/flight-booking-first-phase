@@ -140,6 +140,7 @@ display: none;
 
 .departureArrivalConnecting {
   position: relative;
+
 }
 .from {
   width: 100%;
@@ -601,6 +602,12 @@ display: none;
   .RetContainer{
     margin-left: 0px;
 
+  }.connectingIcon{
+    transform: rotate(90deg) !important;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    margin-left: auto;margin-right: auto;
   }
   .from{
     margin-bottom: 5px;
