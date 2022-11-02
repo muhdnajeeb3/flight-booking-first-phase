@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./flight.module.css";
 import ConnectingAirportsIcon from "@mui/icons-material/ConnectingAirports";
 import FormControl from "@mui/material/FormControl";
@@ -46,6 +46,9 @@ const FlightHome = () => {
   const [cabinClassType, setCabinClassType] = useState("");
 
   const [travellers, setTravellers] = React.useState(null);
+  const [adult1,setAdult1] = useState(1)
+  const [child,setChild] = useState(0)
+  const [infant,setInfant] = useState(0)
   const arr = [1, 2, 3, 4, 5, 6, 7, 8];
   let ar1 = [0, 1, 2, 3, 4, 5];
   let ar2 = [0, 1, 2, 3, 4];
@@ -70,14 +73,44 @@ const FlightHome = () => {
 
   const onClickNoOfPass = (val1,val2,val3) =>  {
     // return
-    setTravellers( val1 + val2 + val3);
-    console.log("one",val1);
-    console.log("two",val2);
-    console.log("three",val3);
-    // console.log("three",val3);
+    // setTravellers( val1 );
+    console.log("llmmmmmm",val1+val1);
+    
+
+     
+  };
+  const onClickNoOfPass1 = (val1) =>  {
+    // return
+    setAdult1( val1 );
+    console.log("jjjjjj",val1);
+    
 
     
   };
+  const onClickNoOfPass2 = (val2) =>  { 
+    // return
+    setChild(  val2 );
+    console.log("llllll",val2);
+
+    
+
+    
+  };
+  const onClickNoOfPass3 = (val3) =>  {
+    // return
+    setInfant(  val3);
+    console.log("rrrrrrrr",val3);
+
+    
+
+    
+  };
+  useEffect(() => {
+    const addedvalue = adult1 + child + infant;
+    setTravellers(addedvalue)
+    console.log("added",addedvalue);
+   }, [adult1,child,infant])
+  
   const handleSubmit = () => {
     navigate("/flights", {
       state: {
@@ -165,6 +198,7 @@ const FlightHome = () => {
   if (window.innerWidth < 500) {
   }
   const ismobile = window.innerWidth < 500;
+  
   return (
     <div className={styles.flight_wrapper}>
       {/* <Container className={styles.mobilesection}> */}
@@ -617,20 +651,24 @@ const FlightHome = () => {
                           {travellers}
                         </span>
                         
-                        <span style={{ fontFamily: "sans-serif" ,fontSize:"12px",fontWeight:"400"}}>
-                          {cabinClassType}
-                        </span>
+                       
 
                         {travellers > 0 ? (
+                          <>
                           <span
                             style={{
                               fontSize: "16px",
                               fontFamily: "sans-serif",
                               fontWeight: "400",
                             }}
-                          >
+                            >
                             Travellers
                           </span>
+                          <br />
+                           <span style={{ fontFamily: "sans-serif" ,fontSize:"12px",fontWeight:"400",bottom:"10px",position:"relative"}}>
+                           {cabinClassType}
+                         </span>
+                            </>
                         ) : (
                           ""
                         )}
@@ -656,7 +694,7 @@ const FlightHome = () => {
                             }`}
                             onClick={() => {
                               setTogglePassengerColor(!togglePassengerColor);
-                              onClickNoOfPass(val1,);
+                              onClickNoOfPass1(val1,);
                               setSelectedButtonColor(val1);
                             }}
                           >
@@ -672,23 +710,25 @@ const FlightHome = () => {
                             CHILDREN (2y - 12y )
                           </div>
                           <div className={styles.passengerButtonContainer}>
-                            {ar1.map((val2,val1) => (
+                            {ar1.map((val2) => (
                               <div
                                 key={val2}
-                                className={
-                                  val2 === 0
+                                className={`${
+                                  selectedButtonColor === val2
                                     ? styles.clickPassenger
                                     : styles.passengerButton
-                                }
+                                }`}
+                                // style={{background:child > 2 ? "lightblue" : "#fff"}}
                                 onClick={() => {
                                   setTogglePassengerColor(
                                     !togglePassengerColor
-
                                   );
-                              setSelectedButtonColor(val2); 
+                              // setSelectedButtonColor(val2); 
 
-                                  onClickNoOfPass(val2,val1);
-                                  console.log(val2+val1);
+                                  onClickNoOfPass2(val2);
+                              setSelectedButtonColor(val2);
+
+                                  console.log(val2);
                                 }}
                               >
                                 {val2}
@@ -713,7 +753,7 @@ const FlightHome = () => {
                                   setTogglePassengerColor(
                                     !togglePassengerColor
                                   );
-                                  onClickNoOfPass(val3);
+                                  onClickNoOfPass3(val3);
                                   console.log("kkkkkkkkkkk",val3);
                                 }}
                               >
