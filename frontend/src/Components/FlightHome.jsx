@@ -31,6 +31,8 @@ const FlightHome = () => {
   const [departure, setDeparture] = React.useState(new Date());
   const [retrn, setRetrn] = React.useState(new Date());
   const [selectedButtonColor, setSelectedButtonColor] = useState(1);
+  const [selectedButtonColortwo, setSelectedButtonColortwo] = useState(0);
+  const [selectedButtonColorthree, setSelectedButtonColorthree] = useState(0);
   const [oneWay, setOneWay] = useState(true);
   const [roundTrip, setRoundTrip] = useState("");
   const [multiCity, setMultiCity] = useState("");
@@ -188,11 +190,11 @@ const FlightHome = () => {
   };
   const ECONOMY = () => {
     setCabinClass(true);
-    setCabinClassType("ECONOMY");
+    setCabinClassType("ECONOMY/PREMIUM ECONOMY");
   };
   const PRIMIUMECONOMY = () => {
     setCabinClass(true);
-    setCabinClassType("ECONOMY/PREMIUM ECONOMY");
+    setCabinClassType("PREMIUM ECONOMY");
   };
 
   if (window.innerWidth < 500) {
@@ -714,7 +716,7 @@ const FlightHome = () => {
                               <div
                                 key={val2}
                                 className={`${
-                                  selectedButtonColor === val2
+                                  selectedButtonColortwo === val2
                                     ? styles.clickPassenger
                                     : styles.passengerButton
                                 }`}
@@ -726,7 +728,7 @@ const FlightHome = () => {
                               // setSelectedButtonColor(val2); 
 
                                   onClickNoOfPass2(val2);
-                              setSelectedButtonColor(val2);
+                              setSelectedButtonColortwo(val2);
 
                                   console.log(val2);
                                 }}
@@ -744,16 +746,18 @@ const FlightHome = () => {
                             {ar2.map((val3) => (
                               <div
                                 key={val3}
-                                className={
-                                  val3 === 0
+                                className={`${
+                                  selectedButtonColorthree === val3
                                     ? styles.clickPassenger
                                     : styles.passengerButton
-                                }
+                                }`}
                                 onClick={() => {
                                   setTogglePassengerColor(
                                     !togglePassengerColor
                                   );
                                   onClickNoOfPass3(val3);
+                                  setSelectedButtonColorthree(val3);
+
                                   console.log("kkkkkkkkkkk",val3);
                                 }}
                               >
