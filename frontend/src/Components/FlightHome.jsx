@@ -23,9 +23,13 @@ import { display } from "@mui/system";
 const FlightHome = () => {
   const [from, setFrom] = React.useState("Delhi");
   const [frommultione, setFrommultione] = React.useState("Delhi");
-  const [frommultitwo, setFrommultitwo] = React.useState("Delhi");
+  const [frommultitwo, setFrommultitwo] = React.useState("Mumbai");
+  const [tomultione, setTomultione] = React.useState("Delhi");
+  const [tomultitwo, setTomultitwo] = React.useState("Mumbai");
   const [to, setTo] = React.useState("Kolkata");
   const [departure, setDeparture] = React.useState(new Date());
+  const [departureaddanother, setDepartureaddanother] = React.useState(new Date());
+  const [departurenewcity, setDeparturenewcity] = React.useState(new Date());
   const [retrn, setRetrn] = React.useState(new Date());
   const [selectedButtonColor, setSelectedButtonColor] = useState(1);
   const [selectedButtonColortwo, setSelectedButtonColortwo] = useState(0);
@@ -154,6 +158,14 @@ const FlightHome = () => {
   const NEWCITYFROMHANDLER = (e) => {
     setSelectNewCity(false);
     setFrommultitwo(e.value);
+  };
+  const ADDANOTHERTOHANDLER = (e) => {
+    // setSelectAnotherCity(false);
+    setTomultione(e.value);
+  };
+  const NEWCITYTOHANDLER = (e) => {
+    // setSelectNewCity(false);
+    setTomultitwo(e.value);
   };
   const SWITCHHANDLER = () => {
     setFrom(to);
@@ -1887,7 +1899,7 @@ const FlightHome = () => {
                         <Col
                           style={{ borderColor: "black", width: "" }}
                           className={styles.fromcol}
-                          onClick={() => setSelectTo(!selectTo)}
+                          onClick={() => setSelectOneto(!selectOneto)}
                         >
                           <Row>
                             <span
@@ -1925,7 +1937,7 @@ const FlightHome = () => {
                               International Airport
                             </p>
                           </Row>
-                          {selectTo ? (
+                          {selectOneto ? (
                             <>
                               <Select
                                 options={options}
@@ -1938,12 +1950,7 @@ const FlightHome = () => {
                                   return option.value === from;
                                 })}
                                 components={{
-                                  // SelectContainer:()=>false
-                                  // Menu: () => null,               // Remove menu
-                                  // MenuList: () => true,           // Remove menu list
-                                  // DropdownIndicator: () => null,
-                                  // Remove dropdown icon
-                                  //  SelectContainer:()=> null,
+                           
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
                               />
@@ -1985,9 +1992,9 @@ const FlightHome = () => {
                           <DatePicker
                             label="DEPARTURE"
                             minDate={new Date()}
-                            value={departure}
+                            value={departureaddanother}
                             onChange={(newValue) => {
-                              setDeparture(newValue);
+                              setDepartureaddanother(newValue);
                             }}
                             renderInput={(params) => (
                               <TextField
@@ -2240,9 +2247,9 @@ const FlightHome = () => {
                               <DatePicker
                                 label="DEPARTURE"
                                 minDate={new Date()}
-                                value={departure}
+                                value={departurenewcity}
                                 onChange={(newValue) => {
-                                  setDeparture(newValue);
+                                  setDeparturenewcity(newValue);
                                 }}
                                 renderInput={(params) => (
                                   <TextField
@@ -2970,7 +2977,7 @@ const FlightHome = () => {
                         <Col
                           style={{ borderColor: "black", width: "" }}
                           className={styles.fromcol}
-                          onClick={() => setSelectTo(!selectTo)}
+                          onClick={() => setSelectOneto(!selectOneto)}
                         >
                           <Row>
                             <span
@@ -3008,7 +3015,7 @@ const FlightHome = () => {
                               International Airport
                             </p>
                           </Row>
-                          {selectTo ? (
+                          {selectOneto ? (
                             <>
                               <Select
                                 options={options}
@@ -3916,7 +3923,7 @@ const FlightHome = () => {
                         <Col
                           style={{ borderColor: "black", width: "" }}
                           className={styles.fromcol}
-                          onClick={() => setSelectTo(!selectTo)}
+                          onClick={() => setSelectOneto(!selectOneto)}
                         >
                           <Row>
                             <span
@@ -3940,7 +3947,7 @@ const FlightHome = () => {
                                 fontFamily: "sans-serif",
                               }}
                             >
-                              {to}
+                              {tomultitwo}
                             </span>
                             <br />
                             <p
@@ -3954,25 +3961,20 @@ const FlightHome = () => {
                               International Airport
                             </p>
                           </Row>
-                          {selectTo ? (
+                          {selectOneto ? (
                             <>
                               <Select
                                 options={options}
                                 styles={{ width: "100%" }}
                                 // onChange={() =>setSelect(null)}
-                                onChange={TOHANDLER}
+                                onChange={ADDANOTHERTOHANDLER}
                                 menuIsOpen={true}
                                 className={styles.select}
                                 value={options.find(function (option) {
                                   return option.value === from;
                                 })}
                                 components={{
-                                  // SelectContainer:()=>false
-                                  // Menu: () => null,               // Remove menu
-                                  // MenuList: () => true,           // Remove menu list
-                                  // DropdownIndicator: () => null,
-                                  // Remove dropdown icon
-                                  //  SelectContainer:()=> null,
+                               
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
                               />
@@ -4013,9 +4015,9 @@ const FlightHome = () => {
                           <DatePicker
                             label="DEPARTURE"
                             minDate={new Date()}
-                            value={departure}
+                            value={departureaddanother}
                             onChange={(newValue) => {
-                              setDeparture(newValue);
+                              setDepartureaddanother(newValue);
                             }}
                             renderInput={(params) => (
                               <TextField
@@ -4035,10 +4037,6 @@ const FlightHome = () => {
                     </div>
                     {/* departure date end */}
 
-                    {/* return date starts (just for ui purpose)*/}
-                    {/* <div>
-              
-            </div> */}
                     {/* return date starts (just for ui purpose)*/}
                   </div>
                   <div
@@ -4178,7 +4176,7 @@ const FlightHome = () => {
                             <Col
                               style={{ borderColor: "black", width: "" }}
                               className={styles.fromcol}
-                              onClick={() => setSelectTo(!selectTo)}
+                              onClick={() => setSelectTwoto(!selectTwoto)}
                             >
                               <Row>
                                 <span
@@ -4202,7 +4200,7 @@ const FlightHome = () => {
                                     fontFamily: "sans-serif",
                                   }}
                                 >
-                                  {to}
+                                  {tomultitwo}
                                 </span>
                                 <br />
                                 <p
@@ -4216,13 +4214,13 @@ const FlightHome = () => {
                                   International Airport
                                 </p>
                               </Row>
-                              {selectTo ? (
+                              {selectTwoto ? (
                                 <>
                                   <Select
                                     options={options}
                                     styles={{ width: "100%" }}
                                     // onChange={() =>setSelect(null)}
-                                    onChange={TOHANDLER}
+                                    onChange={NEWCITYTOHANDLER}
                                     className={styles.select}
                                     value={options.find(function (option) {
                                       return option.value === from;
@@ -4269,9 +4267,9 @@ const FlightHome = () => {
                               <DatePicker
                                 label="DEPARTURE"
                                 minDate={new Date()}
-                                value={departure}
+                                value={departurenewcity}
                                 onChange={(newValue) => {
-                                  setDeparture(newValue);
+                                  setDeparturenewcity(newValue);
                                 }}
                                 renderInput={(params) => (
                                   <TextField
