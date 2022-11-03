@@ -11,7 +11,12 @@
     padding-left: 10px;
     
 }
-
+.selectsearch{
+  z-index: 99950;
+  /* overflow: hidden; */
+  bottom: 2.9rem;
+  margin-bottom: 0;
+}
 .dropdown-toggle{
   color: #fff !important;
 }

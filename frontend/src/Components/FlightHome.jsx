@@ -421,6 +421,7 @@ const FlightHome = () => {
                                 options={options}
                                 styles={{ width: "100%" }}
                                 menuIsOpen={true}
+                                
                                 // onChange={() =>setSelect(null)}
                                 onChange={FROMHANDLER}
                                 className={styles.select}
@@ -428,6 +429,7 @@ const FlightHome = () => {
                                   return option.value === from;
                                 })}
                                 components={{
+                                  
                                   DropdownIndicator: () => null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
@@ -447,19 +449,7 @@ const FlightHome = () => {
                               />
                             </>
                           ) : (
-                            <>
-                              <Select
-                                options={options}
-                                styles={{ width: "100%" }}
-                                // onChange={() =>setSelect(null)}
-                                onChange={FROMHANDLER}
-                                className={styles.select}
-                                components={{
-                                  SelectContainer: () => null,
-                                  IndicatorSeparator: () => null, // Remove separator
-                                }}
-                              />
-                            </>
+                            ""
                           )}
                         </Col>
                       </div>
@@ -525,7 +515,7 @@ const FlightHome = () => {
                                 onChange={TOHANDLER}
                                 className={styles.select}
                                 value={options.find(function (option) {
-                                  return option.value === from;
+                                  return option.value === to;
                                 })}
                                 components={{
                                   DropdownIndicator: () => null,
@@ -534,19 +524,7 @@ const FlightHome = () => {
                               />
                             </>
                           ) : (
-                            <>
-                              <Select
-                                options={options}
-                                styles={{ width: "100%" }}
-                                // onChange={() =>setSelect(null)}
-                                onChange={TOHANDLER}
-                                className={styles.select}
-                                components={{
-                                  SelectContainer: () => null,
-                                  IndicatorSeparator: () => null, // Remove separator
-                                }}
-                              />
-                            </>
+                           ""
                           )}
 
                           {/* <Select options={options} styles={{width:"100%"}} /> */}
@@ -565,8 +543,9 @@ const FlightHome = () => {
                   > */}
                       <FormControl sx={{ width: "100%" }}>
                         <LocalizationProvider
-                          sx={{ width: "100%" }}
+                          sx={{ width: "100%", }}
                           dateAdapter={AdapterDateFns}
+                          
                         >
                           <DatePicker
                             label="DEPARTURE"
@@ -576,8 +555,15 @@ const FlightHome = () => {
                             onChange={(newValue) => {
                               setDeparture(newValue);
                             }}
+                            InputProps={{
+                              // readOnly: true,
+                             }}
+                             
+                    
                             renderInput={(params) => (
                               <TextField
+                             // how to remove typing  in material ui datepicker ?
+                              
                                 defaultValue="Normal"
                                 // size="4x"
                                 {...params}
@@ -586,6 +572,7 @@ const FlightHome = () => {
                                     height: "47px",
                                   },
                                 }}
+                               
                               />
                             )}
                           />

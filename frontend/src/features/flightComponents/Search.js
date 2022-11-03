@@ -6,7 +6,7 @@ import Select from "react-select";
 import "./FirstSection.css";
 import { FormControl, MenuItem, TextField } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { Button, Dropdown, DropdownButton, Row ,Col} from "react-bootstrap";
+import { Button, Dropdown, DropdownButton, Row, Col } from "react-bootstrap";
 import { useLocation, useNavigate } from "react-router-dom";
 // import Slider from "react-slick";
 import "./Search.css";
@@ -40,7 +40,11 @@ function Search() {
   const [title, setTitle] = useState("ONEWAY");
 
   const [select, setSelect] = useState(false);
-
+  const [selectTo, setSelectTo] = useState(false);
+  const [selectOne, setSelectOne] = useState(false);
+  const [selectTwo, setSelectTwo] = useState(false);
+  const [selectOneto, setSelectOneto] = useState(false);
+  const [selectTwoto, setSelectTwoto] = useState(false);
 
   const [from, setFrom] = React.useState(location.state.from);
   const [to, setTo] = React.useState(location.state.to);
@@ -68,6 +72,10 @@ function Search() {
     // setSelect(false);
     setFrom(e.value);
     // e.stopPropagation();
+  };
+  const TOHANDLER = (e) => {
+    // setSelectTo(false);
+    setTo(e.value);
   };
   const onClickModal = (e) => {
     setOpenTravellers(!openTravellers);
@@ -146,13 +154,13 @@ function Search() {
     setCabinClass(true);
     setCabinClassType("ECONOMY/PREMIUM ECONOMY");
   };
-  var settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
+  // var settings = {
+  //   dots: true,
+  //   infinite: true,
+  //   speed: 500,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  // };
   const lap = window.innerWidth > 1071;
 
   return (
@@ -166,23 +174,27 @@ function Search() {
             paddingRight: "2rem",
             display: "flex",
             flexDirection: "row",
+            // maxHeight:"2rem"
+
           }}
         >
           <div
             className="col-1"
             style={{
-              background: "#0a223d",
-              borderRadius: "10px",
+              background: "hsla(0,0%,100%,.1)",
+              borderRadius: "4px",
               width: "130px",
               padding: "4px 9px 0",
               // padding:"5px",
               marginLeft: "",
+            maxHeight:"4.5rem"
+
             }}
           >
             <h5
               style={{
                 fontWeight: "700",
-                fontSize: "14px",
+                fontSize: "12px",
                 lineHeight: "12px",
                 marginBottom: "5px",
                 color: "#008cff",
@@ -211,19 +223,22 @@ function Search() {
               <div
                 className="col-2"
                 style={{
-                  background: "#0a223d",
-                  borderRadius: "10px",
+                  background: "hsla(0,0%,100%,.1)",
+                  borderRadius: "4px",
                   width: "160px",
                   padding: "10px",
+            maxHeight:"4.5rem"
+
                 }}
+                onClick={() => setSelect(!select)}
               >
                 <h5
                   style={{
                     fontWeight: "700",
-                    fontSize: "14px",
+                    fontSize: "12px",
                     lineHeight: "12px",
                     marginBottom: "5px",
-                    marginTop: "5px",
+                    // marginTop: "5px",
                     color: "#008cff",
                   }}
                 >
@@ -232,99 +247,130 @@ function Search() {
                 <FormControl
                   sx={{ width: "100%" }}
                   style={{ borderColor: "#fff" }}
-                  onClick={() => setSelect(!select)}
-
                 >
                   {select ? (
-                            <>
-                              <Select
-                                options={options}
-                                styles={{ width: "100%" }}
-                                menuIsOpen={true}
-                                // onChange={() =>setSelect(null)}
-                                onChange={FROMHANDLER}
-                                className={styles.select}
-                                value={options.find(function (option) {
-                                  return option.value === from;
-                                })}
-                                components={{
-                                
-                                  IndicatorSeparator: () => null, // Remove separator
-                                }}
-                                getOptionLabel={(e) => (
-                                  <div
-                                    style={{
-                                      display: "flex",
-                                      alignItems: "center",
-                                    }}
-                                  >
-                                    {e.icon}
-                                    <span style={{ marginLeft: 5 }}>
-                                      {e.label}
-                                    </span>
-                                  </div>
-                                )}
-                              />
-                            </>
-                          ) : ( "")
-                                  }
-                  
+                    <>
+                      <Select
+                        options={options}
+                        styles={{ width: "100%" }}
+                        menuIsOpen={true}
+                        // onChange={() =>setSelect(null)}
+                        onChange={FROMHANDLER}
+                        // className={styles.select}
+                        value={options.find(function (option) {
+                          return option.value === from;
+                        })}
+                        components={{
+                          IndicatorSeparator: () => null, // Remove separator
+                        }}
+                        getOptionLabel={(e) => (
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                            }}
+                          >
+                            {e.icon}
+                            <span style={{ marginLeft: 5 }}>{e.label}</span>
+                          </div>
+                        )}
+                      />
+                    </>
+                  ) : (
+                    ""
+                  )}
+
+                  <span
+                    style={{
+                      color: "#fff",
+                      fontFamily: "sans-serif",
+                      fontWeight: "500",
+                    }}
+                  >
+                    {from}
+                  </span>
                 </FormControl>
               </div>
               <div
                 className="col-2"
                 style={{
-                  background: "#0a223d",
-                  borderRadius: "10px",
+                  background: "hsla(0,0%,100%,.1)",
+                  borderRadius: "4px",
                   width: "160px",
                   padding: "10px",
+            maxHeight:"4.5rem"
+
                 }}
+                onClick={() => setSelectTo(!selectTo)}
               >
                 <h5
                   style={{
                     fontWeight: "700",
-                    fontSize: "14px",
+                    fontSize: "12px",
                     lineHeight: "12px",
                     marginBottom: "5px",
-                    marginTop: "5px",
+                    // marginTop: "5px",
                     color: "#008cff",
+
                   }}
                 >
                   TO
                 </h5>
                 <FormControl sx={{ width: "100%" }}>
-                  <Select
-                    style={{ color: "#fff", height: "20px" }}
-                    sx={{ width: "100%" }}
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={to}
-                    label={to}
-                    onChange={(e) => setTo(e.target.value)}
+                  {selectTo ? (
+                    <>
+                      <Select
+                        options={options}
+                        styles={{
+                          width: "100%",
+                          bottom: "2.9rem",
+                          position: "relative",
+                        }}
+                        menuIsOpen={true}
+                        // onChange={() =>setSelect(null)}
+                        onChange={TOHANDLER}
+                        // className={styles.select}
+                        value={options.find(function (option) {
+                          return option.value === to;
+                        })}
+                        components={{
+                          DropdownIndicator: () => null,
+                          IndicatorSeparator: () => null, // Remove separator
+                        }}
+                      />
+                    </>
+                  ) : (
+                    ""
+                  )}
+                  <span
+                    style={{
+                      color: "#fff",
+                      fontFamily: "sans-serif",
+                      fontWeight: "500",
+                    }}
                   >
-                    <MenuItem value={"Bengaluru"}>Bengaluru</MenuItem>
-                    <MenuItem value={"Mumbai"}>Mumbai</MenuItem>
-                    <MenuItem value={"Pune"}>Pune</MenuItem>
-                    <MenuItem value={"New Delhi"}>New Delhi</MenuItem>
-                  </Select>
+                    {to}
+                  </span>
                 </FormControl>
               </div>
               <div
                 className="col-2"
                 style={{
-                  background: "#0a223d",
-                  borderRadius: "10px",
+                  background: "hsla(0,0%,100%,.1)",
+                  borderRadius: "4px",
                   width: "160px",
                   padding: "10px",
+            maxHeight:"4.5rem"
+
                 }}
               >
                 <h5
                   style={{
                     fontWeight: "700",
-                    fontSize: "14px",
+                    fontSize: "12px",
                     lineHeight: "12px",
                     marginBottom: "5px",
-                    marginTop: "5px",
+                    // marginTop: "5px",
                     color: "#008cff",
                   }}
                 >
@@ -356,8 +402,9 @@ function Search() {
                           {...params}
                           sx={{
                             svg: { color: "#fff" },
-                            input: { color: "#fff", height: "10px" },
+                            input: { color: "#fff", height: "5px" },
                             label: { color: "#fff" },
+                            border:{ color:"green"}
                           }}
                         />
                       )}
@@ -368,19 +415,21 @@ function Search() {
               <div
                 className="col-2"
                 style={{
-                  background: "#0a223d",
-                  borderRadius: "10px",
+                  background: "hsla(0,0%,100%,.1)",
+                  borderRadius: "4px",
                   width: "160px",
                   padding: "10px",
+            maxHeight:"4.5rem"
+
                 }}
               >
                 <h5
                   style={{
                     fontWeight: "700",
-                    fontSize: "14px",
+                    fontSize: "12px",
                     lineHeight: "12px",
                     marginBottom: "5px",
-                    marginTop: "5px",
+                    // marginTop: "5px",
                     color: "#008cff",
                   }}
                 >
@@ -407,7 +456,7 @@ function Search() {
                           {...params}
                           sx={{
                             svg: { color: "#fff" },
-                            input: { color: "#fff", height: "10px" },
+                            input: { color: "#fff", height: "5px" },
                             label: { color: "#fff" },
                           }}
                         />
@@ -419,20 +468,22 @@ function Search() {
               <div
                 className="col-2"
                 style={{
-                  background: "#0a223d",
-                  borderRadius: "10px",
+                  background: "hsla(0,0%,100%,.1)",
+                  borderRadius: "7px",
                   width: "auto",
                   padding: "10px",
-                  minHeight: "5rem",
+                  // minHeight: "5rem",
+            maxHeight:"4.5rem"
+
                 }}
               >
                 <h5
                   style={{
                     fontWeight: "700",
-                    fontSize: "14px",
+                    fontSize: "12px",
                     lineHeight: "12px",
                     marginBottom: "5px",
-                    marginTop: "5px",
+                    // marginTop: "5px",
                     color: "#008cff",
                   }}
                 >
@@ -442,7 +493,7 @@ function Search() {
                   className={styles.travellerContainer}
                   style={{
                     width: "100%",
-                    minHeight:cabinClassType ? "5rem" : "",
+                    minHeight: cabinClassType ? "5rem" : "",
                     margin: "5px",
                     border: "none",
                     right: "",
@@ -462,7 +513,7 @@ function Search() {
                       style={{ marginTop: "-26px" }}
                     >
                       <span style={{ color: "#fff" }}>{travellers}</span>
-                      
+
                       {travellers > 0 ? (
                         <span
                           style={{
@@ -476,19 +527,19 @@ function Search() {
                       ) : (
                         ""
                       )}
-                       <br />
-                            <span
-                              style={{
-                                fontFamily: "sans-serif",
-                                fontSize: "12px",
-                                fontWeight: "400",
-                                bottom: "10px",
-                                position: "relative",
-                                color:"#fff"
-                              }}
-                            >
-                              {cabinClassType}
-                            </span>
+                      
+                      <span
+                        style={{
+                          fontFamily: "sans-serif",
+                          fontSize: "12px",
+                          fontWeight: "400",
+                          // bottom: "10px",
+                          position: "relative",
+                          color: "#fff",
+                        }}
+                      >
+                        {cabinClassType}
+                      </span>
                     </div>
                   </div>
 
@@ -499,23 +550,23 @@ function Search() {
                   >
                     <div className={styles.adultChild}>ADULTS (12y +)</div>
                     <div className={styles.passengerButtonContainer}>
-                    {arr.map((val1) => (
-                          <div
-                            key={val1}
-                            className={`${
-                              selectedButtonColor === val1
-                                ? styles.clickPassenger
-                                : styles.passengerButton
-                            }`}
-                            onClick={() => {
-                              setTogglePassengerColor(!togglePassengerColor);
-                              onClickNoOfPass1(val1);
-                              setSelectedButtonColor(val1);
-                            }}
-                          >
-                            {val1}
-                          </div>
-                        ))}
+                      {arr.map((val1) => (
+                        <div
+                          key={val1}
+                          className={`${
+                            selectedButtonColor === val1
+                              ? styles.clickPassenger
+                              : styles.passengerButton
+                          }`}
+                          onClick={() => {
+                            setTogglePassengerColor(!togglePassengerColor);
+                            onClickNoOfPass1(val1);
+                            setSelectedButtonColor(val1);
+                          }}
+                        >
+                          {val1}
+                        </div>
+                      ))}
                     </div>
 
                     {/* for children and inf */}
@@ -525,30 +576,28 @@ function Search() {
                           CHILDREN (2y - 12y )
                         </div>
                         <div className={styles.passengerButtonContainer}>
-                        {ar1.map((val2) => (
-                              <div
-                                key={val2}
-                                className={`${
-                                  selectedButtonColortwo === val2
-                                    ? styles.clickPassenger
-                                    : styles.passengerButton
-                                }`}
-                                // style={{background:child > 2 ? "lightblue" : "#fff"}}
-                                onClick={() => {
-                                  setTogglePassengerColor(
-                                    !togglePassengerColor
-                                  );
-                                  // setSelectedButtonColor(val2);
+                          {ar1.map((val2) => (
+                            <div
+                              key={val2}
+                              className={`${
+                                selectedButtonColortwo === val2
+                                  ? styles.clickPassenger
+                                  : styles.passengerButton
+                              }`}
+                              // style={{background:child > 2 ? "lightblue" : "#fff"}}
+                              onClick={() => {
+                                setTogglePassengerColor(!togglePassengerColor);
+                                // setSelectedButtonColor(val2);
 
-                                  onClickNoOfPass2(val2);
-                                  setSelectedButtonColortwo(val2);
+                                onClickNoOfPass2(val2);
+                                setSelectedButtonColortwo(val2);
 
-                                  console.log(val2);
-                                }}
-                              >
-                                {val2}
-                              </div>
-                            ))}
+                                console.log(val2);
+                              }}
+                            >
+                              {val2}
+                            </div>
+                          ))}
                         </div>
                       </div>
                       <div>
@@ -556,112 +605,108 @@ function Search() {
                           INFANTS (below 2y)
                         </div>
                         <div className={styles.passengerButtonContainer}>
-                        {ar2.map((val3) => (
-                              <div
-                                key={val3}
-                                className={`${
-                                  selectedButtonColorthree === val3
-                                    ? styles.clickPassenger
-                                    : styles.passengerButton
-                                }`}
-                                onClick={() => {
-                                  setTogglePassengerColor(
-                                    !togglePassengerColor
-                                  );
-                                  onClickNoOfPass3(val3);
-                                  setSelectedButtonColorthree(val3);
-                                }}
-                              >
-                                {val3}
-                              </div>
-                            ))}
+                          {ar2.map((val3) => (
+                            <div
+                              key={val3}
+                              className={`${
+                                selectedButtonColorthree === val3
+                                  ? styles.clickPassenger
+                                  : styles.passengerButton
+                              }`}
+                              onClick={() => {
+                                setTogglePassengerColor(!togglePassengerColor);
+                                onClickNoOfPass3(val3);
+                                setSelectedButtonColorthree(val3);
+                              }}
+                            >
+                              {val3}
+                            </div>
+                          ))}
                         </div>
                       </div>
                     </div>
                     {/* cabin */}
                     <div
-                        className={styles.passengerButtonContainer}
-                        style={{ display: "flex", flexDirection: "column" }}
-                      >
-                        <div className={styles.adultChild}>
-                          CHOOSE CABIN CLASS
-                        </div>
-                        <Row
-                          style={{ display: "flex", flexDirection: "column" }}
-                        >
-                          <Col
-                            style={{
-                              background:
-                                cabinClass && cabinClassType === "ECONOMY"
-                                  ? "rgb(0, 140, 255)"
-                                  : "#fff",
-                              color:
-                                cabinClass && cabinClassType === "ECONOMY"
-                                  ? "#fff"
-                                  : "black",
-                            }}
-                            className={styles.economybtn}
-                            onClick={ECONOMY}
-                          >
-                            <span
-                              style={{
-                                fontFamily: "sans-serif",
-                                fontWeight: "400",
-                              }}
-                            >
-                              Economy/Premium Economy
-                            </span>
-                          </Col>
-                          <Col
-                            style={{
-                              background:
-                                cabinClass &&
-                                cabinClassType === "ECONOMY/PREMIUM ECONOMY"
-                                  ? "rgb(0, 140, 255)"
-                                  : "#fff",
-                              color:
-                                cabinClass &&
-                                cabinClassType === "ECONOMY/PREMIUM ECONOMY"
-                                  ? "#fff"
-                                  : "black",
-                            }}
-                            className={styles.economybtn}
-                            onClick={PRIMIUMECONOMY}
-                          >
-                            <span
-                              style={{
-                                fontFamily: "sans-serif",
-                                fontWeight: "400",
-                              }}
-                            >
-                              Premium Economy
-                            </span>
-                          </Col>
-                          <Col
-                            style={{
-                              background:
-                                cabinClass && cabinClassType === "BUISNESS"
-                                  ? "rgb(0, 140, 255)"
-                                  : "",
-                              color:
-                                cabinClass && cabinClassType === "BUISNESS"
-                                  ? "#fff"
-                                  : "black",
-                            }}
-                            className={styles.economybtn}
-                            onClick={BUISSNESS}
-                          >
-                            <span
-                              style={{
-                                fontFamily: "sans-serif",
-                                fontWeight: "400",
-                              }}
-                            >
-                              Buisness
-                            </span>
-                          </Col>
-                        </Row>
+                      className={styles.passengerButtonContainer}
+                      style={{ display: "flex", flexDirection: "column" }}
+                    >
+                      <div className={styles.adultChild}>
+                        CHOOSE CABIN CLASS
                       </div>
+                      <Row style={{ display: "flex", flexDirection: "column" }}>
+                        <Col
+                          style={{
+                            background:
+                              cabinClass && cabinClassType === "ECONOMY"
+                                ? "rgb(0, 140, 255)"
+                                : "#fff",
+                            color:
+                              cabinClass && cabinClassType === "ECONOMY"
+                                ? "#fff"
+                                : "black",
+                          }}
+                          className={styles.economybtn}
+                          onClick={ECONOMY}
+                        >
+                          <span
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontWeight: "400",
+                            }}
+                          >
+                            Economy/Premium Economy
+                          </span>
+                        </Col>
+                        <Col
+                          style={{
+                            background:
+                              cabinClass &&
+                              cabinClassType === "ECONOMY/PREMIUM ECONOMY"
+                                ? "rgb(0, 140, 255)"
+                                : "#fff",
+                            color:
+                              cabinClass &&
+                              cabinClassType === "ECONOMY/PREMIUM ECONOMY"
+                                ? "#fff"
+                                : "black",
+                          }}
+                          className={styles.economybtn}
+                          onClick={PRIMIUMECONOMY}
+                        >
+                          <span
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontWeight: "400",
+                            }}
+                          >
+                            Premium Economy
+                          </span>
+                        </Col>
+                        <Col
+                          style={{
+                            background:
+                              cabinClass && cabinClassType === "BUISNESS"
+                                ? "rgb(0, 140, 255)"
+                                : "",
+                            color:
+                              cabinClass && cabinClassType === "BUISNESS"
+                                ? "#fff"
+                                : "black",
+                          }}
+                          className={styles.economybtn}
+                          onClick={BUISSNESS}
+                        >
+                          <span
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontWeight: "400",
+                            }}
+                          >
+                            Buisness
+                          </span>
+                        </Col>
+                      </Row>
+                    </div>
                     {/* for children and inf */}
 
                     <div
@@ -677,7 +722,7 @@ function Search() {
                 className="Searchbtn"
                 style={{
                   background: "",
-                  borderRadius: "10px",
+                  borderRadius: "7px",
                   width: "160px",
                   padding: "10px",
                 }}
@@ -709,8 +754,8 @@ function Search() {
               <div
                 className="col-2"
                 style={{
-                  background: "#0a223d",
-                  borderRadius: "10px",
+                  background: "hsla(0,0%,100%,.1)",
+                  borderRadius: "7px",
                   width: "160px",
                   padding: "10px",
                 }}
@@ -718,10 +763,10 @@ function Search() {
                 <h5
                   style={{
                     fontWeight: "700",
-                    fontSize: "14px",
+                    fontSize: "12px",
                     lineHeight: "12px",
                     marginBottom: "5px",
-                    marginTop: "5px",
+                    // marginTop: "5px",
                     color: "#008cff",
                   }}
                 >
@@ -757,8 +802,8 @@ function Search() {
               <div
                 className="col-2"
                 style={{
-                  background: "#0a223d",
-                  borderRadius: "10px",
+                  background: "hsla(0,0%,100%,.1)",
+                  borderRadius: "7px",
                   width: "160px",
                   padding: "10px",
                 }}
@@ -766,10 +811,10 @@ function Search() {
                 <h5
                   style={{
                     fontWeight: "700",
-                    fontSize: "14px",
+                    fontSize: "12px",
                     lineHeight: "12px",
                     marginBottom: "5px",
-                    marginTop: "5px",
+                    // marginTop: "5px",
                     color: "#008cff",
                   }}
                 >
@@ -795,8 +840,8 @@ function Search() {
               <div
                 className="col-2"
                 style={{
-                  background: "#0a223d",
-                  borderRadius: "10px",
+                  background: "hsla(0,0%,100%,.1)",
+                  borderRadius: "7px",
                   width: "160px",
                   padding: "10px",
                 }}
@@ -804,10 +849,10 @@ function Search() {
                 <h5
                   style={{
                     fontWeight: "700",
-                    fontSize: "14px",
+                    fontSize: "12px",
                     lineHeight: "12px",
                     marginBottom: "5px",
-                    marginTop: "5px",
+                    // marginTop: "5px",
                     color: "#008cff",
                   }}
                 >
@@ -839,7 +884,7 @@ function Search() {
                           {...params}
                           sx={{
                             svg: { color: "#fff" },
-                            input: { color: "#fff", height: "10px" },
+                            input: { color: "#fff", height: "5px" },
                             label: { color: "#fff" },
                           }}
                         />
@@ -851,8 +896,8 @@ function Search() {
               <div
                 className="col-2"
                 style={{
-                  background: "#0a223d",
-                  borderRadius: "10px",
+                  background: "hsla(0,0%,100%,.1)",
+                  borderRadius: "7px",
                   width: "160px",
                   padding: "10px",
                 }}
@@ -860,10 +905,10 @@ function Search() {
                 <h5
                   style={{
                     fontWeight: "700",
-                    fontSize: "14px",
+                    fontSize: "12px",
                     lineHeight: "12px",
                     marginBottom: "5px",
-                    marginTop: "5px",
+                    // marginTop: "5px",
                     color: "#008cff",
                   }}
                 >
@@ -890,7 +935,7 @@ function Search() {
                           {...params}
                           sx={{
                             svg: { color: "#fff" },
-                            input: { color: "#fff", height: "10px" },
+                            input: { color: "#fff", height: "5px" },
                             label: { color: "#fff" },
                           }}
                         />
@@ -902,8 +947,8 @@ function Search() {
               <div
                 className="col-2"
                 style={{
-                  background: "#0a223d",
-                  borderRadius: "10px",
+                  background: "hsla(0,0%,100%,.1)",
+                  borderRadius: "7px",
                   width: "auto",
                   padding: "10px",
                   minHeight: "5rem",
@@ -912,10 +957,10 @@ function Search() {
                 <h5
                   style={{
                     fontWeight: "700",
-                    fontSize: "14px",
+                    fontSize: "12px",
                     lineHeight: "12px",
                     marginBottom: "5px",
-                    marginTop: "5px",
+                    // marginTop: "5px",
                     color: "#008cff",
                   }}
                 >
@@ -925,7 +970,7 @@ function Search() {
                   className={styles.travellerContainer}
                   style={{
                     width: "100%",
-                    minHeight:cabinClassType ? "5rem" : "",
+                    minHeight: cabinClassType ? "5rem" : "",
                     margin: "5px",
                     border: "none",
                     right: "",
@@ -945,7 +990,7 @@ function Search() {
                       style={{ marginTop: "-26px" }}
                     >
                       <span style={{ color: "#fff" }}>{travellers}</span>
-                      
+
                       {travellers > 0 ? (
                         <span
                           style={{
@@ -960,18 +1005,18 @@ function Search() {
                         ""
                       )}
                       <br />
-                            <span
-                              style={{
-                                fontFamily: "sans-serif",
-                                fontSize: "12px",
-                                fontWeight: "400",
-                                bottom: "10px",
-                                position: "relative",
-                                color:"#fff"
-                              }}
-                            >
-                              {cabinClassType}
-                            </span>
+                      <span
+                        style={{
+                          fontFamily: "sans-serif",
+                          fontSize: "12px",
+                          fontWeight: "400",
+                          bottom: "10px",
+                          position: "relative",
+                          color: "#fff",
+                        }}
+                      >
+                        {cabinClassType}
+                      </span>
                     </div>
                   </div>
 
@@ -982,23 +1027,23 @@ function Search() {
                   >
                     <div className={styles.adultChild}>ADULTS (12y +)</div>
                     <div className={styles.passengerButtonContainer}>
-                    {arr.map((val1) => (
-                          <div
-                            key={val1}
-                            className={`${
-                              selectedButtonColor === val1
-                                ? styles.clickPassenger
-                                : styles.passengerButton
-                            }`}
-                            onClick={() => {
-                              setTogglePassengerColor(!togglePassengerColor);
-                              onClickNoOfPass1(val1);
-                              setSelectedButtonColor(val1);
-                            }}
-                          >
-                            {val1}
-                          </div>
-                        ))}
+                      {arr.map((val1) => (
+                        <div
+                          key={val1}
+                          className={`${
+                            selectedButtonColor === val1
+                              ? styles.clickPassenger
+                              : styles.passengerButton
+                          }`}
+                          onClick={() => {
+                            setTogglePassengerColor(!togglePassengerColor);
+                            onClickNoOfPass1(val1);
+                            setSelectedButtonColor(val1);
+                          }}
+                        >
+                          {val1}
+                        </div>
+                      ))}
                     </div>
 
                     {/* for children and inf */}
@@ -1008,30 +1053,28 @@ function Search() {
                           CHILDREN (2y - 12y )
                         </div>
                         <div className={styles.passengerButtonContainer}>
-                        {ar1.map((val2) => (
-                              <div
-                                key={val2}
-                                className={`${
-                                  selectedButtonColortwo === val2
-                                    ? styles.clickPassenger
-                                    : styles.passengerButton
-                                }`}
-                                // style={{background:child > 2 ? "lightblue" : "#fff"}}
-                                onClick={() => {
-                                  setTogglePassengerColor(
-                                    !togglePassengerColor
-                                  );
-                                  // setSelectedButtonColor(val2);
+                          {ar1.map((val2) => (
+                            <div
+                              key={val2}
+                              className={`${
+                                selectedButtonColortwo === val2
+                                  ? styles.clickPassenger
+                                  : styles.passengerButton
+                              }`}
+                              // style={{background:child > 2 ? "lightblue" : "#fff"}}
+                              onClick={() => {
+                                setTogglePassengerColor(!togglePassengerColor);
+                                // setSelectedButtonColor(val2);
 
-                                  onClickNoOfPass2(val2);
-                                  setSelectedButtonColortwo(val2);
+                                onClickNoOfPass2(val2);
+                                setSelectedButtonColortwo(val2);
 
-                                  console.log(val2);
-                                }}
-                              >
-                                {val2}
-                              </div>
-                            ))}
+                                console.log(val2);
+                              }}
+                            >
+                              {val2}
+                            </div>
+                          ))}
                         </div>
                       </div>
                       <div>
@@ -1039,112 +1082,108 @@ function Search() {
                           INFANTS (below 2y)
                         </div>
                         <div className={styles.passengerButtonContainer}>
-                        {ar2.map((val3) => (
-                              <div
-                                key={val3}
-                                className={`${
-                                  selectedButtonColorthree === val3
-                                    ? styles.clickPassenger
-                                    : styles.passengerButton
-                                }`}
-                                onClick={() => {
-                                  setTogglePassengerColor(
-                                    !togglePassengerColor
-                                  );
-                                  onClickNoOfPass3(val3);
-                                  setSelectedButtonColorthree(val3);
-                                }}
-                              >
-                                {val3}
-                              </div>
-                            ))}
+                          {ar2.map((val3) => (
+                            <div
+                              key={val3}
+                              className={`${
+                                selectedButtonColorthree === val3
+                                  ? styles.clickPassenger
+                                  : styles.passengerButton
+                              }`}
+                              onClick={() => {
+                                setTogglePassengerColor(!togglePassengerColor);
+                                onClickNoOfPass3(val3);
+                                setSelectedButtonColorthree(val3);
+                              }}
+                            >
+                              {val3}
+                            </div>
+                          ))}
                         </div>
                       </div>
                     </div>
                     {/* cabin */}
                     <div
-                        className={styles.passengerButtonContainer}
-                        style={{ display: "flex", flexDirection: "column" }}
-                      >
-                        <div className={styles.adultChild}>
-                          CHOOSE CABIN CLASS
-                        </div>
-                        <Row
-                          style={{ display: "flex", flexDirection: "column" }}
-                        >
-                          <Col
-                            style={{
-                              background:
-                                cabinClass && cabinClassType === "ECONOMY"
-                                  ? "rgb(0, 140, 255)"
-                                  : "#fff",
-                              color:
-                                cabinClass && cabinClassType === "ECONOMY"
-                                  ? "#fff"
-                                  : "black",
-                            }}
-                            className={styles.economybtn}
-                            onClick={ECONOMY}
-                          >
-                            <span
-                              style={{
-                                fontFamily: "sans-serif",
-                                fontWeight: "400",
-                              }}
-                            >
-                              Economy/Premium Economy
-                            </span>
-                          </Col>
-                          <Col
-                            style={{
-                              background:
-                                cabinClass &&
-                                cabinClassType === "ECONOMY/PREMIUM ECONOMY"
-                                  ? "rgb(0, 140, 255)"
-                                  : "#fff",
-                              color:
-                                cabinClass &&
-                                cabinClassType === "ECONOMY/PREMIUM ECONOMY"
-                                  ? "#fff"
-                                  : "black",
-                            }}
-                            className={styles.economybtn}
-                            onClick={PRIMIUMECONOMY}
-                          >
-                            <span
-                              style={{
-                                fontFamily: "sans-serif",
-                                fontWeight: "400",
-                              }}
-                            >
-                              Premium Economy
-                            </span>
-                          </Col>
-                          <Col
-                            style={{
-                              background:
-                                cabinClass && cabinClassType === "BUISNESS"
-                                  ? "rgb(0, 140, 255)"
-                                  : "",
-                              color:
-                                cabinClass && cabinClassType === "BUISNESS"
-                                  ? "#fff"
-                                  : "black",
-                            }}
-                            className={styles.economybtn}
-                            onClick={BUISSNESS}
-                          >
-                            <span
-                              style={{
-                                fontFamily: "sans-serif",
-                                fontWeight: "400",
-                              }}
-                            >
-                              Buisness
-                            </span>
-                          </Col>
-                        </Row>
+                      className={styles.passengerButtonContainer}
+                      style={{ display: "flex", flexDirection: "column" }}
+                    >
+                      <div className={styles.adultChild}>
+                        CHOOSE CABIN CLASS
                       </div>
+                      <Row style={{ display: "flex", flexDirection: "column" }}>
+                        <Col
+                          style={{
+                            background:
+                              cabinClass && cabinClassType === "ECONOMY"
+                                ? "rgb(0, 140, 255)"
+                                : "#fff",
+                            color:
+                              cabinClass && cabinClassType === "ECONOMY"
+                                ? "#fff"
+                                : "black",
+                          }}
+                          className={styles.economybtn}
+                          onClick={ECONOMY}
+                        >
+                          <span
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontWeight: "400",
+                            }}
+                          >
+                            Economy/Premium Economy
+                          </span>
+                        </Col>
+                        <Col
+                          style={{
+                            background:
+                              cabinClass &&
+                              cabinClassType === "ECONOMY/PREMIUM ECONOMY"
+                                ? "rgb(0, 140, 255)"
+                                : "#fff",
+                            color:
+                              cabinClass &&
+                              cabinClassType === "ECONOMY/PREMIUM ECONOMY"
+                                ? "#fff"
+                                : "black",
+                          }}
+                          className={styles.economybtn}
+                          onClick={PRIMIUMECONOMY}
+                        >
+                          <span
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontWeight: "400",
+                            }}
+                          >
+                            Premium Economy
+                          </span>
+                        </Col>
+                        <Col
+                          style={{
+                            background:
+                              cabinClass && cabinClassType === "BUISNESS"
+                                ? "rgb(0, 140, 255)"
+                                : "",
+                            color:
+                              cabinClass && cabinClassType === "BUISNESS"
+                                ? "#fff"
+                                : "black",
+                          }}
+                          className={styles.economybtn}
+                          onClick={BUISSNESS}
+                        >
+                          <span
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontWeight: "400",
+                            }}
+                          >
+                            Buisness
+                          </span>
+                        </Col>
+                      </Row>
+                    </div>
                     {/* for children and inf */}
 
                     <div
@@ -1160,7 +1199,7 @@ function Search() {
                 // className="col-2"
                 style={{
                   background: "",
-                  borderRadius: "10px",
+                  borderRadius: "7px",
                   width: "160px",
                   padding: "10px",
                 }}
@@ -1192,8 +1231,8 @@ function Search() {
               <div
                 className="col-2"
                 style={{
-                  background: "#0a223d",
-                  borderRadius: "10px",
+                  background: "hsla(0,0%,100%,.1)",
+                  borderRadius: "7px",
                   width: "360px",
                   padding: "10px",
                 }}
@@ -1201,10 +1240,10 @@ function Search() {
                 <h5
                   style={{
                     fontWeight: "700",
-                    fontSize: "14px",
+                    fontSize: "12px",
                     lineHeight: "12px",
                     marginBottom: "5px",
-                    marginTop: "5px",
+                    // marginTop: "5px",
                     color: "#008cff",
                   }}
                 >
@@ -1245,8 +1284,8 @@ function Search() {
               <div
                 className="col-2"
                 style={{
-                  background: "#0a223d",
-                  borderRadius: "10px",
+                  background: "hsla(0,0%,100%,.1)",
+                  borderRadius: "7px",
                   width: "auto",
                   padding: "10px",
                   minHeight: "5rem",
@@ -1255,10 +1294,10 @@ function Search() {
                 <h5
                   style={{
                     fontWeight: "700",
-                    fontSize: "14px",
+                    fontSize: "12px",
                     lineHeight: "12px",
                     marginBottom: "5px",
-                    marginTop: "5px",
+                    // marginTop: "5px",
                     color: "#008cff",
                   }}
                 >
@@ -1273,7 +1312,7 @@ function Search() {
                     right: "",
                     padding: "0",
                     height: "30px",
-                    minHeight:cabinClassType ? "5rem" : "",
+                    minHeight: cabinClassType ? "5rem" : "",
                     left: lap ? "-5px" : "0",
                     // marginRight:lap ? "" : "2.2rem",
                     // marginTop:"19px"
@@ -1290,7 +1329,7 @@ function Search() {
                       <span style={{ color: "#fff", fontFamily: "sans-serif" }}>
                         {travellers}
                       </span>
-                     
+
                       {travellers > 0 ? (
                         <span
                           style={{
@@ -1304,19 +1343,19 @@ function Search() {
                       ) : (
                         ""
                       )}
-                       <br />
-                            <span
-                              style={{
-                                fontFamily: "sans-serif",
-                                fontSize: "12px",
-                                fontWeight: "400",
-                                bottom: "10px",
-                                position: "relative",
-                                color:"#fff"
-                              }}
-                            >
-                              {cabinClassType}
-                            </span>
+                      <br />
+                      <span
+                        style={{
+                          fontFamily: "sans-serif",
+                          fontSize: "12px",
+                          fontWeight: "400",
+                          bottom: "10px",
+                          position: "relative",
+                          color: "#fff",
+                        }}
+                      >
+                        {cabinClassType}
+                      </span>
                     </div>
                   </div>
 
@@ -1327,23 +1366,23 @@ function Search() {
                   >
                     <div className={styles.adultChild}>ADULTS (12y +)</div>
                     <div className={styles.passengerButtonContainer}>
-                    {arr.map((val1) => (
-                          <div
-                            key={val1}
-                            className={`${
-                              selectedButtonColor === val1
-                                ? styles.clickPassenger
-                                : styles.passengerButton
-                            }`}
-                            onClick={() => {
-                              setTogglePassengerColor(!togglePassengerColor);
-                              onClickNoOfPass1(val1);
-                              setSelectedButtonColor(val1);
-                            }}
-                          >
-                            {val1}
-                          </div>
-                        ))}
+                      {arr.map((val1) => (
+                        <div
+                          key={val1}
+                          className={`${
+                            selectedButtonColor === val1
+                              ? styles.clickPassenger
+                              : styles.passengerButton
+                          }`}
+                          onClick={() => {
+                            setTogglePassengerColor(!togglePassengerColor);
+                            onClickNoOfPass1(val1);
+                            setSelectedButtonColor(val1);
+                          }}
+                        >
+                          {val1}
+                        </div>
+                      ))}
                     </div>
 
                     {/* for children and inf */}
@@ -1353,30 +1392,28 @@ function Search() {
                           CHILDREN (2y - 12y )
                         </div>
                         <div className={styles.passengerButtonContainer}>
-                        {ar1.map((val2) => (
-                              <div
-                                key={val2}
-                                className={`${
-                                  selectedButtonColortwo === val2
-                                    ? styles.clickPassenger
-                                    : styles.passengerButton
-                                }`}
-                                // style={{background:child > 2 ? "lightblue" : "#fff"}}
-                                onClick={() => {
-                                  setTogglePassengerColor(
-                                    !togglePassengerColor
-                                  );
-                                  // setSelectedButtonColor(val2);
+                          {ar1.map((val2) => (
+                            <div
+                              key={val2}
+                              className={`${
+                                selectedButtonColortwo === val2
+                                  ? styles.clickPassenger
+                                  : styles.passengerButton
+                              }`}
+                              // style={{background:child > 2 ? "lightblue" : "#fff"}}
+                              onClick={() => {
+                                setTogglePassengerColor(!togglePassengerColor);
+                                // setSelectedButtonColor(val2);
 
-                                  onClickNoOfPass2(val2);
-                                  setSelectedButtonColortwo(val2);
+                                onClickNoOfPass2(val2);
+                                setSelectedButtonColortwo(val2);
 
-                                  console.log(val2);
-                                }}
-                              >
-                                {val2}
-                              </div>
-                            ))}
+                                console.log(val2);
+                              }}
+                            >
+                              {val2}
+                            </div>
+                          ))}
                         </div>
                       </div>
                       <div>
@@ -1384,112 +1421,108 @@ function Search() {
                           INFANTS (below 2y)
                         </div>
                         <div className={styles.passengerButtonContainer}>
-                        {ar2.map((val3) => (
-                              <div
-                                key={val3}
-                                className={`${
-                                  selectedButtonColorthree === val3
-                                    ? styles.clickPassenger
-                                    : styles.passengerButton
-                                }`}
-                                onClick={() => {
-                                  setTogglePassengerColor(
-                                    !togglePassengerColor
-                                  );
-                                  onClickNoOfPass3(val3);
-                                  setSelectedButtonColorthree(val3);
-                                }}
-                              >
-                                {val3}
-                              </div>
-                            ))}
+                          {ar2.map((val3) => (
+                            <div
+                              key={val3}
+                              className={`${
+                                selectedButtonColorthree === val3
+                                  ? styles.clickPassenger
+                                  : styles.passengerButton
+                              }`}
+                              onClick={() => {
+                                setTogglePassengerColor(!togglePassengerColor);
+                                onClickNoOfPass3(val3);
+                                setSelectedButtonColorthree(val3);
+                              }}
+                            >
+                              {val3}
+                            </div>
+                          ))}
                         </div>
                       </div>
                     </div>
                     {/* cabin */}
                     <div
-                        className={styles.passengerButtonContainer}
-                        style={{ display: "flex", flexDirection: "column" }}
-                      >
-                        <div className={styles.adultChild}>
-                          CHOOSE CABIN CLASS
-                        </div>
-                        <Row
-                          style={{ display: "flex", flexDirection: "column" }}
-                        >
-                          <Col
-                            style={{
-                              background:
-                                cabinClass && cabinClassType === "ECONOMY"
-                                  ? "rgb(0, 140, 255)"
-                                  : "#fff",
-                              color:
-                                cabinClass && cabinClassType === "ECONOMY"
-                                  ? "#fff"
-                                  : "black",
-                            }}
-                            className={styles.economybtn}
-                            onClick={ECONOMY}
-                          >
-                            <span
-                              style={{
-                                fontFamily: "sans-serif",
-                                fontWeight: "400",
-                              }}
-                            >
-                              Economy/Premium Economy
-                            </span>
-                          </Col>
-                          <Col
-                            style={{
-                              background:
-                                cabinClass &&
-                                cabinClassType === "ECONOMY/PREMIUM ECONOMY"
-                                  ? "rgb(0, 140, 255)"
-                                  : "#fff",
-                              color:
-                                cabinClass &&
-                                cabinClassType === "ECONOMY/PREMIUM ECONOMY"
-                                  ? "#fff"
-                                  : "black",
-                            }}
-                            className={styles.economybtn}
-                            onClick={PRIMIUMECONOMY}
-                          >
-                            <span
-                              style={{
-                                fontFamily: "sans-serif",
-                                fontWeight: "400",
-                              }}
-                            >
-                              Premium Economy
-                            </span>
-                          </Col>
-                          <Col
-                            style={{
-                              background:
-                                cabinClass && cabinClassType === "BUISNESS"
-                                  ? "rgb(0, 140, 255)"
-                                  : "",
-                              color:
-                                cabinClass && cabinClassType === "BUISNESS"
-                                  ? "#fff"
-                                  : "black",
-                            }}
-                            className={styles.economybtn}
-                            onClick={BUISSNESS}
-                          >
-                            <span
-                              style={{
-                                fontFamily: "sans-serif",
-                                fontWeight: "400",
-                              }}
-                            >
-                              Buisness
-                            </span>
-                          </Col>
-                        </Row>
+                      className={styles.passengerButtonContainer}
+                      style={{ display: "flex", flexDirection: "column" }}
+                    >
+                      <div className={styles.adultChild}>
+                        CHOOSE CABIN CLASS
                       </div>
+                      <Row style={{ display: "flex", flexDirection: "column" }}>
+                        <Col
+                          style={{
+                            background:
+                              cabinClass && cabinClassType === "ECONOMY"
+                                ? "rgb(0, 140, 255)"
+                                : "#fff",
+                            color:
+                              cabinClass && cabinClassType === "ECONOMY"
+                                ? "#fff"
+                                : "black",
+                          }}
+                          className={styles.economybtn}
+                          onClick={ECONOMY}
+                        >
+                          <span
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontWeight: "400",
+                            }}
+                          >
+                            Economy/Premium Economy
+                          </span>
+                        </Col>
+                        <Col
+                          style={{
+                            background:
+                              cabinClass &&
+                              cabinClassType === "ECONOMY/PREMIUM ECONOMY"
+                                ? "rgb(0, 140, 255)"
+                                : "#fff",
+                            color:
+                              cabinClass &&
+                              cabinClassType === "ECONOMY/PREMIUM ECONOMY"
+                                ? "#fff"
+                                : "black",
+                          }}
+                          className={styles.economybtn}
+                          onClick={PRIMIUMECONOMY}
+                        >
+                          <span
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontWeight: "400",
+                            }}
+                          >
+                            Premium Economy
+                          </span>
+                        </Col>
+                        <Col
+                          style={{
+                            background:
+                              cabinClass && cabinClassType === "BUISNESS"
+                                ? "rgb(0, 140, 255)"
+                                : "",
+                            color:
+                              cabinClass && cabinClassType === "BUISNESS"
+                                ? "#fff"
+                                : "black",
+                          }}
+                          className={styles.economybtn}
+                          onClick={BUISSNESS}
+                        >
+                          <span
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontWeight: "400",
+                            }}
+                          >
+                            Buisness
+                          </span>
+                        </Col>
+                      </Row>
+                    </div>
                     {/* for children and inf */}
 
                     <div
@@ -1511,7 +1544,7 @@ function Search() {
                 // className="col-2"
                 style={{
                   background: "",
-                  borderRadius: "10px",
+                  borderRadius: "7px",
                   width: "160px",
                   padding: "10px",
                 }}
