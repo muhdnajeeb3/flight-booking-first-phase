@@ -512,6 +512,9 @@ display: none;
     flex-direction: column;
 
   }
+  .flight_container {
+    width: 93% !important;
+  }
   
   .buttonContainer {
     bottom: 4%;
@@ -542,7 +545,7 @@ display: none;
     /* max-height: 8rem !important; */
     min-height: 7rem !important;
     background-color: #fff;
-    width: 90%;
+    width: 93%;
     margin-left: auto !important;
     margin-right: auto !important;
     border-radius: 10px ;
@@ -660,9 +663,7 @@ display: none;
       left: 5px;
       position: relative;
     }
-    .flight_container {
-      width: 90% !important;
-    }
+    
   .traveller_modal {
 width: 280px;
   }

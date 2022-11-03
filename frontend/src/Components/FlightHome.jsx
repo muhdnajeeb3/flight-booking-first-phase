@@ -2,12 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./flight.module.css";
 import ConnectingAirportsIcon from "@mui/icons-material/ConnectingAirports";
 import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-// import Select from "@mui/material/Select";
 import Select from "react-select";
-import icon1 from "./logo.png";
-
 import TextField from "@mui/material/TextField";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers";
@@ -27,12 +22,15 @@ import { display } from "@mui/system";
 
 const FlightHome = () => {
   const [from, setFrom] = React.useState("Delhi");
+  const [frommultione, setFrommultione] = React.useState("Delhi");
+  const [frommultitwo, setFrommultitwo] = React.useState("Delhi");
   const [to, setTo] = React.useState("Kolkata");
   const [departure, setDeparture] = React.useState(new Date());
   const [retrn, setRetrn] = React.useState(new Date());
   const [selectedButtonColor, setSelectedButtonColor] = useState(1);
   const [selectedButtonColortwo, setSelectedButtonColortwo] = useState(0);
   const [selectedButtonColorthree, setSelectedButtonColorthree] = useState(0);
+  // button one round multi
   const [oneWay, setOneWay] = useState(true);
   const [roundTrip, setRoundTrip] = useState("");
   const [multiCity, setMultiCity] = useState("");
@@ -41,6 +39,9 @@ const FlightHome = () => {
   const [selectTo, setSelectTo] = useState(false);
   const [selectOne, setSelectOne] = useState(false);
   const [selectTwo, setSelectTwo] = useState(false);
+  const [selectOneto, setSelectOneto] = useState(false);
+  const [selectTwoto, setSelectTwoto] = useState(false);
+  // 
   const [selectAnotherCity, setSelectAnotherCity] = useState(false);
   const [selectNewCity, setSelectNewCity] = useState(false);
   const [flightopen, setFlightopen] = useState(false);
@@ -48,9 +49,9 @@ const FlightHome = () => {
   const [cabinClassType, setCabinClassType] = useState("");
 
   const [travellers, setTravellers] = React.useState(null);
-  const [adult1,setAdult1] = useState(1)
-  const [child,setChild] = useState(0)
-  const [infant,setInfant] = useState(0)
+  const [adult1, setAdult1] = useState(1);
+  const [child, setChild] = useState(0);
+  const [infant, setInfant] = useState(0);
   const arr = [1, 2, 3, 4, 5, 6, 7, 8];
   let ar1 = [0, 1, 2, 3, 4, 5];
   let ar2 = [0, 1, 2, 3, 4];
@@ -71,48 +72,28 @@ const FlightHome = () => {
     },
     { value: "Kochi", label: "Kochi" },
     { value: "Kolkata", label: "Kolkata" },
+    { value: "Mumbai", label: "Mumbai" },
+    { value: "Banglore", label: "Banglore" },
+
   ];
-
-  const onClickNoOfPass = (val1,val2,val3) =>  {
-    // return
-    // setTravellers( val1 );
-    console.log("llmmmmmm",val1+val1);
-    
-
-     
+  const onClickNoOfPass1 = (val1) => {
+    setAdult1(val1);
+    console.log("jjjjjj", val1);
   };
-  const onClickNoOfPass1 = (val1) =>  {
-    // return
-    setAdult1( val1 );
-    console.log("jjjjjj",val1);
-    
-
-    
+  const onClickNoOfPass2 = (val2) => {
+    setChild(val2);
+    console.log("llllll", val2);
   };
-  const onClickNoOfPass2 = (val2) =>  { 
-    // return
-    setChild(  val2 );
-    console.log("llllll",val2);
-
-    
-
-    
-  };
-  const onClickNoOfPass3 = (val3) =>  {
-    // return
-    setInfant(  val3);
-    console.log("rrrrrrrr",val3);
-
-    
-
-    
+  const onClickNoOfPass3 = (val3) => {
+    setInfant(val3);
+    console.log("rrrrrrrr", val3);
   };
   useEffect(() => {
     const addedvalue = adult1 + child + infant;
-    setTravellers(addedvalue)
-    console.log("added",addedvalue);
-   }, [adult1,child,infant])
-  
+    setTravellers(addedvalue);
+    console.log("added", addedvalue);
+  }, [adult1, child, infant]);
+
   const handleSubmit = () => {
     navigate("/flights", {
       state: {
@@ -134,13 +115,11 @@ const FlightHome = () => {
   const ROUNDTRIP = () => {
     setMultiCity("");
     setOneWay("");
-    // setNewCity("")
   };
 
   const ONEWAY = (e) => {
     setMultiCity("");
     setRoundTrip("");
-    // setNewCity("")
   };
   const HANDLEADD = () => {
     const newcity = [...newCity, []];
@@ -151,13 +130,14 @@ const FlightHome = () => {
     deletenewcity.splice(i, 1);
     setNewCity(deletenewcity);
   };
- 
   if (select === false) {
     setSelect(null);
   }
   const FROMHANDLER = (e) => {
     setSelect(false);
     setFrom(e.value);
+    // e.stopPropagation();
+
   };
   const ROUNDTRIPFROMHANDLER = (e) => {
     setSelectOne(false);
@@ -169,11 +149,11 @@ const FlightHome = () => {
   };
   const ANOTHERCITYFROMHANDLER = (e) => {
     setSelectAnotherCity(false);
-    setFrom(e.value);
+    setFrommultione(e.value);
   };
   const NEWCITYFROMHANDLER = (e) => {
     setSelectNewCity(false);
-    setFrom(e.value);
+    setFrommultitwo(e.value);
   };
   const SWITCHHANDLER = () => {
     setFrom(to);
@@ -190,17 +170,14 @@ const FlightHome = () => {
   };
   const ECONOMY = () => {
     setCabinClass(true);
-    setCabinClassType("ECONOMY/PREMIUM ECONOMY");
+    setCabinClassType("ECONOMY");
   };
   const PRIMIUMECONOMY = () => {
     setCabinClass(true);
-    setCabinClassType("PREMIUM ECONOMY");
+    setCabinClassType("ECONOMY/PREMIUM ECONOMY");
   };
-
-  if (window.innerWidth < 500) {
-  }
   const ismobile = window.innerWidth < 500;
-  
+
   return (
     <div className={styles.flight_wrapper}>
       {/* <Container className={styles.mobilesection}> */}
@@ -439,6 +416,7 @@ const FlightHome = () => {
                                   return option.value === from;
                                 })}
                                 components={{
+                                
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
                                 getOptionLabel={(e) => (
@@ -477,7 +455,11 @@ const FlightHome = () => {
                         className={styles.connectingIcon}
                         onClick={SWITCHHANDLER}
                       >
-                        <ConnectingAirportsIcon className={styles.connecticon} fontSize="large" color="grey" />
+                        <ConnectingAirportsIcon
+                          className={styles.connecticon}
+                          fontSize="large"
+                          color="grey"
+                        />
                       </div>
                       <div className={styles.to}>
                         <Col
@@ -613,7 +595,6 @@ const FlightHome = () => {
                         >
                           <DatePicker
                             label="RETURN"
-                            
                             minDate={new Date()}
                             value={retrn}
                             onChange={(newValue) => {
@@ -652,25 +633,31 @@ const FlightHome = () => {
                         <span style={{ fontFamily: "sans-serif" }}>
                           {travellers}
                         </span>
-                        
-                       
 
                         {travellers > 0 ? (
                           <>
-                          <span
-                            style={{
-                              fontSize: "16px",
-                              fontFamily: "sans-serif",
-                              fontWeight: "400",
-                            }}
+                            <span
+                              style={{
+                                fontSize: "16px",
+                                fontFamily: "sans-serif",
+                                fontWeight: "400",
+                              }}
                             >
-                            Travellers
-                          </span>
-                          <br />
-                           <span style={{ fontFamily: "sans-serif" ,fontSize:"12px",fontWeight:"400",bottom:"10px",position:"relative"}}>
-                           {cabinClassType}
-                         </span>
-                            </>
+                              Travellers
+                            </span>
+                            <br />
+                            <span
+                              style={{
+                                fontFamily: "sans-serif",
+                                fontSize: "12px",
+                                fontWeight: "400",
+                                bottom: "10px",
+                                position: "relative",
+                              }}
+                            >
+                              {cabinClassType}
+                            </span>
+                          </>
                         ) : (
                           ""
                         )}
@@ -696,7 +683,7 @@ const FlightHome = () => {
                             }`}
                             onClick={() => {
                               setTogglePassengerColor(!togglePassengerColor);
-                              onClickNoOfPass1(val1,);
+                              onClickNoOfPass1(val1);
                               setSelectedButtonColor(val1);
                             }}
                           >
@@ -725,10 +712,10 @@ const FlightHome = () => {
                                   setTogglePassengerColor(
                                     !togglePassengerColor
                                   );
-                              // setSelectedButtonColor(val2); 
+                                  // setSelectedButtonColor(val2);
 
                                   onClickNoOfPass2(val2);
-                              setSelectedButtonColortwo(val2);
+                                  setSelectedButtonColortwo(val2);
 
                                   console.log(val2);
                                 }}
@@ -758,7 +745,7 @@ const FlightHome = () => {
                                   onClickNoOfPass3(val3);
                                   setSelectedButtonColorthree(val3);
 
-                                  console.log("kkkkkkkkkkk",val3);
+                                  console.log("kkkkkkkkkkk", val3);
                                 }}
                               >
                                 {val3}
@@ -966,7 +953,7 @@ const FlightHome = () => {
                         <Col
                           style={{ borderColor: "black", width: "" }}
                           className={styles.fromcol}
-                          onClick={() => setSelectTo(!selectTo)}
+                          onClick={() => setSelectOneto(!selectOneto)}
                         >
                           <Row>
                             <span
@@ -1004,7 +991,7 @@ const FlightHome = () => {
                               International Airport
                             </p>
                           </Row>
-                          {selectTo ? (
+                          {selectOneto ? (
                             <>
                               <Select
                                 options={options}
@@ -1130,17 +1117,34 @@ const FlightHome = () => {
                         className={styles.noOfTraveller}
                         style={{ marginTop: "-6px" }}
                       >
-                        <span>{travellers}</span>
+                        <span style={{ fontFamily: "sans-serif" }}>
+                          {travellers}
+                        </span>
+
                         {travellers > 0 ? (
-                          <span
-                            style={{
-                              fontSize: "16px",
-                              fontFamily: "sans-serif",
-                              fontWeight: "400",
-                            }}
-                          >
-                            Travellers
-                          </span>
+                          <>
+                            <span
+                              style={{
+                                fontSize: "16px",
+                                fontFamily: "sans-serif",
+                                fontWeight: "400",
+                              }}
+                            >
+                              Travellers
+                            </span>
+                            <br />
+                            <span
+                              style={{
+                                fontFamily: "sans-serif",
+                                fontSize: "12px",
+                                fontWeight: "400",
+                                bottom: "10px",
+                                position: "relative",
+                              }}
+                            >
+                              {cabinClassType}
+                            </span>
+                          </>
                         ) : (
                           ""
                         )}
@@ -1156,21 +1160,21 @@ const FlightHome = () => {
                     >
                       <div className={styles.adultChild}>ADULTS (12y +)</div>
                       <div className={styles.passengerButtonContainer}>
-                        {arr.map((val) => (
+                        {arr.map((val1) => (
                           <div
-                            key={val}
+                            key={val1}
                             className={`${
-                              selectedButtonColor === val
+                              selectedButtonColor === val1
                                 ? styles.clickPassenger
                                 : styles.passengerButton
                             }`}
                             onClick={() => {
                               setTogglePassengerColor(!togglePassengerColor);
-                              onClickNoOfPass(val);
-                              setSelectedButtonColor(val);
+                              onClickNoOfPass1(val1);
+                              setSelectedButtonColor(val1);
                             }}
                           >
-                            {val}
+                            {val1}
                           </div>
                         ))}
                       </div>
@@ -1182,22 +1186,28 @@ const FlightHome = () => {
                             CHILDREN (2y - 12y )
                           </div>
                           <div className={styles.passengerButtonContainer}>
-                            {ar1.map((val) => (
+                            {ar1.map((val2) => (
                               <div
-                                key={val}
-                                className={
-                                  val === 0
+                                key={val2}
+                                className={`${
+                                  selectedButtonColortwo === val2
                                     ? styles.clickPassenger
                                     : styles.passengerButton
-                                }
+                                }`}
+                                // style={{background:child > 2 ? "lightblue" : "#fff"}}
                                 onClick={() => {
                                   setTogglePassengerColor(
                                     !togglePassengerColor
                                   );
-                                  onClickNoOfPass(val);
+                                  // setSelectedButtonColor(val2);
+
+                                  onClickNoOfPass2(val2);
+                                  setSelectedButtonColortwo(val2);
+
+                                  console.log(val2);
                                 }}
                               >
-                                {val}
+                                {val2}
                               </div>
                             ))}
                           </div>
@@ -1207,22 +1217,25 @@ const FlightHome = () => {
                             INFANTS (below 2y)
                           </div>
                           <div className={styles.passengerButtonContainer}>
-                            {ar2.map((val) => (
+                            {ar2.map((val3) => (
                               <div
-                                key={val}
-                                className={
-                                  val === 0
+                                key={val3}
+                                className={`${
+                                  selectedButtonColorthree === val3
                                     ? styles.clickPassenger
                                     : styles.passengerButton
-                                }
+                                }`}
                                 onClick={() => {
                                   setTogglePassengerColor(
                                     !togglePassengerColor
                                   );
-                                  onClickNoOfPass(val);
+                                  onClickNoOfPass3(val3);
+                                  setSelectedButtonColorthree(val3);
+
+                                  console.log("kkkkkkkkkkk", val3);
                                 }}
                               >
-                                {val}
+                                {val3}
                               </div>
                             ))}
                           </div>
@@ -1395,12 +1408,6 @@ const FlightHome = () => {
                                   return option.value === from;
                                 })}
                                 components={{
-                                  // SelectContainer:()=>false
-                                  // Menu: () => null,               // Remove menu
-                                  // MenuList: () => true,           // Remove menu list
-                                  // DropdownIndicator: () => null,
-                                  // Remove dropdown icon
-                                  //  SelectContainer:()=> null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
                               />
@@ -1414,11 +1421,6 @@ const FlightHome = () => {
                                 onChange={FROMHANDLER}
                                 className={styles.select}
                                 components={{
-                                  // SelectContainer:()=>false
-                                  // Menu: () => null,               // Remove menu
-                                  // MenuList: () => null,           // Remove menu list
-                                  // DropdownIndicator: () => null,
-                                  // Remove dropdown icon
                                   SelectContainer: () => null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
@@ -1437,7 +1439,7 @@ const FlightHome = () => {
                         <Col
                           style={{ borderColor: "black", width: "" }}
                           className={styles.fromcol}
-                          onClick={() => setSelectTo(!selectTo)}
+                          onClick={() => setSelectTwoto(!selectTwoto)}
                         >
                           <Row>
                             <span
@@ -1475,7 +1477,7 @@ const FlightHome = () => {
                               International Airport
                             </p>
                           </Row>
-                          {selectTo ? (
+                          {selectTwoto ? (
                             <>
                               <Select
                                 options={options}
@@ -1488,12 +1490,6 @@ const FlightHome = () => {
                                   return option.value === from;
                                 })}
                                 components={{
-                                  // SelectContainer:()=>false
-                                  // Menu: () => null,               // Remove menu
-                                  // MenuList: () => true,           // Remove menu list
-                                  // DropdownIndicator: () => null,
-                                  // Remove dropdown icon
-                                  //  SelectContainer:()=> null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
                               />
@@ -1507,11 +1503,6 @@ const FlightHome = () => {
                                 onChange={TOHANDLER}
                                 className={styles.select}
                                 components={{
-                                  // SelectContainer:()=>false
-                                  // Menu: () => null,               // Remove menu
-                                  // MenuList: () => null,           // Remove menu list
-                                  // DropdownIndicator: () => null,
-                                  // Remove dropdown icon
                                   SelectContainer: () => null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
@@ -1558,10 +1549,7 @@ const FlightHome = () => {
                       </FormControl>
                     </div>
                     {/* departure date end */}
-
-                    {/* return date starts (just for ui purpose)*/}
                   </div>
-
                   {/* number of travellers start */}
                   <div
                     className={styles.travellerContainermulticity}
@@ -1573,17 +1561,34 @@ const FlightHome = () => {
                         className={styles.noOfTraveller}
                         style={{ marginTop: "-6px" }}
                       >
-                        <span>{travellers}</span>
+                        <span style={{ fontFamily: "sans-serif" }}>
+                          {travellers}
+                        </span>
+
                         {travellers > 0 ? (
-                          <span
-                            style={{
-                              fontSize: "16px",
-                              fontFamily: "sans-serif",
-                              fontWeight: "400",
-                            }}
-                          >
-                            Travellers
-                          </span>
+                          <>
+                            <span
+                              style={{
+                                fontSize: "16px",
+                                fontFamily: "sans-serif",
+                                fontWeight: "400",
+                              }}
+                            >
+                              Travellers
+                            </span>
+                            <br />
+                            <span
+                              style={{
+                                fontFamily: "sans-serif",
+                                fontSize: "12px",
+                                fontWeight: "400",
+                                bottom: "10px",
+                                position: "relative",
+                              }}
+                            >
+                              {cabinClassType}
+                            </span>
+                          </>
                         ) : (
                           ""
                         )}
@@ -1592,28 +1597,28 @@ const FlightHome = () => {
 
                     <div
                       className={
-                        multiCity && openTravellers
-                          ? styles.traveller_modalmulti
+                        openTravellers
+                          ? styles.traveller_modal
                           : styles.noDisplay
                       }
                     >
                       <div className={styles.adultChild}>ADULTS (12y +)</div>
                       <div className={styles.passengerButtonContainer}>
-                        {arr.map((val) => (
+                        {arr.map((val1) => (
                           <div
-                            key={val}
+                            key={val1}
                             className={`${
-                              selectedButtonColor === val
+                              selectedButtonColor === val1
                                 ? styles.clickPassenger
                                 : styles.passengerButton
                             }`}
                             onClick={() => {
                               setTogglePassengerColor(!togglePassengerColor);
-                              onClickNoOfPass(val);
-                              setSelectedButtonColor(val);
+                              onClickNoOfPass1(val1);
+                              setSelectedButtonColor(val1);
                             }}
                           >
-                            {val}
+                            {val1}
                           </div>
                         ))}
                       </div>
@@ -1625,22 +1630,28 @@ const FlightHome = () => {
                             CHILDREN (2y - 12y )
                           </div>
                           <div className={styles.passengerButtonContainer}>
-                            {ar1.map((val) => (
+                            {ar1.map((val2) => (
                               <div
-                                key={val}
-                                className={
-                                  val === 0
+                                key={val2}
+                                className={`${
+                                  selectedButtonColortwo === val2
                                     ? styles.clickPassenger
                                     : styles.passengerButton
-                                }
+                                }`}
+                                // style={{background:child > 2 ? "lightblue" : "#fff"}}
                                 onClick={() => {
                                   setTogglePassengerColor(
                                     !togglePassengerColor
                                   );
-                                  onClickNoOfPass(val);
+                                  // setSelectedButtonColor(val2);
+
+                                  onClickNoOfPass2(val2);
+                                  setSelectedButtonColortwo(val2);
+
+                                  console.log(val2);
                                 }}
                               >
-                                {val}
+                                {val2}
                               </div>
                             ))}
                           </div>
@@ -1650,22 +1661,25 @@ const FlightHome = () => {
                             INFANTS (below 2y)
                           </div>
                           <div className={styles.passengerButtonContainer}>
-                            {ar2.map((val) => (
+                            {ar2.map((val3) => (
                               <div
-                                key={val}
-                                className={
-                                  val === 0
+                                key={val3}
+                                className={`${
+                                  selectedButtonColorthree === val3
                                     ? styles.clickPassenger
                                     : styles.passengerButton
-                                }
+                                }`}
                                 onClick={() => {
                                   setTogglePassengerColor(
                                     !togglePassengerColor
                                   );
-                                  onClickNoOfPass(val);
+                                  onClickNoOfPass3(val3);
+                                  setSelectedButtonColorthree(val3);
+
+                                  console.log("kkkkkkkkkkk", val3);
                                 }}
                               >
-                                {val}
+                                {val3}
                               </div>
                             ))}
                           </div>
@@ -1813,7 +1827,7 @@ const FlightHome = () => {
                                 fontFamily: "sans-serif",
                               }}
                             >
-                              {from}
+                              {frommultione}
                             </span>
                             <br />
                             <p
@@ -1837,15 +1851,10 @@ const FlightHome = () => {
                                 onChange={ANOTHERCITYFROMHANDLER}
                                 className={styles.select}
                                 value={options.find(function (option) {
-                                  return option.value === from;
+                                  return option.value === frommultione;
                                 })}
                                 components={{
-                                  // SelectContainer:()=>false
-                                  // Menu: () => null,               // Remove menu
-                                  // MenuList: () => true,           // Remove menu list
-                                  // DropdownIndicator: () => null,
-                                  // Remove dropdown icon
-                                  //  SelectContainer:()=> null,
+                         
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
                               />
@@ -1859,11 +1868,7 @@ const FlightHome = () => {
                                 onChange={ANOTHERCITYFROMHANDLER}
                                 className={styles.select}
                                 components={{
-                                  // SelectContainer:()=>false
-                                  // Menu: () => null,               // Remove menu
-                                  // MenuList: () => null,           // Remove menu list
-                                  // DropdownIndicator: () => null,
-                                  // Remove dropdown icon
+                                 
                                   SelectContainer: () => null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
@@ -1952,11 +1957,7 @@ const FlightHome = () => {
                                 onChange={TOHANDLER}
                                 className={styles.select}
                                 components={{
-                                  // SelectContainer:()=>false
-                                  // Menu: () => null,               // Remove menu
-                                  // MenuList: () => null,           // Remove menu list
-                                  // DropdownIndicator: () => null,
-                                  // Remove dropdown icon
+                        
                                   SelectContainer: () => null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
@@ -2087,7 +2088,7 @@ const FlightHome = () => {
                                     fontFamily: "sans-serif",
                                   }}
                                 >
-                                  {from}
+                                  {frommultitwo}
                                 </span>
                                 <br />
                                 <p
@@ -2111,15 +2112,9 @@ const FlightHome = () => {
                                     onChange={NEWCITYFROMHANDLER}
                                     className={styles.select}
                                     value={options.find(function (option) {
-                                      return option.value === from;
+                                      return option.value === frommultitwo;
                                     })}
                                     components={{
-                                      // SelectContainer:()=>false
-                                      // Menu: () => null,               // Remove menu
-                                      // MenuList: () => true,           // Remove menu list
-                                      // DropdownIndicator: () => null,
-                                      // Remove dropdown icon
-                                      //  SelectContainer:()=> null,
                                       IndicatorSeparator: () => null, // Remove separator
                                     }}
                                   />
@@ -2133,11 +2128,6 @@ const FlightHome = () => {
                                     onChange={FROMHANDLER}
                                     className={styles.select}
                                     components={{
-                                      // SelectContainer:()=>false
-                                      // Menu: () => null,               // Remove menu
-                                      // MenuList: () => null,           // Remove menu list
-                                      // DropdownIndicator: () => null,
-                                      // Remove dropdown icon
                                       SelectContainer: () => null,
                                       IndicatorSeparator: () => null, // Remove separator
                                     }}
@@ -2209,12 +2199,6 @@ const FlightHome = () => {
                                       return option.value === from;
                                     })}
                                     components={{
-                                      // SelectContainer:()=>false
-                                      // Menu: () => null,               // Remove menu
-                                      // MenuList: () => true,           // Remove menu list
-                                      // DropdownIndicator: () => null,
-                                      // Remove dropdown icon
-                                      //  SelectContainer:()=> null,
                                       IndicatorSeparator: () => null, // Remove separator
                                     }}
                                   />
@@ -2229,11 +2213,6 @@ const FlightHome = () => {
                                     menuIsOpen={true}
                                     className={styles.select}
                                     components={{
-                                      // SelectContainer:()=>false
-                                      // Menu: () => null,               // Remove menu
-                                      // MenuList: () => null,           // Remove menu list
-                                      // DropdownIndicator: () => null,
-                                      // Remove dropdown icon
                                       SelectContainer: () => null,
                                       IndicatorSeparator: () => null, // Remove separator
                                     }}
@@ -2590,10 +2569,6 @@ const FlightHome = () => {
                   <div className={styles.DepRetContainer}>
                     {/* departure date starts */}
                     <div style={{ width: "96%", marginTop: "-5px" }}>
-                      {/* <Col
-                    style={{ borderColor: "black", width: "" }}
-                    className={styles.fromcol}
-                  > */}
                       <FormControl sx={{ width: "100%" }}>
                         <LocalizationProvider
                           sx={{ width: "100%" }}
@@ -2614,9 +2589,6 @@ const FlightHome = () => {
                                 sx={{
                                   "& .MuiInputBase-input": {
                                     height: "47px",
-                                    // border:"1px solid lightgrey",
-                                    // borderRadius: "10px",
-                                    // width: "70%",
                                   },
                                 }}
                               />
@@ -2673,17 +2645,34 @@ const FlightHome = () => {
                         className={styles.noOfTraveller}
                         style={{ marginTop: "-6px" }}
                       >
-                        <span>{travellers}</span>
+                        <span style={{ fontFamily: "sans-serif" }}>
+                          {travellers}
+                        </span>
+
                         {travellers > 0 ? (
-                          <span
-                            style={{
-                              fontSize: "16px",
-                              fontFamily: "sans-serif",
-                              fontWeight: "400",
-                            }}
-                          >
-                            Travellers
-                          </span>
+                          <>
+                            <span
+                              style={{
+                                fontSize: "16px",
+                                fontFamily: "sans-serif",
+                                fontWeight: "400",
+                              }}
+                            >
+                              Travellers
+                            </span>
+                            <br />
+                            <span
+                              style={{
+                                fontFamily: "sans-serif",
+                                fontSize: "12px",
+                                fontWeight: "400",
+                                bottom: "10px",
+                                position: "relative",
+                              }}
+                            >
+                              {cabinClassType}
+                            </span>
+                          </>
                         ) : (
                           ""
                         )}
@@ -2699,21 +2688,21 @@ const FlightHome = () => {
                     >
                       <div className={styles.adultChild}>ADULTS (12y +)</div>
                       <div className={styles.passengerButtonContainer}>
-                        {arr.map((val) => (
+                        {arr.map((val1) => (
                           <div
-                            key={val}
+                            key={val1}
                             className={`${
-                              selectedButtonColor === val
+                              selectedButtonColor === val1
                                 ? styles.clickPassenger
                                 : styles.passengerButton
                             }`}
                             onClick={() => {
                               setTogglePassengerColor(!togglePassengerColor);
-                              onClickNoOfPass(val);
-                              setSelectedButtonColor(val);
+                              onClickNoOfPass1(val1);
+                              setSelectedButtonColor(val1);
                             }}
                           >
-                            {val}
+                            {val1}
                           </div>
                         ))}
                       </div>
@@ -2725,22 +2714,28 @@ const FlightHome = () => {
                             CHILDREN (2y - 12y )
                           </div>
                           <div className={styles.passengerButtonContainer}>
-                            {ar1.map((val) => (
+                            {ar1.map((val2) => (
                               <div
-                                key={val}
-                                className={
-                                  val === 0
+                                key={val2}
+                                className={`${
+                                  selectedButtonColortwo === val2
                                     ? styles.clickPassenger
                                     : styles.passengerButton
-                                }
+                                }`}
+                                // style={{background:child > 2 ? "lightblue" : "#fff"}}
                                 onClick={() => {
                                   setTogglePassengerColor(
                                     !togglePassengerColor
                                   );
-                                  onClickNoOfPass(val);
+                                  // setSelectedButtonColor(val2);
+
+                                  onClickNoOfPass2(val2);
+                                  setSelectedButtonColortwo(val2);
+
+                                  console.log(val2);
                                 }}
                               >
-                                {val}
+                                {val2}
                               </div>
                             ))}
                           </div>
@@ -2750,22 +2745,25 @@ const FlightHome = () => {
                             INFANTS (below 2y)
                           </div>
                           <div className={styles.passengerButtonContainer}>
-                            {ar2.map((val) => (
+                            {ar2.map((val3) => (
                               <div
-                                key={val}
-                                className={
-                                  val === 0
+                                key={val3}
+                                className={`${
+                                  selectedButtonColorthree === val3
                                     ? styles.clickPassenger
                                     : styles.passengerButton
-                                }
+                                }`}
                                 onClick={() => {
                                   setTogglePassengerColor(
                                     !togglePassengerColor
                                   );
-                                  onClickNoOfPass(val);
+                                  onClickNoOfPass3(val3);
+                                  setSelectedButtonColorthree(val3);
+
+                                  console.log("kkkkkkkkkkk", val3);
                                 }}
                               >
-                                {val}
+                                {val3}
                               </div>
                             ))}
                           </div>
@@ -2940,10 +2938,7 @@ const FlightHome = () => {
                                 components={{
                                   // SelectContainer:()=>false
                                   // Menu: () => null,               // Remove menu
-                                  // MenuList: () => true,           // Remove menu list
-                                  // DropdownIndicator: () => null,
-                                  // Remove dropdown icon
-                                  //  SelectContainer:()=> null,
+
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
                               />
@@ -2957,11 +2952,6 @@ const FlightHome = () => {
                                 onChange={FROMHANDLER}
                                 className={styles.select}
                                 components={{
-                                  // SelectContainer:()=>false
-                                  // Menu: () => null,               // Remove menu
-                                  // MenuList: () => null,           // Remove menu list
-                                  // DropdownIndicator: () => null,
-                                  // Remove dropdown icon
                                   SelectContainer: () => null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
@@ -3144,16 +3134,31 @@ const FlightHome = () => {
                         <span style={{ fontFamily: "sans-serif" }}>
                           {travellers}
                         </span>
+
                         {travellers > 0 ? (
-                          <span
-                            style={{
-                              fontSize: "16px",
-                              fontFamily: "sans-serif",
-                              fontWeight: "400",
-                            }}
-                          >
-                            Travellers
-                          </span>
+                          <>
+                            <span
+                              style={{
+                                fontSize: "16px",
+                                fontFamily: "sans-serif",
+                                fontWeight: "400",
+                              }}
+                            >
+                              Travellers
+                            </span>
+                            <br />
+                            <span
+                              style={{
+                                fontFamily: "sans-serif",
+                                fontSize: "12px",
+                                fontWeight: "400",
+                                bottom: "10px",
+                                position: "relative",
+                              }}
+                            >
+                              {cabinClassType}
+                            </span>
+                          </>
                         ) : (
                           ""
                         )}
@@ -3169,21 +3174,21 @@ const FlightHome = () => {
                     >
                       <div className={styles.adultChild}>ADULTS (12y +)</div>
                       <div className={styles.passengerButtonContainer}>
-                        {arr.map((val) => (
+                        {arr.map((val1) => (
                           <div
-                            key={val}
+                            key={val1}
                             className={`${
-                              selectedButtonColor === val
+                              selectedButtonColor === val1
                                 ? styles.clickPassenger
                                 : styles.passengerButton
                             }`}
                             onClick={() => {
                               setTogglePassengerColor(!togglePassengerColor);
-                              onClickNoOfPass(val);
-                              setSelectedButtonColor(val);
+                              onClickNoOfPass1(val1);
+                              setSelectedButtonColor(val1);
                             }}
                           >
-                            {val}
+                            {val1}
                           </div>
                         ))}
                       </div>
@@ -3195,22 +3200,28 @@ const FlightHome = () => {
                             CHILDREN (2y - 12y )
                           </div>
                           <div className={styles.passengerButtonContainer}>
-                            {ar1.map((val) => (
+                            {ar1.map((val2) => (
                               <div
-                                key={val}
-                                className={
-                                  val === 0
+                                key={val2}
+                                className={`${
+                                  selectedButtonColortwo === val2
                                     ? styles.clickPassenger
                                     : styles.passengerButton
-                                }
+                                }`}
+                                // style={{background:child > 2 ? "lightblue" : "#fff"}}
                                 onClick={() => {
                                   setTogglePassengerColor(
                                     !togglePassengerColor
                                   );
-                                  onClickNoOfPass(val);
+                                  // setSelectedButtonColor(val2);
+
+                                  onClickNoOfPass2(val2);
+                                  setSelectedButtonColortwo(val2);
+
+                                  console.log(val2);
                                 }}
                               >
-                                {val}
+                                {val2}
                               </div>
                             ))}
                           </div>
@@ -3220,22 +3231,25 @@ const FlightHome = () => {
                             INFANTS (below 2y)
                           </div>
                           <div className={styles.passengerButtonContainer}>
-                            {ar2.map((val) => (
+                            {ar2.map((val3) => (
                               <div
-                                key={val}
-                                className={
-                                  val === 0
+                                key={val3}
+                                className={`${
+                                  selectedButtonColorthree === val3
                                     ? styles.clickPassenger
                                     : styles.passengerButton
-                                }
+                                }`}
                                 onClick={() => {
                                   setTogglePassengerColor(
                                     !togglePassengerColor
                                   );
-                                  onClickNoOfPass(val);
+                                  onClickNoOfPass3(val3);
+                                  setSelectedButtonColorthree(val3);
+
+                                  console.log("kkkkkkkkkkk", val3);
                                 }}
                               >
-                                {val}
+                                {val3}
                               </div>
                             ))}
                           </div>
@@ -3566,10 +3580,8 @@ const FlightHome = () => {
                       </FormControl>
                     </div>
                     {/* departure date end */}
-
-                    {/* return date starts (just for ui purpose)*/}
                   </div>
-                  {/* return */}
+
                   {/* number of travellers start */}
                   <div
                     className={styles.travellerContainermulticity}
@@ -3586,15 +3598,29 @@ const FlightHome = () => {
                         </span>
 
                         {travellers > 0 ? (
-                          <span
-                            style={{
-                              fontSize: "16px",
-                              fontFamily: "sans-serif",
-                              fontWeight: "400",
-                            }}
-                          >
-                            Travellers
-                          </span>
+                          <>
+                            <span
+                              style={{
+                                fontSize: "16px",
+                                fontFamily: "sans-serif",
+                                fontWeight: "400",
+                              }}
+                            >
+                              Travellers
+                            </span>
+                            <br />
+                            <span
+                              style={{
+                                fontFamily: "sans-serif",
+                                fontSize: "12px",
+                                fontWeight: "400",
+                                bottom: "10px",
+                                position: "relative",
+                              }}
+                            >
+                              {cabinClassType}
+                            </span>
+                          </>
                         ) : (
                           ""
                         )}
@@ -3603,33 +3629,28 @@ const FlightHome = () => {
 
                     <div
                       className={
-                        multiCity && openTravellers
-                          ? styles.traveller_modalmulti
+                        openTravellers
+                          ? styles.traveller_modal
                           : styles.noDisplay
                       }
-                      style={{
-                        borderRadius: "5px",
-                        zIndex: "",
-                        backgroundColor: "fff",
-                      }}
                     >
                       <div className={styles.adultChild}>ADULTS (12y +)</div>
                       <div className={styles.passengerButtonContainer}>
-                        {arr.map((val) => (
+                        {arr.map((val1) => (
                           <div
-                            key={val}
+                            key={val1}
                             className={`${
-                              selectedButtonColor === val
+                              selectedButtonColor === val1
                                 ? styles.clickPassenger
                                 : styles.passengerButton
                             }`}
                             onClick={() => {
                               setTogglePassengerColor(!togglePassengerColor);
-                              onClickNoOfPass(val);
-                              setSelectedButtonColor(val);
+                              onClickNoOfPass1(val1);
+                              setSelectedButtonColor(val1);
                             }}
                           >
-                            {val}
+                            {val1}
                           </div>
                         ))}
                       </div>
@@ -3641,22 +3662,28 @@ const FlightHome = () => {
                             CHILDREN (2y - 12y )
                           </div>
                           <div className={styles.passengerButtonContainer}>
-                            {ar1.map((val) => (
+                            {ar1.map((val2) => (
                               <div
-                                key={val}
-                                className={
-                                  val === 0
+                                key={val2}
+                                className={`${
+                                  selectedButtonColortwo === val2
                                     ? styles.clickPassenger
                                     : styles.passengerButton
-                                }
+                                }`}
+                                // style={{background:child > 2 ? "lightblue" : "#fff"}}
                                 onClick={() => {
                                   setTogglePassengerColor(
                                     !togglePassengerColor
                                   );
-                                  onClickNoOfPass(val);
+                                  // setSelectedButtonColor(val2);
+
+                                  onClickNoOfPass2(val2);
+                                  setSelectedButtonColortwo(val2);
+
+                                  console.log(val2);
                                 }}
                               >
-                                {val}
+                                {val2}
                               </div>
                             ))}
                           </div>
@@ -3666,28 +3693,30 @@ const FlightHome = () => {
                             INFANTS (below 2y)
                           </div>
                           <div className={styles.passengerButtonContainer}>
-                            {ar2.map((val) => (
+                            {ar2.map((val3) => (
                               <div
-                                key={val}
-                                className={
-                                  val === 0
+                                key={val3}
+                                className={`${
+                                  selectedButtonColorthree === val3
                                     ? styles.clickPassenger
                                     : styles.passengerButton
-                                }
+                                }`}
                                 onClick={() => {
                                   setTogglePassengerColor(
                                     !togglePassengerColor
                                   );
-                                  onClickNoOfPass(val);
+                                  onClickNoOfPass3(val3);
+                                  setSelectedButtonColorthree(val3);
+
+                                  console.log("kkkkkkkkkkk", val3);
                                 }}
                               >
-                                {val}
+                                {val3}
                               </div>
                             ))}
                           </div>
                         </div>
                       </div>
-
                       {/* for children and inf */}
                       {/* economy */}
                       <div
@@ -3829,7 +3858,7 @@ const FlightHome = () => {
                                 fontFamily: "sans-serif",
                               }}
                             >
-                              {from}
+                              {frommultione}
                             </span>
                             <br />
                             <p
@@ -3853,15 +3882,9 @@ const FlightHome = () => {
                                 onChange={ANOTHERCITYFROMHANDLER}
                                 className={styles.select}
                                 value={options.find(function (option) {
-                                  return option.value === from;
+                                  return option.value === frommultione;
                                 })}
                                 components={{
-                                  // SelectContainer:()=>false
-                                  // Menu: () => null,               // Remove menu
-                                  // MenuList: () => true,           // Remove menu list
-                                  // DropdownIndicator: () => null,
-                                  // Remove dropdown icon
-                                  //  SelectContainer:()=> null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
                               />
@@ -3875,11 +3898,6 @@ const FlightHome = () => {
                                 onChange={ANOTHERCITYFROMHANDLER}
                                 className={styles.select}
                                 components={{
-                                  // SelectContainer:()=>false
-                                  // Menu: () => null,               // Remove menu
-                                  // MenuList: () => null,           // Remove menu list
-                                  // DropdownIndicator: () => null,
-                                  // Remove dropdown icon
                                   SelectContainer: () => null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
@@ -4099,7 +4117,7 @@ const FlightHome = () => {
                                     fontFamily: "sans-serif",
                                   }}
                                 >
-                                  {from}
+                                  {frommultitwo}
                                 </span>
                                 <br />
                                 <p
@@ -4123,7 +4141,7 @@ const FlightHome = () => {
                                     onChange={NEWCITYFROMHANDLER}
                                     className={styles.select}
                                     value={options.find(function (option) {
-                                      return option.value === from;
+                                      return option.value === frommultitwo;
                                     })}
                                     components={{
                                       IndicatorSeparator: () => null, // Remove separator
