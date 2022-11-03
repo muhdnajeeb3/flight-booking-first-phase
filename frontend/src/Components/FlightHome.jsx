@@ -428,7 +428,7 @@ const FlightHome = () => {
                                   return option.value === from;
                                 })}
                                 components={{
-                                
+                                  DropdownIndicator: () => null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
                                 getOptionLabel={(e) => (
@@ -528,6 +528,7 @@ const FlightHome = () => {
                                   return option.value === from;
                                 })}
                                 components={{
+                                  DropdownIndicator: () => null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
                               />
@@ -933,6 +934,7 @@ const FlightHome = () => {
                                   return option.value === from;
                                 })}
                                 components={{
+                                  DropdownIndicator: () => null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
                               />
@@ -1016,6 +1018,7 @@ const FlightHome = () => {
                                   return option.value === from;
                                 })}
                                 components={{
+                                  DropdownIndicator: () => null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
                               />
@@ -1420,6 +1423,7 @@ const FlightHome = () => {
                                   return option.value === from;
                                 })}
                                 components={{
+                                  DropdownIndicator: () => null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
                               />
@@ -1502,6 +1506,8 @@ const FlightHome = () => {
                                   return option.value === from;
                                 })}
                                 components={{
+                                  DropdownIndicator: () => null,
+
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
                               />
@@ -1866,7 +1872,7 @@ const FlightHome = () => {
                                   return option.value === frommultione;
                                 })}
                                 components={{
-                         
+                                  DropdownIndicator: () => null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
                               />
@@ -1923,7 +1929,7 @@ const FlightHome = () => {
                                 fontFamily: "sans-serif",
                               }}
                             >
-                              {to}
+                              {tomultione}
                             </span>
                             <br />
                             <p
@@ -1943,14 +1949,14 @@ const FlightHome = () => {
                                 options={options}
                                 styles={{ width: "100%" }}
                                 // onChange={() =>setSelect(null)}
-                                onChange={TOHANDLER}
+                                onChange={ADDANOTHERTOHANDLER}
                                 menuIsOpen={true}
                                 className={styles.select}
                                 value={options.find(function (option) {
                                   return option.value === from;
                                 })}
                                 components={{
-                           
+                                  DropdownIndicator: () => null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
                               />
@@ -2122,6 +2128,7 @@ const FlightHome = () => {
                                       return option.value === frommultitwo;
                                     })}
                                     components={{
+                                  DropdownIndicator: () => null,
                                       IndicatorSeparator: () => null, // Remove separator
                                     }}
                                   />
@@ -2180,7 +2187,7 @@ const FlightHome = () => {
                                     fontFamily: "sans-serif",
                                   }}
                                 >
-                                  {to}
+                                  {tomultitwo}
                                 </span>
                                 <br />
                                 <p
@@ -2200,12 +2207,13 @@ const FlightHome = () => {
                                     options={options}
                                     styles={{ width: "100%" }}
                                     // onChange={() =>setSelect(null)}
-                                    onChange={TOHANDLER}
+                                    onChange={NEWCITYTOHANDLER}
                                     className={styles.select}
                                     value={options.find(function (option) {
                                       return option.value === from;
                                     })}
                                     components={{
+                                  DropdownIndicator: () => null,
                                       IndicatorSeparator: () => null, // Remove separator
                                     }}
                                   />
@@ -2322,6 +2330,7 @@ const FlightHome = () => {
           </div>
         </>
       ) : (
+        // bigscreen
         <>
           <div
             className={styles.flight_container}
@@ -2451,6 +2460,7 @@ const FlightHome = () => {
                                   return option.value === from;
                                 })}
                                 components={{
+                                  DropdownIndicator: () => null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
                                 getOptionLabel={(e) => (
@@ -2546,6 +2556,7 @@ const FlightHome = () => {
                                   return option.value === from;
                                 })}
                                 components={{
+                                  DropdownIndicator: () => null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
                               />
@@ -2943,8 +2954,7 @@ const FlightHome = () => {
                                   return option.value === from;
                                 })}
                                 components={{
-                                  // SelectContainer:()=>false
-                                  // Menu: () => null,               // Remove menu
+                                  DropdownIndicator: () => null,                                  // Remove menu
 
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
@@ -3028,6 +3038,7 @@ const FlightHome = () => {
                                   return option.value === from;
                                 })}
                                 components={{
+                                  DropdownIndicator: () => null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
                               />
@@ -3947,7 +3958,7 @@ const FlightHome = () => {
                                 fontFamily: "sans-serif",
                               }}
                             >
-                              {tomultitwo}
+                              {tomultione}
                             </span>
                             <br />
                             <p
