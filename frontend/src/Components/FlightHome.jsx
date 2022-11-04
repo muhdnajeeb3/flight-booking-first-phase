@@ -927,19 +927,7 @@ const FlightHome = () => {
                               />
                             </>
                           ) : (
-                            <>
-                              <Select
-                                options={options}
-                                styles={{ width: "100%" }}
-                                // onChange={() =>setSelect(null)}
-                                onChange={FROMHANDLER}
-                                className={styles.select}
-                                components={{
-                                  SelectContainer: () => null,
-                                  IndicatorSeparator: () => null, // Remove separator
-                                }}
-                              />
-                            </>
+                            ""
                           )}
                         </Col>
                       </div>
@@ -1011,20 +999,7 @@ const FlightHome = () => {
                               />
                             </>
                           ) : (
-                            <>
-                              <Select
-                                options={options}
-                                styles={{ width: "100%" }}
-                                // onChange={() =>setSelect(null)}
-                                onChange={TOHANDLER}
-                                menuIsOpen={true}
-                                className={styles.select}
-                                components={{
-                                  SelectContainer: () => null,
-                                  IndicatorSeparator: () => null, // Remove separator
-                                }}
-                              />
-                            </>
+                            ""
                           )}
 
                           {/* <Select options={options} styles={{width:"100%"}} /> */}
@@ -1416,19 +1391,7 @@ const FlightHome = () => {
                               />
                             </>
                           ) : (
-                            <>
-                              <Select
-                                options={options}
-                                styles={{ width: "100%" }}
-                                // onChange={() =>setSelect(null)}
-                                onChange={FROMHANDLER}
-                                className={styles.select}
-                                components={{
-                                  SelectContainer: () => null,
-                                  IndicatorSeparator: () => null, // Remove separator
-                                }}
-                              />
-                            </>
+                           ""
                           )}
                         </Col>
                       </div>
@@ -2592,9 +2555,14 @@ const FlightHome = () => {
                                 size="4x"
                                 {...params}
                                 sx={{
+                                  svg: { color: "" },
+                                  // input: { color: "", height: "5px",marginLeft:"5rem" },
+
                                   "& .MuiInputBase-input": {
                                     height: "47px",
+
                                   },
+                                   
                                 }}
                               />
                             )}

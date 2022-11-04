@@ -2,6 +2,8 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { DatePicker } from "@mui/x-date-pickers";
 import styles from "../../Components/flight.module.css";
+import ConnectingAirportsIcon from "@mui/icons-material/ConnectingAirports";
+
 import Select from "react-select";
 import "./FirstSection.css";
 import { FormControl, MenuItem, TextField } from "@mui/material";
@@ -76,6 +78,14 @@ function Search() {
   const TOHANDLER = (e) => {
     // setSelectTo(false);
     setTo(e.value);
+  };
+  const ROUNDTRIPFROMHANDLER = (e) => {
+    setSelectOne(false);
+    setFrom(e.value);
+  };
+  const MULTICITYFROMHANDLER = (e) => {
+    setSelectTwo(false);
+    setFrom(e.value);
   };
   const onClickModal = (e) => {
     setOpenTravellers(!openTravellers);
@@ -162,6 +172,7 @@ function Search() {
   //   slidesToScroll: 1,
   // };
   const lap = window.innerWidth > 1071;
+  const mobile = window.innerWidth < 600;
 
   return (
     <div className="">
@@ -175,7 +186,6 @@ function Search() {
             display: "flex",
             flexDirection: "row",
             // maxHeight:"2rem"
-
           }}
         >
           <div
@@ -187,8 +197,7 @@ function Search() {
               padding: "4px 9px 0",
               // padding:"5px",
               marginLeft: "",
-            maxHeight:"4.5rem"
-
+              maxHeight: "4.5rem",
             }}
           >
             <h5
@@ -227,8 +236,7 @@ function Search() {
                   borderRadius: "4px",
                   width: "160px",
                   padding: "10px",
-            maxHeight:"4.5rem"
-
+                  maxHeight: "4.5rem",
                 }}
                 onClick={() => setSelect(!select)}
               >
@@ -291,6 +299,13 @@ function Search() {
                   </span>
                 </FormControl>
               </div>
+              {/* <div
+                        className={styles.connectingIcon} 
+                        style={{width:"20px",height:"20px",background:"none",justifyContent:"center",top:"1rem",position:"relative"}}
+                        onClick={SWITCHHANDLER}
+                      >
+                        <ConnectingAirportsIcon fontSize="large" style={{color:"darkblue"}}  />
+                      </div> */}
               <div
                 className="col-2"
                 style={{
@@ -298,8 +313,7 @@ function Search() {
                   borderRadius: "4px",
                   width: "160px",
                   padding: "10px",
-            maxHeight:"4.5rem"
-
+                  maxHeight: "4.5rem",
                 }}
                 onClick={() => setSelectTo(!selectTo)}
               >
@@ -311,7 +325,6 @@ function Search() {
                     marginBottom: "5px",
                     // marginTop: "5px",
                     color: "#008cff",
-
                   }}
                 >
                   TO
@@ -360,8 +373,7 @@ function Search() {
                   borderRadius: "4px",
                   width: "160px",
                   padding: "10px",
-            maxHeight:"4.5rem"
-
+                  maxHeight: "4.5rem",
                 }}
               >
                 <h5
@@ -402,9 +414,14 @@ function Search() {
                           {...params}
                           sx={{
                             svg: { color: "#fff" },
-                            input: { color: "#fff", height: "5px" },
+                            input: {
+                              color: "#fff",
+                              height: "5px",
+                              borderColor: "none",
+                              fontSize: "13px",
+                            },
                             label: { color: "#fff" },
-                            border:{ color:"green"}
+                            borderColor: { color: "none" },
                           }}
                         />
                       )}
@@ -419,8 +436,7 @@ function Search() {
                   borderRadius: "4px",
                   width: "160px",
                   padding: "10px",
-            maxHeight:"4.5rem"
-
+                  maxHeight: "4.5rem",
                 }}
               >
                 <h5
@@ -456,7 +472,11 @@ function Search() {
                           {...params}
                           sx={{
                             svg: { color: "#fff" },
-                            input: { color: "#fff", height: "5px" },
+                            input: {
+                              color: "#fff",
+                              height: "5px",
+                              fontSize: "13px",
+                            },
                             label: { color: "#fff" },
                           }}
                         />
@@ -472,9 +492,8 @@ function Search() {
                   borderRadius: "7px",
                   width: "auto",
                   padding: "10px",
-                  // minHeight: "5rem",
-            maxHeight:"4.5rem"
-
+                  minHeight: mobile ? "5rem" : "",
+                  maxHeight: "4.5rem",
                 }}
               >
                 <h5
@@ -527,7 +546,7 @@ function Search() {
                       ) : (
                         ""
                       )}
-                      
+
                       <span
                         style={{
                           fontFamily: "sans-serif",
@@ -758,7 +777,9 @@ function Search() {
                   borderRadius: "7px",
                   width: "160px",
                   padding: "10px",
+                  maxHeight: "4.5rem",
                 }}
+                onClick={() => setSelectOne(!selectOne)}
               >
                 <h5
                   style={{
@@ -776,27 +797,36 @@ function Search() {
                   sx={{ width: "100%" }}
                   style={{ borderColor: "#fff" }}
                 >
-                  <Select
+                  {selectOne ? (
+                    <>
+                      <Select
+                        options={options}
+                        styles={{ width: "100%" }}
+                        menuIsOpen={true}
+                        // onChange={() =>setSelect(null)}
+                        onChange={ROUNDTRIPFROMHANDLER}
+                        // className={styles.select}
+                        value={options.find(function (option) {
+                          return option.value === from;
+                        })}
+                        components={{
+                          DropdownIndicator: () => null,
+                          IndicatorSeparator: () => null, // Remove separator
+                        }}
+                      />
+                    </>
+                  ) : (
+                    ""
+                  )}
+                  <span
                     style={{
                       color: "#fff",
-                      height: "20px",
-                      borderColor: "white",
+                      fontFamily: "sans-serif",
+                      fontWeight: "500",
                     }}
-                    fullWidth
-                    sx={{ width: "100%" }}
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={from}
-                    // label="from"
-                    placeholder={from}
-                    // className="datepicker"
-                    onChange={(e) => setFrom(e.target.value)}
                   >
-                    <MenuItem value={"New Delhi"}>New Delhi</MenuItem>
-                    <MenuItem value={"Mumbai"}>Mumbai</MenuItem>
-                    <MenuItem value={"Pune"}>Pune</MenuItem>
-                    <MenuItem value={"Bengaluru"}>Bengaluru</MenuItem>
-                  </Select>
+                    {from}
+                  </span>
                 </FormControl>
               </div>
               <div
@@ -806,7 +836,9 @@ function Search() {
                   borderRadius: "7px",
                   width: "160px",
                   padding: "10px",
+                  maxHeight: "4.5rem",
                 }}
+                onClick={() => setSelectOneto(!selectOneto)}
               >
                 <h5
                   style={{
@@ -821,20 +853,36 @@ function Search() {
                   TO
                 </h5>
                 <FormControl sx={{ width: "100%" }}>
-                  <Select
-                    style={{ color: "#fff", height: "20px" }}
-                    sx={{ width: "100%" }}
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={to}
-                    label={to}
-                    onChange={(e) => setTo(e.target.value)}
+                  {selectOneto ? (
+                    <>
+                      <Select
+                        options={options}
+                        styles={{ width: "100%" }}
+                        // onChange={() =>setSelect(null)}
+                        menuIsOpen={true}
+                        onChange={TOHANDLER}
+                        // className={styles.select}
+                        value={options.find(function (option) {
+                          return option.value === from;
+                        })}
+                        components={{
+                          DropdownIndicator: () => null,
+                          IndicatorSeparator: () => null, // Remove separator
+                        }}
+                      />
+                    </>
+                  ) : (
+                    ""
+                  )}
+                  <span
+                    style={{
+                      color: "#fff",
+                      fontFamily: "sans-serif",
+                      fontWeight: "500",
+                    }}
                   >
-                    <MenuItem value={"Bengaluru"}>Bengaluru</MenuItem>
-                    <MenuItem value={"Mumbai"}>Mumbai</MenuItem>
-                    <MenuItem value={"Pune"}>Pune</MenuItem>
-                    <MenuItem value={"New Delhi"}>New Delhi</MenuItem>
-                  </Select>
+                    {to}
+                  </span>
                 </FormControl>
               </div>
               <div
@@ -844,6 +892,7 @@ function Search() {
                   borderRadius: "7px",
                   width: "160px",
                   padding: "10px",
+                  maxHeight: "4.5rem",
                 }}
               >
                 <h5
@@ -884,7 +933,11 @@ function Search() {
                           {...params}
                           sx={{
                             svg: { color: "#fff" },
-                            input: { color: "#fff", height: "5px" },
+                            input: {
+                              color: "#fff",
+                              height: "5px",
+                              fontSize: "13px",
+                            },
                             label: { color: "#fff" },
                           }}
                         />
@@ -900,6 +953,7 @@ function Search() {
                   borderRadius: "7px",
                   width: "160px",
                   padding: "10px",
+                  maxHeight: "4.5rem",
                 }}
               >
                 <h5
@@ -935,7 +989,11 @@ function Search() {
                           {...params}
                           sx={{
                             svg: { color: "#fff" },
-                            input: { color: "#fff", height: "5px" },
+                            input: {
+                              color: "#fff",
+                              height: "5px",
+                              fontSize: "13px",
+                            },
                             label: { color: "#fff" },
                           }}
                         />
@@ -951,7 +1009,9 @@ function Search() {
                   borderRadius: "7px",
                   width: "auto",
                   padding: "10px",
-                  minHeight: "5rem",
+                  minHeight: mobile ? "5rem" : "",
+
+                  maxHeight: "4.5rem",
                 }}
               >
                 <h5
@@ -1235,6 +1295,7 @@ function Search() {
                   borderRadius: "7px",
                   width: "360px",
                   padding: "10px",
+                  maxHeight: "4.5rem",
                 }}
               >
                 <h5
@@ -1246,6 +1307,7 @@ function Search() {
                     // marginTop: "5px",
                     color: "#008cff",
                   }}
+                  onClick={() => setSelectTwo(!selectTwo)}
                 >
                   FROM
                 </h5>
@@ -1253,31 +1315,36 @@ function Search() {
                   sx={{ width: "100%" }}
                   style={{ borderColor: "#fff" }}
                 >
-                  <Select
-                    options={options}
-                    styles={{ width: "100%" }}
-                    // menuIsOpen={true}
-                    // onChange={() =>setSelect(null)}
-                    onChange={FROMHANDLER}
-                    className={styles.select}
-                    value={options.find(function (option) {
-                      return option.value === from;
-                    })}
-                    components={{
-                      IndicatorSeparator: () => null, // Remove separator
-                    }}
-                    getOptionLabel={(e) => (
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
+                  {selectTwo ? (
+                    <>
+                      <Select
+                        options={options}
+                        styles={{ width: "100%" }}
+                        menuIsOpen={true}
+                        // onChange={() =>setSelect(null)}
+                        onChange={MULTICITYFROMHANDLER}
+                        // className={styles.select}
+                        value={options.find(function (option) {
+                          return option.value === from;
+                        })}
+                        components={{
+                          DropdownIndicator: () => null,
+                          IndicatorSeparator: () => null, // Remove separator
                         }}
-                      >
-                        {e.icon}
-                        <span style={{ marginLeft: 5 }}>{e.label}</span>
-                      </div>
-                    )}
-                  />
+                      />
+                    </>
+                  ) : (
+                    ""
+                  )}
+                  <span
+                    style={{
+                      color: "#fff",
+                      fontFamily: "sans-serif",
+                      fontWeight: "500",
+                    }}
+                  >
+                    {from}
+                  </span>
                 </FormControl>
               </div>
 
@@ -1288,7 +1355,9 @@ function Search() {
                   borderRadius: "7px",
                   width: "auto",
                   padding: "10px",
-                  minHeight: "5rem",
+                  minHeight: mobile ? "5rem" : "",
+
+                  maxHeight: "4.5rem",
                 }}
               >
                 <h5
@@ -1299,6 +1368,7 @@ function Search() {
                     marginBottom: "5px",
                     // marginTop: "5px",
                     color: "#008cff",
+                    maxHeight: "4.5rem",
                   }}
                 >
                   PASSENGERS&CLASS
@@ -1578,6 +1648,7 @@ function Search() {
               top: "3rem",
               position: "relative",
               minHeight: "3rem",
+              // maxHeight:"2rem",
               background: "transparent",
 
               display: "flex",
@@ -1598,6 +1669,7 @@ function Search() {
                 backgroundColor: "#364c63",
                 borderRadius: "6px 0 0 6px",
                 maxWidth: "25%",
+                maxHeight: "3rem",
               }}
             >
               {/* <input type="checkbox" name="fare" className="fareradio" style={{borderRadius:"40px",marginRight:"5px"}} /> */}
@@ -1615,6 +1687,7 @@ function Search() {
                 backgroundColor: "#364c63",
                 borderRadius: " 0 0 ",
                 maxWidth: "25%",
+                maxHeight: "3rem",
               }}
             >
               {/* <input type="radio" name="fare" className="fareradio"/> */}
@@ -1630,6 +1703,7 @@ function Search() {
                 backgroundColor: "#364c63",
                 borderRadius: " 0 0 ",
                 maxWidth: "25%",
+                maxHeight: "3rem",
               }}
             >
               {/* <input type="radio" name="fare" className="fareradio"/> */}
@@ -1645,6 +1719,7 @@ function Search() {
                 backgroundColor: "#364c63",
                 borderRadius: " 0 0 ",
                 maxWidth: "25%",
+                maxHeight: "3rem",
               }}
             >
               {/* <input type="radio" name="fare" className="fareradio"/> */}
@@ -1660,6 +1735,7 @@ function Search() {
                 backgroundColor: "#364c63",
                 borderRadius: " 0 6px 6px 0 ",
                 maxWidth: "25%",
+                maxHeight: "3rem",
               }}
             >
               {/* <input type="radio" name="fare" className="fareradio"/> */}
