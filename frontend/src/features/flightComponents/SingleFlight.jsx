@@ -25,7 +25,7 @@ export const SingleFlight = ({
   stops,
   _id,
 }) => {
-  // const [viewPrices, setViewPrices] = useState(false);
+  const [viewFlightdetails, setViewFlightdetails] = useState(false);
   const [flightDetails, setFlightDetails] = useState(true);
   const [fareSummary, setFareSummary] = useState(false);
   const [cancellation, setCancellation] = useState(false);
@@ -168,7 +168,7 @@ export const SingleFlight = ({
           </div> */}
         </div>
         <div className={styles.details}>
-          <span>View Flight Details</span>
+          <span onClick={()=>setViewFlightdetails(!viewFlightdetails)}>View Flight Details</span>
         </div>
       </div>
       {/* {viewPrices.map((item) => (
@@ -177,8 +177,11 @@ export const SingleFlight = ({
         </>
       ))} */}
       {/* view flight details */}
-
-      <div className={styles.flightdetails} key={_id}>
+      {
+        viewFlightdetails ? 
+        (
+          <>
+          <div className={styles.flightdetails} key={_id}>
         {/* <div className={styles.maincontainer}> */}
 
         <Row
@@ -739,6 +742,12 @@ export const SingleFlight = ({
 
         {/* </div> */}
       </div>
+
+          </>
+        ) : ("")
+      }
+
+      
     </>
   );
 };
