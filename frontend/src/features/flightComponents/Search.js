@@ -18,7 +18,7 @@ function Search() {
   // const [selectedButtonColor, setSelectedButtonColor] = useState(
   //   location.state.selectedButtonColor
   // );
-  const [travellers, setTravellers] = React.useState(location.state.travellers);
+  const [travellers, setTravellers] = React.useState(location.state?.travellers);
   const [adult1, setAdult1] = useState(1);
   const [child, setChild] = useState(0);
   const [infant, setInfant] = useState(0);
@@ -30,7 +30,7 @@ function Search() {
   const [cabinClassType, setCabinClassType] = useState("");
 
   const [openTravellers, setOpenTravellers] = useState(
-    location.state.openTravellers
+    location.state?.openTravellers
   );
   // const [togglePassengerColor, setTogglePassengerColor] = useState(
   //   location.state.togglePassengerColor
@@ -48,10 +48,10 @@ function Search() {
   const [selectOneto, setSelectOneto] = useState(false);
   const [selectTwoto, setSelectTwoto] = useState(false);
 
-  const [from, setFrom] = React.useState(location.state.from);
-  const [to, setTo] = React.useState(location.state.to);
-  const [departure, setDeparture] = React.useState(location.state.departure);
-  const [retrn, setRetrn] = React.useState(location.state.retrn);
+  const [from, setFrom] = React.useState(location.state?.from);
+  const [to, setTo] = React.useState(location.state?.to);
+  const [departure, setDeparture] = React.useState(location.state?.departure);
+  const [retrn, setRetrn] = React.useState(location.state?.retrn);
   const arr = [1, 2, 3, 4, 5, 6, 7, 8];
   let ar1 = [0, 1, 2, 3, 4, 5];
   let ar2 = [0, 1, 2, 3, 4];
@@ -92,10 +92,6 @@ function Search() {
     e.stopPropagation();
   };
 
-  const onClickNoOfPass = (val) => {
-    setTravellers(val);
-    console.log(val);
-  };
   const OnewayHandler = () => {
     setOneway(true);
     setMultiCity(false);
@@ -117,18 +113,7 @@ function Search() {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    navigate("/flights", {
-      state: {
-        from,
-        to,
-        departure,
-        retrn,
-        travellers,
-        selectedButtonColor,
-        openTravellers,
-        togglePassengerColor,
-      },
-    });
+    navigate("/flights");
   };
   const SEARCHFROMHANDLER = (e) => {
     setFrom(e.target.value);
@@ -1603,11 +1588,6 @@ function Search() {
                     </div>
                   </div>
 
-                  {/* <div className={styles.buttonContainer} style={{width:"100%",display:"grid",justifyContent:"center",marginLeft:"8rem"}}>
-        <div type="submit"  onClick={handleSubmit}>
-          Search
-        </div>
-      </div> */}
                 </div>
               </div>
               <div
