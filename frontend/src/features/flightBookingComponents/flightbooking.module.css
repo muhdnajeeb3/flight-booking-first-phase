@@ -251,15 +251,6 @@ background-image: linear-gradient(97deg,#53b2fe,#065af3 130%);
   outline: none;
 }
 
-input:focus {
-  outline: none ! important;
-  border-color: #719ECE;
-  box-shadow: 0 0 10px #719ECE;
-  }
-  textarea:focus {
-  outline: none ! important;
-  border-color: #719ECE;
-  }
 .sendtouser{
   display: flex;
   flex-direction: row !important;

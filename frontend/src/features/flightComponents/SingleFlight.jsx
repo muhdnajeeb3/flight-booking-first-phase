@@ -143,7 +143,10 @@ export const SingleFlight = ({
             </div>
             <div className={styles.inner_cont}>
               {/* <FontAwesomeIcon icon={faIndianRupeeSign} /> */}
-              <b className={styles.price}>{fare}/-</b>
+              <b className={styles.price} >
+              <FontAwesomeIcon icon={faIndianRupeeSign} size="sm" style={{marginRight:"3px"}} />
+                
+                {fare}/-</b>
             </div>
             <div className={styles.btnbook}>
               <Button
@@ -168,7 +171,7 @@ export const SingleFlight = ({
           </div> */}
         </div>
         <div className={styles.details}>
-          <span onClick={()=>setViewFlightdetails(!viewFlightdetails)}>View Flight Details</span>
+          <span onClick={()=>setViewFlightdetails(!viewFlightdetails)}>{viewFlightdetails ? "Hide Flight details" : "View Flight Details"}</span>
         </div>
       </div>
       {/* {viewPrices.map((item) => (
@@ -213,13 +216,16 @@ export const SingleFlight = ({
           <Button
             style={{
               width: "25%",
+              fontWeight:"400",
               fontSize: "12px",
               color: cancellation ? "#fff" : "black",
               background: cancellation ? "#0091ff" : "#fff",
+              
+              
             }}
             onClick={CANCELLATIONHANDLER}
           >
-            <span>CANCELLATION</span>
+            <span>CANCEL LATION</span>
           </Button>
           <Button
             style={{

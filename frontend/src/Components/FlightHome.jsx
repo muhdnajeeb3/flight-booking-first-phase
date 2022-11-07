@@ -28,7 +28,9 @@ const FlightHome = () => {
   const [tomultitwo, setTomultitwo] = React.useState("Mumbai");
   const [to, setTo] = React.useState("Kolkata");
   const [departure, setDeparture] = React.useState(new Date());
-  const [departureaddanother, setDepartureaddanother] = React.useState(new Date());
+  const [departureaddanother, setDepartureaddanother] = React.useState(
+    new Date()
+  );
   const [departurenewcity, setDeparturenewcity] = React.useState(new Date());
   const [retrn, setRetrn] = React.useState(new Date());
   const [selectedButtonColor, setSelectedButtonColor] = useState(1);
@@ -45,7 +47,7 @@ const FlightHome = () => {
   const [selectTwo, setSelectTwo] = useState(false);
   const [selectOneto, setSelectOneto] = useState(false);
   const [selectTwoto, setSelectTwoto] = useState(false);
-  // 
+  //
   const [selectAnotherCity, setSelectAnotherCity] = useState(false);
   const [selectNewCity, setSelectNewCity] = useState(false);
   const [flightopen, setFlightopen] = useState(false);
@@ -78,7 +80,6 @@ const FlightHome = () => {
     { value: "Kolkata", label: "Kolkata" },
     { value: "Mumbai", label: "Mumbai" },
     { value: "Banglore", label: "Banglore" },
-
   ];
   const onClickNoOfPass1 = (val1) => {
     setAdult1(val1);
@@ -113,17 +114,20 @@ const FlightHome = () => {
     });
   };
   const MULTICITYHANDLER = () => {
-    setOneWay("");
-    setRoundTrip("");
+    setOneWay(false);
+    setRoundTrip(false);
+    setMultiCity(true)
   };
   const ROUNDTRIP = () => {
-    setMultiCity("");
-    setOneWay("");
+    setMultiCity(false);
+    setOneWay(false);
+    setRoundTrip(true)
   };
 
-  const ONEWAY = (e) => {
-    setMultiCity("");
-    setRoundTrip("");
+  const ONEWAY = () => {
+    setMultiCity(false);
+    setRoundTrip(false);
+    setOneWay(true)
   };
   const HANDLEADD = () => {
     const newcity = [...newCity, []];
@@ -141,7 +145,6 @@ const FlightHome = () => {
     setSelect(false);
     setFrom(e.value);
     // e.stopPropagation();
-
   };
   const ROUNDTRIPFROMHANDLER = (e) => {
     setSelectOne(false);
@@ -274,7 +277,11 @@ const FlightHome = () => {
             }}
           >
             <div className={styles.tripInternational}>
-              <div className={styles.multiple_trip}>
+              <div className={styles.multiple_trip} style={{
+              display: ismobile ? "" : "none",
+              display: flightopen ? "none" : "",
+              
+            }}>
                 <div className={styles.orm}>
                   <Button
                     className="radiobutton"
@@ -293,8 +300,8 @@ const FlightHome = () => {
                           value="select"
                           name="select"
                           className="onewayinput"
-                          onChange={ONEWAY}
-                          onClick={() => setOneWay(true)}
+                          onClick={ONEWAY}
+                          
                         />
                       </div>
                       <div>
@@ -322,8 +329,8 @@ const FlightHome = () => {
                           className="onewayinput"
                           value="select1"
                           name="select"
-                          onChange={ROUNDTRIP}
-                          onClick={() => setRoundTrip(true)}
+                          onClick={ROUNDTRIP}
+                         
                         />
                       </div>
                       <div>
@@ -350,8 +357,8 @@ const FlightHome = () => {
                           className="onewayinput"
                           value="select2"
                           name="select"
-                          onClick={() => setMultiCity(true)}
-                          onChange={MULTICITYHANDLER}
+                          
+                          onClick={MULTICITYHANDLER}
                         />
                       </div>
                       <div>
@@ -359,6 +366,89 @@ const FlightHome = () => {
                       </div>
                     </div>
                   </Button>
+                </div>
+              </div>
+              {/* mobile */}
+              <div className={styles.multiple_trip} 
+              style={{
+              display: ismobile ? "" : "none",
+              display: flightopen ? "" : "none",
+              // marginRight:"2rem"
+              right:"10px",
+              position:"relative"
+              
+            }}>
+                <div className={styles.orm} style={{ width: "100%" }}>
+                  <Row
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      width: "100%",
+                      background:"#fff"
+                    }}
+                    className={styles.multibtnrow}
+                  >
+                    <Button
+                    onClick={ONEWAY}
+                    
+                      style={{
+                        width: "33.3%",
+                        borderRadius: "4px",
+                        border:"1px solid none",
+                        fontSize: "12px",
+                        fontWeight: "900",
+                        // boxShadow: "0 1px 6px 0 rgb(0 0 0 / 20%)",
+                        padding: "5px",
+                        fontFamily: "sans-serif",
+                        background:oneWay ? "rgb(0, 140, 255)" : "#fff",
+                        color:oneWay ? "#fff" : "black"
+                      }}
+                      variant=""
+                      
+                    >
+                      <span>ONE WAY</span>
+                    </Button>
+                    <Button
+                      style={{
+                        width: "33.3%",
+                        borderRadius: "4px",
+                        // border:"1px solid #fff",
+                        
+                        fontSize: "12px",
+                        fontWeight: "900",
+                        // boxShadow: "0 1px 6px 0 rgb(0 0 0 / 20%)",
+                        padding: "5px",
+                        fontFamily: "sans-serif",
+                        background:roundTrip ? "rgb(0, 140, 255)" : "#fff",
+                        color:roundTrip ? "#fff" : "black"
+
+                      }}
+                      variant=""
+                      onClick={ROUNDTRIP}
+                          
+                    >
+                      <span>ROUNDTRIP</span>
+                    </Button>
+                    <Button
+                      style={{
+                        width: "33.4%",
+                        borderRadius: "4px",
+                        border:"none",
+                        fontSize: "12px",
+                        fontWeight: "900",
+                        // boxShadow: "0 1px 6px 0 rgb(0 0 0 / 20%)",
+                        padding: "5px",
+                        fontFamily: "sans-serif",
+                        background:multiCity ? "rgb(0, 140, 255)" : "#fff",
+                        color:multiCity ? "#fff" : "black"
+                      }}
+                      variant=""
+                      
+                      onClick={MULTICITYHANDLER}
+                    >
+                      <span>MULTICITY</span>
+                    </Button>
+                  </Row>
                 </div>
               </div>
               <div className={styles.book}>
@@ -421,7 +511,6 @@ const FlightHome = () => {
                                 options={options}
                                 styles={{ width: "100%" }}
                                 menuIsOpen={true}
-                                
                                 // onChange={() =>setSelect(null)}
                                 onChange={FROMHANDLER}
                                 className={styles.select}
@@ -429,7 +518,6 @@ const FlightHome = () => {
                                   return option.value === from;
                                 })}
                                 components={{
-                                  
                                   DropdownIndicator: () => null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
@@ -524,7 +612,7 @@ const FlightHome = () => {
                               />
                             </>
                           ) : (
-                           ""
+                            ""
                           )}
 
                           {/* <Select options={options} styles={{width:"100%"}} /> */}
@@ -543,9 +631,8 @@ const FlightHome = () => {
                   > */}
                       <FormControl sx={{ width: "100%" }}>
                         <LocalizationProvider
-                          sx={{ width: "100%", }}
+                          sx={{ width: "100%" }}
                           dateAdapter={AdapterDateFns}
-                          
                         >
                           <DatePicker
                             label="DEPARTURE"
@@ -555,15 +642,15 @@ const FlightHome = () => {
                             onChange={(newValue) => {
                               setDeparture(newValue);
                             }}
-                            InputProps={{
-                              // readOnly: true,
-                             }}
-                             
-                    
+                            InputProps={
+                              {
+                                // readOnly: true,
+                              }
+                            }
                             renderInput={(params) => (
                               <TextField
-                             // how to remove typing  in material ui datepicker ?
-                              
+                                // how to remove typing  in material ui datepicker ?
+
                                 defaultValue="Normal"
                                 // size="4x"
                                 {...params}
@@ -572,7 +659,6 @@ const FlightHome = () => {
                                     height: "47px",
                                   },
                                 }}
-                               
                               />
                             )}
                           />
@@ -1391,7 +1477,7 @@ const FlightHome = () => {
                               />
                             </>
                           ) : (
-                           ""
+                            ""
                           )}
                         </Col>
                       </div>
@@ -1836,7 +1922,6 @@ const FlightHome = () => {
                                 onChange={ANOTHERCITYFROMHANDLER}
                                 className={styles.select}
                                 components={{
-                                 
                                   SelectContainer: () => null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
@@ -1920,7 +2005,6 @@ const FlightHome = () => {
                                 onChange={TOHANDLER}
                                 className={styles.select}
                                 components={{
-                        
                                   SelectContainer: () => null,
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
@@ -2078,7 +2162,7 @@ const FlightHome = () => {
                                       return option.value === frommultitwo;
                                     })}
                                     components={{
-                                  DropdownIndicator: () => null,
+                                      DropdownIndicator: () => null,
                                       IndicatorSeparator: () => null, // Remove separator
                                     }}
                                   />
@@ -2163,7 +2247,7 @@ const FlightHome = () => {
                                       return option.value === from;
                                     })}
                                     components={{
-                                  DropdownIndicator: () => null,
+                                      DropdownIndicator: () => null,
                                       IndicatorSeparator: () => null, // Remove separator
                                     }}
                                   />
@@ -2560,9 +2644,7 @@ const FlightHome = () => {
 
                                   "& .MuiInputBase-input": {
                                     height: "47px",
-
                                   },
-                                   
                                 }}
                               />
                             )}
@@ -2909,7 +2991,7 @@ const FlightHome = () => {
                                   return option.value === from;
                                 })}
                                 components={{
-                                  DropdownIndicator: () => null,                                  // Remove menu
+                                  DropdownIndicator: () => null, // Remove menu
 
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
@@ -3940,7 +4022,6 @@ const FlightHome = () => {
                                   return option.value === from;
                                 })}
                                 components={{
-                               
                                   IndicatorSeparator: () => null, // Remove separator
                                 }}
                               />

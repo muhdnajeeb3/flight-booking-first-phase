@@ -66,7 +66,7 @@ const Navbar = ({ isUserLoggedIn, user }) => {
           >
             {/* icons container */}
             <div className={styles.iconWrapper}>
-              <div onClick={handleClickFlight}>
+              <div onClick={handleClickFlight} >
                 <span>
                   <FlightIcon
                     className={styles.flightICON}

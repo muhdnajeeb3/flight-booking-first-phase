@@ -99,6 +99,12 @@ display: none;
   /* justify-content: flex-start; */
   margin-top: -19px;
 }
+.multibtnrow{
+  -moz-box-shadow: 0 0 2px #ccc;
+  -webkit-box-shadow: 0 0 2px #ccc;
+  box-shadow: 0 0 2px rgb(158, 156, 156);
+  padding: 5px !important;
+}
 .multiple_trip > div {
   display: flex;
   justify-content: flex-start;

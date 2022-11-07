@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter,Route, Routes } from "react-router-dom";
 import Seosonoffers from "../Components/Seosonoffers";
 import { FlightBooking } from "../features/flightBookingComponents/FlightBooking";
 import { Flight } from "../features/flightComponents/Flight";
@@ -13,6 +13,7 @@ import ProductPage from "../HotelsSecondPage/ProductPage";
 import Review from "../ReviewBooking/Review";
 export const AllRoutes = () => {
   return (
+    
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/flights" element={<Flight />} />

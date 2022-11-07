@@ -220,6 +220,7 @@ body {
 
 }
 
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 720px) {
   .box {
@@ -318,7 +319,16 @@ body {
     margin-top: 10px;
     display: grid;
     justify-content: center;
+    /* min-height: 3rem; */
+    margin-bottom: 15px;
   }
+.details{
+  display: none;
+
+}
+.flightdetails{
+  display: none;
+}
 }
 @media only screen and (max-width: 417px) {
   .box{
