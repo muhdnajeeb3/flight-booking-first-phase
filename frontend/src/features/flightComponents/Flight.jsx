@@ -248,6 +248,7 @@ export const Flight = () => {
                   // getAriaLabel={() => "Temperature range"}
 
                   value={value}
+                  style={{marginLeft:"10px"}}
                   valueLabelDisplay="auto"
                 />
               </div>

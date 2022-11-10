@@ -112,7 +112,7 @@ border: #000 !important;
       /* flex-direction: column !important; */
       /* margin: 2rem; */
       gap: 4px;
-      min-width: 23rem !important;
+      /* min-width: 23rem !important; */
       /* flex-wrap: wrap; */
       /* max-height: 2rem !important; */
       
@@ -122,9 +122,10 @@ border: #000 !important;
     
     
   }
-  @media screen and (max-width:420px){
+  @media screen and (max-width:480px){
     .farespan{
       font-size: 12px !important;
+     
       /* margin-right: 10px !important; */
     }
     .farerow2{
@@ -132,10 +133,12 @@ border: #000 !important;
       display: flex;
       flex-wrap: wrap;
       justify-content: start;
+      
       /* margin-right: 14rem; */
     }
     .farerow3{
       padding-left: 2rem !important;
+      
     }
     .searchrow{
       /* margin-right: 9rem !important; */
@@ -150,6 +153,7 @@ border: #000 !important;
       /* margin-right: 12rem; */
       right: 1.5rem;
       position: relative;
+ 
       
     }
    

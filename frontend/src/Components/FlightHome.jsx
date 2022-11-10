@@ -189,7 +189,7 @@ const FlightHome = () => {
   };
   const PRIMIUMECONOMY = () => {
     setCabinClass(true);
-    setCabinClassType("ECONOMY/PREMIUM ECONOMY");
+    setCabinClassType("ECONOMY/PREMIUM");
   };
   const ismobile = window.innerWidth < 500;
 
@@ -1652,7 +1652,7 @@ const FlightHome = () => {
                     <div
                       className={
                         openTravellers
-                          ? styles.traveller_modal
+                          ? styles.traveller_modalmulti
                           : styles.noDisplay
                       }
                     >
@@ -1779,12 +1779,12 @@ const FlightHome = () => {
                             style={{
                               background:
                                 cabinClass &&
-                                cabinClassType === "ECONOMY/PREMIUM ECONOMY"
+                                cabinClassType === "ECONOMY/PREMIUM"
                                   ? "rgb(0, 140, 255)"
                                   : "#fff",
                               color:
                                 cabinClass &&
-                                cabinClassType === "ECONOMY/PREMIUM ECONOMY"
+                                cabinClassType === "ECONOMY/PREMIUM"
                                   ? "#fff"
                                   : "black",
                             }}

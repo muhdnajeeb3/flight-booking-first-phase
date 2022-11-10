@@ -180,8 +180,9 @@ function Search() {
               borderRadius: "4px",
               width: "130px",
               padding: "4px 9px 0",
+              // minWidth:"100%",
               // padding:"5px",
-              marginLeft: "",
+              // marginLeft: "-3.5rem",
               maxHeight: "4.5rem",
             }}
           >
@@ -1623,6 +1624,8 @@ function Search() {
           )}
         </Row>
         <div className="farerow2">
+          
+       
           <Row
             style={{
               top: "3rem",
@@ -1635,13 +1638,13 @@ function Search() {
               flexDirection: "row",
             }}
             className="farerow3"
-          >
-            <span
-              className="faretypes "
-              style={{ marginTop: "", bottom: "17px", color: "#fff" }}
-            >
-              Fare Type:
-            </span>
+          ><span
+          className="faretypes "
+          style={{ marginTop: "", bottom: "17px", color: "#fff", }}
+        >
+          Fare Type:
+        </span>
+            
             <Button
               className="faretypesbutton"
               variant=""
@@ -1649,7 +1652,7 @@ function Search() {
                 backgroundColor: "#364c63",
                 borderRadius: "6px 0 0 6px",
                 maxWidth: "25%",
-                maxHeight: "3rem",
+                maxHeight: "3.5rem",
               }}
             >
               {/* <input type="checkbox" name="fare" className="fareradio" style={{borderRadius:"40px",marginRight:"5px"}} /> */}
@@ -1667,7 +1670,10 @@ function Search() {
                 backgroundColor: "#364c63",
                 borderRadius: " 0 0 ",
                 maxWidth: "25%",
-                maxHeight: "3rem",
+                maxHeight: "3.5rem",
+                display:"flex",
+                justifyContent:"center"
+
               }}
             >
               {/* <input type="radio" name="fare" className="fareradio"/> */}
@@ -1683,7 +1689,10 @@ function Search() {
                 backgroundColor: "#364c63",
                 borderRadius: " 0 0 ",
                 maxWidth: "25%",
-                maxHeight: "3rem",
+                maxHeight: "3.5rem",
+                display:"flex",
+                justifyContent:"center"
+
               }}
             >
               {/* <input type="radio" name="fare" className="fareradio"/> */}
@@ -1699,7 +1708,10 @@ function Search() {
                 backgroundColor: "#364c63",
                 borderRadius: " 0 0 ",
                 maxWidth: "25%",
-                maxHeight: "3rem",
+                maxHeight: "3.5rem",
+                display:"flex",
+                justifyContent:"center"
+
               }}
             >
               {/* <input type="radio" name="fare" className="fareradio"/> */}
@@ -1715,7 +1727,10 @@ function Search() {
                 backgroundColor: "#364c63",
                 borderRadius: " 0 6px 6px 0 ",
                 maxWidth: "25%",
-                maxHeight: "3rem",
+                maxHeight: "3.5rem",
+                display:"flex",
+                justifyContent:"center"
+
               }}
             >
               {/* <input type="radio" name="fare" className="fareradio"/> */}

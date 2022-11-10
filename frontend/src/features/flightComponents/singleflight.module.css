@@ -338,7 +338,8 @@ body {
     background: #c3e9f4 0 0!important;
   }
   .first{
-    width:153px;
+    width:133px;
+    
   }
   .singleflight{
     margin-bottom: 5px;
@@ -371,6 +372,10 @@ body {
   }
 .sortInnerDiv {
   padding-right: 0;
+}
+.filterDiv {
+  gap: 0px;
+ 
 }
   /* .divsec > .inner_cont{
     justify-content: end;
